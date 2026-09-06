@@ -5,5 +5,56 @@ $bp-desktop: 75rem; // 1200px ÷ 16 = 75rem
 $bp-desktop-xl: 90rem; // 1440px ÷ 16 = 90rem
 
 // Variables for fonts
-$primary-font: "", sans-serif;
-$secondary-font: "", sans-serif;
+$primary-font: "Work Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+$secondary-font: "Newsreader", Georgia, "Times New Roman", serif;
+
+// ---------------------------------------------------------------------------
+// Color
+// Muestreados del mockup aprobado (referencia de diseño). Algunos tonos se han
+// oscurecido lo mínimo imprescindible para cumplir contraste AA (DESIGN §23).
+// ---------------------------------------------------------------------------
+$color-paper: #fffdf8; // blanco cálido: cards, bloques de contraste
+$color-cream: #f5f1e8; // base de página, header y panel izquierdo del hero
+$color-sand: #eae2d5; // beige dominante de la Home
+$color-charcoal: #292a25; // texto principal
+$color-ink: #3a362f; // fondo del footer
+$color-olive: #6e7561; // CTA primario
+$color-olive-dark: #4f5a47; // CTA secundario, hover, elementos numéricos
+$color-terracotta: #b06a45; // acento decorativo y texto de gran tamaño
+$color-terracotta-strong: #94512f; // mismo acento con contraste AA en texto pequeño
+$color-muted: #63605a; // texto secundario
+$color-line: #d8d0c4; // divisores y bordes finos
+
+$color-footer-text: #c9c4b8;
+$color-footer-dim: #a8a296;
+
+// ---------------------------------------------------------------------------
+// Layout
+// $gutter resuelve 20px a 390px y 80px a 1440px, igual que la referencia.
+// ---------------------------------------------------------------------------
+$gutter: clamp(1.25rem, 5.5vw, 5rem);
+$container-max: 90rem; // 1440px: deja 1280px de contenido con el gutter aplicado
+$measure-narrow: 35rem; // 560px
+$measure: 45rem; // 720px
+$measure-wide: 47.5rem; // 760px
+$measure-table: 56.25rem; // 900px
+
+// Ritmo vertical entre secciones: 80px en móvil → 160px en desktop
+$section-space: clamp(5rem, 3.15rem + 7.6vw, 10rem);
+$section-space-lg: clamp(5.5rem, 3.6rem + 7.8vw, 10.625rem);
+
+// ---------------------------------------------------------------------------
+// Escala tipográfica fluida (390px → 1440px)
+// ---------------------------------------------------------------------------
+$fs-h1: clamp(2rem, 1.49rem + 2.1vw, 3.375rem); // 32 → 54
+$fs-h2: clamp(1.625rem, 1.44rem + 0.76vw, 2.125rem); // 26 → 34
+$fs-statement: clamp(1.875rem, 1.5rem + 1.52vw, 2.875rem); // 30 → 46
+$fs-lead: clamp(1.25rem, 1.06rem + 0.76vw, 1.75rem); // 20 → 28
+$fs-quote: clamp(1.0625rem, 0.99rem + 0.29vw, 1.25rem); // 17 → 20
+$fs-card-title: clamp(1.5rem, 1.29rem + 0.57vw, 1.875rem); // 24 → 30
+$fs-card-title-sm: clamp(1.25rem, 1.18rem + 0.19vw, 1.375rem); // 20 → 22
+$fs-step-title: clamp(1.125rem, 1.07rem + 0.19vw, 1.25rem); // 18 → 20
+$fs-brand: clamp(1.0625rem, 1rem + 0.19vw, 1.1875rem); // 17 → 19
+$fs-body: clamp(0.9375rem, 0.9rem + 0.14vw, 1.0625rem); // 15 → 17
+$fs-small: 0.875rem; // 14
+$fs-xs: 0.75rem; // 12
