@@ -1,0 +1,40 @@
+@use '@abstracts/variables' as v;
+
+// Preheading editorial: filete terracota + texto de acento.
+.eyebrow {
+  display: flex;
+  gap: 0.625rem;
+  align-items: center;
+  font-family: v.$primary-font;
+  font-size: v.$fs-small;
+  font-weight: 400;
+  line-height: 1.4;
+  color: v.$color-terracotta-strong;
+
+  &::before {
+    flex: none;
+    width: 1.25rem;
+    height: 1px;
+    content: '';
+    background-color: v.$color-terracotta;
+  }
+}
+
+// Etiqueta corta en versalitas (ANTES / DESPUÉS, autoría de testimonios).
+.label {
+  display: block;
+  font-size: v.$fs-xs;
+  font-weight: 500;
+  line-height: 1.4;
+  color: v.$color-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+// Frase introductoria en cursiva serif.
+.lead-italic {
+  font-family: v.$secondary-font;
+  font-size: v.$fs-body;
+  font-style: italic;
+  color: v.$color-muted;
+}

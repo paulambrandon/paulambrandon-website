@@ -1,0 +1,36 @@
+@use '@abstracts/variables' as v;
+@use '@abstracts/mixins' as mx;
+
+.main-nav {
+  display: flex;
+  flex-direction: column;
+
+  @include mx.breakpoint(tablet) {
+    flex-direction: row;
+    gap: 2.5rem;
+  }
+}
+
+.main-nav__link {
+  display: block;
+  padding-block: 0.75rem;
+  font-size: v.$fs-small;
+
+  @include mx.motion-safe {
+    transition: color 150ms ease;
+  }
+
+  &:hover {
+    color: v.$color-olive-dark;
+  }
+
+  // La página actual no se distingue solo por color.
+  &[aria-current='page'] {
+    text-decoration: underline;
+    text-underline-offset: 0.35em;
+  }
+
+  @include mx.breakpoint(tablet) {
+    padding-block: 0;
+  }
+}

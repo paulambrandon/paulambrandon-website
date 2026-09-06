@@ -1,11 +1,61 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/home/Hero.astro';
+import ProblemSection from '../components/home/ProblemSection.astro';
+import StatementSection from '../components/home/StatementSection.astro';
+import TransformationSection from '../components/home/TransformationSection.astro';
+import MethodSection from '../components/home/MethodSection.astro';
+import ProgramsSection from '../components/home/ProgramsSection.astro';
+import AboutSection from '../components/home/AboutSection.astro';
+import TestimonialsSection from '../components/home/TestimonialsSection.astro';
+import ContactCta from '../components/home/ContactCta.astro';
+import { PERSON_NAME } from '../data/site';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Metadatos definidos en /docs/seo/paulambrandon-seo.md §9.1
+const title = `${PERSON_NAME} | Autoexigencia y autocuidado en mujeres`;
+const description =
+  'Acompañamiento para mujeres que viven desde la autoexigencia, la culpa y la sensación de no ser suficientes. Conoce el método de Paula y sus programas.';
+
+const siteUrl = new URL(Astro.site ?? 'https://www.paulambrandon.com').href;
+
+// Home: WebSite + Person (§14). Solo datos reales y visibles; `sameAs` queda
+// fuera hasta tener las URLs oficiales de los perfiles de Paula.
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}#website`,
+      url: siteUrl,
+      name: PERSON_NAME,
+      inLanguage: 'es-ES',
+      publisher: { '@id': `${siteUrl}#person` },
+    },
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl}#person`,
+      name: PERSON_NAME,
+      url: siteUrl,
+    },
+  ],
+};
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={title} description={description}>
+  <script
+    slot="head"
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(schema)}
+  />
+
+  <Hero />
+  <ProblemSection />
+  <StatementSection />
+  <TransformationSection />
+  <MethodSection />
+  <ProgramsSection />
+  <AboutSection />
+  <TestimonialsSection />
+  <ContactCta />
 </Layout>

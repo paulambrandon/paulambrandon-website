@@ -1,0 +1,99 @@
+@use '@abstracts/variables' as v;
+@use '@abstracts/mixins' as mx;
+
+// Punto donde se corta el fondo del hero (crema | arena).
+// Hasta 1440px cae en el 66% del viewport, igual que la referencia. Por encima
+// se ancla al contenedor centrado (0.66 × 90rem − 45rem = 14.4rem) para que el
+// corte siga coincidiendo con el borde de la columna de texto.
+$hero-split: min(66%, calc(50% + 14.4rem));
+
+.hero {
+  padding-block: 0.5rem 3.5rem;
+  padding-inline: v.$gutter;
+  background-color: v.$color-sand;
+
+  @include mx.breakpoint(tablet) {
+    padding: 0;
+    background-image: linear-gradient(
+      to right,
+      v.$color-cream 0 $hero-split,
+      v.$color-sand $hero-split
+    );
+  }
+}
+
+.hero__inner {
+  @include mx.breakpoint(tablet) {
+    display: grid;
+    grid-template-columns: 0.66fr 0.34fr;
+    align-items: center;
+    width: 100%;
+    max-width: v.$container-max;
+    margin-inline: auto;
+  }
+
+  @include mx.breakpoint(tablethorizontal) {
+    min-height: 40rem;
+  }
+}
+
+.hero__media {
+  margin-bottom: 2rem;
+
+  @include mx.breakpoint(tablet) {
+    grid-row: 1;
+    grid-column: 2;
+    margin-bottom: 0;
+    padding-block: 2.75rem;
+    padding-inline-end: v.$gutter;
+  }
+}
+
+.hero__frame {
+  position: relative;
+
+  // Marco editorial desplazado que acompaña al retrato en desktop.
+  @include mx.breakpoint(tablet) {
+    &::after {
+      position: absolute;
+      inset: 0.875rem -0.875rem -0.875rem 0.875rem;
+      content: '';
+      border: 1px solid v.$color-line;
+    }
+  }
+}
+
+.hero__image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.hero__text {
+  @include mx.breakpoint(tablet) {
+    grid-row: 1;
+    grid-column: 1;
+    padding-block: 3rem;
+    padding-inline: v.$gutter clamp(2rem, 5vw, 4.5rem);
+  }
+}
+
+.hero__title {
+  max-width: v.$measure-narrow;
+  margin-top: 1.375rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-top: 2rem;
+  }
+}
+
+.hero__cta {
+  margin-top: 1.75rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-top: 2.5rem;
+  }
+}

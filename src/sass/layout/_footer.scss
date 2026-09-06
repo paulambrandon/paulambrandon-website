@@ -1,0 +1,77 @@
+@use '@abstracts/variables' as v;
+@use '@abstracts/mixins' as mx;
+
+.site-footer {
+  padding-block: 3rem 2rem;
+  color: v.$color-footer-text;
+  background-color: v.$color-ink;
+
+  @include mx.breakpoint(tablet) {
+    padding-block: 4rem 2.5rem;
+  }
+}
+
+.site-footer__inner {
+  @include mx.container;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.site-footer__brand {
+  margin-bottom: 1rem;
+  font-family: v.$secondary-font;
+  font-size: v.$fs-brand;
+  color: v.$color-cream;
+}
+
+.site-footer__copyright {
+  margin-bottom: 1.75rem;
+  font-size: v.$fs-small;
+  color: v.$color-footer-dim;
+}
+
+.site-footer__nav:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.site-footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  @include mx.breakpoint(tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.75rem;
+  }
+}
+
+.site-footer__list--inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.site-footer__link {
+  display: inline-block;
+  padding-block: 0.375rem;
+  font-size: v.$fs-small;
+
+  @include mx.motion-safe {
+    transition: color 150ms ease;
+  }
+
+  &:hover {
+    color: v.$color-cream;
+  }
+}
+
+.site-footer__link--legal {
+  font-size: v.$fs-xs;
+  color: v.$color-footer-dim;
+}

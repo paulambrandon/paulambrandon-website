@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import alchemiseImage from '../../assets/images/placeholder-alchemise.jpg';
+import { featuredProgram, secondaryPrograms } from '../../data/home';
+---
+
+<section class="section section--sand programs">
+  <div class="section__inner">
+    <h2 class="section__title">Formas de trabajar conmigo</h2>
+
+    <div class="programs__grid">
+      <article class="program program--featured">
+        <Image
+          class="program__image"
+          src={alchemiseImage}
+          alt={`Programa ${featuredProgram.title}`}
+          widths={[400, 700, 1400]}
+          sizes="(min-width: 64rem) 45vw, calc(100vw - 2.5rem)"
+          loading="lazy"
+        />
+        <div class="program__body">
+          <h3 class="program__title">{featuredProgram.title}</h3>
+          <p class="program__text">{featuredProgram.description}</p>
+        </div>
+        <a class="link-arrow" href={featuredProgram.href}>
+          {featuredProgram.linkLabel} <span aria-hidden="true">→</span>
+        </a>
+      </article>
+
+      <div class="programs__secondary">
+        {
+          secondaryPrograms.map(({ title, description, href, linkLabel }) => (
+            <article class="program">
+              <h3 class="program__title program__title--sm">{title}</h3>
+              <p class="program__text">{description}</p>
+              <a class="link-arrow" href={href}>
+                {linkLabel} <span class="visually-hidden">{title}</span>{' '}
+                <span aria-hidden="true">→</span>
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <p class="programs__cta">
+      <a class="button button--secondary" href="/programas">
+        Ver programas <span aria-hidden="true">→</span>
+      </a>
+    </p>
+  </div>
+</section>

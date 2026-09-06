@@ -1,0 +1,28 @@
+---
+import { testimonials } from '../../data/home';
+---
+
+<section class="section section--sand testimonials">
+  <div class="section__inner">
+    <h2 class="section__title">Mujeres que ya han hecho este proceso</h2>
+
+    <div class="testimonials__list">
+      {
+        testimonials.map(({ quote, author }) => (
+          <figure class="testimonial">
+            <blockquote class="testimonial__quote">
+              <p>{quote}</p>
+            </blockquote>
+            <figcaption class="label testimonial__author">{author}</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+
+    <p class="testimonials__cta">
+      <a class="button button--secondary" href="/testimonios">
+        Ver testimonios <span aria-hidden="true">→</span>
+      </a>
+    </p>
+  </div>
+</section>

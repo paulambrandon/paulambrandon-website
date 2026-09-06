@@ -1,0 +1,61 @@
+@use '@abstracts/variables' as v;
+@use '@abstracts/mixins' as mx;
+
+.button {
+  display: inline-flex;
+  gap: 0.4em;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem; // área táctil cómoda en móvil
+  padding: 0.875rem 1.75rem;
+  font-size: v.$fs-small;
+  line-height: 1.35;
+  text-align: center;
+  border: 1px solid transparent;
+
+  @include mx.motion-safe {
+    transition:
+      color 150ms ease,
+      background-color 150ms ease;
+  }
+}
+
+.button--primary {
+  color: v.$color-paper;
+  background-color: v.$color-olive;
+
+  &:hover {
+    background-color: v.$color-olive-dark;
+  }
+
+  &:focus-visible {
+    outline-color: v.$color-charcoal;
+  }
+}
+
+.button--secondary {
+  color: v.$color-olive-dark;
+  border-color: v.$color-olive-dark;
+
+  &:hover {
+    color: v.$color-paper;
+    background-color: v.$color-olive-dark;
+  }
+}
+
+// Enlace editorial con flecha: subrayado discreto, sin aspecto de botón.
+.link-arrow {
+  display: inline-block;
+  font-size: v.$fs-small;
+  color: v.$color-olive-dark;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+
+  @include mx.motion-safe {
+    transition: color 150ms ease;
+  }
+
+  &:hover {
+    color: v.$color-charcoal;
+  }
+}

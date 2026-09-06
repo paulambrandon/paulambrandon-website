@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import aboutPortrait from '../../assets/images/placeholder-paula-sobre-mi.jpg';
+---
+
+<section class="section section--paper about">
+  <div class="section__inner about__inner">
+    <Image
+      class="about__image"
+      src={aboutPortrait}
+      alt="Paula Márquez Brandon en su espacio de trabajo"
+      widths={[350, 500, 700, 1000]}
+      sizes="(min-width: 64rem) 40vw, calc(100vw - 2.5rem)"
+      loading="lazy"
+    />
+
+    <div class="about__content">
+      <h2 class="eyebrow about__eyebrow">Sobre Paula</h2>
+      <p class="about__text">
+        También viví durante años con la sensación de que siempre había algo que
+        arreglar o mejorar, y esa experiencia acabó conectándose con la forma en
+        la que hoy acompaño a otras mujeres.
+      </p>
+      <a class="link-arrow about__link" href="/sobre-mi">
+        Conoce mi historia <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>

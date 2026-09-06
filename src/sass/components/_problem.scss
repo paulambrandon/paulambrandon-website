@@ -1,0 +1,68 @@
+@use '@abstracts/variables' as v;
+@use '@abstracts/mixins' as mx;
+
+.problem__title {
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+.problem__columns {
+  display: grid;
+  gap: 2rem;
+  max-width: v.$measure;
+  margin-inline: auto;
+
+  @include mx.breakpoint(tablet) {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.problem__label {
+  margin-bottom: 1.25rem;
+  font-family: v.$secondary-font;
+  font-size: v.$fs-xs;
+  font-style: italic;
+  font-weight: 500;
+  color: v.$color-muted;
+}
+
+.problem__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.problem__item {
+  display: flex;
+  gap: 0.5em;
+  font-size: v.$fs-body;
+  line-height: 1.6;
+
+  &::before {
+    flex: none;
+    content: '—';
+  }
+}
+
+.problem__list--dot .problem__item::before {
+  content: '•';
+}
+
+.problem__closing {
+  max-width: v.$measure;
+  margin-block-start: 3.5rem;
+  margin-inline: auto;
+  padding-block-start: 3.5rem;
+  border-top: 1px solid v.$color-line;
+
+  @include mx.breakpoint(tablet) {
+    text-align: center;
+  }
+}
+
+.problem__line {
+  @include mx.breakpoint(tablet) {
+    display: block;
+  }
+}

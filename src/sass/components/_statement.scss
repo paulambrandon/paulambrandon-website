@@ -1,0 +1,20 @@
+@use '@abstracts/variables' as v;
+
+.statement .section__inner {
+  text-align: center;
+}
+
+.statement__intro {
+  margin-bottom: 1.25rem;
+}
+
+.statement__title {
+  max-width: v.$measure-wide;
+  margin-inline: auto;
+  font-size: v.$fs-statement;
+  line-height: 1.35;
+}
+
+.statement__accent {
+  color: v.$color-terracotta;
+}

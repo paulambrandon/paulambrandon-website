@@ -1,0 +1,88 @@
+@use '@abstracts/variables' as v;
+@use '@abstracts/mixins' as mx;
+
+.programs__grid {
+  display: grid;
+  gap: 1rem;
+
+  // Grid asimétrico: Alchemise ocupa la columna ancha.
+  @include mx.breakpoint(tablethorizontal) {
+    grid-template-columns: 1.6fr 1fr;
+    gap: 2rem;
+    align-items: stretch;
+  }
+}
+
+.programs__secondary {
+  display: grid;
+  gap: 0.875rem;
+
+  @include mx.breakpoint(tablethorizontal) {
+    grid-auto-rows: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.program {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: 1.5rem;
+  background-color: v.$color-paper;
+
+  @include mx.breakpoint(tablet) {
+    padding: 2rem;
+  }
+}
+
+.program--featured {
+  gap: 1rem;
+  padding: 1.75rem;
+
+  @include mx.breakpoint(tablet) {
+    gap: 1.75rem;
+    padding: clamp(2rem, 4vw, 3.5rem);
+  }
+}
+
+.program__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.program__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.program__title {
+  font-size: v.$fs-card-title;
+  line-height: 1.2;
+}
+
+.program__title--sm {
+  font-size: v.$fs-card-title-sm;
+}
+
+.program__text {
+  font-size: v.$fs-small;
+  line-height: 1.6;
+  color: v.$color-muted;
+}
+
+.program .link-arrow {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.programs__cta {
+  margin-top: 2.25rem;
+  text-align: center;
+
+  @include mx.breakpoint(tablet) {
+    margin-top: 3.5rem;
+  }
+}
