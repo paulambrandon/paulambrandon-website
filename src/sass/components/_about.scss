@@ -5,7 +5,9 @@
   display: grid;
   gap: 1.75rem;
 
-  @include mx.breakpoint(tablethorizontal) {
+  // A partir de tablet el retrato deja de ocupar todo el ancho: pasa a
+  // convivir con el texto en la proporción del mockup.
+  @include mx.breakpoint(tablet) {
     grid-template-columns: 0.85fr 1.15fr;
     gap: clamp(2.5rem, 6vw, 5.5rem);
     align-items: center;
@@ -22,7 +24,7 @@
 .about__eyebrow {
   margin-bottom: 1.25rem;
 
-  @include mx.breakpoint(tablethorizontal) {
+  @include mx.breakpoint(tablet) {
     margin-bottom: 1.5rem;
   }
 }
@@ -37,7 +39,7 @@
 .about__link {
   margin-top: 1.5rem;
 
-  @include mx.breakpoint(tablethorizontal) {
+  @include mx.breakpoint(tablet) {
     margin-top: 2.25rem;
   }
 }

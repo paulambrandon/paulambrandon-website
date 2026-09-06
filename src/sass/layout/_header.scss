@@ -69,15 +69,22 @@
   display: none;
   flex-basis: 100%;
 
-  .site-header--open & {
-    display: block;
-    margin-top: 1.25rem;
-    padding-block: 1rem 0.5rem;
-    border-top: 1px solid v.$color-line;
-  }
-
   @include mx.breakpoint(tablet) {
     display: block;
     flex-basis: auto;
+  }
+}
+
+// Panel desplegado: solo existe mientras hay hamburguesa.
+.site-header--open .site-header__nav {
+  display: block;
+  margin-top: 1.25rem;
+  padding-block: 1rem 0.5rem;
+  border-top: 1px solid v.$color-line;
+
+  @include mx.breakpoint(tablet) {
+    margin-top: 0;
+    padding-block: 0;
+    border-top: 0;
   }
 }

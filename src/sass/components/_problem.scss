@@ -51,12 +51,14 @@
 
 .problem__closing {
   max-width: v.$measure;
-  margin-block-start: 3.5rem;
+  margin-block-start: 2.5rem;
   margin-inline: auto;
-  padding-block-start: 3.5rem;
+  padding-block-start: 2.5rem;
   border-top: 1px solid v.$color-line;
 
   @include mx.breakpoint(tablet) {
+    margin-block-start: 3.5rem;
+    padding-block-start: 3.5rem;
     text-align: center;
   }
 }
