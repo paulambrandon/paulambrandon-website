@@ -1,0 +1,27 @@
+---
+import { lifeAreas } from '../../data/metodo';
+---
+
+<section class="section section--paper life">
+  <div class="section__inner">
+    <h2 class="life__title">El proceso no se queda en entenderlo.</h2>
+    <p class="life__note">Empieza a notarse en tu día a día.</p>
+
+    <ul class="life__areas">
+      {
+        lifeAreas.map(({ label, size, font, tone }) => (
+          <li
+            class:list={[
+              'life__area',
+              `life__area--size-${size}`,
+              `life__area--${font}`,
+              `life__area--${tone}`,
+            ]}
+          >
+            {label}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

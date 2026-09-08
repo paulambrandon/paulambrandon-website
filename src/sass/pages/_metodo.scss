@@ -1,0 +1,692 @@
+@use '@abstracts/variables' as v;
+@use '@abstracts/mixins' as mx;
+
+// ---------------------------------------------------------------------------
+// Filete vertical que encadena dos bloques. Decorativo.
+// ---------------------------------------------------------------------------
+.rule-drop {
+  width: 1px;
+  block-size: 2.75rem;
+  margin-inline: auto;
+  background-color: v.$color-line-strong;
+
+  @include mx.breakpoint(tablet) {
+    block-size: 4rem;
+  }
+}
+
+.rule-drop--line {
+  background-color: v.$color-line;
+
+  @include mx.breakpoint(tablet) {
+    block-size: 5rem;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Hero editorial asimétrico
+// ---------------------------------------------------------------------------
+.method-hero {
+  padding-block: 0.5rem 3.75rem;
+
+  @include mx.breakpoint(tablet) {
+    padding-block: 3.75rem 7.5rem;
+  }
+
+  @include mx.breakpoint(tablethorizontal) {
+    padding-block-end: 11.25rem;
+  }
+}
+
+.method-hero__inner {
+  @include mx.container;
+}
+
+.method-hero__eyebrow {
+  margin-bottom: 1.5rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-bottom: 2.5rem;
+  }
+}
+
+// El titular manda; la entradilla lo acompaña en una columna más estrecha.
+.method-hero__head {
+  @include mx.breakpoint(tablet) {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(2rem, 4vw, 2.5rem);
+    align-items: start;
+  }
+}
+
+.method-hero__title {
+  max-width: 42.5rem;
+}
+
+.method-hero__aside {
+  @include mx.breakpoint(tablet) {
+    padding-block-start: 0.875rem;
+  }
+}
+
+.method-hero__lede {
+  max-width: 23.75rem;
+  margin-block-start: 1.5rem;
+  font-size: v.$fs-intro;
+  line-height: 1.65;
+  color: v.$color-muted;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-start: 0;
+  }
+}
+
+.method-hero__link {
+  margin-block-start: 1.5rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-start: 2.25rem;
+  }
+}
+
+// El retrato cae a la derecha, alineado con la columna de la entradilla.
+.method-hero__media {
+  margin-block-start: 2.25rem;
+
+  @include mx.breakpoint(tablet) {
+    display: grid;
+    grid-template-columns: 0.55fr 0.45fr;
+    margin-block-start: 6.25rem;
+  }
+}
+
+.method-hero__frame {
+  position: relative;
+
+  @include mx.breakpoint(tablet) {
+    grid-column: 2;
+
+    // Marco desplazado: queda dentro del gutter, nunca desborda.
+    &::after {
+      position: absolute;
+      inset: 0.875rem -0.875rem -0.875rem 0.875rem;
+      content: '';
+      border: 1px solid v.$color-line;
+    }
+  }
+}
+
+.method-hero__image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+// ---------------------------------------------------------------------------
+// Problemas que parecen aislados
+// ---------------------------------------------------------------------------
+.isolated .section__inner {
+  text-align: center;
+}
+
+.isolated__areas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+
+  @include mx.breakpoint(tablet) {
+    flex-flow: row wrap;
+    gap: 0.75rem 0;
+    justify-content: center;
+    max-width: 61.25rem;
+    margin-inline: auto;
+  }
+}
+
+.isolated__area {
+  font-size: v.$fs-body;
+  color: v.$color-muted;
+
+  @include mx.breakpoint(tablet) {
+    padding-inline: clamp(0.875rem, 1.8vw, 1.625rem);
+    border-inline-end: 1px solid v.$color-line;
+
+    &:last-child {
+      border-inline-end: 0;
+    }
+  }
+}
+
+.isolated__rule {
+  margin-block: 2rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-block: 2.75rem;
+  }
+}
+
+.isolated__statement {
+  padding-block: 1.375rem;
+  border-block: 1px solid v.$color-olive-dark;
+
+  @include mx.breakpoint(tablet) {
+    display: inline-block;
+    padding: 1.75rem 3.5rem;
+  }
+}
+
+.isolated__claim {
+  font-family: v.$secondary-font;
+  font-size: v.$fs-card-title;
+  line-height: 1.35;
+  letter-spacing: 0.03em;
+}
+
+.isolated__accent {
+  font-style: italic;
+  color: v.$color-terracotta-strong;
+}
+
+// ---------------------------------------------------------------------------
+// Superficie → lo que hay debajo
+// ---------------------------------------------------------------------------
+.surface {
+  padding-block: v.$section-space clamp(3.5rem, 2.2rem + 5.3vw, 6.875rem);
+  text-align: center;
+  background-color: v.$color-paper;
+}
+
+.surface__label {
+  margin-bottom: 1.25rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-bottom: 1.75rem;
+  }
+}
+
+.surface__text {
+  max-width: v.$measure-narrow;
+  margin-inline: auto;
+  line-height: 1.7;
+  color: v.$color-muted;
+}
+
+.surface__echo {
+  max-width: v.$measure-narrow;
+  margin-block-start: 1.75rem;
+  margin-inline: auto;
+  font-family: v.$secondary-font;
+  font-size: v.$fs-lead;
+  line-height: 1.5;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-start: 2.5rem;
+  }
+}
+
+.surface__accent {
+  font-style: italic;
+  color: v.$color-terracotta-strong;
+}
+
+.surface__rule {
+  background-color: v.$color-line;
+}
+
+.beneath .section__inner {
+  text-align: center;
+}
+
+.beneath__title {
+  max-width: 42.5rem;
+  margin-block-start: 1.75rem;
+  margin-inline: auto;
+  font-size: v.$fs-display-sm;
+  line-height: 1.5;
+  color: v.$color-cream;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-start: 2rem;
+  }
+}
+
+.beneath__aside {
+  max-width: v.$measure-narrow;
+  margin-block-start: 1.75rem;
+  margin-inline: auto;
+  font-family: v.$secondary-font;
+  font-size: v.$fs-quote;
+  font-style: italic;
+  line-height: 1.6;
+  color: v.$color-sage-light;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-start: 3rem;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Exigencia frente a respeto
+// ---------------------------------------------------------------------------
+.growth__head {
+  margin-bottom: 2.75rem;
+
+  @include mx.breakpoint(tablet) {
+    max-width: v.$measure-narrow;
+    margin-inline: auto;
+    margin-bottom: 5.5rem;
+    text-align: center;
+  }
+}
+
+.growth__title {
+  margin-bottom: 1rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-bottom: 1.25rem;
+  }
+}
+
+.growth__intro {
+  line-height: 1.65;
+  color: v.$color-muted;
+}
+
+.growth__table {
+  max-width: 61.25rem;
+  margin-inline: auto;
+}
+
+// Cabecera de columnas: solo existe cuando el bloque se lee como tabla.
+.growth__columns {
+  display: none;
+
+  @include mx.breakpoint(tablet) {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    padding-block-end: 1.5rem;
+  }
+}
+
+.growth__column-respect {
+  padding-inline-start: clamp(1.5rem, 3.5vw, 3rem);
+}
+
+.growth__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+
+  @include mx.breakpoint(tablet) {
+    gap: 0;
+  }
+}
+
+.growth__row {
+  padding-block-start: 1.5rem;
+  border-block-start: 1px solid v.$color-line;
+
+  @include mx.breakpoint(tablet) {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    padding-block: 2.25rem;
+  }
+}
+
+.growth__list > :last-child {
+  padding-block-end: 1.5rem;
+  border-block-end: 1px solid v.$color-line;
+
+  @include mx.breakpoint(tablet) {
+    padding-block-end: 2.25rem;
+  }
+}
+
+// En móvil las dos miradas se apilan y cada una conserva su etiqueta visible.
+.growth__label {
+  margin-bottom: 0.625rem;
+
+  @include mx.breakpoint(tablet) {
+    @include mx.visually-hidden;
+  }
+}
+
+.growth__cell--respect {
+  margin-block-start: 0.875rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-start: 0;
+    padding-inline-start: clamp(1.5rem, 3.5vw, 3rem);
+  }
+}
+
+.growth__divider {
+  display: none;
+
+  @include mx.breakpoint(tablet) {
+    display: block;
+    background-color: v.$color-line;
+  }
+}
+
+.growth__columns .growth__divider {
+  background-color: v.$color-line-strong;
+}
+
+.growth__text {
+  max-width: 25rem;
+  font-size: v.$fs-body;
+  line-height: 1.6;
+}
+
+.growth__text--demand {
+  color: v.$color-muted;
+}
+
+// ---------------------------------------------------------------------------
+// Intro al proceso + etapas
+// ---------------------------------------------------------------------------
+.process-intro .section__inner {
+  text-align: center;
+}
+
+.process-intro__title {
+  max-width: v.$measure-wide;
+  margin-inline: auto;
+  font-size: v.$fs-display;
+  line-height: 1.5;
+}
+
+.process-intro__note {
+  margin-block-start: 2rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-start: 3rem;
+  }
+}
+
+.stages__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.stage {
+  // Dos columnas solo cuando hay sitio real para texto y retrato.
+  @include mx.breakpoint(tablethorizontal) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 7vw, 6.25rem);
+    align-items: center;
+  }
+}
+
+.stage + .stage {
+  margin-block-start: 4rem;
+  padding-block-start: 4rem;
+  border-block-start: 1px solid v.$color-line;
+
+  @include mx.breakpoint(tablethorizontal) {
+    margin-block-start: 6.875rem;
+    padding-block-start: 6.875rem;
+  }
+}
+
+// Etapas pares: el retrato pasa a la izquierda.
+.stage:nth-child(even) {
+  @include mx.breakpoint(tablethorizontal) {
+    .stage__content {
+      grid-row: 1;
+      grid-column: 2;
+    }
+
+    .stage__media {
+      grid-row: 1;
+      grid-column: 1;
+      justify-content: flex-start;
+    }
+  }
+}
+
+.stage__kicker {
+  margin-bottom: 0.875rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-bottom: 1.25rem;
+  }
+}
+
+.stage__title {
+  margin-bottom: 1rem;
+  font-size: v.$fs-display;
+  line-height: 1.35;
+
+  @include mx.breakpoint(tablet) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.stage__intro {
+  margin-bottom: 1rem;
+  font-size: v.$fs-body;
+
+  @include mx.breakpoint(tablet) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.stage__text {
+  max-width: 27.5rem;
+  line-height: 1.7;
+}
+
+.stage__media {
+  position: relative;
+  margin-block-start: 1.5rem;
+
+  @include mx.breakpoint(tablethorizontal) {
+    display: flex;
+    justify-content: flex-end;
+    margin-block-start: 0;
+  }
+}
+
+// Cifra decorativa detrás del retrato: solo cabe con dos columnas.
+.stage__number {
+  display: none;
+
+  @include mx.breakpoint(tablethorizontal) {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    z-index: 0;
+    display: block;
+    font-family: v.$secondary-font;
+    font-size: clamp(12rem, 22vw, 20rem);
+    line-height: 1;
+    color: v.$color-cream;
+    user-select: none;
+    translate: 0 -28%;
+  }
+}
+
+.stage:nth-child(even) .stage__number {
+  @include mx.breakpoint(tablethorizontal) {
+    inset-inline-start: 0;
+    inset-inline-end: auto;
+  }
+}
+
+.stage__figure {
+  position: relative;
+  z-index: 1;
+
+  @include mx.breakpoint(tablethorizontal) {
+    width: 78%;
+  }
+}
+
+.stage__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+// ---------------------------------------------------------------------------
+// Dónde se nota el proceso
+// ---------------------------------------------------------------------------
+.life .section__inner {
+  text-align: center;
+}
+
+.life__note {
+  margin-block-start: 0.625rem;
+  color: v.$color-muted;
+}
+
+.life__areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem 1.25rem;
+  align-items: baseline;
+  justify-content: center;
+  max-width: 57.5rem;
+  margin-block-start: 2.75rem;
+  margin-inline: auto;
+
+  @include mx.breakpoint(tablet) {
+    gap: 1.375rem 2.5rem;
+    margin-block-start: 5rem;
+  }
+}
+
+.life__area {
+  line-height: 1.2;
+}
+
+// La mezcla de cuerpos y familias es el propio contenido visual del bloque.
+.life__area--size-1 {
+  font-size: clamp(1rem, 0.95rem + 0.19vw, 1.375rem);
+}
+
+.life__area--size-2 {
+  font-size: clamp(1.125rem, 0.94rem + 0.76vw, 1.625rem);
+}
+
+.life__area--size-3 {
+  font-size: clamp(1.25rem, 1.02rem + 0.95vw, 1.875rem);
+}
+
+.life__area--size-4 {
+  font-size: v.$fs-display-sm;
+}
+
+.life__area--size-5 {
+  font-size: clamp(1.6875rem, 1.34rem + 1.43vw, 2.625rem);
+}
+
+.life__area--serif {
+  font-family: v.$secondary-font;
+}
+
+.life__area--sans {
+  font-family: v.$primary-font;
+}
+
+.life__area--muted {
+  color: v.$color-muted;
+}
+
+.life__area--olive {
+  color: v.$color-olive-dark;
+}
+
+// El acento va en cursiva; por debajo de 24px necesita el terracota reforzado.
+.life__area--accent {
+  font-style: italic;
+  color: v.$color-terracotta-strong;
+}
+
+.life__area--accent.life__area--size-4,
+.life__area--accent.life__area--size-5 {
+  color: v.$color-terracotta;
+}
+
+// ---------------------------------------------------------------------------
+// Del punto A al punto B
+// ---------------------------------------------------------------------------
+.shift__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+  max-width: v.$measure-wide;
+  margin-inline: auto;
+
+  @include mx.breakpoint(tablet) {
+    gap: 4.5rem;
+  }
+}
+
+.shift__item {
+  text-align: center;
+}
+
+.shift__item + .shift__item {
+  padding-block-start: 2.75rem;
+  border-block-start: 1px solid v.$color-line-olive;
+
+  @include mx.breakpoint(tablet) {
+    padding-block-start: 4.5rem;
+  }
+}
+
+.shift__from {
+  font-family: v.$secondary-font;
+  font-size: v.$fs-lead;
+  font-style: italic;
+  line-height: 1.5;
+  color: v.$color-sage;
+}
+
+.shift__arrow {
+  margin-block: 0.875rem;
+  font-size: v.$fs-small;
+  color: v.$color-sage;
+}
+
+.shift__to {
+  font-family: v.$secondary-font;
+  font-size: v.$fs-card-title;
+  line-height: 1.5;
+  color: v.$color-cream;
+}
+
+// ---------------------------------------------------------------------------
+// CTA hacia programas
+// ---------------------------------------------------------------------------
+.method-cta .section__inner {
+  text-align: center;
+}
+
+.method-cta__text {
+  max-width: v.$measure-narrow;
+  margin-block-start: 1.25rem;
+  margin-inline: auto;
+  line-height: 1.65;
+}
+
+.method-cta__note {
+  margin-block-start: 1rem;
+}
+
+.method-cta__action {
+  margin-block-start: 2.25rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-start: 2.75rem;
+  }
+}

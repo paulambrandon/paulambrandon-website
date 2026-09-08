@@ -31,6 +31,16 @@
   letter-spacing: 0.09em;
 }
 
+// Misma etiqueta sobre el bloque oliva.
+.label--sage {
+  color: v.$color-sage;
+}
+
+// Etiqueta que marca la mirada del respeto frente a la de la exigencia.
+.label--olive {
+  color: v.$color-olive-dark;
+}
+
 // Frase introductoria en cursiva serif.
 .lead-italic {
   font-family: v.$secondary-font;

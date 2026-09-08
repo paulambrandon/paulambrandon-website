@@ -24,6 +24,14 @@ $color-terracotta: #b06a45; // acento decorativo y texto de gran tamaño
 $color-terracotta-strong: #94512f; // mismo acento con contraste AA en texto pequeño
 $color-muted: #63605a; // texto secundario
 $color-line: #d8d0c4; // divisores y bordes finos
+$color-line-strong: #b0a99a; // filete conector sobre arena (decorativo)
+
+// Tonos sobre el bloque oliva de /metodo. El mockup usa #b7c0ac para el texto
+// secundario, pero se queda en 3.86:1: se aclara a #c8cfc0 (4.55:1) para
+// cumplir AA sin perder el escalón tonal con el titular en crema.
+$color-sage: #c8cfc0; // preheadings y citas de partida sobre oliva
+$color-sage-light: #d9e0cc; // cursiva de apoyo sobre oliva
+$color-line-olive: #647159; // divisores sobre oliva
 
 $color-footer-text: #c9c4b8;
 $color-footer-dim: #a8a296;
@@ -56,5 +64,10 @@ $fs-card-title-sm: clamp(1.25rem, 1.18rem + 0.19vw, 1.375rem); // 20 → 22
 $fs-step-title: clamp(1.125rem, 1.07rem + 0.19vw, 1.25rem); // 18 → 20
 $fs-brand: clamp(1.0625rem, 1rem + 0.19vw, 1.1875rem); // 17 → 19
 $fs-body: clamp(0.9375rem, 0.9rem + 0.14vw, 1.0625rem); // 15 → 17
+
+// Escalones editoriales que necesita /metodo por encima del cuerpo de texto.
+$fs-intro: clamp(1rem, 0.95rem + 0.19vw, 1.125rem); // 16 → 18
+$fs-display-sm: clamp(1.5rem, 1.22rem + 1.14vw, 2.25rem); // 24 → 36
+$fs-display: clamp(1.6875rem, 1.43rem + 1.05vw, 2.375rem); // 27 → 38
 $fs-small: 0.875rem; // 14
 $fs-xs: 0.75rem; // 12

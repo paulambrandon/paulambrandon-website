@@ -1,0 +1,23 @@
+---
+import { methodTestimonials } from '../../data/metodo';
+---
+
+<section class="section section--sand">
+  <div class="section__inner">
+    <div class="testimonials__list">
+      {
+        methodTestimonials.map((quote) => (
+          <blockquote class="testimonial testimonial__quote">
+            <p>{quote}</p>
+          </blockquote>
+        ))
+      }
+    </div>
+
+    <p class="testimonials__cta">
+      <a class="link-arrow" href="/testimonios">
+        Ver testimonios <span aria-hidden="true">→</span>
+      </a>
+    </p>
+  </div>
+</section>

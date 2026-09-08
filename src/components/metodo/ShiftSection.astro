@@ -1,0 +1,21 @@
+---
+import { shifts } from '../../data/metodo';
+---
+
+<section class="section section--olive section--spacious shift">
+  <div class="section__inner">
+    <ul class="shift__list">
+      {
+        shifts.map(({ from, to }) => (
+          <li class="shift__item">
+            <p class="shift__from">«{from}»</p>
+            <p class="shift__arrow" aria-hidden="true">
+              ↓
+            </p>
+            <p class="shift__to">«{to}»</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
