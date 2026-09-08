@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProgramsHero from '../components/programas/ProgramsHero.astro';
+import ArrivalSection from '../components/programas/ArrivalSection.astro';
+import AlchemiseSection from '../components/programas/AlchemiseSection.astro';
+import OffersSection from '../components/programas/OffersSection.astro';
+import FitSection from '../components/programas/FitSection.astro';
+import ProgramsTestimonials from '../components/programas/ProgramsTestimonials.astro';
+import ContactCta from '../components/programas/ContactCta.astro';
+import { PERSON_NAME } from '../data/site';
+
+// Title literal de /docs/seo/paulambrandon-seo.md §8.
+const title = `Programas y acompañamientos para mujeres autoexigentes | ${PERSON_NAME}`;
+
+// El documento SEO no define meta description para /programas. En lugar de
+// inventar una, se reutiliza la entradilla aprobada del propio hero.
+const description =
+  'Descubre los programas y formas de trabajar conmigo según lo que quieras trabajar y el tipo de acompañamiento que necesites ahora.';
+---
+
+<Layout title={title} description={description}>
+  <ProgramsHero />
+  <ArrivalSection />
+  <AlchemiseSection />
+  <OffersSection />
+  <FitSection />
+  <ProgramsTestimonials />
+  <ContactCta />
+</Layout>
