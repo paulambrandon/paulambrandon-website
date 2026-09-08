@@ -1,0 +1,47 @@
+@use '@abstracts/variables' as v;
+@use '@abstracts/mixins' as mx;
+
+.testimonials__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  max-width: v.$measure-wide;
+  margin-inline: auto;
+
+  @include mx.breakpoint(tablet) {
+    gap: 3.5rem;
+  }
+}
+
+.testimonial:not(:first-child) {
+  padding-block-start: 2.25rem;
+  border-top: 1px solid v.$color-line;
+
+  @include mx.breakpoint(tablet) {
+    padding-block-start: 3.5rem;
+  }
+}
+
+.testimonial__quote {
+  font-family: v.$secondary-font;
+  font-size: v.$fs-quote;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.testimonial__author {
+  margin-top: 1rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-top: 1.25rem;
+  }
+}
+
+.testimonials__cta {
+  margin-top: 2.25rem;
+  text-align: center;
+
+  @include mx.breakpoint(tablet) {
+    margin-top: 3.5rem;
+  }
+}

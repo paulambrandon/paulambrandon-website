@@ -1,0 +1,34 @@
+---
+import { problemStill, problemTried } from '../../data/home';
+---
+
+<section class="section section--sand problem" id="el-problema">
+  <div class="section__inner">
+    <h2 class="section__title problem__title">
+      ¿Y si llevas años intentando solucionar el problema equivocado?
+    </h2>
+
+    <div class="problem__columns">
+      <div class="problem__group">
+        <p class="problem__label">Has probado…</p>
+        <ul class="problem__list problem__list--dash">
+          {problemTried.map((item) => <li class="problem__item">{item}</li>)}
+        </ul>
+      </div>
+
+      <div class="problem__group">
+        <p class="problem__label">Y aun así…</p>
+        <ul class="problem__list problem__list--dot">
+          {problemStill.map((item) => <li class="problem__item">{item}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <p class="problem__closing">
+      <span class="problem__line">Da igual cuánto cambies por fuera.</span>
+      <span class="problem__line"
+        >Siempre acabas sintiendo que todavía falta algo.</span
+      >
+    </p>
+  </div>
+</section>

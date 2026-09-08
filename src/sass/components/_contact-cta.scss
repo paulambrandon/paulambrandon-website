@@ -1,0 +1,23 @@
+@use '@abstracts/variables' as v;
+
+.contact-cta .section__inner {
+  text-align: center;
+}
+
+.contact-cta__intro {
+  margin-top: 1rem;
+}
+
+.contact-cta__text {
+  max-width: 30rem;
+  margin-top: 0.5rem;
+  margin-inline: auto;
+}
+
+.contact-cta__action {
+  margin-top: 2.25rem;
+}
+
+.contact-cta .section__title {
+  margin-bottom: 0;
+}

@@ -3,8 +3,12 @@
 html {
     font-family: v.$primary-font;
 }
- 
+
 body {
     overflow-x: hidden;
+    font-size: v.$fs-body;
     line-height: 1.6;
+    color: v.$color-charcoal;
+    background-color: v.$color-cream;
+    -webkit-font-smoothing: antialiased;
 }

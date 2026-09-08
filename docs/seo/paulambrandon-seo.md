@@ -4,7 +4,7 @@
 
 Google + buscadores con IA + arquitectura de contenidos
 
-Dominio: paulambrandon.com  
+Dominio: www.paulambrandon.com  
 Fecha de investigación: 2 de septiembre de 2026  
 Versión final 2.1 — arquitectura, diseño y SEO alineados  
 Revisión: 6 de septiembre de 2026
@@ -12,7 +12,7 @@ Revisión: 6 de septiembre de 2026
 # 1. Resumen ejecutivo
 
 Este documento define la estrategia SEO completa para convertir
-paulambrandon.com en un activo de adquisición orgánica y de autoridad de
+www.paulambrandon.com en un activo de adquisición orgánica y de autoridad de
 marca. El objetivo no es posicionar únicamente el nombre de Paula, sino
 conseguir visibilidad ante mujeres que todavía no la conocen y buscan
 problemas que encajan directamente con su propuesta.
@@ -33,7 +33,7 @@ La estrategia se apoya en cinco activos distintos:
 - Conversión: Programas como página central de las distintas formas de trabajar con Paula, con Alchemise, Movimiento y nutrición y Sesión de claridad como landings independientes.
 
 El resultado que buscamos es que Google y los sistemas de búsqueda con
-IA entiendan paulambrandon.com como una fuente especializada y
+IA entiendan www.paulambrandon.com como una fuente especializada y
 consistente sobre este patrón en mujeres, no como otra web genérica de
 coaching o bienestar.
 
@@ -42,7 +42,7 @@ coaching o bienestar.
 # 2. Alcance y metodología del análisis
 
 El análisis combina: revisión del contenido público actual de
-paulambrandon.com; estudio cualitativo de SERP en España y contenido en
+www.paulambrandon.com; estudio cualitativo de SERP en España y contenido en
 español; revisión de competidores que aparecen para búsquedas
 relacionadas; documentación oficial de Google, OpenAI, Anthropic,
 Perplexity, Bing e IndexNow; y el posicionamiento, método, testimonios y

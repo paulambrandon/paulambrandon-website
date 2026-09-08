@@ -1,0 +1,48 @@
+---
+import { transformations } from '../../data/home';
+---
+
+<section class="section section--sand transformation">
+  <div class="section__inner">
+    <h2 class="section__title">Así se ve una transformación real</h2>
+
+    <div class="transformation__table">
+      <div class="transformation__head" aria-hidden="true">
+        <span class="label">Antes</span>
+        <span class="label">Después</span>
+      </div>
+
+      <ul class="transformation__list">
+        {
+          transformations.map(({ before, after }) => (
+            <li class="transformation__row">
+              <div class="transformation__cell">
+                <span class="label transformation__label">Antes</span>
+                <p class="transformation__text transformation__text--before">
+                  {before}
+                </p>
+              </div>
+              <span class="transformation__arrow" aria-hidden="true">
+                →
+              </span>
+              <div class="transformation__cell">
+                <span class="label transformation__label transformation__label--after">
+                  Después
+                </span>
+                <p class="transformation__text transformation__text--after">
+                  {after}
+                </p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <p class="transformation__cta">
+      <a class="button button--secondary" href="#metodo">
+        ¿Cómo conseguimos esa transformación?
+      </a>
+    </p>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+@use '@abstracts/variables' as v;
+@use '@abstracts/mixins' as mx;
+
+.visually-hidden {
+  @include mx.visually-hidden;
+}
+
+// Enlace de salto: solo visible cuando recibe el foco de teclado.
+.skip-link {
+  position: absolute;
+  z-index: 10;
+  padding: 0.75rem 1rem;
+  font-size: v.$fs-small;
+  color: v.$color-paper;
+  background-color: v.$color-olive-dark;
+  transform: translateY(-140%);
+
+  &:focus-visible {
+    transform: none;
+  }
+}

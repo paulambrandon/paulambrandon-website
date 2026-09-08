@@ -1,0 +1,37 @@
+---
+import { methodSteps } from '../../data/home';
+---
+
+<section class="section section--paper method" id="metodo">
+  <div class="section__inner">
+    <h2 class="section__title method__title">
+      La mayor transformación de tu vida no empieza cuando haces más
+    </h2>
+    <p class="lead-italic method__subtitle">
+      Empieza el día que dejas de creer que hay algo en ti que hay que arreglar.
+    </p>
+    <p class="method__bridge">Y ese cambio pasa por un proceso, con tres etapas:</p>
+
+    <ol class="method__steps">
+      {
+        methodSteps.map(({ step, title, description }) => (
+          <li class="method__step">
+            <span class="method__number" aria-hidden="true">
+              {step}
+            </span>
+            <div class="method__content">
+              <h3 class="method__step-title">{title}</h3>
+              <p class="method__step-text">{description}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <p class="method__cta">
+      <a class="button button--primary" href="/metodo">
+        Conoce el método <span aria-hidden="true">→</span>
+      </a>
+    </p>
+  </div>
+</section>
