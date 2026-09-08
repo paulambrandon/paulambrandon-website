@@ -43,6 +43,20 @@
   }
 }
 
+// CTA sobre fondo oliva: invierte el primario para mantener el contraste.
+.button--light {
+  color: v.$color-olive-dark;
+  background-color: v.$color-cream;
+
+  &:hover {
+    background-color: v.$color-sage-light;
+  }
+
+  &:focus-visible {
+    outline-color: v.$color-cream;
+  }
+}
+
 // Enlace editorial con flecha: subrayado discreto, sin aspecto de botón.
 .link-arrow {
   display: inline-block;

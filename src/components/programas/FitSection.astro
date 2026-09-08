@@ -1,0 +1,30 @@
+---
+import { fitRows } from '../../data/programas';
+---
+
+<section class="section section--sand fit">
+  <div class="section__inner">
+    <h2 class="section__title fit__title">
+      ¿Qué tipo de acompañamiento necesitas ahora?
+    </h2>
+
+    <ul class="fit__list">
+      {
+        fitRows.map(({ need, program }) => (
+          <li class="fit__row">
+            <p class="fit__need">{need}</p>
+            <span class="fit__arrow" aria-hidden="true">
+              →
+            </span>
+            <p class="fit__program">{program}</p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="lead-italic fit__note">
+      Todos los acompañamientos parten de una misma idea: cuidarte no debería
+      convertirse en otra forma de exigirte.
+    </p>
+  </div>
+</section>

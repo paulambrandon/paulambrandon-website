@@ -32,6 +32,9 @@ $color-line-strong: #b0a99a; // filete conector sobre arena (decorativo)
 $color-sage: #c8cfc0; // preheadings y citas de partida sobre oliva
 $color-sage-light: #d9e0cc; // cursiva de apoyo sobre oliva
 $color-line-olive: #647159; // divisores sobre oliva
+// El filete del marco (#647159) se pierde en el borde de una insignia: sobre
+// oliva sube a 1.4:1. Este tono la mantiene legible como contorno.
+$color-line-sage: #8b9580; // contorno de la insignia de edición
 
 $color-footer-text: #c9c4b8;
 $color-footer-dim: #a8a296;

@@ -20,6 +20,23 @@
   }
 }
 
+// Variante centrada: filete a ambos lados y texto en versalitas. La usa el
+// hero de /programas, donde el eyebrow es una etiqueta corta y no una frase.
+.eyebrow--centered {
+  justify-content: center;
+  font-size: v.$fs-xs;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+
+  &::after {
+    flex: none;
+    width: 1.25rem;
+    height: 1px;
+    content: '';
+    background-color: v.$color-terracotta;
+  }
+}
+
 // Etiqueta corta en versalitas (ANTES / DESPUÉS, autoría de testimonios).
 .label {
   display: block;
