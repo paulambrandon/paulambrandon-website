@@ -18,6 +18,14 @@ const toRoute = (file: string): string =>
     .replace(/\.astro$/, '')
     .replace(/\/index$/, '/');
 
+/**
+ * Astro construye las páginas como directorio (`/metodo/index.html`), así que
+ * la URL canónica que emite el layout lleva barra final. El sitemap tiene que
+ * declarar exactamente esa misma forma para no anunciar dos URLs por página.
+ */
+const withTrailingSlash = (route: string): string =>
+  route.endsWith('/') ? route : `${route}/`;
+
 export const GET: APIRoute = ({ site }) => {
   if (!site) {
     throw new Error('Falta `site` en astro.config.mjs: el sitemap lo necesita.');
@@ -28,6 +36,7 @@ export const GET: APIRoute = ({ site }) => {
     // Las rutas dinámicas no se pueden enumerar desde aquí.
     .filter((route) => !route.includes('['))
     .filter((route) => !EXCLUDED.has(route))
+    .map(withTrailingSlash)
     .sort();
 
   const urls = routes
