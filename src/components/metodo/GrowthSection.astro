@@ -1,0 +1,46 @@
+---
+import { demandRespectPairs } from '../../data/metodo';
+---
+
+<section class="section section--sand growth">
+  <div class="section__inner">
+    <div class="growth__head">
+      <h2 class="growth__title">No tienes que dejar de querer crecer.</h2>
+      <p class="growth__intro">
+        El objetivo no es renunciar a tus metas, a cuidarte o a querer mejorar.
+        Es dejar de necesitar esas cosas para demostrarte que tienes valor.
+      </p>
+    </div>
+
+    <div class="growth__table">
+      {/* Cabecera decorativa: cada fila repite las etiquetas para lectores de pantalla. */}
+      <div class="growth__columns" aria-hidden="true">
+        <span class="label">Desde la exigencia</span>
+        <span class="growth__divider"></span>
+        <span class="label label--olive growth__column-respect">
+          Desde el respeto
+        </span>
+      </div>
+
+      <ul class="growth__list">
+        {
+          demandRespectPairs.map(({ demand, respect }) => (
+            <li class="growth__row">
+              <div class="growth__cell">
+                <span class="label growth__label">Desde la exigencia</span>
+                <p class="growth__text growth__text--demand">{demand}</p>
+              </div>
+              <span class="growth__divider" aria-hidden="true" />
+              <div class="growth__cell growth__cell--respect">
+                <span class="label label--olive growth__label">
+                  Desde el respeto
+                </span>
+                <p class="growth__text growth__text--respect">{respect}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

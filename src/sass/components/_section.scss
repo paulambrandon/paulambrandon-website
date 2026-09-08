@@ -12,6 +12,12 @@
     background-color: v.$color-sand;
   }
 
+  // Bloque de contraste oscuro: "lo que hay debajo" y el salto A → B.
+  &--olive {
+    color: v.$color-cream;
+    background-color: v.$color-olive-dark;
+  }
+
   // Bloques con más aire: manifiesto y CTA final.
   &--spacious {
     padding-block: v.$section-space-lg;

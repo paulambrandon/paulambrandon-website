@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+import methodPortrait from '../../assets/images/placeholder-paula-metodo.jpg';
+---
+
+<section class="method-hero">
+  <div class="method-hero__inner">
+    <p class="eyebrow method-hero__eyebrow">El método</p>
+
+    <div class="method-hero__head">
+      <h1 class="method-hero__title">
+        No se trata de dejar de cambiar. Se trata de cambiar desde otro lugar.
+      </h1>
+
+      <div class="method-hero__aside">
+        <p class="method-hero__lede">
+          Un proceso para entender de dónde nace esa sensación de no ser
+          suficiente, transformar la relación que tienes contigo misma y llevar
+          ese cambio a tu vida real.
+        </p>
+        <a class="link-arrow method-hero__link" href="#no-aislados">
+          Descubre el proceso <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="method-hero__media">
+      <div class="method-hero__frame">
+        <Image
+          class="method-hero__image"
+          src={methodPortrait}
+          alt="Paula Márquez Brandon durante una sesión de acompañamiento"
+          widths={[400, 600, 800, 960]}
+          sizes="(min-width: 48rem) 42vw, calc(100vw - 2.5rem)"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+  </div>
+</section>
