@@ -81,6 +81,7 @@
 .arrival__label {
   margin-block-end: 0.5rem;
   font-family: v.$secondary-font;
+  font-size: v.$fs-small; // cabe en su columna de 150px sin partirse en dos
   font-style: italic;
   color: v.$color-muted;
 
@@ -192,13 +193,17 @@
   }
 }
 
+// Apilado, el retrato 4:5 se comería la pantalla si ocupara todo el ancho:
+// a 768px serían 683×854. Se limita hasta que pasa a su propia columna.
 .alchemise__media {
+  max-width: 24rem;
   margin-block-end: 1.75rem;
 
   @include mx.breakpoint(tablethorizontal) {
     grid-row: 1 / span 2;
     grid-column: 2;
     align-self: center;
+    max-width: none;
     margin-block-end: 0;
   }
 }
@@ -410,6 +415,8 @@
 // ---------------------------------------------------------------------------
 // Testimonios a dos columnas
 // ---------------------------------------------------------------------------
+// Dos columnas solo a partir de 1024px: a 768px cada cita se quedaría en una
+// medida de unos 15 caracteres por línea.
 .pair-quotes {
   display: flex;
   flex-direction: column;
@@ -417,7 +424,7 @@
   max-width: 51.25rem;
   margin-inline: auto;
 
-  @include mx.breakpoint(tablet) {
+  @include mx.breakpoint(tablethorizontal) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
@@ -429,7 +436,7 @@
   padding-block-start: 2.25rem;
   border-block-start: 1px solid v.$color-line;
 
-  @include mx.breakpoint(tablet) {
+  @include mx.breakpoint(tablethorizontal) {
     padding-block-start: 0;
     padding-inline-start: 4rem;
     border-block-start: 0;
