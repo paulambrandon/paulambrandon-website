@@ -12,7 +12,7 @@ $hero-split: min(66%, calc(50% + 14.4rem));
   padding-inline: v.$gutter;
   background-color: v.$color-sand;
 
-  @include mx.breakpoint(tablet) {
+  @include mx.breakpoint(tablethorizontal) {
     padding: 0;
     background-image: linear-gradient(
       to right,
@@ -23,7 +23,7 @@ $hero-split: min(66%, calc(50% + 14.4rem));
 }
 
 .hero__inner {
-  @include mx.breakpoint(tablet) {
+  @include mx.breakpoint(tablethorizontal) {
     display: grid;
     grid-template-columns: 0.66fr 0.34fr;
     align-items: center;
@@ -40,7 +40,7 @@ $hero-split: min(66%, calc(50% + 14.4rem));
 .hero__media {
   margin-bottom: 2rem;
 
-  @include mx.breakpoint(tablet) {
+  @include mx.breakpoint(tablethorizontal) {
     grid-row: 1;
     grid-column: 2;
     margin-bottom: 0;
@@ -51,9 +51,15 @@ $hero-split: min(66%, calc(50% + 14.4rem));
 
 .hero__frame {
   position: relative;
+  width: min(78vw, 18.5rem);
+  margin-inline: auto;
 
   // Marco editorial desplazado que acompaña al retrato en desktop.
-  @include mx.breakpoint(tablet) {
+  @include mx.breakpoint(tablethorizontal) {
+    width: 100%;
+    max-width: 24rem;
+    margin-inline: 0;
+
     &::after {
       position: absolute;
       inset: 0.875rem -0.875rem -0.875rem 0.875rem;
@@ -73,7 +79,7 @@ $hero-split: min(66%, calc(50% + 14.4rem));
 }
 
 .hero__text {
-  @include mx.breakpoint(tablet) {
+  @include mx.breakpoint(tablethorizontal) {
     grid-row: 1;
     grid-column: 1;
     padding-block: 3rem;
@@ -88,6 +94,12 @@ $hero-split: min(66%, calc(50% + 14.4rem));
   @include mx.breakpoint(tablet) {
     margin-top: 2rem;
   }
+}
+
+.hero__lede {
+  max-width: 31rem;
+  margin-top: 1.25rem;
+  color: v.$color-muted;
 }
 
 .hero__cta {

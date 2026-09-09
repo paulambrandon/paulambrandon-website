@@ -9,7 +9,7 @@ import ProgramsSection from '../components/home/ProgramsSection.astro';
 import AboutSection from '../components/home/AboutSection.astro';
 import TestimonialsSection from '../components/home/TestimonialsSection.astro';
 import ContactCta from '../components/home/ContactCta.astro';
-import { PERSON_NAME } from '../data/site';
+import { INSTAGRAM_URL, PERSON_NAME } from '../data/site';
 
 // Metadatos definidos en /docs/seo/paulambrandon-seo.md §9.1
 const title = `${PERSON_NAME} | Autoexigencia y autocuidado en mujeres`;
@@ -36,6 +36,7 @@ const schema = {
       '@id': `${siteUrl}#person`,
       name: PERSON_NAME,
       url: siteUrl,
+      sameAs: [INSTAGRAM_URL],
     },
   ],
 };

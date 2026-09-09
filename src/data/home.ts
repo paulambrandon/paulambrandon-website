@@ -24,11 +24,6 @@ export interface Program {
   readonly linkLabel: string;
 }
 
-export interface Testimonial {
-  readonly quote: string;
-  readonly author: string;
-}
-
 export const problemTried: readonly string[] = [
   'Cambiar tu cuerpo',
   'Ser más disciplinada',
@@ -119,12 +114,3 @@ export const featuredProgram: Program = {
   href: '/alchemise',
   linkLabel: 'Descubrir Alchemise',
 };
-
-/**
- * TODO: sustituir por los testimonios reales autorizados por Paula.
- * Se mantienen los placeholders del mockup para no inventar prueba social.
- */
-export const testimonials: readonly Testimonial[] = [
-  { quote: '[TESTIMONIO REAL 01]', author: '[NOMBRE]' },
-  { quote: '[TESTIMONIO REAL 02]', author: '[NOMBRE]' },
-];

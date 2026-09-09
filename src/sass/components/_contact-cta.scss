@@ -14,7 +14,11 @@
   margin-inline: auto;
 }
 
-.contact-cta__action {
+.contact-cta__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
   margin-top: 2.25rem;
 }
 

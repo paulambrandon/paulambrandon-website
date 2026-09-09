@@ -12,6 +12,12 @@ export default defineConfig({
   // derivan de `Astro.site`.
   // en /docs/seo/paulambrandon-seo.md. Al cerrarla, cambiar solo esta línea.
   site: 'https://www.paulambrandon.com',
+  redirects: {
+    '/empieza-aqui': '/programas',
+    '/mi-historia': '/sobre-mi',
+    '/politica-privacidad': '/privacidad',
+    '/politica-cookies': '/cookies',
+  },
   vite: {
     resolve: {
       alias: {

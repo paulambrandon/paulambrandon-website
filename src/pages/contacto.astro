@@ -1,0 +1,99 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import portrait from '../assets/images/paula-marquez-brandon.webp';
+import {
+  CONTACT_EMAIL,
+  INSTAGRAM_URL,
+  PERSON_NAME,
+  WHATSAPP_URL,
+} from '../data/site';
+
+const title = `Contacto | ${PERSON_NAME}`;
+const description =
+  'Escribe a Paula Márquez Brandon para resolver dudas sobre sus programas, sesiones o colaboraciones.';
+---
+
+<Layout title={title} description={description}>
+  <section class="section section--paper contact-page">
+    <div class="section__inner">
+      <header class="contact-page__header">
+        <p class="eyebrow">Hablemos</p>
+        <h1>Contacto</h1>
+        <p class="contact-page__lead">
+          ¿Tienes dudas antes de dar el paso? No hace falta que llegues con
+          las ideas claras para escribirme.
+        </p>
+        <p>Cuéntame dónde estás y te ayudo a ver qué encaja contigo.</p>
+      </header>
+
+      <div class="contact-page__grid">
+        <form class="contact-form" data-contact-form>
+          <label>Nombre <input name="name" autocomplete="name" required /></label>
+          <label>Email <input name="email" type="email" autocomplete="email" required /></label>
+          <label>
+            ¿Sobre qué quieres escribirme?
+            <select name="subject">
+              <option>Tengo dudas sobre un programa</option>
+              <option>Quiero reservar una sesión</option>
+              <option>Colaboraciones y otros temas</option>
+            </select>
+          </label>
+          <label>Cuéntame un poco más <textarea name="message" rows="7" required></textarea></label>
+          <label class="contact-form__consent">
+            <input name="consent" type="checkbox" required />
+            <span>He leído y acepto la <a href="/privacidad">política de privacidad</a>.</span>
+          </label>
+          <button class="button button--primary" type="submit">Preparar mensaje →</button>
+          <p class="contact-form__help">Al continuar se abrirá tu aplicación de correo.</p>
+          <p class="contact-form__status" role="status" aria-live="polite"></p>
+        </form>
+
+        <aside class="contact-card">
+          <Image class="contact-card__image" src={portrait} alt="Paula Márquez Brandon" widths={[360, 600]} sizes="(min-width: 48rem) 32vw, calc(100vw - 2.5rem)" loading="lazy" />
+          <dl class="contact-card__details">
+            <div><dt class="label">Email</dt><dd><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></dd></div>
+            <div><dt class="label">WhatsApp</dt><dd><a href={WHATSAPP_URL} target="_blank" rel="noopener">Escribirme por WhatsApp →</a></dd></div>
+            <div><dt class="label">También puedes encontrarme aquí</dt><dd><a href={INSTAGRAM_URL} target="_blank" rel="me noopener">Instagram</a></dd></div>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand contact-programs">
+    <div class="section__inner">
+      <h2>¿No sabes qué opción encaja contigo?</h2>
+      <p>No necesitas decidirlo antes de escribir. Cuéntame qué estás viviendo y qué quieres trabajar.</p>
+      <a class="button button--secondary" href="/programas">Ver programas →</a>
+    </div>
+  </section>
+
+  <section class="section section--olive contact-closing">
+    <div class="section__inner">
+      <p>No hace falta que tengas todas las respuestas para empezar una conversación.</p>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline define:vars={{ contactEmail: CONTACT_EMAIL }}>
+  const form = document.querySelector('[data-contact-form]');
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!(form instanceof HTMLFormElement) || !form.reportValidity()) return;
+
+    const data = new FormData(form);
+    const subject = String(data.get('subject') ?? 'Consulta desde la web');
+    const body = [
+      `Nombre: ${String(data.get('name') ?? '')}`,
+      `Email: ${String(data.get('email') ?? '')}`,
+      '',
+      String(data.get('message') ?? ''),
+    ].join('\n');
+
+    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const status = form.querySelector('[role="status"]');
+    if (status) status.textContent = 'Mensaje preparado. Revisa tu aplicación de correo para enviarlo.';
+  });
+</script>

@@ -1,0 +1,140 @@
+@use '@abstracts/variables' as v;
+@use '@abstracts/mixins' as mx;
+
+.contact-page__header {
+  max-width: 42rem;
+  margin-bottom: clamp(3rem, 7vw, 6rem);
+
+  h1 {
+    margin-block: 1.25rem;
+    font-size: v.$fs-display;
+  }
+}
+
+.contact-page__lead {
+  margin-bottom: 0.75rem;
+  font-family: v.$secondary-font;
+  font-size: v.$fs-lead;
+}
+
+.contact-page__grid {
+  display: grid;
+  gap: 3rem;
+
+  @include mx.breakpoint(tablet) {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(3rem, 8vw, 7rem);
+    align-items: start;
+  }
+}
+
+.contact-form {
+  display: grid;
+  gap: 1.25rem;
+
+  label:not(.contact-form__consent) {
+    display: grid;
+    gap: 0.5rem;
+    font-size: v.$fs-small;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.875rem 0;
+    font: inherit;
+    color: v.$color-charcoal;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid v.$color-line-strong;
+    border-radius: 0;
+  }
+
+  textarea {
+    padding: 0.875rem;
+    border: 1px solid v.$color-line-strong;
+    resize: vertical;
+  }
+
+  .button {
+    justify-self: start;
+  }
+}
+
+.contact-form__consent {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  font-size: v.$fs-xs;
+
+  input {
+    flex: none;
+    width: 1rem;
+    margin-top: 0.2rem;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+.contact-form__help,
+.contact-form__status {
+  font-size: v.$fs-xs;
+  color: v.$color-muted;
+}
+
+.contact-card {
+  @include mx.breakpoint(tablet) {
+    order: 2;
+  }
+}
+
+.contact-card__image {
+  width: min(100%, 25rem);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.contact-card__details {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+
+  dd {
+    margin-top: 0.4rem;
+    overflow-wrap: anywhere;
+  }
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+}
+
+.contact-programs,
+.contact-closing {
+  text-align: center;
+
+  h2,
+  p {
+    max-width: 38rem;
+    margin-inline: auto;
+  }
+
+  p {
+    margin-top: 1rem;
+  }
+
+  .button {
+    margin-top: 2rem;
+  }
+}
+
+.contact-closing p {
+  font-family: v.$secondary-font;
+  font-size: v.$fs-display-sm;
+  color: v.$color-cream;
+}

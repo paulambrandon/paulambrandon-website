@@ -14,7 +14,7 @@
   justify-content: space-between;
   padding-block: 1.5rem;
 
-  @include mx.breakpoint(tablet) {
+  @include mx.breakpoint(tablethorizontal) {
     flex-wrap: nowrap;
     padding-block: 2.25rem;
   }
@@ -34,7 +34,7 @@
   margin-inline-end: -0.75rem; // alinea ópticamente el icono con el borde
   cursor: pointer;
 
-  @include mx.breakpoint(tablet) {
+  @include mx.breakpoint(tablethorizontal) {
     display: none;
   }
 }
@@ -69,7 +69,7 @@
   display: none;
   flex-basis: 100%;
 
-  @include mx.breakpoint(tablet) {
+  @include mx.breakpoint(tablethorizontal) {
     display: block;
     flex-basis: auto;
   }
@@ -82,7 +82,7 @@
   padding-block: 1rem 0.5rem;
   border-top: 1px solid v.$color-line;
 
-  @include mx.breakpoint(tablet) {
+  @include mx.breakpoint(tablethorizontal) {
     margin-top: 0;
     padding-block: 0;
     border-top: 0;

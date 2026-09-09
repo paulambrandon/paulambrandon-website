@@ -30,7 +30,14 @@
 }
 
 .testimonial__author {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
   margin-top: 1rem;
+
+  > span:first-child {
+    font-family: v.$secondary-font;
+  }
 
   @include mx.breakpoint(tablet) {
     margin-top: 1.25rem;

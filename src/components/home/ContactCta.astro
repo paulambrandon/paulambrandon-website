@@ -1,3 +1,7 @@
+---
+import { CONTACT_EMAIL, WHATSAPP_URL } from '../../data/site';
+---
+
 <section class="section section--paper section--spacious contact-cta">
   <div class="section__inner">
     <h2 class="section__title">¿Tienes dudas antes de dar el paso?</h2>
@@ -7,10 +11,11 @@
     <p class="contact-cta__text">
       Cuéntame dónde estás y te ayudo a ver qué encaja contigo.
     </p>
-    <p class="contact-cta__action">
-      <a class="button button--primary" href="/contacto">
-        Contactar <span aria-hidden="true">→</span>
+    <div class="contact-cta__actions">
+      <a class="button button--primary" href={WHATSAPP_URL} target="_blank" rel="noopener">
+        Escribirme por WhatsApp <span aria-hidden="true">→</span>
       </a>
-    </p>
+      <a class="link-arrow" href={`mailto:${CONTACT_EMAIL}`}>Enviar un email</a>
+    </div>
   </div>
 </section>

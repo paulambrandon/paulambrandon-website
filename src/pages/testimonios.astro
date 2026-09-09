@@ -1,0 +1,126 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import ancaResult from '../assets/images/resultado-anca-frente.webp';
+import estherResult from '../assets/images/resultado-esther-frente.webp';
+import montseResult from '../assets/images/resultado-montse-frente.webp';
+import {
+  alchemiseTestimonials,
+  clarityTestimonials,
+  featuredTestimonials,
+  movementTestimonials,
+} from '../data/testimonials';
+import { PERSON_NAME } from '../data/site';
+
+const title = `Historias reales de cambio | ${PERSON_NAME}`;
+const description =
+  'Experiencias de mujeres que han trabajado con Paula la autoexigencia, los límites, el cuerpo, los hábitos y la relación consigo mismas.';
+const results = [
+  { image: ancaResult, name: 'Anca', time: '2 meses' },
+  { image: estherResult, name: 'Esther', time: '6 meses' },
+  { image: montseResult, name: 'Montse', time: '2 meses' },
+] as const;
+---
+
+<Layout title={title} description={description}>
+  <section class="section section--paper testimonials-hero">
+    <div class="section__inner">
+      <p class="eyebrow eyebrow--centered">Testimonios</p>
+      <h1>Historias de mujeres que han vivido el proceso</h1>
+      <p>
+        No todas llegaron desde el mismo lugar ni necesitaban trabajar lo
+        mismo. Estas son algunas de sus experiencias.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--sand testimonial-paths">
+    <div class="section__inner">
+      <h2 class="section__title">Cada historia empieza en un lugar distinto.</h2>
+      <ul class="testimonial-paths__list" aria-label="Temas trabajados">
+        {['Autoexigencia', 'Perfeccionismo', 'Cuerpo', 'Límites', 'Culpa', 'Descanso', 'Aprobación', 'Hábitos'].map((item) => <li>{item}</li>)}
+      </ul>
+      <p>Los síntomas pueden ser distintos, pero muchas veces comparten patrones parecidos.</p>
+    </div>
+  </section>
+
+  <section class="section section--paper featured-stories">
+    <div class="section__inner featured-stories__grid">
+      {featuredTestimonials.map(({ quote, author, program }, index) => (
+        <figure class="featured-story">
+          <p class="label">Historia destacada {String(index + 1).padStart(2, '0')}</p>
+          <blockquote><p>{quote}</p></blockquote>
+          <figcaption>{author} <span>·</span> {program}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--sand testimony-program">
+    <div class="section__inner">
+      <header class="testimony-program__header">
+        <div><p class="eyebrow">Programa grupal · 90 días</p><h2>Alchemise</h2></div>
+        <a class="link-arrow" href="/alchemise">Conocer Alchemise →</a>
+      </header>
+      <div class="testimony-program__grid">
+        {alchemiseTestimonials.map(({ quote, author }) => (
+          <figure class="testimony-card"><blockquote><p>{quote}</p></blockquote><figcaption>{author}</figcaption></figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--paper testimony-program">
+    <div class="section__inner">
+      <header class="testimony-program__header">
+        <div><p class="eyebrow">Acompañamiento personalizado</p><h2>Movimiento y nutrición</h2></div>
+        <a class="link-arrow" href="/movimiento-nutricion">Conocer el acompañamiento →</a>
+      </header>
+      <div class="testimony-program__grid">
+        {movementTestimonials.map(({ quote, author }) => (
+          <figure class="testimony-card"><blockquote><p>{quote}</p></blockquote><figcaption>{author}</figcaption></figure>
+        ))}
+      </div>
+      <div class="physical-results">
+        <div class="physical-results__intro">
+          <h3>El cambio de fuera también cuenta, cuando llega desde un lugar sano.</h3>
+          <p>Cada proceso y cada resultado son diferentes.</p>
+        </div>
+        <div class="physical-results__grid">
+          {results.map(({ image, name, time }) => (
+            <figure>
+              <Image src={image} alt={`Evolución física de ${name}, antes y después`} widths={[400, 700]} sizes="(min-width: 48rem) 30vw, calc(100vw - 2.5rem)" loading="lazy" />
+              <figcaption><span>{name}</span><span class="label">{time}</span></figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand testimony-program">
+    <div class="section__inner">
+      <header class="testimony-program__header">
+        <div><p class="eyebrow">Sesión individual</p><h2>Sesión de claridad</h2></div>
+        <a class="link-arrow" href="/sesion-claridad">Conocer la sesión →</a>
+      </header>
+      <div class="testimony-program__grid">
+        {clarityTestimonials.map(({ quote, author }) => (
+          <figure class="testimony-card"><blockquote><p>{quote}</p></blockquote><figcaption>{author}</figcaption></figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--olive testimony-final">
+    <div class="section__inner">
+      <p class="lead-italic">No se trata de convertirte en otra mujer.</p>
+      <h2>Tu proceso no tiene por qué parecerse al de ninguna de ellas.</h2>
+      <p>Conoce las distintas formas de trabajar conmigo y descubre cuál puede encajar con el momento en el que estás.</p>
+      <div class="testimony-final__actions">
+        <a class="button button--light" href="/programas">Ver programas →</a>
+        <a class="button button--outline-light" href="/contacto">Contactar</a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -45,11 +45,25 @@
   }
 }
 
-.program__image {
-  width: 100%;
-  height: auto;
+.program__cover {
+  display: grid;
+  place-content: center;
+  min-height: 14rem;
   aspect-ratio: 16 / 10;
-  object-fit: cover;
+  font-family: v.$secondary-font;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1;
+  color: v.$color-cream;
+  text-align: center;
+  background-color: v.$color-olive-dark;
+
+  small {
+    margin-top: 0.75rem;
+    font-family: v.$primary-font;
+    font-size: v.$fs-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
 }
 
 .program__body {

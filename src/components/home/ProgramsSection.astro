@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import alchemiseImage from '../../assets/images/placeholder-alchemise.jpg';
 import { featuredProgram, secondaryPrograms } from '../../data/home';
 ---
 
@@ -10,14 +8,10 @@ import { featuredProgram, secondaryPrograms } from '../../data/home';
 
     <div class="programs__grid">
       <article class="program program--featured">
-        <Image
-          class="program__image"
-          src={alchemiseImage}
-          alt={`Programa ${featuredProgram.title}`}
-          widths={[400, 700, 1400]}
-          sizes="(min-width: 64rem) 45vw, calc(100vw - 2.5rem)"
-          loading="lazy"
-        />
+        <div class="program__cover" aria-hidden="true">
+          <span>Alchemise</span>
+          <small>90 días</small>
+        </div>
         <div class="program__body">
           <h3 class="program__title">{featuredProgram.title}</h3>
           <p class="program__text">{featuredProgram.description}</p>

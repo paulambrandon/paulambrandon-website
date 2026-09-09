@@ -1,5 +1,5 @@
 ---
-import { testimonials } from '../../data/home';
+import { featuredTestimonials } from '../../data/testimonials';
 ---
 
 <section class="section section--sand testimonials">
@@ -8,12 +8,15 @@ import { testimonials } from '../../data/home';
 
     <div class="testimonials__list">
       {
-        testimonials.map(({ quote, author }) => (
+        featuredTestimonials.map(({ quote, author, program }) => (
           <figure class="testimonial">
             <blockquote class="testimonial__quote">
               <p>{quote}</p>
             </blockquote>
-            <figcaption class="label testimonial__author">{author}</figcaption>
+            <figcaption class="testimonial__author">
+              <span>{author}</span>
+              <span class="label">{program}</span>
+            </figcaption>
           </figure>
         ))
       }
