@@ -1,0 +1,624 @@
+@use '@abstracts/variables' as v;
+@use '@abstracts/mixins' as mx;
+
+// ---------------------------------------------------------------------------
+// Piezas compartidas por las tres landings de programa: /alchemise,
+// /movimiento-nutricion y /sesion-claridad.
+// ---------------------------------------------------------------------------
+
+// Hero con retrato 4:5 enmarcado al lado del texto.
+// El orden del DOM es el del móvil (cabecera → retrato → CTA); en pantallas
+// anchas el retrato pasa a la segunda columna sin reordenar nada.
+.landing-hero {
+  padding-block: 0.5rem 4rem;
+
+  @include mx.breakpoint(tablet) {
+    padding-block: 2.5rem 6rem;
+  }
+
+  @include mx.breakpoint(tablethorizontal) {
+    padding-block: 5rem 0;
+  }
+}
+
+.landing-hero__inner {
+  @include mx.container;
+}
+
+.landing-hero__grid {
+  @include mx.breakpoint(tablethorizontal) {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-rows: auto auto;
+    column-gap: clamp(3rem, 4.9vw, 4.375rem);
+    align-items: center;
+  }
+}
+
+.landing-hero__head {
+  @include mx.breakpoint(tablethorizontal) {
+    grid-row: 1;
+    grid-column: 1;
+    align-self: end;
+  }
+}
+
+.landing-hero__actions {
+  @include mx.breakpoint(tablethorizontal) {
+    grid-row: 2;
+    grid-column: 1;
+    align-self: start;
+  }
+}
+
+.landing-hero__kicker {
+  margin-block-end: 1.375rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-end: 1.75rem;
+  }
+}
+
+.landing-hero__lede {
+  max-width: 30rem;
+  font-family: v.$secondary-font;
+  font-size: v.$fs-intro;
+  line-height: 1.6;
+}
+
+// Apilado, un retrato 4:5 a todo el ancho dominaría la pantalla; se limita
+// hasta que pasa a su propia columna.
+.landing-hero__media {
+  max-width: 24rem;
+  margin-block: 1.75rem;
+
+  @include mx.breakpoint(tablethorizontal) {
+    grid-row: 1 / span 2;
+    grid-column: 2;
+    max-width: none;
+    margin-block: 0;
+  }
+}
+
+// Marco desplazado tras el retrato. Solo con dos columnas: en móvil el
+// desplazamiento se comería el gutter lateral.
+.landing-hero__frame {
+  position: relative;
+
+  @include mx.breakpoint(tablethorizontal) {
+    &::after {
+      position: absolute;
+      inset: 1rem -1rem -1rem 1rem;
+      content: '';
+      border: 1px solid v.$color-line;
+    }
+  }
+}
+
+.landing-hero__image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.landing-hero__note {
+  margin-block-start: 1.125rem;
+  font-size: v.$fs-small;
+  color: v.$color-muted;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-start: 1.375rem;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Lista de afirmaciones separadas por filete
+// ---------------------------------------------------------------------------
+.claim-list {
+  max-width: v.$measure;
+  margin-inline: auto;
+}
+
+.claim-list__item {
+  padding-block: 1rem;
+  font-family: v.$secondary-font;
+  font-size: v.$fs-intro;
+  line-height: 1.5;
+  border-block-end: 1px solid v.$color-line;
+
+  &:last-child {
+    border-block-end: 0;
+  }
+
+  @include mx.breakpoint(tablet) {
+    padding-block: 1.375rem;
+  }
+}
+
+// Variante a dos columnas. El DOM va en orden de columna (los cuatro primeros
+// forman la izquierda), así que en móvil se lee igual que en el mockup.
+.claim-list--two {
+  @include mx.breakpoint(tablet) {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(2.5rem, 5vw, 4rem);
+    max-width: 56.25rem;
+  }
+}
+
+.claim-list--two .claim-list__item {
+  line-height: 1.7;
+
+  // Cuarto y octavo son el último de cada columna en el reparto de 4 filas.
+  @include mx.breakpoint(tablet) {
+    padding-block: 1rem;
+
+    &:nth-child(4n) {
+      border-block-end: 0;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Pasos numerados
+// ---------------------------------------------------------------------------
+.numbered {
+  max-width: v.$measure-wide;
+  margin-inline: auto;
+}
+
+.numbered__item {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1.25rem;
+  padding-block: 1.375rem;
+  border-block-end: 1px solid v.$color-line;
+
+  &:last-child {
+    border-block-end: 0;
+  }
+
+  @include mx.breakpoint(tablet) {
+    grid-template-columns: 5rem 1fr;
+    gap: 2rem;
+    padding-block: 2rem;
+  }
+}
+
+.numbered__number {
+  font-family: v.$secondary-font;
+  font-size: clamp(2.125rem, 1.89rem + 0.95vw, 2.75rem); // 34 → 44
+  line-height: 1;
+  color: v.$color-numeral;
+}
+
+.numbered__title {
+  margin-block-end: 0.375rem;
+  font-family: v.$secondary-font;
+  font-size: clamp(1.125rem, 1.06rem + 0.29vw, 1.3125rem); // 18 → 21
+  line-height: 1.35;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-end: 0.5rem;
+  }
+}
+
+.numbered__text {
+  line-height: 1.6;
+  color: v.$color-muted;
+}
+
+// ---------------------------------------------------------------------------
+// Tabla de datos: etiqueta / valor
+// ---------------------------------------------------------------------------
+.spec {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  max-width: 40rem;
+  margin-inline: auto;
+
+  @include mx.breakpoint(tablet) {
+    gap: 1.25rem;
+  }
+}
+
+.spec__row {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding-block-start: 0.75rem;
+  border-block-start: 1px solid v.$color-line;
+
+  &:last-child {
+    padding-block-end: 0.75rem;
+    border-block-end: 1px solid v.$color-line;
+  }
+
+  @include mx.breakpoint(tablet) {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 1.5rem;
+    padding-block-start: 1rem;
+
+    &:last-child {
+      padding-block-end: 1rem;
+    }
+  }
+}
+
+.spec__label {
+  font-size: v.$fs-small;
+  color: v.$color-muted;
+}
+
+.spec__value {
+  text-align: end;
+
+  @include mx.breakpoint(tablet) {
+    text-align: start;
+  }
+}
+
+// Sobre la banda oliva.
+.spec--olive {
+  .spec__row {
+    border-block-start-color: v.$color-line-olive;
+
+    &:last-child {
+      border-block-end-color: v.$color-line-olive;
+    }
+  }
+
+  .spec__label {
+    color: v.$color-sage;
+  }
+
+  .spec__value {
+    color: v.$color-cream;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Preguntas frecuentes (details/summary nativo, sin JavaScript)
+// ---------------------------------------------------------------------------
+.faq {
+  max-width: v.$measure;
+  margin-inline: auto;
+}
+
+.faq__item {
+  border-block-end: 1px solid v.$color-line;
+
+  &:last-child {
+    border-block-end: 0;
+  }
+}
+
+.faq__question {
+  display: flex;
+  gap: 1.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-block: 1.25rem;
+  font-family: v.$secondary-font;
+  font-size: v.$fs-intro;
+  line-height: 1.4;
+  cursor: pointer;
+  list-style: none;
+
+  // El mockup no dibuja marcador, pero sin ninguna señal no se entiende que
+  // el bloque se abre: se sustituye por un signo discreto.
+  &::after {
+    flex: none;
+    font-family: v.$primary-font;
+    font-size: v.$fs-lead;
+    line-height: 1;
+    color: v.$color-olive-dark;
+    content: '+';
+  }
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  @include mx.breakpoint(tablet) {
+    padding-block: 1.625rem;
+  }
+}
+
+.faq__item[open] .faq__question::after {
+  content: '−';
+}
+
+.faq__answer {
+  padding-block-end: 1.25rem;
+  line-height: 1.7;
+  color: v.$color-muted;
+
+  @include mx.breakpoint(tablet) {
+    padding-block-end: 1.625rem;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Quién te acompaña
+// ---------------------------------------------------------------------------
+.author {
+  max-width: 68.75rem;
+  margin-inline: auto;
+
+  @include mx.breakpoint(tablethorizontal) {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: clamp(3rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+}
+
+// Igual que en el hero: apilado, el retrato no ocupa todo el ancho.
+.author__media {
+  max-width: 24rem;
+  margin-block-end: 1.75rem;
+
+  @include mx.breakpoint(tablethorizontal) {
+    max-width: none;
+    margin-block-end: 0;
+  }
+}
+
+.author__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.author__label {
+  margin-block-end: 1rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-end: 1.25rem;
+  }
+}
+
+.author__text {
+  max-width: 30rem;
+  margin-block-end: 1rem;
+  font-family: v.$secondary-font;
+  font-size: clamp(1.125rem, 1.03rem + 0.38vw, 1.375rem); // 18 → 22
+  line-height: 1.55;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-end: 1.25rem;
+  }
+}
+
+.author__credentials {
+  margin-block-end: 1.25rem;
+  font-size: v.$fs-small;
+  color: v.$color-muted;
+}
+
+// ---------------------------------------------------------------------------
+// Nota centrada con etiqueta: alcance, garantía, criterios de exclusión…
+// ---------------------------------------------------------------------------
+.note-block {
+  max-width: 40rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.note-block__label {
+  margin-block-end: 1.125rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-end: 1.5rem;
+  }
+}
+
+.note-block__text {
+  line-height: 1.7;
+}
+
+// ---------------------------------------------------------------------------
+// Barra de acción fija en móvil
+// ---------------------------------------------------------------------------
+// Va al final del contenido: queda anclada mientras se recorre la página y se
+// retira al llegar al pie, igual que en el mockup.
+.sticky-cta {
+  position: sticky;
+  inset-block-end: 0;
+  z-index: 5;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem v.$gutter;
+  background-color: v.$color-cream;
+  border-block-start: 1px solid v.$color-line;
+
+  @include mx.breakpoint(tablet) {
+    display: none;
+  }
+}
+
+.sticky-cta__label {
+  font-family: v.$secondary-font;
+  font-size: v.$fs-intro;
+}
+
+.sticky-cta__action {
+  flex: none;
+  padding-inline: 1.25rem;
+}
+
+// ---------------------------------------------------------------------------
+// Bloques que repiten dos o más landings
+// ---------------------------------------------------------------------------
+// Titulares que el mockup deja con más aire debajo que el resto.
+.for-you__title,
+.demand__title,
+.includes__title,
+.how__title,
+.voices .section__title {
+  margin-bottom: clamp(2.5rem, 1.6rem + 3.81vw, 5rem); // 40 → 80
+}
+
+.for-you__note {
+  margin-block-start: 2.25rem;
+  font-size: v.$fs-intro;
+  color: v.$color-olive-dark;
+  text-align: center;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-start: 3.5rem;
+  }
+}
+
+// Testimonios: una cita destacada y el resto en rejilla bajo un filete.
+.voices__featured {
+  max-width: 56.25rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.voices__featured-quote {
+  font-family: v.$secondary-font;
+  font-size: clamp(1.375rem, 1.08rem + 1.14vw, 1.875rem); // 22 → 30
+  line-height: 1.5;
+}
+
+.voices__author {
+  margin-block-start: 1.25rem;
+}
+
+.voices__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 68.75rem;
+  padding-block-start: 2rem;
+  margin-block-start: 2.5rem;
+  margin-inline: auto;
+  border-block-start: 1px solid v.$color-line;
+
+  @include mx.breakpoint(tablethorizontal) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(2.5rem, 4.5vw, 3.5rem);
+    padding-block-start: 4rem;
+    margin-block-start: 4rem;
+  }
+}
+
+.voices__grid--pair {
+  max-width: 62.5rem;
+
+  @include mx.breakpoint(tablethorizontal) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.voices__quote {
+  font-family: v.$secondary-font;
+  font-size: v.$fs-body;
+  font-style: italic;
+  line-height: 1.6;
+
+  @include mx.breakpoint(tablet) {
+    font-size: v.$fs-quote;
+  }
+}
+
+// Bloque de inversión / solicitud sobre la banda oliva.
+.invest .section__inner {
+  text-align: center;
+}
+
+.invest__badge {
+  margin-block-end: 1.75rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-end: 2rem;
+  }
+}
+
+.invest__title {
+  margin-block-end: 2rem;
+  color: v.$color-cream;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-end: 2.75rem;
+  }
+}
+
+.invest__spec {
+  max-width: 26.25rem;
+  margin-block-end: 2rem;
+  text-align: start;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-end: 2.75rem;
+  }
+}
+
+// Cierre de la landing.
+.final-cta .section__inner {
+  text-align: center;
+}
+
+.final-cta__badge {
+  margin-block-end: 1.75rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-end: 2rem;
+  }
+}
+
+.final-cta__title {
+  max-width: 37.5rem;
+  margin-inline: auto;
+  font-size: v.$fs-display-sm;
+  line-height: 1.4;
+}
+
+.final-cta__text {
+  max-width: 31.25rem;
+  margin-block-start: 1.5rem;
+  margin-inline: auto;
+  line-height: 1.65;
+}
+
+.final-cta__action {
+  margin-block-start: 2rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-start: 2.75rem;
+  }
+}
+
+.final-cta__link {
+  margin-block-start: 1.375rem;
+}
+
+// Dos llamadas a la acción juntas: apiladas en móvil, en línea al haber sitio.
+.final-cta__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin-block-start: 2rem;
+
+  @include mx.breakpoint(tablet) {
+    flex-direction: row;
+    gap: 1.25rem;
+    justify-content: center;
+    margin-block-start: 2.75rem;
+  }
+}

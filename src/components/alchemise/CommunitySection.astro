@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import groupImage from '../../assets/images/placeholder-alchemise-grupo.jpg';
+import { communityText } from '../../data/alchemise';
+---
+
+<section class="section section--paper community">
+  <div class="section__inner community__grid">
+    <div class="community__media">
+      <Image
+        class="community__image"
+        src={groupImage}
+        alt="Encuentro grupal de una edición de Alchemise"
+        widths={[400, 600, 900, 1200]}
+        sizes="(min-width: 64rem) 34vw, min(24rem, calc(100vw - 2.75rem))"
+        loading="lazy"
+      />
+    </div>
+
+    <div>
+      <h2 class="community__title">No recorres los 90 días sola.</h2>
+      <p class="community__text">{communityText}</p>
+    </div>
+  </div>
+</section>

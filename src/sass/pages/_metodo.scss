@@ -311,96 +311,7 @@
   color: v.$color-muted;
 }
 
-.growth__table {
-  max-width: 61.25rem;
-  margin-inline: auto;
-}
-
-// Cabecera de columnas: solo existe cuando el bloque se lee como tabla.
-.growth__columns {
-  display: none;
-
-  @include mx.breakpoint(tablet) {
-    display: grid;
-    grid-template-columns: 1fr 1px 1fr;
-    padding-block-end: 1.5rem;
-  }
-}
-
-.growth__column-respect {
-  padding-inline-start: clamp(1.5rem, 3.5vw, 3rem);
-}
-
-.growth__list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-
-  @include mx.breakpoint(tablet) {
-    gap: 0;
-  }
-}
-
-.growth__row {
-  padding-block-start: 1.5rem;
-  border-block-start: 1px solid v.$color-line;
-
-  @include mx.breakpoint(tablet) {
-    display: grid;
-    grid-template-columns: 1fr 1px 1fr;
-    padding-block: 2.25rem;
-  }
-}
-
-.growth__list > :last-child {
-  padding-block-end: 1.5rem;
-  border-block-end: 1px solid v.$color-line;
-
-  @include mx.breakpoint(tablet) {
-    padding-block-end: 2.25rem;
-  }
-}
-
-// En móvil las dos miradas se apilan y cada una conserva su etiqueta visible.
-.growth__label {
-  margin-bottom: 0.625rem;
-
-  @include mx.breakpoint(tablet) {
-    @include mx.visually-hidden;
-  }
-}
-
-.growth__cell--respect {
-  margin-block-start: 0.875rem;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-start: 0;
-    padding-inline-start: clamp(1.5rem, 3.5vw, 3rem);
-  }
-}
-
-.growth__divider {
-  display: none;
-
-  @include mx.breakpoint(tablet) {
-    display: block;
-    background-color: v.$color-line;
-  }
-}
-
-.growth__columns .growth__divider {
-  background-color: v.$color-line-strong;
-}
-
-.growth__text {
-  max-width: 25rem;
-  font-size: v.$fs-body;
-  line-height: 1.6;
-}
-
-.growth__text--demand {
-  color: v.$color-muted;
-}
+// La tabla en sí es un componente compartido con /movimiento-nutricion.
 
 // ---------------------------------------------------------------------------
 // Intro al proceso + etapas
@@ -563,72 +474,13 @@
   color: v.$color-muted;
 }
 
+// La nube en sí es un componente compartido; aquí solo su separación.
 .life__areas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.875rem 1.25rem;
-  align-items: baseline;
-  justify-content: center;
-  max-width: 57.5rem;
   margin-block-start: 2.75rem;
-  margin-inline: auto;
 
   @include mx.breakpoint(tablet) {
-    gap: 1.375rem 2.5rem;
     margin-block-start: 5rem;
   }
-}
-
-.life__area {
-  line-height: 1.2;
-}
-
-// La mezcla de cuerpos y familias es el propio contenido visual del bloque.
-.life__area--size-1 {
-  font-size: clamp(1rem, 0.95rem + 0.19vw, 1.375rem);
-}
-
-.life__area--size-2 {
-  font-size: clamp(1.125rem, 0.94rem + 0.76vw, 1.625rem);
-}
-
-.life__area--size-3 {
-  font-size: clamp(1.25rem, 1.02rem + 0.95vw, 1.875rem);
-}
-
-.life__area--size-4 {
-  font-size: v.$fs-display-sm;
-}
-
-.life__area--size-5 {
-  font-size: clamp(1.6875rem, 1.34rem + 1.43vw, 2.625rem);
-}
-
-.life__area--serif {
-  font-family: v.$secondary-font;
-}
-
-.life__area--sans {
-  font-family: v.$primary-font;
-}
-
-.life__area--muted {
-  color: v.$color-muted;
-}
-
-.life__area--olive {
-  color: v.$color-olive-dark;
-}
-
-// El acento va en cursiva; por debajo de 24px necesita el terracota reforzado.
-.life__area--accent {
-  font-style: italic;
-  color: v.$color-terracotta-strong;
-}
-
-.life__area--accent.life__area--size-4,
-.life__area--accent.life__area--size-5 {
-  color: v.$color-terracotta;
 }
 
 // ---------------------------------------------------------------------------

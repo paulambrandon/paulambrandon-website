@@ -1,0 +1,22 @@
+---
+import type { FaqItem } from '../../data/landing';
+
+interface Props {
+  readonly items: readonly FaqItem[];
+}
+
+const { items } = Astro.props;
+
+// `details`/`summary` nativo: el desplegable funciona sin JavaScript.
+---
+
+<div class="faq">
+  {
+    items.map(({ question, answer }) => (
+      <details class="faq__item">
+        <summary class="faq__question">{question}</summary>
+        <p class="faq__answer">{answer}</p>
+      </details>
+    ))
+  }
+</div>

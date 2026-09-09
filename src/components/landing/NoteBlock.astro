@@ -1,0 +1,13 @@
+---
+interface Props {
+  readonly label: string;
+  readonly text: string;
+}
+
+const { label, text } = Astro.props;
+---
+
+<div class="note-block">
+  <p class="label note-block__label">{label}</p>
+  <p class="note-block__text">{text}</p>
+</div>

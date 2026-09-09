@@ -1,0 +1,31 @@
+---
+import { featuredTestimonial, testimonials } from '../../data/alchemise';
+---
+
+<section class="section section--paper voices">
+  <div class="section__inner">
+    <h2 class="section__title">Mujeres que ya han vivido Alchemise</h2>
+
+    <blockquote class="voices__featured">
+      <p class="voices__featured-quote">{featuredTestimonial.quote}</p>
+      <footer class="label voices__author">{featuredTestimonial.author}</footer>
+    </blockquote>
+
+    <div class="voices__grid">
+      {
+        testimonials.map(({ quote, author }) => (
+          <blockquote>
+            <p class="voices__quote">{quote}</p>
+            <footer class="label voices__author">{author}</footer>
+          </blockquote>
+        ))
+      }
+    </div>
+
+    <p class="testimonials__cta">
+      <a class="link-arrow" href="/testimonios">
+        Ver más historias <span aria-hidden="true">→</span>
+      </a>
+    </p>
+  </div>
+</section>

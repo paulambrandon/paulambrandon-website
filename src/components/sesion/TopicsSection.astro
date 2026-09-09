@@ -1,0 +1,26 @@
+---
+import { topics } from '../../data/sesion-claridad';
+---
+
+<section class="section section--paper">
+  <div class="section__inner">
+    <h2 class="section__title">Qué podemos mirar juntas</h2>
+
+    <ul class="word-cloud">
+      {
+        topics.map(({ label, size, font, tone }) => (
+          <li
+            class:list={[
+              'word-cloud__item',
+              `word-cloud__item--size-${size}`,
+              `word-cloud__item--${font}`,
+              `word-cloud__item--${tone}`,
+            ]}
+          >
+            {label}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

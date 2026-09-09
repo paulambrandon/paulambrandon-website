@@ -156,18 +156,9 @@
 }
 
 .alchemise__badge {
-  display: inline-block;
-  padding: 0.375rem 0.875rem;
   margin-block-end: 1.5rem;
-  font-size: v.$fs-xs;
-  line-height: 1.4;
-  color: v.$color-sage-light;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  border: 1px solid v.$color-line-sage;
 
   @include mx.breakpoint(tablet) {
-    padding: 0.4375rem 1rem;
     margin-block-end: 2rem;
   }
 }

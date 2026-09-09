@@ -1,0 +1,38 @@
+---
+interface Props {
+  /** Etiqueta de la columna izquierda: la mirada de la que se parte. */
+  readonly labelA: string;
+  /** Etiqueta de la columna derecha: la mirada a la que se llega. */
+  readonly labelB: string;
+  readonly rows: readonly { readonly a: string; readonly b: string }[];
+}
+
+const { labelA, labelB, rows } = Astro.props;
+---
+
+<div class="compare">
+  {/* Cabecera decorativa: cada fila repite las etiquetas para lectores de pantalla. */}
+  <div class="compare__columns" aria-hidden="true">
+    <span class="label">{labelA}</span>
+    <span class="compare__divider"></span>
+    <span class="label label--olive compare__column-b">{labelB}</span>
+  </div>
+
+  <ul class="compare__list">
+    {
+      rows.map(({ a, b }) => (
+        <li class="compare__row">
+          <div>
+            <span class="label compare__label">{labelA}</span>
+            <p class="compare__text compare__text--a">{a}</p>
+          </div>
+          <span class="compare__divider" aria-hidden="true" />
+          <div class="compare__cell--b">
+            <span class="label label--olive compare__label">{labelB}</span>
+            <p class="compare__text">{b}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</div>

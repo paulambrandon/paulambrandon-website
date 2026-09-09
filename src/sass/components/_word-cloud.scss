@@ -1,0 +1,73 @@
+@use '@abstracts/variables' as v;
+@use '@abstracts/mixins' as mx;
+
+// Conjunto de conceptos con cuerpos y familias mezclados: la propia mezcla es
+// el contenido visual del bloque. Lo usan /metodo y /sesion-claridad.
+.word-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem 1.25rem;
+  align-items: baseline;
+  justify-content: center;
+  max-width: 57.5rem;
+  margin-inline: auto;
+
+  @include mx.breakpoint(tablet) {
+    gap: 1.375rem 2.5rem;
+  }
+}
+
+.word-cloud__item {
+  line-height: 1.2;
+}
+
+.word-cloud__item--size-1 {
+  font-size: clamp(1rem, 0.95rem + 0.19vw, 1.375rem);
+}
+
+.word-cloud__item--size-2 {
+  font-size: clamp(1.125rem, 0.94rem + 0.76vw, 1.625rem);
+}
+
+.word-cloud__item--size-3 {
+  font-size: clamp(1.25rem, 1.02rem + 0.95vw, 1.875rem);
+}
+
+.word-cloud__item--size-4 {
+  font-size: v.$fs-display-sm;
+}
+
+.word-cloud__item--size-5 {
+  font-size: clamp(1.6875rem, 1.34rem + 1.43vw, 2.625rem);
+}
+
+.word-cloud__item--serif {
+  font-family: v.$secondary-font;
+}
+
+.word-cloud__item--sans {
+  font-family: v.$primary-font;
+}
+
+.word-cloud__item--ink {
+  color: v.$color-charcoal;
+}
+
+.word-cloud__item--muted {
+  color: v.$color-muted;
+}
+
+.word-cloud__item--olive {
+  color: v.$color-olive-dark;
+}
+
+// El acento va en cursiva; por debajo de 24px necesita el terracota reforzado.
+.word-cloud__item--accent {
+  font-style: italic;
+  color: v.$color-terracotta-strong;
+}
+
+.word-cloud__item--accent.word-cloud__item--size-4,
+.word-cloud__item--accent.word-cloud__item--size-5 {
+  color: v.$color-terracotta;
+}

@@ -1,0 +1,18 @@
+---
+import ClaimList from '../landing/ClaimList.astro';
+import { forYouIf } from '../../data/alchemise';
+---
+
+<section class="section section--paper for-you">
+  <div class="section__inner">
+    <h2 class="section__title for-you__title">
+      Alchemise puede ser para ti si…
+    </h2>
+
+    <ClaimList items={forYouIf} columns={2} />
+
+    <p class="lead-italic for-you__note">
+      O simplemente quieres crecer sin utilizar la exigencia como combustible.
+    </p>
+  </div>
+</section>

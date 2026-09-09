@@ -1,0 +1,22 @@
+---
+import { timeline } from '../../data/alchemise';
+---
+
+<section class="section section--paper timeline">
+  <div class="section__inner">
+    <h2 class="section__title timeline__title">
+      90 días. No una charla que escuchas y olvidas.
+    </h2>
+
+    <dl class="timeline__list">
+      {
+        timeline.map(({ label, text }) => (
+          <div class="timeline__phase">
+            <dt class="label label--olive timeline__label">{label}</dt>
+            <dd class="timeline__text">{text}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

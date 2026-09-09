@@ -36,6 +36,15 @@ $color-line-olive: #647159; // divisores sobre oliva
 // oliva sube a 1.4:1. Este tono la mantiene legible como contorno.
 $color-line-sage: #8b9580; // contorno de la insignia de edición
 
+// Letras grandes del método IMAC. El mockup usa #8b9580, que sobre oliva se
+// queda en 2.32:1: se aclara a 3.31:1 conservando el escalón por debajo del
+// cuerpo de texto en $color-sage.
+$color-sage-dim: #a7b39a;
+
+// Cifras de las listas numeradas. El gris cálido del mockup (#b0a99a) marca
+// 1.82:1 sobre arena; este tono llega a 3.1:1, el mínimo para texto grande.
+$color-numeral: #847f74;
+
 $color-footer-text: #c9c4b8;
 $color-footer-dim: #a8a296;
 

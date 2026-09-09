@@ -1,0 +1,19 @@
+---
+interface Props {
+  readonly label: string;
+  readonly href: string;
+  readonly action: string;
+}
+
+const { label, href, action } = Astro.props;
+
+// Solo visible en móvil. Va al final del contenido para quedar anclada
+// mientras se recorre la página y retirarse al llegar al pie.
+---
+
+<div class="sticky-cta">
+  <span class="sticky-cta__label">{label}</span>
+  <a class="button button--primary sticky-cta__action" href={href}>
+    {action} <span aria-hidden="true">→</span>
+  </a>
+</div>

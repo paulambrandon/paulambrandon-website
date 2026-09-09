@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SessionHero from '../components/sesion/SessionHero.astro';
+import TopicsSection from '../components/sesion/TopicsSection.astro';
+import SessionTestimonials from '../components/sesion/SessionTestimonials.astro';
+import BookingSection from '../components/sesion/BookingSection.astro';
+import ClaimList from '../components/landing/ClaimList.astro';
+import NumberedList from '../components/landing/NumberedList.astro';
+import SpecList from '../components/landing/SpecList.astro';
+import AuthorSection from '../components/landing/AuthorSection.astro';
+import Faq from '../components/landing/Faq.astro';
+import paulaImage from '../assets/images/placeholder-sesion-paula.jpg';
+import {
+  afterStatement,
+  afterText,
+  authorCredentials,
+  authorText,
+  faq,
+  forYouIf,
+  howItWorks,
+  noMoreInfo,
+  notTherapy,
+  practical,
+  professionalScope,
+  takeaways,
+} from '../data/sesion-claridad';
+import { PERSON_NAME } from '../data/site';
+
+// Title literal de /docs/seo/paulambrandon-seo.md §8.
+const title = `Sesión de claridad | ${PERSON_NAME}`;
+
+// El documento SEO no define meta description para esta landing. En lugar de
+// inventar una, se reutiliza la entradilla aprobada del propio hero.
+const description =
+  'Un espacio para detenerte, ordenar lo que está ocurriendo y ver con más claridad cuál puede ser tu siguiente paso.';
+---
+
+<Layout title={title} description={description}>
+  <SessionHero />
+
+  <section class="section section--paper no-more-info">
+    <div class="section__inner">
+      <h2 class="no-more-info__title">
+        Quizá no necesitas seguir dándole más vueltas.
+      </h2>
+      <p class="no-more-info__text">{noMoreInfo}</p>
+    </div>
+  </section>
+
+  <section class="section section--sand for-you">
+    <div class="section__inner">
+      <h2 class="section__title for-you__title">
+        Esta sesión puede encajar contigo si…
+      </h2>
+      <ClaimList items={forYouIf} class="session-list" />
+    </div>
+  </section>
+
+  <TopicsSection />
+
+  <section class="section section--sand how">
+    <div class="section__inner">
+      <h2 class="section__title how__title">Cómo funciona</h2>
+      <NumberedList items={howItWorks} />
+    </div>
+  </section>
+
+  <section class="section section--olive not-therapy">
+    <div class="section__inner">
+      <h2 class="not-therapy__title">Lo que esta sesión no es</h2>
+      <p class="not-therapy__text">{notTherapy}</p>
+      <p class="not-therapy__scope">{professionalScope}</p>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="section__inner">
+      <h2 class="section__title how__title">Al terminar</h2>
+      <ClaimList items={takeaways} class="session-list" />
+    </div>
+  </section>
+
+  <SessionTestimonials />
+
+  <section class="section section--paper">
+    <div class="section__inner">
+      <AuthorSection
+        image={paulaImage}
+        imageAlt="Retrato de Paula Márquez Brandon"
+        label="Quién estará al otro lado"
+        text={authorText}
+        credentials={authorCredentials}
+        linkHref="/sobre-mi"
+        linkLabel="Conoce mi historia"
+      />
+    </div>
+  </section>
+
+  <section class="section section--sand practical">
+    <div class="section__inner">
+      <h2 class="section__title practical__title">Información práctica</h2>
+      <SpecList rows={practical} class="practical__spec" />
+    </div>
+  </section>
+
+  <BookingSection />
+
+  <section class="section section--paper after">
+    <div class="section__inner">
+      <p class="after__statement">{afterStatement}</p>
+      <p class="after__text">{afterText}</p>
+      <p class="after__link">
+        <a class="link-arrow" href="/programas">
+          Ver todos los programas <span aria-hidden="true">→</span>
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="section__inner">
+      <h2 class="section__title how__title">Preguntas frecuentes</h2>
+      <Faq items={faq} />
+    </div>
+  </section>
+
+  <section class="section section--paper section--spacious final-cta">
+    <div class="section__inner">
+      <h2 class="final-cta__title">
+        No necesitas tenerlo todo claro antes de empezar a hablar.
+      </h2>
+      <p class="final-cta__text">
+        Puedes llegar con una pregunta concreta o simplemente con la sensación
+        de que hay algo que necesitas ordenar.
+      </p>
+      <div class="final-cta__actions">
+        <a class="button button--primary" href="#reserva">
+          Reservar sesión <span aria-hidden="true">→</span>
+        </a>
+        <a class="button button--secondary" href="/contacto">
+          Contactar <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

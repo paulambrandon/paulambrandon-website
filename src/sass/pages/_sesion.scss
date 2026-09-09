@@ -1,0 +1,229 @@
+@use '@abstracts/variables' as v;
+@use '@abstracts/mixins' as mx;
+
+// ---------------------------------------------------------------------------
+// Hero centrado con el retrato debajo
+// ---------------------------------------------------------------------------
+.session-hero {
+  padding-block: 0.5rem 3.5rem;
+  text-align: center;
+
+  @include mx.breakpoint(tablet) {
+    padding-block: 2.5rem 0;
+  }
+
+  @include mx.breakpoint(tablethorizontal) {
+    padding-block-start: 3.75rem;
+  }
+}
+
+.session-hero__inner {
+  @include mx.container(56.25rem);
+}
+
+.session-hero__eyebrow {
+  margin-block-end: 1.5rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-end: 2rem;
+  }
+}
+
+.session-hero__title {
+  margin-block-end: 1.375rem;
+  font-size: clamp(2.25rem, 1.65rem + 2.29vw, 3.25rem); // 36 → 52
+  line-height: 1.2;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-end: 2rem;
+  }
+}
+
+.session-hero__lede {
+  max-width: 37.5rem;
+  margin-block-end: 1.75rem;
+  margin-inline: auto;
+  font-family: v.$secondary-font;
+  font-size: v.$fs-quote;
+  line-height: 1.6;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-end: 2.5rem;
+  }
+}
+
+.session-hero__media {
+  max-width: 27.5rem;
+  margin-block-start: 2.75rem;
+  margin-inline: auto;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-start: 5.5rem;
+  }
+}
+
+.session-hero__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+// ---------------------------------------------------------------------------
+// Quizá no necesitas seguir dándole vueltas
+// ---------------------------------------------------------------------------
+.no-more-info .section__inner {
+  text-align: center;
+}
+
+.no-more-info__title {
+  max-width: 37.5rem;
+  margin-inline: auto;
+  margin-block-end: 1.75rem;
+  font-size: v.$fs-h2;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-end: 2.75rem;
+  }
+}
+
+.no-more-info__text {
+  max-width: v.$measure-narrow;
+  margin-inline: auto;
+  font-size: v.$fs-intro;
+  line-height: 1.7;
+  color: v.$color-muted;
+}
+
+// Estas dos listas son algo más anchas que la medida por defecto del bloque.
+.session-list {
+  max-width: v.$measure-wide;
+}
+
+// ---------------------------------------------------------------------------
+// Lo que esta sesión no es
+// ---------------------------------------------------------------------------
+.not-therapy .section__inner {
+  text-align: center;
+}
+
+.not-therapy__title {
+  margin-block-end: 1.25rem;
+  color: v.$color-cream;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-end: 2rem;
+  }
+}
+
+.not-therapy__text {
+  max-width: v.$measure-narrow;
+  margin-inline: auto;
+  line-height: 1.7;
+  color: v.$color-sage;
+}
+
+.not-therapy__scope {
+  margin-block-start: 1rem;
+  font-size: v.$fs-small;
+  color: v.$color-sage;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-start: 1.25rem;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Testimonios apilados
+// ---------------------------------------------------------------------------
+.session-voices {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  max-width: v.$measure-wide;
+  margin-inline: auto;
+
+  @include mx.breakpoint(tablet) {
+    gap: 4rem;
+  }
+}
+
+.session-voices__featured p {
+  font-family: v.$secondary-font;
+  font-size: clamp(1.25rem, 1.09rem + 0.67vw, 1.625rem); // 20 → 26
+  line-height: 1.55;
+}
+
+.session-voices__item {
+  padding-block-start: 2.25rem;
+  border-block-start: 1px solid v.$color-line;
+
+  @include mx.breakpoint(tablet) {
+    padding-block-start: 4rem;
+  }
+}
+
+.session-voices__item p {
+  font-family: v.$secondary-font;
+  font-size: v.$fs-quote;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+// ---------------------------------------------------------------------------
+// Información práctica y reserva
+// ---------------------------------------------------------------------------
+.practical__title {
+  margin-bottom: clamp(2.25rem, 1.62rem + 2.67vw, 4rem); // 36 → 64
+}
+
+.practical__spec {
+  max-width: 40rem;
+}
+
+.booking__spec {
+  max-width: 22.5rem;
+}
+
+.booking__note {
+  margin-block-start: 1.375rem;
+  font-size: v.$fs-small;
+  color: v.$color-sage;
+}
+
+.booking__link {
+  color: v.$color-cream;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+// ---------------------------------------------------------------------------
+// La sesión no tiene que terminar en otro programa
+// ---------------------------------------------------------------------------
+.after .section__inner {
+  text-align: center;
+}
+
+.after__statement {
+  max-width: 37.5rem;
+  margin-inline: auto;
+  font-family: v.$secondary-font;
+  font-size: clamp(1.1875rem, 1rem + 0.76vw, 1.5rem); // 19 → 24
+  line-height: 1.5;
+}
+
+.after__text {
+  max-width: 32.5rem;
+  margin-block-start: 1.125rem;
+  margin-inline: auto;
+  line-height: 1.7;
+  color: v.$color-muted;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-start: 1.5rem;
+  }
+}
+
+.after__link {
+  margin-block-start: 1.375rem;
+}

@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+import heroImage from '../../assets/images/placeholder-movimiento-hero.jpg';
+import { heroLede, requestHref } from '../../data/movimiento-nutricion';
+---
+
+<section class="landing-hero movement-hero">
+  <div class="landing-hero__inner">
+    <div class="landing-hero__grid">
+      <div class="landing-hero__head">
+        <p class="eyebrow eyebrow--caps landing-hero__kicker">
+          Movimiento + nutrición
+        </p>
+        <h1 class="movement-hero__title">
+          Movimiento y nutrición, sin obsesión
+        </h1>
+        <p class="landing-hero__lede">{heroLede}</p>
+      </div>
+
+      <div class="landing-hero__media">
+        <div class="landing-hero__frame">
+          <Image
+            class="landing-hero__image"
+            src={heroImage}
+            alt="Paula Márquez Brandon durante una sesión de movimiento"
+            widths={[400, 600, 900, 1200]}
+            sizes="(min-width: 64rem) 40vw, min(24rem, calc(100vw - 2.75rem))"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
+
+      <div class="landing-hero__actions">
+        <p>
+          <a class="button button--primary" href={requestHref}>
+            Solicitar acompañamiento <span aria-hidden="true">→</span>
+          </a>
+        </p>
+        <p class="landing-hero__note">
+          <a class="link-arrow" href="#trabajamos">
+            Descubre cómo funciona <span aria-hidden="true">↓</span>
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

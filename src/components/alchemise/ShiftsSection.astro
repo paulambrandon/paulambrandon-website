@@ -1,0 +1,29 @@
+---
+import { shifts } from '../../data/alchemise';
+---
+
+<section class="section section--paper shifts">
+  <div class="section__inner">
+    <h2 class="section__title shifts__title">
+      90 días para empezar a relacionarte contigo desde otro lugar.
+    </h2>
+
+    <ul class="shifts__list">
+      {
+        shifts.map(({ from, to }) => (
+          <li class="shifts__row">
+            <p class="shifts__from">{from}</p>
+            <span class="shifts__arrow" aria-hidden="true">
+              →
+            </span>
+            <p class="shifts__to">{to}</p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="lead-italic shifts__note">
+      Esta es la dirección del proceso, no un resultado garantizado.
+    </p>
+  </div>
+</section>
