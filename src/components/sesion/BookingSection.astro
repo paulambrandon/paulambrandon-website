@@ -1,0 +1,25 @@
+---
+import SpecList from '../landing/SpecList.astro';
+import { booking, bookingHref } from '../../data/sesion-claridad';
+---
+
+<section class="section section--olive invest" id="reserva">
+  <div class="section__inner">
+    <h2 class="invest__title">Reserva tu sesión</h2>
+
+    <SpecList rows={booking} olive class="invest__spec booking__spec" />
+
+    <p>
+      <a class="button button--light" href={bookingHref}>
+        Reservar sesión <span aria-hidden="true">→</span>
+      </a>
+    </p>
+
+    <p class="booking__note">
+      Si antes de reservar necesitas preguntarme algo, puedes escribirme.
+      <a class="booking__link" href="/contacto">
+        Contactar <span aria-hidden="true">→</span>
+      </a>
+    </p>
+  </div>
+</section>

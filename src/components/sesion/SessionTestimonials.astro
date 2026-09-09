@@ -1,0 +1,27 @@
+---
+import { featuredTestimonial, testimonials } from '../../data/sesion-claridad';
+---
+
+<section class="section section--sand">
+  <div class="section__inner">
+    <div class="session-voices">
+      <blockquote class="session-voices__featured">
+        <p>{featuredTestimonial}</p>
+      </blockquote>
+
+      {
+        testimonials.map((quote) => (
+          <blockquote class="session-voices__item">
+            <p>{quote}</p>
+          </blockquote>
+        ))
+      }
+    </div>
+
+    <p class="testimonials__cta">
+      <a class="link-arrow" href="/testimonios">
+        Ver más historias <span aria-hidden="true">→</span>
+      </a>
+    </p>
+  </div>
+</section>

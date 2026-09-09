@@ -157,7 +157,8 @@
   color: v.$color-muted;
 }
 
-@include mx.breakpoint(tablet) {
+// A 768px cada columna dejaría unos 184px de texto: el reparto espera.
+@include mx.breakpoint(tablethorizontal) {
   .work__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -333,7 +334,7 @@
   margin-inline: auto;
   border-block-start: 1px solid v.$color-line;
 
-  @include mx.breakpoint(tablet) {
+  @include mx.breakpoint(tablethorizontal) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
@@ -354,7 +355,7 @@
   line-height: 1.6;
 }
 
-@include mx.breakpoint(tablet) {
+@include mx.breakpoint(tablethorizontal) {
   .credentials__item {
     padding-inline: 2rem;
     border-inline-start: 1px solid v.$color-line;
