@@ -1,0 +1,19 @@
+---
+import ClaimList from '../landing/ClaimList.astro';
+import { knownTruths } from '../../data/alchemise';
+---
+
+<section class="section section--paper identify">
+  <div class="section__inner">
+    <h2 class="section__title identify__title">
+      Quizá ya sabes perfectamente lo que deberías hacer.
+    </h2>
+
+    <ClaimList items={knownTruths} class="identify__list" />
+
+    <p class="identify__turn">
+      Y aun así, en el momento real, vuelves al mismo patrón.
+    </p>
+    <p class="identify__note">Saberlo no es lo mismo que haberlo integrado.</p>
+  </div>
+</section>

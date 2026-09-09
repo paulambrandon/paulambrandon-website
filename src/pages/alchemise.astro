@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AlchemiseHero from '../components/alchemise/AlchemiseHero.astro';
+import IdentifySection from '../components/alchemise/IdentifySection.astro';
+import ForYouSection from '../components/alchemise/ForYouSection.astro';
+import ShiftsSection from '../components/alchemise/ShiftsSection.astro';
+import ImacSection from '../components/alchemise/ImacSection.astro';
+import TimelineSection from '../components/alchemise/TimelineSection.astro';
+import CommunitySection from '../components/alchemise/CommunitySection.astro';
+import AlchemiseTestimonials from '../components/alchemise/AlchemiseTestimonials.astro';
+import InvestmentSection from '../components/alchemise/InvestmentSection.astro';
+import FinalCta from '../components/alchemise/FinalCta.astro';
+import NumberedList from '../components/landing/NumberedList.astro';
+import NoteBlock from '../components/landing/NoteBlock.astro';
+import AuthorSection from '../components/landing/AuthorSection.astro';
+import Faq from '../components/landing/Faq.astro';
+import StickyCta from '../components/landing/StickyCta.astro';
+import paulaImage from '../assets/images/placeholder-alchemise-paula.jpg';
+import {
+  authorCredentials,
+  authorText,
+  editionCta,
+  encountersText,
+  faq,
+  guarantee,
+  includes,
+  notForYou,
+} from '../data/alchemise';
+import { PERSON_NAME } from '../data/site';
+
+// Title literal de /docs/seo/paulambrandon-seo.md §8.
+const title = `Alchemise: programa de 90 días para mujeres autoexigentes | ${PERSON_NAME}`;
+
+// El documento SEO no define meta description para /alchemise. En lugar de
+// inventar una, se reutiliza la entradilla aprobada del propio hero.
+const description =
+  'Un proceso de 90 días para dejar de vivir desde la autoexigencia y la sensación de que siempre hay algo en ti que arreglar, sin dejar de crecer.';
+
+// Sin datos estructurados: la estrategia SEO no define schema para esta
+// landing y casi toda su información (precio, fechas, plazas) sigue pendiente.
+---
+
+<Layout title={title} description={description}>
+  <AlchemiseHero />
+  <IdentifySection />
+
+  <section class="section section--sand purpose">
+    <div class="section__inner">
+      <p class="purpose__statement">
+        No necesitas otra cosa que entender intelectualmente y olvidar una
+        semana después.
+      </p>
+      <p class="purpose__text">
+        Alchemise es un proceso de 90 días donde aquello que empiezas a
+        comprender puede trabajarse, aplicarse y consolidarse.
+      </p>
+    </div>
+  </section>
+
+  <ForYouSection />
+
+  <section class="section section--sand">
+    <div class="section__inner">
+      <NoteBlock label="No es para ti si…" text={notForYou} />
+    </div>
+  </section>
+
+  <ShiftsSection />
+  <ImacSection />
+  <TimelineSection />
+
+  <section class="section section--sand includes">
+    <div class="section__inner">
+      <h2 class="section__title">Qué incluye Alchemise</h2>
+      <NumberedList items={includes} />
+    </div>
+  </section>
+
+  <CommunitySection />
+
+  <section class="section section--sand">
+    <div class="section__inner">
+      <NoteBlock label="Encuentros / experiencia" text={encountersText} />
+    </div>
+  </section>
+
+  <AlchemiseTestimonials />
+
+  <section class="section section--sand">
+    <div class="section__inner">
+      <AuthorSection
+        image={paulaImage}
+        imageAlt="Retrato de Paula Márquez Brandon"
+        label="Quién te acompaña"
+        text={authorText}
+        credentials={authorCredentials}
+        linkHref="/sobre-mi"
+        linkLabel="Conoce mi historia"
+      />
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="section__inner">
+      <NoteBlock label="Garantía" text={guarantee} />
+    </div>
+  </section>
+
+  <InvestmentSection />
+
+  <section class="section section--paper">
+    <div class="section__inner">
+      <h2 class="section__title">Preguntas frecuentes</h2>
+      <Faq items={faq} />
+    </div>
+  </section>
+
+  <FinalCta />
+
+  <StickyCta label="Alchemise" href="#inversion" action={editionCta} />
+</Layout>

@@ -1,0 +1,31 @@
+---
+import { imacPhases } from '../../data/alchemise';
+
+// El ancla `metodo-imac` la fija la estrategia SEO: IMAC vive dentro de
+// /alchemise y se enlaza como /alchemise#metodo-imac. No debe renombrarse.
+---
+
+<section class="section section--olive imac" id="metodo-imac">
+  <div class="section__inner">
+    <div class="imac__head">
+      <p class="label label--sage imac__label">El proceso</p>
+      <h2 class="imac__title">Método IMAC</h2>
+    </div>
+
+    <ol class="imac__list">
+      {
+        imacPhases.map(({ letter, title, text }) => (
+          <li class="imac__phase">
+            <span class="imac__letter" aria-hidden="true">
+              {letter}
+            </span>
+            <div>
+              <h3 class="imac__phase-title">{title}</h3>
+              <p class="imac__text">{text}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
