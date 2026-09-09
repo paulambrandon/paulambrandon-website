@@ -8,6 +8,8 @@
 $hero-split: min(66%, calc(50% + 14.4rem));
 
 .hero {
+  display: grid;
+  min-height: 100dvh;
   padding-block: 0.5rem 3.5rem;
   padding-inline: v.$gutter;
   background-color: v.$color-sand;
