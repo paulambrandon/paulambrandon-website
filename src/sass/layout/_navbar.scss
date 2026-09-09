@@ -1,13 +1,15 @@
 @use '@abstracts/variables' as v;
 @use '@abstracts/mixins' as mx;
 
+$-nav-desktop: 56.3125rem;
+
 .main-nav {
   display: flex;
   flex-direction: column;
 
-  @include mx.breakpoint(tablethorizontal) {
+  @media (min-width: $-nav-desktop) {
     flex-direction: row;
-    gap: 2.5rem;
+    gap: 1.5rem;
   }
 }
 
@@ -30,7 +32,7 @@
     text-underline-offset: 0.35em;
   }
 
-  @include mx.breakpoint(tablethorizontal) {
+  @media (min-width: $-nav-desktop) {
     padding-block: 0;
   }
 }

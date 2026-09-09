@@ -5,33 +5,29 @@ import heroPortrait from '../../assets/images/paula-marquez-brandon.webp';
 
 <section class="hero">
   <div class="hero__inner">
-    <div class="hero__media">
-      <div class="hero__frame">
-        <Image
-          class="hero__image"
-          src={heroPortrait}
-          alt="Paula Márquez Brandon, retrato"
-          widths={[350, 500, 700, 1000]}
-          sizes="(min-width: 48rem) 30vw, calc(100vw - 2.5rem)"
-          loading="eager"
-          fetchpriority="high"
-        />
-      </div>
-    </div>
-
     <div class="hero__text">
       <p class="eyebrow">No necesitas convertirte en otra mujer.</p>
       <h1 class="hero__title">
         Necesitas dejar de construir tu vida alrededor de la idea de que no eres
         suficiente.
       </h1>
-      <p class="hero__lede">
-        Acompaño a mujeres que viven desde la autoexigencia, la culpa y la
-        sensación constante de tener que demostrar su valor.
-      </p>
       <a class="button button--primary hero__cta" href="#el-problema">
         Descubre qué hay realmente detrás <span aria-hidden="true">→</span>
       </a>
+    </div>
+
+    <div class="hero__media">
+      <div class="hero__frame">
+        <Image
+          class="hero__image"
+          src={heroPortrait}
+          alt="Paula Márquez Brandon, retrato"
+          widths={[350, 500, 700]}
+          sizes="(min-width: 53.8125rem) 300px, (max-width: 40rem) 58vw, 380px"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
     </div>
   </div>
 </section>
