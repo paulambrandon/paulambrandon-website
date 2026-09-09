@@ -1,0 +1,29 @@
+---
+import type { NumberedItem } from '../../data/landing';
+
+interface Props {
+  readonly items: readonly NumberedItem[];
+}
+
+const { items } = Astro.props;
+
+// La cifra es el ordinal de la lista: se pinta como adorno y el orden real lo
+// aporta el propio <ol>, así que no se anuncia dos veces.
+const ordinal = (index: number): string => String(index + 1).padStart(2, '0');
+---
+
+<ol class="numbered">
+  {
+    items.map(({ title, text }, index) => (
+      <li class="numbered__item">
+        <span class="numbered__number" aria-hidden="true">
+          {ordinal(index)}
+        </span>
+        <div>
+          <h3 class="numbered__title">{title}</h3>
+          <p class="numbered__text">{text}</p>
+        </div>
+      </li>
+    ))
+  }
+</ol>

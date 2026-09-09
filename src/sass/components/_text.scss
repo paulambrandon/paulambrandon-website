@@ -20,13 +20,16 @@
   }
 }
 
-// Variante centrada: filete a ambos lados y texto en versalitas. La usa el
-// hero de /programas, donde el eyebrow es una etiqueta corta y no una frase.
-.eyebrow--centered {
-  justify-content: center;
+// Versalitas: para eyebrows que son una etiqueta corta y no una frase.
+.eyebrow--caps {
   font-size: v.$fs-xs;
   text-transform: uppercase;
   letter-spacing: 0.14em;
+}
+
+// Centrado, con filete también a la derecha.
+.eyebrow--centered {
+  justify-content: center;
 
   &::after {
     flex: none;

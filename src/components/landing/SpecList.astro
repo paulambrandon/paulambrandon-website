@@ -1,0 +1,23 @@
+---
+import type { SpecRow } from '../../data/landing';
+
+interface Props {
+  readonly rows: readonly SpecRow[];
+  /** Sobre la banda oliva cambian filete y tonos. */
+  readonly olive?: boolean;
+  readonly class?: string;
+}
+
+const { rows, olive = false, class: className } = Astro.props;
+---
+
+<dl class:list={['spec', olive && 'spec--olive', className]}>
+  {
+    rows.map(({ label, value }) => (
+      <div class="spec__row">
+        <dt class="spec__label">{label}</dt>
+        <dd class="spec__value">{value}</dd>
+      </div>
+    ))
+  }
+</dl>

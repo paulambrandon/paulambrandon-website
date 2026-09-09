@@ -1,0 +1,32 @@
+@use '@abstracts/variables' as v;
+@use '@abstracts/mixins' as mx;
+
+// Etiqueta enmarcada que anuncia el estado de una edición o el formato de un
+// programa. Aparece en /programas y en las tres landings.
+.badge {
+  display: inline-block;
+  padding: 0.375rem 0.875rem;
+  font-size: v.$fs-xs;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  border: 1px solid currentcolor;
+
+  @include mx.breakpoint(tablet) {
+    padding: 0.4375rem 1rem;
+  }
+}
+
+// Sobre la banda oliva. El contorno necesita un tono más claro que el texto
+// para no desaparecer, así que no hereda `currentcolor`.
+.badge--sage {
+  color: v.$color-sage-light;
+  border-color: v.$color-line-sage;
+}
+
+// Sobre fondos claros: acento terracota, con el tono reforzado en el texto
+// porque a 12px el decorativo no llega a AA.
+.badge--accent {
+  color: v.$color-terracotta-strong;
+  border-color: v.$color-terracotta;
+}
