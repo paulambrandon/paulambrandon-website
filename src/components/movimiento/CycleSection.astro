@@ -1,0 +1,32 @@
+---
+import { cycle, cycleClosing } from '../../data/movimiento-nutricion';
+
+// La rueda es una secuencia: el orden lo aporta la lista y las flechas son
+// decorativas, así que no se anuncian.
+---
+
+<section class="section section--sand cycle">
+  <div class="section__inner">
+    <h2 class="section__title">El ciclo del todo o nada</h2>
+
+    <ol class="cycle__list">
+      {
+        cycle.map(({ label, breaking }, index) => (
+          <li
+            class:list={['cycle__step', breaking && 'cycle__step--breaking']}
+          >
+            {index > 0 && (
+              <span class="cycle__arrow" aria-hidden="true">
+                →
+              </span>
+            )}
+            {label}
+          </li>
+        ))
+      }
+    </ol>
+
+    <p class="cycle__closing">{cycleClosing}</p>
+    <p class="cycle__restart">Motivación...</p>
+  </div>
+</section>

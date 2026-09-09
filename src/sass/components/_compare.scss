@@ -1,0 +1,100 @@
+@use '@abstracts/variables' as v;
+@use '@abstracts/mixins' as mx;
+
+// ---------------------------------------------------------------------------
+// Tabla de dos miradas sobre lo mismo: exigencia frente a respeto en /metodo y
+// exigencia frente a autocuidado en /movimiento-nutricion.
+//
+// En pantallas anchas se lee como tabla, con las etiquetas una sola vez en la
+// cabecera. Apilada, cada fila recupera sus dos etiquetas visibles.
+// ---------------------------------------------------------------------------
+.compare {
+  max-width: 61.25rem;
+  margin-inline: auto;
+}
+
+.compare__columns {
+  display: none;
+
+  @include mx.breakpoint(tablet) {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    padding-block-end: 1.5rem;
+  }
+}
+
+.compare__columns .compare__divider {
+  background-color: v.$color-line-strong;
+}
+
+.compare__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+
+  @include mx.breakpoint(tablet) {
+    gap: 0;
+  }
+}
+
+.compare__row {
+  padding-block-start: 1.5rem;
+  border-block-start: 1px solid v.$color-line;
+
+  @include mx.breakpoint(tablet) {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    padding-block: 2.25rem;
+  }
+}
+
+.compare__list > :last-child {
+  padding-block-end: 1.5rem;
+  border-block-end: 1px solid v.$color-line;
+
+  @include mx.breakpoint(tablet) {
+    padding-block-end: 2.25rem;
+  }
+}
+
+.compare__label {
+  margin-bottom: 0.625rem;
+
+  @include mx.breakpoint(tablet) {
+    @include mx.visually-hidden;
+  }
+}
+
+.compare__cell--b {
+  margin-block-start: 0.875rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-start: 0;
+  }
+}
+
+.compare__cell--b,
+.compare__column-b {
+  @include mx.breakpoint(tablet) {
+    padding-inline-start: clamp(1.5rem, 3.5vw, 3rem);
+  }
+}
+
+.compare__divider {
+  display: none;
+
+  @include mx.breakpoint(tablet) {
+    display: block;
+    background-color: v.$color-line;
+  }
+}
+
+.compare__text {
+  max-width: 25rem;
+  font-size: v.$fs-body;
+  line-height: 1.6;
+}
+
+.compare__text--a {
+  color: v.$color-muted;
+}
