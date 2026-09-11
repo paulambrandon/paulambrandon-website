@@ -1,11 +1,3 @@
-/**
- * Contenido de la Home.
- *
- * Copy tomado literalmente del mockup aprobado (`/referencias`) y de
- * `DESIGN.md`. Los textos marcados con corchetes son los placeholders del
- * propio mockup: siguen pendientes del contenido real de Paula.
- */
-
 export interface TransformationPair {
   readonly before: string;
   readonly after: string;
