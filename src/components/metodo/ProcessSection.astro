@@ -1,59 +1,25 @@
 ---
-import { Image } from 'astro:assets';
 import { methodStages } from '../../data/metodo';
-import stage01 from '../../assets/images/placeholder-etapa-01.jpg';
-import stage02 from '../../assets/images/placeholder-etapa-02.jpg';
-import stage03 from '../../assets/images/placeholder-etapa-03.jpg';
-
-// Las fotos acompañan a cada etapa en el mismo orden que `methodStages`.
-const stageImages = [stage01, stage02, stage03];
 ---
 
-<section class="section section--paper section--spacious process-intro">
+<section class="section section--paper method-stages" id="etapas" aria-labelledby="etapas-titulo">
   <div class="section__inner">
-    <h2 class="process-intro__title">
-      Entenderlo no basta. El cambio tiene que convertirse en una forma
-      diferente de relacionarte contigo.
-    </h2>
-    <p class="lead-italic process-intro__note">
-      Por eso el proceso recorre tres etapas.
-    </p>
-  </div>
-</section>
-
-<section class="section section--sand stages">
-  <div class="section__inner">
-    <ol class="stages__list">
-      {
-        methodStages.map(({ number, kicker, title, intro, description }, i) => (
-          <li class="stage">
-            <div class="stage__content">
-              <p class="label label--olive stage__kicker">
-                Etapa {number} · {kicker}
-              </p>
-              <h3 class="stage__title">{title}</h3>
-              <p class="lead-italic stage__intro">{intro}</p>
-              <p class="stage__text">{description}</p>
-            </div>
-
-            <div class="stage__media">
-              <span class="stage__number" aria-hidden="true">
-                {number}
-              </span>
-              <div class="stage__figure">
-                <Image
-                  class="stage__image"
-                  src={stageImages[i]!}
-                  alt={`Paula Márquez Brandon, etapa ${number}: ${title.toLowerCase()}`}
-                  widths={[320, 480, 640, 800]}
-                  sizes="(min-width: 64rem) 36vw, calc(100vw - 2.5rem)"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </li>
-        ))
-      }
+    <header class="method-stages__header">
+      <p class="eyebrow">El proceso</p>
+      <h2 id="etapas-titulo">Tres etapas para cambiar desde otro lugar.</h2>
+      <p>Entender lo que ocurre, transformar la relación contigo y llevarlo a tu vida.</p>
+    </header>
+    <ol class="method-stages__list">
+      {methodStages.map(({ title, intro, description }, index) => (
+        <li class="method-stage">
+          <span class="method-stage__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          <div class="method-stage__copy">
+            <h3>{title}</h3>
+            <p class="method-stage__intro">{intro}</p>
+            <p>{description}</p>
+          </div>
+        </li>
+      ))}
     </ol>
   </div>
 </section>

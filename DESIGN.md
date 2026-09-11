@@ -905,3 +905,27 @@ El responsive correcto conserva:
 - la misma importancia relativa de cada bloque.
 
 La implementación comienza en **390 px** y se amplía hasta reproducir la composición de **1440 px**.
+
+## 27. Página Método — referencia visual: web antigua
+
+Por instrucción del cliente, `/metodo` reproduce la dirección visual de la web
+publicada en paulambrandon.com. Esta revisión sustituye la propuesta anterior.
+La Home conserva su implementación.
+
+Orden: hero → por qué no basta con cambiar desde fuera → tres etapas → cómo
+te acompaño → qué diferencia el enfoque → qué puedes empezar a notar → programas.
+
+- Cormorant Garamond en titulares y botones, Inter en cuerpo. Fuentes originales
+  verificadas, servidas localmente en WOFF2 y aplicadas solo en Método.
+- Fondo crema #faf8f4 y arena #f3ede6. Texto marrón #4a3b33, secundario #6e5d53,
+  oliva #606957 para botones. Terracota accesible para acentos textuales.
+- Hero tipográfico centrado, sin fotografía ni fondo partido, para que Método
+  tenga una entrada propia y no replique la composición de Inicio.
+- Secciones centradas, medidas de lectura de 620–880 px y titulares serif.
+- Tres etapas conectadas verticalmente en móvil y distribuidas en tres columnas
+  protagonistas en desktop.
+- Retrato con marco desplazado dentro de «Cómo te acompaño», junto al contenido.
+- Diferenciación sobre crema, sin banda oscura ni grandes cifras decorativas.
+- Resultados posibles en filas claras con flecha circular, inspiradas en las
+  comparaciones de la web antigua. Botones serif con radio discreto de 4 px.
+- Conservar el copy y el H1 del SEO master. IMAC permanece en Alchemise.

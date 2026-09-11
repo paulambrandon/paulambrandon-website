@@ -279,7 +279,7 @@ decisión estratégica (Alta / Media / Baja), no un dato de volumen.
 
 Para evitar volver a mezclar conceptos durante diseño, desarrollo o generación de contenido:
 
-- **Método** = metodología general de Paula. Tiene página propia en `/metodo`. Su nombre y fases definitivas quedan pendientes de los textos reales de Paula.
+- **Método** = metodología general de Paula. Tiene página propia en `/metodo`. Sus tres etapas se basan en la Home publicada de Paula: entender el origen, transformar la relación contigo misma y llevar ese cambio a tu vida.
 - **Programas** = hub comercial en `/programas`; agrupa las formas de trabajar con Paula.
 - **Alchemise** = programa grupal de 90 días con landing propia en `/alchemise`.
 - **Método IMAC** = estructura específica presentada dentro de Alchemise. No debe utilizarse como sinónimo automático del método general de Paula.
@@ -338,7 +338,7 @@ cluster hasta que haya suficiente contenido que la justifique.
 | **URL**               | **Target**                                    | **Title recomendado**                                                                   | **H1**                                                   | **Notas** |
 |-----------------------|-----------------------------------------------|-----------------------------------------------------------------------------------------|----------------------------------------------------------|-----------|
 | /                     | Paula Márquez Brandon + territorio            | Paula Márquez Brandon \| Autoexigencia y autocuidado en mujeres                         | Necesitas dejar de construir tu vida alrededor de la idea de que no eres suficiente. | Eyebrow: “No necesitas convertirte en otra mujer.” No forzar keyword exacta; dar contexto semántico inmediatamente bajo el hero. |
-| /metodo               | método / enfoque de Paula                     | Mi método: de la autoexigencia al autocuidado \| Paula Márquez Brandon                   | Mi método / [nombre definitivo si Paula lo define]       | No inventar fases. El contenido debe salir del método general real de Paula. No usar IMAC aquí salvo que Paula confirme que ambos sistemas son el mismo. |
+| /metodo               | método / enfoque de Paula                     | Mi método: de la autoexigencia al autocuidado \| Paula Márquez Brandon                   | No se trata de corregirte. Se trata de entender qué hay detrás de lo que te pasa.       | No inventar fases. El contenido debe salir del método general real de Paula. No usar IMAC aquí salvo que Paula confirme que ambos sistemas son el mismo. |
 | /programas            | programas / acompañamientos para mujeres     | Programas y acompañamientos para mujeres autoexigentes \| Paula Márquez Brandon          | Programas y formas de trabajar conmigo                   | Hub de Alchemise, Movimiento y nutrición y Sesión de claridad. |
 | /sobre-mi             | experiencia / marca                           | Sobre mí: de la autoexigencia al autocuidado \| Paula Márquez Brandon                    | Mi historia                                               | Página centrada en Paula; añadir credenciales reales, experiencia y enlaces a apariciones/formación. |
 | /testimonios          | testimonios mujeres                           | Historias reales de cambio \| Paula Márquez Brandon                                      | Historias de mujeres que han vivido el proceso           | Casos con contexto; no promesas médicas ni resultados garantizados. |
@@ -346,6 +346,26 @@ cluster hasta que haya suficiente contenido que la justifique.
 | /alchemise            | programa mujeres autoexigentes                | Alchemise: programa de 90 días para mujeres autoexigentes \| Paula Márquez Brandon        | Alchemise                                                 | Landing de conversión. Aquí sí vive el Método IMAC, además de prueba, FAQ y estado de edición. |
 | /movimiento-nutricion | nutrición y entrenamiento sin obsesión        | Movimiento y nutrición sin obsesión \| Paula Márquez Brandon                             | Movimiento y nutrición, sin obsesión                     | Separar cuerpo de identidad global; credenciales visibles. |
 | /sesion-claridad      | sesión de claridad                            | Sesión de claridad \| Paula Márquez Brandon                                              | Sesión de claridad                                        | Landing simple; no presentarla como terapia si no lo es. |
+
+### Contenido de /metodo — decisión del cliente, 11 de septiembre de 2026
+
+La página responde a «¿Cómo trabaja Paula para conseguir una transformación real?».
+El H1 emocional definido en la tabla sustituye la referencia anterior a «Mi método».
+Se conserva el title SEO y se concreta la meta description:
+
+> Un proceso para entender de dónde nace esa sensación de no ser suficiente, transformar la relación que tienes contigo misma y llevar ese cambio a tu vida real.
+
+Orden: hero → por qué no basta con cambiar desde fuera → tres etapas → cómo
+te acompaño → qué diferencia el enfoque → qué puedes empezar a notar → programas.
+
+Las tres etapas generales están publicadas en la [Home anterior](https://www.paulambrandon.com/#seccion-5).
+El contexto del origen procede de [Mi historia](https://www.paulambrandon.com/mi-historia).
+Las conversaciones, preguntas y aplicación práctica se apoyan en la información
+publicada en [Empieza aquí](https://www.paulambrandon.com/empieza-aqui) y
+[Alchemise](https://www.paulambrandon.com/alchemise); recursos y seguimiento se
+presentan como variables según el programa, sin atribuir el formato grupal a todos.
+No se prometen resultados ni plazos. IMAC sigue perteneciendo exclusivamente a
+Alchemise. CTA final: «Ver programas» → /programas.
 
 ### 8.1 Migración desde las URLs actuales
 

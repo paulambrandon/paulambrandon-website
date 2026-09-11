@@ -1,33 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import MethodHero from '../components/metodo/MethodHero.astro';
-import IsolatedProblemsSection from '../components/metodo/IsolatedProblemsSection.astro';
 import RootSection from '../components/metodo/RootSection.astro';
-import GrowthSection from '../components/metodo/GrowthSection.astro';
 import ProcessSection from '../components/metodo/ProcessSection.astro';
-import LifeAreasSection from '../components/metodo/LifeAreasSection.astro';
+import HowIAccompanySection from '../components/metodo/HowIAccompanySection.astro';
+import GrowthSection from '../components/metodo/GrowthSection.astro';
 import ShiftSection from '../components/metodo/ShiftSection.astro';
-import MethodTestimonials from '../components/metodo/MethodTestimonials.astro';
 import ProgramsCta from '../components/metodo/ProgramsCta.astro';
 import { PERSON_NAME } from '../data/site';
+import { methodDescription } from '../data/metodo';
 
-// Title literal de /docs/seo/paulambrandon-seo.md §8.
 const title = `Mi método: de la autoexigencia al autocuidado | ${PERSON_NAME}`;
-
-// El documento SEO no define meta description para /metodo. En lugar de
-// inventar una, se reutiliza la entradilla aprobada del propio mockup.
-const description =
-  'Un proceso para entender de dónde nace esa sensación de no ser suficiente, transformar la relación que tienes contigo misma y llevar ese cambio a tu vida real.';
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={methodDescription} bodyClass="page-method"
+  fontPreloads={['/fonts/CormorantGaramond.woff2', '/fonts/Inter.woff2']}>
   <MethodHero />
-  <IsolatedProblemsSection />
   <RootSection />
-  <GrowthSection />
   <ProcessSection />
-  <LifeAreasSection />
+  <HowIAccompanySection />
+  <GrowthSection />
   <ShiftSection />
-  <MethodTestimonials />
   <ProgramsCta />
 </Layout>

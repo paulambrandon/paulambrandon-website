@@ -1,27 +1,17 @@
 ---
-import CompareTable from '../landing/CompareTable.astro';
-import { demandRespectPairs } from '../../data/metodo';
-
-const rows = demandRespectPairs.map(({ demand, respect }) => ({
-  a: demand,
-  b: respect,
-}));
+import { approach } from '../../data/metodo';
 ---
 
-<section class="section section--sand growth">
+<section class="section section--paper method-approach" aria-labelledby="enfoque-titulo">
   <div class="section__inner">
-    <div class="growth__head">
-      <h2 class="growth__title">No tienes que dejar de querer crecer.</h2>
-      <p class="growth__intro">
-        El objetivo no es renunciar a tus metas, a cuidarte o a querer mejorar.
-        Es dejar de necesitar esas cosas para demostrarte que tienes valor.
-      </p>
-    </div>
-
-    <CompareTable
-      labelA="Desde la exigencia"
-      labelB="Desde el respeto"
-      rows={rows}
-    />
+    <header class="method-approach__header">
+      <p class="eyebrow">Qué hace diferente este enfoque</p>
+      <h2 id="enfoque-titulo">Crecer sin tratarte como <em>un problema que hay que corregir.</em></h2>
+    </header>
+    <ul class="method-approach__list">
+      {approach.map(({ title, text }) => (
+        <li><h3>{title}</h3><p>{text}</p></li>
+      ))}
+    </ul>
   </div>
 </section>

@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../../assets/images/paula-marquez-brandon.webp';
+import { accompaniment } from '../../data/metodo';
+---
+
+<section class="section section--sand method-work" aria-labelledby="como-te-acompano">
+  <div class="section__inner method-work__inner">
+    <div class="method-work__portrait">
+      <Image
+        src={portrait}
+        alt="Paula Márquez Brandon"
+        widths={[360, 540, 720]}
+        sizes="(min-width: 64rem) 320px, (min-width: 48rem) 40vw, 72vw"
+        loading="lazy"
+      />
+    </div>
+    <div class="method-work__content">
+      <header>
+        <p class="eyebrow">Cómo te acompaño</p>
+        <h2 id="como-te-acompano">Lo que te pasa es el punto de partida.</h2>
+        <p>
+          No necesitas llegar con todo ordenado. Mi acompañamiento parte de lo
+          que estás viviendo y de aquello que necesitas mirar ahora.
+        </p>
+      </header>
+      <ul class="method-work__list">
+        {accompaniment.map(({ title, text }) => (
+          <li><h3>{title}</h3><p>{text}</p></li>
+        ))}
+      </ul>
+      <p class="method-work__note">
+        El formato, los recursos y el seguimiento varían según el programa.
+        Una sesión puntual y un proceso de varios meses ofrecen espacios diferentes.
+      </p>
+    </div>
+  </div>
+</section>

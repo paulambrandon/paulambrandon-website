@@ -1,21 +1,16 @@
 ---
-import { shifts } from '../../data/metodo';
+import { possibleChanges } from '../../data/metodo';
 ---
 
-<section class="section section--olive section--spacious shift">
-  <div class="section__inner">
-    <ul class="shift__list">
-      {
-        shifts.map(({ from, to }) => (
-          <li class="shift__item">
-            <p class="shift__from">«{from}»</p>
-            <p class="shift__arrow" aria-hidden="true">
-              ↓
-            </p>
-            <p class="shift__to">«{to}»</p>
-          </li>
-        ))
-      }
+<section class="section section--sand method-changes" aria-labelledby="cambios-titulo">
+  <div class="section__inner method-changes__inner">
+    <header>
+      <p class="eyebrow">Qué puedes empezar a notar</p>
+      <h2 id="cambios-titulo">El cambio también está en cómo vives lo cotidiano.</h2>
+      <p>Cada proceso es diferente. Estas son algunas formas en las que puede empezar a notarse.</p>
+    </header>
+    <ul class="method-changes__list">
+      {possibleChanges.map((change) => <li>{change}</li>)}
     </ul>
   </div>
 </section>

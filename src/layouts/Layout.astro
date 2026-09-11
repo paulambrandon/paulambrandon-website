@@ -10,9 +10,13 @@ interface Props {
   /** Meta description de la página. */
   description: string;
   bodyClass?: string;
+  fontPreloads?: readonly string[];
 }
 
-const { title, description, bodyClass } = Astro.props;
+const {
+  title, description, bodyClass,
+  fontPreloads = ['/fonts/WorkSans.woff2', '/fonts/Newsreader.woff2'],
+} = Astro.props;
 
 // El dominio canónico sale solo de `Astro.site` (astro.config.mjs).
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
@@ -42,20 +46,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/favicon/site.webmanifest" />
 
-    <link
-      rel="preload"
-      href="/fonts/WorkSans.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="/fonts/Newsreader.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
+    {fontPreloads.map((href) => (
+      <link rel="preload" href={href} as="font" type="font/woff2" crossorigin />
+    ))}
 
     <slot name="head" />
   </head>

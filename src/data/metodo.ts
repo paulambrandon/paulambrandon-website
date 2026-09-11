@@ -1,141 +1,84 @@
 /**
- * Contenido de la página `/metodo`.
- *
- * Copy tomado literalmente del mockup aprobado (`/referencias`). Los textos
- * entre corchetes son los placeholders del propio mockup: siguen pendientes
- * del contenido real de Paula.
+ * Enfoque general: Home antigua (#seccion-5), /mi-historia y /empieza-aqui.
+ * Estructura y titular definidos por el cliente. Los formatos y recursos
+ * concretos dependen del programa elegido.
  */
+export const methodTitle =
+  'No se trata de corregirte. Se trata de entender qué hay detrás de lo que te pasa.';
 
-/** Contraste entre la mirada de la exigencia y la del respeto. */
-export interface DemandRespectPair {
-  readonly demand: string;
-  readonly respect: string;
-}
+export const methodDescription =
+  'Un proceso para entender de dónde nace esa sensación de no ser suficiente, transformar la relación que tienes contigo misma y llevar ese cambio a tu vida real.';
 
-export interface MethodStage {
-  /** Número visible de la etapa: también se usa como cifra decorativa. */
-  readonly number: string;
-  /** Verbo que da nombre a la etapa en el preheading. */
-  readonly kicker: string;
+interface MethodStage {
   readonly title: string;
-  /** Frase de apertura, en cursiva serif. */
   readonly intro: string;
   readonly description: string;
 }
 
-/**
- * Ámbito de la vida en el que se nota el proceso.
- *
- * El mockup compone este bloque con tamaños, familias y tonos alternos; los
- * campos son deliberadamente presentacionales porque esa mezcla tipográfica
- * *es* el contenido visual del bloque.
- */
-export interface LifeArea {
-  readonly label: string;
-  /** 1 (más discreto) → 5 (más protagonista). */
-  readonly size: 1 | 2 | 3 | 4 | 5;
-  readonly font: 'serif' | 'sans';
-  readonly tone: 'ink' | 'muted' | 'accent' | 'olive';
-}
-
-/** Salto del punto A al punto B, en primera persona. */
-export interface ShiftPair {
-  readonly from: string;
-  readonly to: string;
-}
-
-/** Áreas que parecen problemas independientes y comparten la misma raíz. */
-export const isolatedAreas: readonly string[] = [
-  'Tu cuerpo',
-  'Tu disciplina',
-  'Tu productividad',
-  'Tu descanso',
-  'Tus límites',
-  'Tus relaciones',
-  'Tus hábitos',
-  'Tus objetivos',
-];
-
-export const demandRespectPairs: readonly DemandRespectPair[] = [
-  {
-    demand: 'Entrenar para corregir tu cuerpo',
-    respect: 'Entrenar porque cuidarlo también es quererte.',
-  },
-  {
-    demand: 'Sentir que tienes que ganarte el descanso',
-    respect: 'Entender que descansar también es cuidarte.',
-  },
-  {
-    demand: 'No poner un límite por miedo a decepcionar',
-    respect: 'Poner límites aunque no siempre gusten.',
-  },
-  {
-    demand: 'Perseguir otra meta para sentir que por fin vales',
-    respect: 'Elegir objetivos sin convertirlos en una prueba de tu valor.',
-  },
-];
-
 export const methodStages: readonly MethodStage[] = [
   {
-    number: '01',
-    kicker: 'Observar',
     title: 'Entender el origen',
-    intro: 'No puedes cambiar un patrón que todavía no reconoces.',
+    intro: 'Porque no puedes cambiar un patrón que todavía no ves.',
     description:
-      'El primer paso consiste en empezar a observar de dónde nace esa sensación constante de no ser suficiente y cómo aparece en diferentes áreas de tu vida.',
+      'Empezar a reconocer lo que se repite, qué te bloquea y qué está sosteniendo esa sensación de no ser suficiente. Mirar más allá de lo que haces para entender desde dónde lo haces.',
   },
   {
-    number: '02',
-    kicker: 'Transformar',
-    title: 'Transformar la relación que tienes contigo misma',
-    intro:
-      'No basta con entender por qué ocurre si sigues hablándote, valorándote y tratándote desde el mismo lugar.',
+    title: 'Transformar la relación contigo misma',
+    intro: 'Para que cuidarte deje de nacer del miedo y empiece a nacer del respeto.',
     description:
-      'Esta etapa se centra en empezar a cambiar la forma en la que te relacionas contigo para que cuidarte deje de estar sostenido únicamente por la exigencia.',
+      'Observar cómo te hablas, cómo te valoras y qué necesitas. Empezar a tomar decisiones sin convertir cada objetivo, cada límite o cada descanso en una prueba de lo que vales.',
   },
   {
-    number: '03',
-    kicker: 'Vivir',
     title: 'Llevar ese cambio a tu vida',
-    intro: 'El proceso no termina en entender algo intelectualmente.',
+    intro: 'Al cuerpo, a los hábitos, a las relaciones, a los límites, al día a día.',
     description:
-      'La nueva forma de relacionarte contigo empieza a reflejarse en cómo entrenas, comes, descansas, trabajas, pones límites, te relacionas y persigues tus objetivos.',
+      'Que lo que entiendes empiece a reflejarse en cómo te cuidas, te relacionas y decides. Practicar otra forma de responder en situaciones reales, también cuando las cosas no salen como esperabas.',
   },
 ];
 
-export const lifeAreas: readonly LifeArea[] = [
-  { label: 'Cuerpo', size: 5, font: 'serif', tone: 'ink' },
-  { label: 'Alimentación', size: 1, font: 'sans', tone: 'muted' },
-  { label: 'Entrenamiento', size: 4, font: 'serif', tone: 'accent' },
-  { label: 'Descanso', size: 2, font: 'sans', tone: 'ink' },
-  { label: 'Hábitos', size: 3, font: 'serif', tone: 'muted' },
-  { label: 'Relaciones', size: 5, font: 'serif', tone: 'ink' },
-  { label: 'Límites', size: 1, font: 'sans', tone: 'olive' },
-  { label: 'Objetivos', size: 3, font: 'serif', tone: 'muted' },
-  { label: 'Trabajo', size: 1, font: 'sans', tone: 'ink' },
-  { label: 'Diálogo interno', size: 3, font: 'serif', tone: 'accent' },
-];
+interface ApproachItem {
+  readonly title: string;
+  readonly text: string;
+}
 
-export const shifts: readonly ShiftPair[] = [
+export const accompaniment: readonly ApproachItem[] = [
   {
-    from: 'Siempre hay algo en mí que arreglar.',
-    to: 'Puedo crecer sin tratarme como un problema.',
+    title: 'Poner palabras a lo que ocurre',
+    text: 'Una conversación y preguntas que te ayuden a ordenar lo que estás viviendo y a mirar aquello que puede estar pasando desapercibido.',
   },
   {
-    from: 'Necesito hacer más para sentir que valgo.',
-    to: 'Mi valor no depende de cuánto produzca.',
+    title: 'Observarlo en tu día a día',
+    text: 'Reconocer qué ocurre cuando te exiges, te cuesta descansar o necesitas poner un límite. Tu propia vida forma parte del proceso.',
   },
   {
-    from: 'Cuidarme es otra exigencia más.',
-    to: 'Cuidarme puede nacer del respeto.',
+    title: 'Llevar lo trabajado a la práctica',
+    text: 'Según el acompañamiento, las conversaciones se apoyan en ejercicios, recursos o seguimiento para aplicar lo que vas descubriendo.',
   },
 ];
 
-/**
- * TODO: pendientes los testimonios reales. El mockup deja marcado el tema que
- * debe cubrir cada uno; no se sustituyen por texto inventado.
- */
-export const methodTestimonials: readonly string[] = [
-  '[TESTIMONIO REAL — AUTOEXIGENCIA / PERFECCIONISMO]',
-  '[TESTIMONIO REAL — LÍMITES / AUTOCUIDADO]',
+export const approach: readonly ApproachItem[] = [
+  {
+    title: 'Mirar la raíz',
+    text: 'Entender qué sostiene un patrón, además de atender a cómo se manifiesta.',
+  },
+  {
+    title: 'Entender antes de forzar',
+    text: 'Dejar de responder a cada dificultad con más control, más disciplina o más exigencia.',
+  },
+  {
+    title: 'Conectar lo que sientes con lo que haces',
+    text: 'La relación contigo también aparece en cómo comes, entrenas, trabajas, descansas y te relacionas.',
+  },
+  {
+    title: 'Partir de donde estás',
+    text: 'No todas las mujeres necesitan el mismo acompañamiento. La forma de trabajar depende de tu situación y de lo que necesitas ahora.',
+  },
+];
+
+export const possibleChanges: readonly string[] = [
+  'Entender con más claridad qué te ocurre y qué necesitas.',
+  'Reconocer un patrón cuando aparece, en lugar de pasar por él sin darte cuenta.',
+  'Tomar decisiones con más conciencia de lo que quieres.',
+  'Empezar a hablarte y cuidarte con más respeto.',
+  'Encontrar espacio para responder de otra manera, en lugar de reaccionar en automático.',
 ];

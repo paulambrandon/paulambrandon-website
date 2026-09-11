@@ -1,559 +1,439 @@
 @use '@abstracts/variables' as v;
 @use '@abstracts/mixins' as mx;
 
-// ---------------------------------------------------------------------------
-// Filete vertical que encadena dos bloques. Decorativo.
-// ---------------------------------------------------------------------------
-.rule-drop {
-  width: 1px;
-  block-size: 2.75rem;
-  margin-inline: auto;
-  background-color: v.$color-line-strong;
-
-  @include mx.breakpoint(tablet) {
-    block-size: 4rem;
-  }
+// Familias y tonos verificados en la web antigua. Solo los usa /metodo.
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/CormorantGaramond.woff2') format('woff2');
 }
 
-.rule-drop--line {
-  background-color: v.$color-line;
-
-  @include mx.breakpoint(tablet) {
-    block-size: 5rem;
-  }
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/CormorantGaramond-Italic.woff2') format('woff2');
 }
 
-// ---------------------------------------------------------------------------
-// Hero editorial asimétrico
-// ---------------------------------------------------------------------------
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 500;
+  font-display: swap;
+  src: url('/fonts/Inter.woff2') format('woff2');
+}
+
+$-serif: 'Cormorant Garamond', Georgia, serif;
+$-text: #4a3b33;
+$-soft: #6e5d53;
+$-accent: #606957;
+
+.page-method {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: $-text;
+  background: v.$color-cream;
+
+  h1, h2, h3, .button, .site-header__brand, .site-footer__brand {
+    font-family: $-serif;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .section {
+    padding-block: clamp(5rem, 9vw, 8rem);
+  }
+
+  .section--paper {
+    background: v.$color-cream;
+  }
+
+  .section__inner {
+    width: 86%;
+    max-width: 55rem;
+    padding-inline: 0;
+    margin-inline: auto;
+  }
+
+  .eyebrow {
+    justify-content: center;
+    font-family: $-serif;
+    font-size: 1.1875rem;
+    font-style: italic;
+    font-weight: 400;
+    color: $-soft;
+
+    &::before, &::after {
+      display: none;
+    }
+  }
+
+  .button {
+    min-height: 3.25rem;
+    padding: 0.875rem 2rem;
+    border-radius: 4px;
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+
+  .button--primary {
+    background: $-accent;
+    color: v.$color-cream;
+
+    &:hover { background: v.$color-olive-dark; }
+  }
+
+  .site-footer { background: $-text; }
+}
+
 .method-hero {
-  padding-block: 0.5rem 3.75rem;
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: min(48rem, calc(100svh - 4.375rem));
+  background: v.$color-cream;
+  padding-block: clamp(6rem, 14vw, 11rem);
 
-  @include mx.breakpoint(tablet) {
-    padding-block: 3.75rem 7.5rem;
-  }
-
-  @include mx.breakpoint(tablethorizontal) {
-    padding-block-end: 11.25rem;
+  &::after {
+    position: absolute;
+    inset: auto 50% 0;
+    width: 1px;
+    height: clamp(3rem, 7vw, 5rem);
+    background: rgba($-accent, 0.45);
+    content: '';
   }
 }
 
 .method-hero__inner {
-  @include mx.container;
+  width: 86%;
+  max-width: 58rem;
+  margin-inline: auto;
 }
 
-.method-hero__eyebrow {
-  margin-bottom: 1.5rem;
+.method-hero__copy {
+  text-align: center;
 
-  @include mx.breakpoint(tablet) {
-    margin-bottom: 2.5rem;
+  .eyebrow {
+    margin-block-end: 1rem;
+    font-style: italic;
+  }
+
+  h1 {
+    max-width: 54rem;
+    margin-inline: auto;
+    font-size: clamp(2.75rem, 6vw, 5.25rem);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+  }
+
+  .method-hero__link {
+    display: inline-block;
+    margin-block-start: 2.5rem;
+    padding-block-end: 0.2rem;
+    border-block-end: 1px solid $-accent;
+    font-family: $-serif;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: $-accent;
   }
 }
 
-// El titular manda; la entradilla lo acompaña en una columna más estrecha.
-// A 768px las dos columnas dejarían el H1 en una medida demasiado corta, así
-// que el reparto espera a que haya ancho de verdad.
-.method-hero__head {
+.method-hero__index {
+  margin-block-end: 2rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: v.$color-terracotta-strong;
+}
+
+.method-hero__lede {
+  max-width: 38rem;
+  margin: 2rem auto 0;
+  color: $-soft;
+  line-height: 1.8;
+}
+
+.method-root__inner {
+  max-width: 64rem !important;
+
   @include mx.breakpoint(tablethorizontal) {
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: clamp(2rem, 4vw, 2.5rem);
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(4rem, 8vw, 7rem);
     align-items: start;
   }
 }
 
-.method-hero__title {
-  max-width: 42.5rem;
-}
-
-.method-hero__aside {
-  @include mx.breakpoint(tablethorizontal) {
-    padding-block-start: 0.875rem;
-  }
-}
-
-.method-hero__lede {
-  max-width: 23.75rem;
-  margin-block-start: 1.5rem;
-  font-size: v.$fs-intro;
-  line-height: 1.65;
-  color: v.$color-muted;
+.method-root__header {
+  .eyebrow { justify-content: start; }
+  h2 { margin-block-start: 1rem; }
 
   @include mx.breakpoint(tablethorizontal) {
-    margin-block-start: 0;
+    position: sticky;
+    top: 7rem;
   }
 }
 
-.method-hero__link {
-  margin-block-start: 1.5rem;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-start: 2.25rem;
-  }
+.method-root__content > p:not([class]) {
+  margin-block-end: 1.25rem;
+  color: $-soft;
 }
 
-// El retrato cae a la derecha, alineado con la columna de la entradilla.
-.method-hero__media {
-  margin-block-start: 2.25rem;
-
-  @include mx.breakpoint(tablet) {
-    display: grid;
-    grid-template-columns: 0.55fr 0.45fr;
-    margin-block-start: 6.25rem;
-  }
-}
-
-// Marco desplazado tras el retrato. El desplazamiento siempre es menor que el
-// gutter lateral, así que nunca provoca scroll horizontal.
-.method-hero__frame {
-  position: relative;
-
-  &::after {
-    position: absolute;
-    inset: 0.625rem -0.625rem -0.625rem 0.625rem;
-    content: '';
-    border: 1px solid v.$color-line;
-  }
-
-  @include mx.breakpoint(tablet) {
-    grid-column: 2;
-
-    &::after {
-      inset: 0.875rem -0.875rem -0.875rem 0.875rem;
-    }
-  }
-}
-
-.method-hero__image {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-}
-
-// ---------------------------------------------------------------------------
-// Problemas que parecen aislados
-// ---------------------------------------------------------------------------
-.isolated .section__inner {
-  text-align: center;
-}
-
-// El mockup deja más aire bajo este titular que el resto de secciones.
-.isolated__title {
-  margin-bottom: clamp(3rem, 1.87rem + 4.6vw, 6rem);
-}
-
-.isolated__areas {
-  display: flex;
-  flex-direction: column;
-  gap: 0.875rem;
-
-  @include mx.breakpoint(tablet) {
-    flex-flow: row wrap;
-    gap: 0.75rem 0;
-    justify-content: center;
-    max-width: 61.25rem;
-    margin-inline: auto;
-  }
-}
-
-.isolated__area {
-  font-size: v.$fs-body;
-  color: v.$color-muted;
-
-  @include mx.breakpoint(tablet) {
-    padding-inline: clamp(0.875rem, 1.8vw, 1.625rem);
-    border-inline-end: 1px solid v.$color-line;
-
-    &:last-child {
-      border-inline-end: 0;
-    }
-  }
-}
-
-.isolated__rule {
-  margin-block: 2rem;
-
-  @include mx.breakpoint(tablet) {
-    margin-block: 2.75rem;
-  }
-}
-
-.isolated__statement {
-  padding-block: 1.375rem;
-  border-block: 1px solid v.$color-olive-dark;
-
-  @include mx.breakpoint(tablet) {
-    display: inline-block;
-    padding: 1.75rem 3.5rem;
-  }
-}
-
-.isolated__claim {
-  font-family: v.$secondary-font;
-  font-size: v.$fs-card-title;
-  line-height: 1.35;
-  letter-spacing: 0.03em;
-}
-
-.isolated__accent {
-  font-style: italic;
-  color: v.$color-terracotta-strong;
-}
-
-// ---------------------------------------------------------------------------
-// Superficie → lo que hay debajo
-// ---------------------------------------------------------------------------
-// El filete cuelga del final del bloque y toca la banda oliva, así que el aire
-// inferior va como margen del propio filete, no como padding de la sección.
-.surface {
-  padding-block-start: v.$section-space;
-  text-align: center;
-  background-color: v.$color-paper;
-}
-
-.surface__label {
-  margin-bottom: 1.25rem;
-
-  @include mx.breakpoint(tablet) {
-    margin-bottom: 1.75rem;
-  }
-}
-
-.surface__text {
-  max-width: v.$measure-narrow;
-  margin-inline: auto;
-  line-height: 1.7;
-  color: v.$color-muted;
-}
-
-.surface__echo {
-  max-width: v.$measure-narrow;
-  margin-block-start: 1.75rem;
-  margin-inline: auto;
-  font-family: v.$secondary-font;
-  font-size: v.$fs-lead;
-  line-height: 1.5;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-start: 2.5rem;
-  }
-}
-
-.surface__accent {
-  font-style: italic;
-  color: v.$color-terracotta-strong;
-}
-
-.surface__rule {
-  margin-block-start: clamp(3.5rem, 2.2rem + 5.3vw, 6.875rem);
-  background-color: v.$color-line;
-}
-
-.beneath .section__inner {
-  text-align: center;
-}
-
-.beneath__title {
-  max-width: 42.5rem;
-  margin-block-start: 1.75rem;
-  margin-inline: auto;
-  font-size: v.$fs-display-sm;
-  line-height: 1.5;
-  color: v.$color-cream;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-start: 2rem;
-  }
-}
-
-.beneath__aside {
-  max-width: v.$measure-narrow;
-  margin-block-start: 1.75rem;
-  margin-inline: auto;
-  font-family: v.$secondary-font;
-  font-size: v.$fs-quote;
-  font-style: italic;
-  line-height: 1.6;
-  color: v.$color-sage-light;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-start: 3rem;
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Exigencia frente a respeto
-// ---------------------------------------------------------------------------
-.growth__head {
-  margin-bottom: 2.75rem;
-
-  @include mx.breakpoint(tablet) {
-    max-width: v.$measure-narrow;
-    margin-inline: auto;
-    margin-bottom: 5.5rem;
-    text-align: center;
-  }
-}
-
-.growth__title {
-  margin-bottom: 1rem;
-
-  @include mx.breakpoint(tablet) {
-    margin-bottom: 1.25rem;
-  }
-}
-
-.growth__intro {
-  line-height: 1.65;
-  color: v.$color-muted;
-}
-
-// La tabla en sí es un componente compartido con /movimiento-nutricion.
-
-// ---------------------------------------------------------------------------
-// Intro al proceso + etapas
-// ---------------------------------------------------------------------------
-.process-intro .section__inner {
-  text-align: center;
-}
-
-.process-intro__title {
-  max-width: v.$measure-wide;
-  margin-inline: auto;
-  font-size: v.$fs-display;
-  line-height: 1.5;
-}
-
-.process-intro__note {
-  margin-block-start: 2rem;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-start: 3rem;
-  }
-}
-
-.stages__list {
-  display: flex;
-  flex-direction: column;
-}
-
-.stage {
-  // Dos columnas solo cuando hay sitio real para texto y retrato.
-  @include mx.breakpoint(tablethorizontal) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(3rem, 7vw, 6.25rem);
-    align-items: center;
-  }
-}
-
-.stage + .stage {
-  margin-block-start: 4rem;
-  padding-block-start: 4rem;
+.method-root__path {
+  display: grid;
+  margin-block: 2.5rem;
   border-block-start: 1px solid v.$color-line;
+  font-family: $-serif;
+  font-size: 1.3125rem;
+  font-weight: 500;
 
-  @include mx.breakpoint(tablethorizontal) {
-    margin-block-start: 6.875rem;
-    padding-block-start: 6.875rem;
+  li {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 0.75rem;
+    padding-block: 1rem;
+    border-block-end: 1px solid v.$color-line;
+
+    &::before { content: '→'; color: $-accent; }
   }
 }
 
-// Etapas pares: el retrato pasa a la izquierda.
-.stage:nth-child(even) {
-  @include mx.breakpoint(tablethorizontal) {
-    .stage__content {
-      grid-row: 1;
-      grid-column: 2;
-    }
+.method-root__closing {
+  font-family: $-serif;
+  font-size: 1.5rem;
+  line-height: 1.5;
 
-    .stage__media {
-      grid-row: 1;
-      grid-column: 1;
-      justify-content: flex-start;
-    }
-  }
+  em { display: block; color: v.$color-terracotta-strong; }
 }
 
-.stage__kicker {
-  margin-bottom: 0.875rem;
+.method-stages { scroll-margin-block-start: 2rem; }
 
-  @include mx.breakpoint(tablet) {
-    margin-bottom: 1.25rem;
-  }
+.method-stages .section__inner {
+  max-width: 68rem;
 }
 
-.stage__title {
-  margin-bottom: 1rem;
-  font-size: v.$fs-display;
-  line-height: 1.35;
-
-  @include mx.breakpoint(tablet) {
-    margin-bottom: 1.5rem;
-  }
-}
-
-.stage__intro {
-  margin-bottom: 1rem;
-  font-size: v.$fs-body;
-
-  @include mx.breakpoint(tablet) {
-    margin-bottom: 1.5rem;
-  }
-}
-
-.stage__text {
-  max-width: 27.5rem;
-  line-height: 1.7;
-}
-
-.stage__media {
-  position: relative;
-  margin-block-start: 1.5rem;
-
-  @include mx.breakpoint(tablethorizontal) {
-    display: flex;
-    justify-content: flex-end;
-    margin-block-start: 0;
-  }
-}
-
-// Cifra decorativa detrás del retrato: solo cabe con dos columnas.
-.stage__number {
-  display: none;
-
-  @include mx.breakpoint(tablethorizontal) {
-    position: absolute;
-    inset-block-start: 0;
-    inset-inline-end: 0;
-    z-index: 0;
-    display: block;
-    font-family: v.$secondary-font;
-    font-size: clamp(12rem, 22vw, 20rem);
-    line-height: 1;
-    color: v.$color-cream;
-    user-select: none;
-    translate: 0 -28%;
-  }
-}
-
-.stage:nth-child(even) .stage__number {
-  @include mx.breakpoint(tablethorizontal) {
-    inset-inline-start: 0;
-    inset-inline-end: auto;
-  }
-}
-
-.stage__figure {
-  position: relative;
-  z-index: 1;
-
-  @include mx.breakpoint(tablethorizontal) {
-    width: 78%;
-  }
-}
-
-.stage__image {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-}
-
-// ---------------------------------------------------------------------------
-// Dónde se nota el proceso
-// ---------------------------------------------------------------------------
-.life .section__inner {
+.method-stages__header,
+.method-work__inner > header,
+.method-approach__header,
+.method-changes__inner > header {
+  max-width: 40rem;
+  margin-inline: auto;
   text-align: center;
+
+  h2 { margin-block: 1rem 1.5rem; }
+  > p:last-child { color: $-soft; }
 }
 
-.life__note {
-  margin-block-start: 0.625rem;
-  color: v.$color-muted;
-}
+.method-stages__list {
+  max-width: 68rem;
+  margin: 3rem auto 0;
 
-// La nube en sí es un componente compartido; aquí solo su separación.
-.life__areas {
-  margin-block-start: 2.75rem;
-
-  @include mx.breakpoint(tablet) {
+  @include mx.breakpoint(tablethorizontal) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
     margin-block-start: 5rem;
   }
 }
 
-// ---------------------------------------------------------------------------
-// Del punto A al punto B
-// ---------------------------------------------------------------------------
-.shift__list {
-  display: flex;
-  flex-direction: column;
-  gap: 2.75rem;
-  max-width: v.$measure-wide;
-  margin-inline: auto;
+.method-stage {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  gap: 1.25rem;
+  position: relative;
+  padding-block-end: 2.75rem;
 
-  @include mx.breakpoint(tablet) {
-    gap: 4.5rem;
+  &:last-child { padding-block-end: 0; }
+
+  &:not(:last-child)::before {
+    position: absolute;
+    inset: 2.75rem auto 0 1.375rem;
+    width: 1px;
+    background: rgba($-accent, 0.3);
+    content: '';
+  }
+
+  @include mx.breakpoint(tablet) { gap: 1.75rem; }
+
+  @include mx.breakpoint(tablethorizontal) {
+    display: block;
+    padding-block: 2rem 0;
+    border-block-start: 1px solid v.$color-line;
+
+    &:not(:last-child)::before { display: none; }
   }
 }
 
-.shift__item {
-  text-align: center;
-}
+.method-stage__number {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid $-accent;
+  border-radius: 50%;
+  font-family: $-serif;
+  font-size: 1.1875rem;
+  font-weight: 600;
+  color: $-accent;
 
-.shift__item + .shift__item {
-  padding-block-start: 2.75rem;
-  border-block-start: 1px solid v.$color-line-olive;
-
-  @include mx.breakpoint(tablet) {
-    padding-block-start: 4.5rem;
+  @include mx.breakpoint(tablethorizontal) {
+    margin-block-end: 2rem;
   }
 }
 
-.shift__from {
-  font-family: v.$secondary-font;
-  font-size: v.$fs-lead;
+.method-stage__copy {
+  padding-block-start: 0.375rem;
+
+  > p:last-child { margin-block-start: 0.75rem; color: $-soft; font-size: 0.875rem; }
+}
+
+.method-stage__intro {
+  margin-block-start: 0.625rem;
+  font-family: $-serif;
+  font-size: 1.25rem;
   font-style: italic;
   line-height: 1.5;
-  color: v.$color-sage;
+  color: $-soft;
 }
 
-.shift__arrow {
-  margin-block: 0.875rem;
-  font-size: v.$fs-small;
-  color: v.$color-sage;
+.method-work__inner {
+  max-width: 64rem !important;
+
+  @include mx.breakpoint(tablethorizontal) {
+    display: grid;
+    grid-template-columns: 20rem minmax(0, 1fr);
+    gap: clamp(4rem, 8vw, 7rem);
+    align-items: start;
+  }
 }
 
-.shift__to {
-  font-family: v.$secondary-font;
-  font-size: v.$fs-card-title;
-  line-height: 1.5;
-  color: v.$color-cream;
+.method-work__portrait {
+  position: relative;
+  width: min(72vw, 20rem);
+  margin: 0 auto 3.5rem;
+
+  &::after {
+    position: absolute;
+    z-index: 0;
+    inset: 0.875rem -0.875rem -0.875rem 0.875rem;
+    border: 1px solid rgba($-accent, 0.4);
+    content: '';
+  }
+
+  img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: min(90vw, 25rem);
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 34%;
+  }
+
+  @include mx.breakpoint(tablethorizontal) {
+    position: sticky;
+    top: 7rem;
+    margin: 0;
+  }
 }
 
-// ---------------------------------------------------------------------------
-// CTA hacia programas
-// ---------------------------------------------------------------------------
-.method-cta .section__inner {
-  text-align: center;
+.method-work__content > header {
+  margin: 0;
+  text-align: left;
+
+  .eyebrow { justify-content: start; }
 }
 
-.method-cta__text {
-  max-width: v.$measure-narrow;
-  margin-block-start: 1.25rem;
-  margin-inline: auto;
-  line-height: 1.65;
+.method-work__list {
+  max-width: 40rem;
+  margin-block-start: 2.5rem;
+
+  li { padding: 1.5rem 0; border-block-start: 1px solid v.$color-line; }
+  p { margin-block-start: 0.625rem; color: $-soft; }
 }
 
-.method-cta__note {
-  margin-block-start: 1rem;
+.method-work__note {
+  max-width: 35rem;
+  margin-block-start: 1.5rem;
+  font-family: $-serif;
+  font-size: 1.125rem;
+  font-style: italic;
+  text-align: left;
+  color: $-soft;
 }
 
-.method-cta__action {
-  margin-block-start: 2.25rem;
+.method-approach__header h2 {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+
+  em { color: v.$color-terracotta-strong; font-style: normal; }
+}
+
+.method-approach__list {
+  display: grid;
+  gap: 2rem;
+  max-width: 45rem;
+  margin: 3rem auto 0;
+  text-align: left;
+
+  p { margin-block-start: 0.75rem; color: $-soft; font-size: 0.875rem; }
 
   @include mx.breakpoint(tablet) {
-    margin-block-start: 2.75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem 3rem;
   }
+
+  li { padding-inline-start: 1.25rem; border-inline-start: 1px solid $-accent; }
+}
+
+.method-changes__list {
+  display: grid;
+  gap: 0.875rem;
+  max-width: 43.75rem;
+  margin: 2.5rem auto 0;
+
+  li {
+    display: grid;
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    border-radius: 4px;
+    background: v.$color-cream;
+
+    &::before {
+      display: grid;
+      place-items: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      content: '→';
+      background: $-accent;
+      color: v.$color-cream;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.method-cta__inner {
+  text-align: center;
+
+  h2 { max-width: 40rem; margin: 1rem auto 1.5rem; }
+  > p:not([class]) { max-width: 32rem; margin-inline: auto; color: $-soft; }
+  .button { margin-block-start: 2rem; }
 }
