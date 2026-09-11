@@ -26,7 +26,7 @@ export const alchemiseTestimonials: readonly Testimonial[] = [
     author: 'Marion',
     program: 'Alchemise',
     quote:
-      'Me siento en paz conmigo misma, es un cambio gigante comparado con antes. Ya no soy mi crítica más dura: el perfeccionismo y la sobreexigencia han mejorado muchísimo y me trato con mucho más cariño. He aprendido que poner límites no me convierte en mala persona, y esa paz se nota en todo lo demás.',
+      'Me siento en paz conmigo misma, es un cambio gigante comparado con antes. Ya no soy mi crítica más dura: el perfeccionismo y la sobreexigencia han mejorado muchísimo y me trato con mucho más cariño.',
   },
 ];
 
