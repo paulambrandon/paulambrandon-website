@@ -45,6 +45,15 @@
   }
 }
 
+.programs__secondary .program {
+  justify-content: center;
+  gap: 0.625rem;
+
+  @include mx.breakpoint(tablet) {
+    padding: clamp(2rem, 3vw, 3rem);
+  }
+}
+
 .program__cover {
   display: grid;
   place-content: center;
@@ -87,9 +96,14 @@
   color: v.$color-muted;
 }
 
-.program .link-arrow {
+.program--featured .link-arrow {
   align-self: flex-start;
   margin-top: auto;
+}
+
+.programs__secondary .link-arrow {
+  align-self: flex-start;
+  margin-top: 1rem;
 }
 
 .programs__cta {
