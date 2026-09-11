@@ -12,9 +12,15 @@
 
   @include mx.breakpoint(tablet) {
     display: grid;
-    grid-template-columns: 1fr 2.5rem 1fr;
+    grid-template-columns: minmax(0, 1fr) clamp(4.5rem, 8vw, 6rem) minmax(0, 1fr);
     padding-inline: 1.75rem;
     padding-block-end: 1rem;
+
+    .label {
+      justify-self: center;
+      font-size: v.$fs-small;
+      text-align: center;
+    }
 
     .label:last-child {
       grid-column: 3;
@@ -34,7 +40,7 @@
 
   @include mx.breakpoint(tablet) {
     display: grid;
-    grid-template-columns: 1fr 2.5rem 1fr;
+    grid-template-columns: minmax(0, 1fr) clamp(4.5rem, 8vw, 6rem) minmax(0, 1fr);
     align-items: center;
     padding: 1.375rem 1.75rem;
   }
