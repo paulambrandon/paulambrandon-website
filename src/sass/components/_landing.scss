@@ -449,12 +449,14 @@
 }
 
 .sticky-cta__label {
+  min-width: 0;
   font-family: v.$secondary-font;
   font-size: v.$fs-intro;
 }
 
 .sticky-cta__action {
-  flex: none;
+  flex: 0 1 auto;
+  min-width: 0;
   padding-inline: 1.25rem;
 }
 

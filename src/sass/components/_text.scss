@@ -5,11 +5,12 @@
   display: flex;
   gap: 0.625rem;
   align-items: center;
-  font-family: v.$primary-font;
-  font-size: v.$fs-small;
+  font-family: v.$secondary-font;
+  font-size: clamp(1.0625rem, 1rem + 0.19vw, 1.1875rem);
+  font-style: italic;
   font-weight: 400;
   line-height: 1.4;
-  color: v.$color-terracotta-strong;
+  color: v.$color-muted;
 
   &::before {
     flex: none;
@@ -22,7 +23,9 @@
 
 // Versalitas: para eyebrows que son una etiqueta corta y no una frase.
 .eyebrow--caps {
+  font-family: v.$primary-font;
   font-size: v.$fs-xs;
+  font-style: normal;
   text-transform: uppercase;
   letter-spacing: 0.14em;
 }
@@ -43,6 +46,7 @@
 // Etiqueta corta en versalitas (ANTES / DESPUÉS, autoría de testimonios).
 .label {
   display: block;
+  font-family: v.$primary-font;
   font-size: v.$fs-xs;
   font-weight: 500;
   line-height: 1.4;

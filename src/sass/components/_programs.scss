@@ -57,7 +57,6 @@
 .program__cover {
   display: grid;
   place-content: center;
-  min-height: 14rem;
   aspect-ratio: 16 / 10;
   font-family: v.$secondary-font;
   font-size: clamp(2.5rem, 7vw, 5rem);

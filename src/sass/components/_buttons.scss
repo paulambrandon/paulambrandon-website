@@ -8,10 +8,13 @@
   justify-content: center;
   min-height: 2.75rem; // área táctil cómoda en móvil
   padding: 0.875rem 1.75rem;
-  font-size: v.$fs-small;
+  font-family: v.$secondary-font;
+  font-size: v.$fs-body;
+  font-weight: 500;
   line-height: 1.35;
   text-align: center;
   border: 1px solid transparent;
+  border-radius: 4px;
 
   @include mx.motion-safe {
     transition:
@@ -70,7 +73,9 @@
 // Enlace editorial con flecha: subrayado discreto, sin aspecto de botón.
 .link-arrow {
   display: inline-block;
-  font-size: v.$fs-small;
+  font-family: v.$secondary-font;
+  font-size: v.$fs-body;
+  font-weight: 500;
   color: v.$color-olive-dark;
   text-decoration: underline;
   text-underline-offset: 0.25em;

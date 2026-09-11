@@ -45,10 +45,10 @@ Colores aproximados muestreados del mockup. Si el proyecto ya contiene tokens de
 
 ```scss
 // Referencia aproximada, no duplicar si ya existen variables equivalentes.
-$color-paper:       #fffdf8;
-$color-sand:        #eae2d5;
-$color-charcoal:    #3a362f;
-$color-olive:       #6e7561;
+$color-paper:       #faf8f4;
+$color-sand:        #f3ede6;
+$color-charcoal:    #4a3b33;
+$color-olive:       #606957;
 $color-terracotta:  #b16c48;
 ```
 
@@ -80,7 +80,7 @@ $color-terracotta:  #b16c48;
 **Terracotta**
 - acento editorial;
 - palabras concretas destacadas;
-- eyebrow/label;
+- filetes y detalles puntuales de eyebrow/label;
 - nunca como color dominante.
 
 No añadir colores nuevos sin necesidad.
@@ -91,7 +91,7 @@ No añadir colores nuevos sin necesidad.
 
 El mockup combina dos familias visuales:
 
-### Serif editorial
+### Serif editorial — Cormorant Garamond
 
 Usar para:
 
@@ -103,7 +103,7 @@ Usar para:
 
 Debe sentirse elegante, orgánica y editorial.
 
-### Sans serif limpia
+### Sans serif limpia — Inter
 
 Usar para:
 
@@ -125,16 +125,12 @@ Usar de forma puntual para:
 
 ### Regla importante
 
-No elegir o importar una fuente externa basándose únicamente en una suposición del mockup.
+Estas dos familias proceden de la web publicada de Paula y se sirven localmente
+en WOFF2. Son la tipografía global del proyecto, incluida la navegación, los
+botones y el footer.
 
-Antes:
-
-1. revisar fuentes existentes en el proyecto;
-2. revisar `public/`;
-3. revisar variables Sass;
-4. usar la familia definida por diseño/cliente si existe.
-
-Si no existe una fuente aprobada, no meter Google Fonts arbitrariamente.
+No cargar Google Fonts ni redefinir familias por página. Cualquier excepción
+tipográfica debe estar justificada por el diseño y usar los tokens Sass.
 
 ---
 
@@ -915,8 +911,8 @@ La Home conserva su implementación.
 Orden: hero → por qué no basta con cambiar desde fuera → tres etapas → cómo
 te acompaño → qué diferencia el enfoque → qué puedes empezar a notar → programas.
 
-- Cormorant Garamond en titulares y botones, Inter en cuerpo. Fuentes originales
-  verificadas, servidas localmente en WOFF2 y aplicadas solo en Método.
+- Cormorant Garamond en titulares y botones, Inter en cuerpo. Las fuentes son
+  globales; Método no mantiene una configuración tipográfica paralela.
 - Fondo crema #faf8f4 y arena #f3ede6. Texto marrón #4a3b33, secundario #6e5d53,
   oliva #606957 para botones. Terracota accesible para acentos textuales.
 - Hero tipográfico centrado, sin fotografía ni fondo partido, para que Método

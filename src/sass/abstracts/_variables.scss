@@ -4,29 +4,29 @@ $bp-tablet-horizontal: 64rem; // 1024px ÷ 16 = 64rem
 $bp-desktop: 75rem; // 1200px ÷ 16 = 75rem
 $bp-desktop-xl: 90rem; // 1440px ÷ 16 = 90rem
 
-// Variables for fonts
-$primary-font: "Work Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-$secondary-font: "Newsreader", Georgia, "Times New Roman", serif;
+// Tipografías de la identidad visual de la web publicada, servidas localmente.
+$primary-font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+$secondary-font: "Cormorant Garamond", Georgia, "Times New Roman", serif;
 
 // ---------------------------------------------------------------------------
 // Color
 // Muestreados del mockup aprobado (referencia de diseño). Algunos tonos se han
 // oscurecido lo mínimo imprescindible para cumplir contraste AA (DESIGN §23).
 // ---------------------------------------------------------------------------
-$color-paper: #fffdf8; // blanco cálido: cards, bloques de contraste
+$color-paper: #faf8f4; // blanco cálido de la identidad visual publicada
 $color-cream: #faf8f4; // blanco cálido de la web publicada: base, header y hero
 $color-sand: #f3ede6; // beige dominante de la Home
-$color-charcoal: #292a25; // texto principal
-$color-ink: #3a362f; // fondo del footer
-$color-olive: #6e7561; // CTA primario
-$color-olive-dark: #4f5a47; // CTA secundario, hover, elementos numéricos
+$color-charcoal: #4a3b33; // texto principal de la web publicada
+$color-ink: #4a3b33; // fondo del footer
+$color-olive: #606957; // CTA primario
+$color-olive-dark: #4f5948; // CTA secundario, hover, elementos numéricos
 $color-terracotta: #b06a45; // acento decorativo y texto de gran tamaño
 $color-terracotta-strong: #94512f; // mismo acento con contraste AA en texto pequeño
-$color-muted: #63605a; // texto secundario
+$color-muted: #6e5d53; // texto secundario de la web publicada
 $color-line: #d8d0c4; // divisores y bordes finos
 $color-line-strong: #b0a99a; // filete conector sobre arena (decorativo)
 
-// Tonos sobre el bloque oliva de /metodo. El mockup usa #b7c0ac para el texto
+// Tonos sobre bloques oliva. El mockup usa #b7c0ac para el texto
 // secundario, pero se queda en 3.86:1: se aclara a #c8cfc0 (4.55:1) para
 // cumplir AA sin perder el escalón tonal con el titular en crema.
 $color-sage: #c8cfc0; // preheadings y citas de partida sobre oliva
@@ -77,7 +77,7 @@ $fs-step-title: clamp(1.125rem, 1.07rem + 0.19vw, 1.25rem); // 18 → 20
 $fs-brand: clamp(1.0625rem, 1rem + 0.19vw, 1.1875rem); // 17 → 19
 $fs-body: clamp(0.9375rem, 0.9rem + 0.14vw, 1.0625rem); // 15 → 17
 
-// Escalones editoriales que necesita /metodo por encima del cuerpo de texto.
+// Escalones editoriales compartidos por páginas y componentes.
 $fs-intro: clamp(1rem, 0.95rem + 0.19vw, 1.125rem); // 16 → 18
 $fs-display-sm: clamp(1.5rem, 1.22rem + 1.14vw, 2.25rem); // 24 → 36
 $fs-display: clamp(1.6875rem, 1.43rem + 1.05vw, 2.375rem); // 27 → 38
