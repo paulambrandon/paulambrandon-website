@@ -5,23 +5,39 @@
 }
 
 .contact-cta__intro {
-  margin-top: 1rem;
+  margin-top: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  font-size: v.$fs-quote;
+  line-height: 1.6;
 }
 
 .contact-cta__text {
   max-width: 30rem;
-  margin-top: 0.5rem;
+  margin-top: clamp(1rem, 0.85rem + 0.5vw, 1.25rem);
   margin-inline: auto;
+  line-height: 1.7;
 }
 
 .contact-cta__actions {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: center;
-  margin-top: 2.25rem;
+  margin-top: clamp(2.75rem, 2.3rem + 1.5vw, 3.5rem);
 }
 
 .contact-cta .section__title {
+  max-width: 42rem;
   margin-bottom: 0;
+  margin-inline: auto;
+  font-size: v.$fs-display;
+}
+
+.contact-cta__actions .button {
+  min-height: 3.25rem;
+  padding-inline: clamp(1.75rem, 4vw, 2.5rem);
+  font-size: v.$fs-body;
+}
+
+.contact-cta__actions .link-arrow {
+  font-size: v.$fs-body;
 }
