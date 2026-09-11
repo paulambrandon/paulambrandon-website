@@ -46,7 +46,7 @@ $-accent: v.$color-olive;
 .method-hero {
   display: grid;
   place-items: center;
-  min-height: min(48rem, calc(100svh - 4.375rem));
+  min-height: 100dvh;
   background: v.$color-cream;
   padding-block: clamp(6rem, 14vw, 11rem);
 }
@@ -61,14 +61,15 @@ $-accent: v.$color-olive;
   text-align: center;
 
   .eyebrow {
-    margin-block-end: 1rem;
+    margin-block-end: 1.25rem;
+    font-size: clamp(1.375rem, 2vw, 1.75rem);
     font-style: italic;
   }
 
   h1 {
     max-width: 54rem;
     margin-inline: auto;
-    font-size: clamp(2.75rem, 6vw, 5.25rem);
+    font-size: clamp(2.375rem, 5vw, 4.5rem);
     font-weight: 600;
     line-height: 1.02;
     letter-spacing: -0.025em;
@@ -84,14 +85,6 @@ $-accent: v.$color-olive;
     font-weight: 500;
     color: $-accent;
   }
-}
-
-.method-hero__index {
-  margin-block-end: 2rem;
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  color: v.$color-terracotta-strong;
 }
 
 .method-hero__lede {
