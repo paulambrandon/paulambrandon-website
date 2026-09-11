@@ -44,21 +44,11 @@ $-accent: v.$color-olive;
 }
 
 .method-hero {
-  position: relative;
   display: grid;
   place-items: center;
   min-height: min(48rem, calc(100svh - 4.375rem));
   background: v.$color-cream;
   padding-block: clamp(6rem, 14vw, 11rem);
-
-  &::after {
-    position: absolute;
-    inset: auto 50% 0;
-    width: 1px;
-    height: clamp(3rem, 7vw, 5rem);
-    background: rgba($-accent, 0.45);
-    content: '';
-  }
 }
 
 .method-hero__inner {
