@@ -21,9 +21,10 @@
 .problem__label {
   margin-bottom: 1.25rem;
   font-family: v.$secondary-font;
-  font-size: v.$fs-xs;
+  font-size: v.$fs-step-title;
   font-style: italic;
-  font-weight: 500;
+  font-weight: 400;
+  line-height: 1.4;
   color: v.$color-muted;
 }
 
