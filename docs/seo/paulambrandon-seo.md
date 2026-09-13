@@ -339,7 +339,7 @@ cluster hasta que haya suficiente contenido que la justifique.
 |-----------------------|-----------------------------------------------|-----------------------------------------------------------------------------------------|----------------------------------------------------------|-----------|
 | /                     | Paula Márquez Brandon + territorio            | Paula Márquez Brandon \| Autoexigencia y autocuidado en mujeres                         | Necesitas dejar de construir tu vida alrededor de la idea de que no eres suficiente. | Eyebrow: “No necesitas convertirte en otra mujer.” No forzar keyword exacta; dar contexto semántico inmediatamente bajo el hero. |
 | /metodo               | método / enfoque de Paula                     | Mi método: de la autoexigencia al autocuidado \| Paula Márquez Brandon                   | No se trata de corregirte. Se trata de entender qué hay detrás de lo que te pasa.       | No inventar fases. El contenido debe salir del método general real de Paula. No usar IMAC aquí salvo que Paula confirme que ambos sistemas son el mismo. |
-| /programas            | programas / acompañamientos para mujeres     | Programas y acompañamientos para mujeres autoexigentes \| Paula Márquez Brandon          | Programas y formas de trabajar conmigo                   | Hub de Alchemise, Movimiento y nutrición y Sesión de claridad. |
+| /programas            | programas / acompañamientos para mujeres     | Programas y acompañamientos para mujeres autoexigentes \| Paula Márquez Brandon          | Elige el acompañamiento que necesitas ahora.             | Hub de decisión para Alchemise, Movimiento y nutrición y Sesión de claridad. |
 | /sobre-mi             | experiencia / marca                           | Sobre mí: de la autoexigencia al autocuidado \| Paula Márquez Brandon                    | Mi historia                                               | Página centrada en Paula; añadir credenciales reales, experiencia y enlaces a apariciones/formación. |
 | /testimonios          | testimonios mujeres                           | Historias reales de cambio \| Paula Márquez Brandon                                      | Historias de mujeres que han vivido el proceso           | Casos con contexto; no promesas médicas ni resultados garantizados. |
 | /contacto             | marca / contacto                              | Contacto \| Paula Márquez Brandon                                                        | Contacto                                                  | Página simple, rastreable y útil para dudas y colaboraciones. |
@@ -366,6 +366,16 @@ publicada en [Empieza aquí](https://www.paulambrandon.com/empieza-aqui) y
 presentan como variables según el programa, sin atribuir el formato grupal a todos.
 No se prometen resultados ni plazos. IMAC sigue perteneciendo exclusivamente a
 Alchemise. CTA final: «Ver programas» → /programas.
+
+### Contenido de /programas — decisión del cliente, 13 de septiembre de 2026
+
+La página funciona como un hub breve de decisión. Presenta Alchemise como el
+proceso principal y deriva el detalle comercial a las tres landings. Orden:
+hero → Alchemise → Movimiento y nutrición + Sesión de claridad → comparador →
+contacto. No desarrolla IMAC ni repite testimonios o argumentos extensos de las
+landings. H1: «Elige el acompañamiento que necesitas ahora.» Meta description:
+«Elige la forma de trabajar con Paula que mejor encaja con lo que necesitas
+ahora: Alchemise, Movimiento y nutrición o una Sesión de claridad.»
 
 ### 8.1 Migración desde las URLs actuales
 

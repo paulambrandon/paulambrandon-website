@@ -1,11 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ProgramsHero from '../components/programas/ProgramsHero.astro';
-import ArrivalSection from '../components/programas/ArrivalSection.astro';
 import AlchemiseSection from '../components/programas/AlchemiseSection.astro';
 import OffersSection from '../components/programas/OffersSection.astro';
 import FitSection from '../components/programas/FitSection.astro';
-import ProgramsTestimonials from '../components/programas/ProgramsTestimonials.astro';
 import ContactCta from '../components/programas/ContactCta.astro';
 import { PERSON_NAME } from '../data/site';
 
@@ -15,15 +13,13 @@ const title = `Programas y acompañamientos para mujeres autoexigentes | ${PERSO
 // El documento SEO no define meta description para /programas. En lugar de
 // inventar una, se reutiliza la entradilla aprobada del propio hero.
 const description =
-  'Descubre los programas y formas de trabajar conmigo según lo que quieras trabajar y el tipo de acompañamiento que necesites ahora.';
+  'Elige la forma de trabajar con Paula que mejor encaja con lo que necesitas ahora: Alchemise, Movimiento y nutrición o una Sesión de claridad.';
 ---
 
 <Layout title={title} description={description}>
   <ProgramsHero />
-  <ArrivalSection />
   <AlchemiseSection />
   <OffersSection />
   <FitSection />
-  <ProgramsTestimonials />
   <ContactCta />
 </Layout>

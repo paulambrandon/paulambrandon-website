@@ -1,436 +1,218 @@
 @use '@abstracts/variables' as v;
 @use '@abstracts/mixins' as mx;
 
-// ---------------------------------------------------------------------------
-// Hero centrado
-// ---------------------------------------------------------------------------
 .programs-hero {
-  padding-block: 0.75rem 4.5rem;
+  display: flex;
+  align-items: center;
+  min-height: min(44rem, 78dvh);
+  padding-block: clamp(4.5rem, 9vw, 7.5rem);
   text-align: center;
-
-  @include mx.breakpoint(tablet) {
-    padding-block: 3rem 6.875rem;
-  }
-
-  @include mx.breakpoint(tablethorizontal) {
-    padding-block: 4.375rem 8.125rem;
-  }
 }
 
 .programs-hero__inner {
-  @include mx.container;
+  @include mx.container(v.$measure-wide);
 }
 
 .programs-hero .eyebrow {
-  margin-bottom: 1.75rem;
-
-  @include mx.breakpoint(tablet) {
-    margin-bottom: 2.25rem;
-  }
+  margin-block-end: 1.75rem;
 }
 
 .programs-hero__title {
-  max-width: v.$measure-wide;
-  margin-inline: auto;
-  font-size: v.$fs-statement;
-  line-height: 1.32;
+  font-size: clamp(2.25rem, 1.76rem + 2vw, 3.5625rem);
+  line-height: 1.16;
 }
 
 .programs-hero__lede {
-  max-width: 33.75rem;
-  margin-block-start: 1.375rem;
+  max-width: 36rem;
+  margin-block: 1.5rem 1.75rem;
   margin-inline: auto;
-  font-size: v.$fs-intro;
-  line-height: 1.65;
   color: v.$color-muted;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-start: 2rem;
-  }
 }
 
-.programs-hero__action {
-  margin-block-start: 1.5rem;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-start: 2.25rem;
-  }
-}
-
-// Los dos titulares con más aire bajo ellos que el resto de secciones.
-.arrival__title,
-.fit__title {
-  margin-bottom: clamp(2.75rem, 1.73rem + 4.19vw, 5.5rem);
-}
-
-// ---------------------------------------------------------------------------
-// Puedes llegar diciendo…
-// ---------------------------------------------------------------------------
-.arrival__title {
-  max-width: 37.5rem;
+.alchemise__content {
+  max-width: 52rem;
+  padding-block: clamp(3rem, 6vw, 5rem);
   margin-inline: auto;
+  text-align: center;
+  border-block: 1px solid v.$color-line;
 }
 
-.arrival__body {
-  max-width: v.$measure-wide;
-  margin-inline: auto;
-}
-
-// En pantallas anchas la etiqueta ocupa su propia columna, alineada con la
-// primera cita. En móvil se lee como entradilla de la lista.
-.arrival__label {
-  margin-block-end: 0.5rem;
-  font-family: v.$secondary-font;
-  font-size: v.$fs-small; // cabe en su columna de 150px sin partirse en dos
-  font-style: italic;
-  color: v.$color-muted;
-
-  @include mx.breakpoint(tablet) {
-    padding-block-start: 2rem;
-    margin-block-end: 0;
-  }
-}
-
-@include mx.breakpoint(tablet) {
-  .arrival__body {
-    display: grid;
-    grid-template-columns: 9.375rem 1fr;
-    gap: 2rem;
-    align-items: start;
-  }
-}
-
-.arrival__item {
-  padding-block: 1.5rem;
-  border-block-end: 1px solid v.$color-line;
-
-  &:first-child {
-    padding-block-start: 0;
-  }
-
-  &:last-child {
-    border-block-end: 0;
-  }
-
-  @include mx.breakpoint(tablet) {
-    padding-block: 2rem;
-
-    &:first-child {
-      padding-block-start: 2rem;
-    }
-  }
-}
-
-.arrival__quote {
-  font-family: v.$secondary-font;
-  font-size: v.$fs-quote;
-  line-height: 1.5;
-}
-
-// ---------------------------------------------------------------------------
-// Alchemise: bloque protagonista sobre oliva
-// ---------------------------------------------------------------------------
-// Dos columnas solo cuando hay ancho real: el retrato 4:5 y un titular de 72px
-// no conviven con una columna de texto de 320px.
-.alchemise__grid {
-  @include mx.breakpoint(tablethorizontal) {
-    display: grid;
-    grid-template-columns: 1fr 0.85fr;
-    grid-template-rows: auto auto;
-    column-gap: clamp(3rem, 5.5vw, 5rem);
-  }
-}
-
-.alchemise__head {
-  @include mx.breakpoint(tablethorizontal) {
-    grid-row: 1;
-    grid-column: 1;
-  }
-}
-
-.alchemise__body {
-  @include mx.breakpoint(tablethorizontal) {
-    grid-row: 2;
-    grid-column: 1;
-  }
-}
-
-.alchemise__badge {
+.alchemise__label {
   margin-block-end: 1.5rem;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-end: 2rem;
-  }
 }
 
 .alchemise__title {
-  margin-block-end: 1rem;
-  font-size: clamp(3rem, 2.44rem + 2.29vw, 4.5rem); // 48 → 72
+  font-size: clamp(3rem, 2.44rem + 2.29vw, 4.5rem);
   line-height: 1;
-  color: v.$color-cream;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-end: 1.5rem;
-  }
 }
 
 .alchemise__meta {
-  margin-block-end: 1.75rem;
-  color: v.$color-sage;
-  letter-spacing: 0.03em;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-end: 2rem;
-  }
-}
-
-// Apilado, el retrato 4:5 se comería la pantalla si ocupara todo el ancho:
-// a 768px serían 683×854. Se limita hasta que pasa a su propia columna.
-.alchemise__media {
-  max-width: 24rem;
-  margin-block-end: 1.75rem;
-
-  @include mx.breakpoint(tablethorizontal) {
-    grid-row: 1 / span 2;
-    grid-column: 2;
-    align-self: center;
-    max-width: none;
-    margin-block-end: 0;
-  }
-}
-
-// Marco desplazado tras el retrato. Solo aparece cuando hay dos columnas: en
-// móvil el desplazamiento comería el gutter lateral.
-.alchemise__frame {
-  position: relative;
-
-  @include mx.breakpoint(tablethorizontal) {
-    &::after {
-      position: absolute;
-      inset: 0.875rem -0.875rem -0.875rem 0.875rem;
-      content: '';
-      border: 1px solid v.$color-line-olive;
-    }
-  }
-}
-
-.alchemise__image {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+  margin-block-start: 0.875rem;
+  color: v.$color-muted;
 }
 
 .alchemise__lede {
-  max-width: 30rem;
-  margin-block-end: 1.25rem;
+  max-width: 42rem;
+  margin-block: 2.25rem 1rem;
+  margin-inline: auto;
   font-family: v.$secondary-font;
-  font-size: v.$fs-quote;
-  line-height: 1.6;
-  color: v.$color-cream;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-end: 2rem;
-  }
+  font-size: v.$fs-lead;
+  line-height: 1.5;
 }
 
 .alchemise__text {
-  max-width: 30rem;
+  max-width: 38rem;
   margin-block-end: 2rem;
-  line-height: 1.7;
-  color: v.$color-sage;
+  margin-inline: auto;
+  color: v.$color-muted;
+}
+
+.offers__header {
+  max-width: 42rem;
+  margin-block-end: clamp(3.5rem, 7vw, 5.5rem);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.offers__header .eyebrow {
+  margin-block-end: 1.5rem;
+}
+
+.offers__header h2 {
+  margin-block-end: 1rem;
+  font-size: v.$fs-display;
+}
+
+.offers__header > p:last-child {
+  color: v.$color-muted;
+}
+
+.offers__list {
+  border-block: 1px solid v.$color-line;
 
   @include mx.breakpoint(tablet) {
-    margin-block-end: 2.5rem;
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Movimiento y nutrición · Sesión de claridad
-// ---------------------------------------------------------------------------
-.offers {
-  background-color: v.$color-paper;
-}
-
-.offers__grid {
-  width: 100%;
-  max-width: v.$container-max;
-  margin-inline: auto;
-
-  @include mx.breakpoint(tablethorizontal) {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 .offer {
-  padding-block: v.$section-space;
-  padding-inline: v.$gutter;
-}
+  position: relative;
+  padding-block: clamp(2.75rem, 5vw, 4.5rem);
+  padding-inline: clamp(0rem, 4vw, 3.5rem);
 
-// Mientras las dos fichas van apiladas, el contenido conserva una medida de
-// lectura editorial en lugar de estirarse a todo el ancho.
-.offer > * {
-  max-width: 36rem;
-}
-
-.offer + .offer {
-  border-block-start: 1px solid v.$color-line;
-
-  @include mx.breakpoint(tablethorizontal) {
-    border-block-start: 0;
-    border-inline-start: 1px solid v.$color-line;
+  &:first-child {
+    border-block-end: 1px solid v.$color-line;
   }
-}
-
-.offer__kicker {
-  margin-block-end: 1rem;
 
   @include mx.breakpoint(tablet) {
-    margin-block-end: 1.25rem;
+    &:first-child {
+      padding-inline-start: 0;
+      border-block-end: 0;
+      border-inline-end: 1px solid v.$color-line;
+    }
+
+    &:last-child {
+      padding-inline-end: 0;
+    }
   }
+}
+
+.offer__mark {
+  display: block;
+  margin-block-end: 1.5rem;
+  font-family: v.$secondary-font;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: v.$color-terracotta-strong;
 }
 
 .offer__title {
-  margin-block-end: 1.25rem;
   font-size: v.$fs-card-title;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-end: 1.5rem;
-  }
 }
 
 .offer__meta {
-  margin-block-end: 1.5rem;
+  margin-block-start: 0.5rem;
+  font-size: v.$fs-small;
   color: v.$color-muted;
-  letter-spacing: 0.03em;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-end: 1.75rem;
-  }
-}
-
-.offer__image {
-  width: 100%;
-  height: auto;
-  margin-block-end: 1.5rem;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-end: 1.75rem;
-  }
 }
 
 .offer__text {
-  margin-block-end: 0.875rem;
-  line-height: 1.65;
+  max-width: 31rem;
+  margin-block: 1.5rem;
 }
 
-.offer__note {
-  margin-block-end: 1.5rem;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-end: 1.75rem;
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Qué tipo de acompañamiento necesitas
-// ---------------------------------------------------------------------------
-.fit__list {
-  max-width: 57.5rem;
-  margin-inline: auto;
-}
-
-// Móvil: la necesidad ocupa la fila y debajo va "→ acompañamiento".
-.fit__row {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 0.5rem;
-  align-items: baseline;
-  padding-block: 1.5rem;
-  border-block-end: 1px solid v.$color-line;
-
-  &:last-child {
-    border-block-end: 0;
-  }
-
-  @include mx.breakpoint(tablet) {
-    grid-template-columns: 2fr 2.5rem 1fr;
-    column-gap: 0;
-    align-items: center;
-    padding-block: 2rem;
-  }
-}
-
-.fit__need {
-  grid-column: 1 / -1;
-  margin-block-end: 0.625rem;
-  font-family: v.$secondary-font;
-  font-size: v.$fs-intro;
-  line-height: 1.5;
-
-  @include mx.breakpoint(tablet) {
-    grid-column: 1;
-    margin-block-end: 0;
-  }
-}
-
-.fit__arrow {
-  font-size: v.$fs-small;
-  color: v.$color-muted;
-
-  @include mx.breakpoint(tablet) {
-    text-align: center;
-  }
-}
-
-.fit__program {
-  color: v.$color-olive-dark;
-}
-
-.fit__note {
-  max-width: 37.5rem;
-  margin-block-start: 2.75rem;
+.fit__heading {
+  max-width: 38rem;
+  margin-block-end: clamp(3rem, 6vw, 5rem);
   margin-inline: auto;
   text-align: center;
+}
+
+.fit__heading .eyebrow {
+  margin-block-end: 1.5rem;
+}
+
+.fit__heading h2 {
+  font-size: v.$fs-display;
+}
+
+.fit__list {
+  max-width: v.$measure-table;
+  margin-inline: auto;
+  border-block-start: 1px solid v.$color-line;
+}
+
+.fit__row {
+  padding-block: 1.75rem;
+  border-block-end: 1px solid v.$color-line;
 
   @include mx.breakpoint(tablet) {
-    margin-block-start: 4.5rem;
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Testimonios a dos columnas
-// ---------------------------------------------------------------------------
-// Dos columnas solo a partir de 1024px: a 768px cada cita se quedaría en una
-// medida de unos 15 caracteres por línea.
-.pair-quotes {
-  display: flex;
-  flex-direction: column;
-  gap: 2.25rem;
-  max-width: 51.25rem;
-  margin-inline: auto;
-
-  @include mx.breakpoint(tablethorizontal) {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: minmax(0, 1.6fr) minmax(14rem, 0.8fr);
+    gap: 3rem;
+    align-items: center;
   }
 }
 
-// El filete separa las dos citas: horizontal apiladas, vertical en columnas.
-.pair-quotes__item + .pair-quotes__item {
-  padding-block-start: 2.25rem;
-  border-block-start: 1px solid v.$color-line;
+.fit__row dt {
+  font-family: v.$secondary-font;
+  font-size: v.$fs-quote;
+  line-height: 1.45;
+}
 
-  @include mx.breakpoint(tablethorizontal) {
-    padding-block-start: 0;
-    padding-inline-start: 4rem;
-    border-block-start: 0;
-    border-inline-start: 1px solid v.$color-line;
+.fit__row dd {
+  margin-block-start: 0.625rem;
+
+  @include mx.breakpoint(tablet) {
+    margin-block-start: 0;
   }
+}
+
+.fit__row a {
+  font-family: v.$secondary-font;
+  font-weight: 500;
+  color: v.$color-olive-dark;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.programs-contact .section__inner {
+  max-width: 46rem;
+}
+
+.programs-contact .label {
+  margin-block-end: 1.5rem;
+}
+
+.programs-contact .section__title {
+  color: v.$color-cream;
+}
+
+.programs-contact .contact-cta__text {
+  color: v.$color-sage;
+}
+
+.programs-contact__action {
+  margin-block-start: 2.25rem;
 }

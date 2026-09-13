@@ -1,40 +1,18 @@
 ---
-import { Image } from 'astro:assets';
 import { alchemise } from '../../data/programas';
-
-// El orden del DOM es el del móvil (cabecera → retrato → texto → CTA). En
-// pantallas anchas el retrato pasa a la segunda columna sin reordenar nada.
 ---
 
-<section class="section section--olive alchemise">
-  <div class="section__inner alchemise__grid">
-    <div class="alchemise__head">
-      <p class="badge badge--sage alchemise__badge">{alchemise.badge}</p>
-      <h2 class="alchemise__title">{alchemise.title}</h2>
+<section class="section section--sand alchemise" id="alchemise" aria-labelledby="alchemise-titulo">
+  <div class="section__inner">
+    <article class="alchemise__content">
+      <p class="label label--olive alchemise__label">Programa principal</p>
+      <h2 class="alchemise__title" id="alchemise-titulo">{alchemise.title}</h2>
       <p class="alchemise__meta">{alchemise.meta}</p>
-    </div>
-
-    <div class="alchemise__media">
-      <div class="alchemise__frame">
-        <Image
-          class="alchemise__image"
-          src={alchemise.image}
-          alt={alchemise.imageAlt}
-          widths={[400, 600, 900, 1200]}
-          sizes="(min-width: 64rem) 38vw, calc(100vw - 2.75rem)"
-          loading="lazy"
-        />
-      </div>
-    </div>
-
-    <div class="alchemise__body">
       <p class="alchemise__lede">{alchemise.lede}</p>
       <p class="alchemise__text">{alchemise.description}</p>
-      <p>
-        <a class="button button--light" href={alchemise.href}>
-          {alchemise.linkLabel} <span aria-hidden="true">→</span>
-        </a>
-      </p>
-    </div>
+      <a class="button button--primary" href={alchemise.href}>
+        {alchemise.linkLabel} <span aria-hidden="true">→</span>
+      </a>
+    </article>
   </div>
 </section>
