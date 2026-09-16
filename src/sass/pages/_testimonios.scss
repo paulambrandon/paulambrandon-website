@@ -1,187 +1,219 @@
 @use '@abstracts/variables' as v;
 @use '@abstracts/mixins' as mx;
 
-.testimonials-hero {
-  text-align: center;
+.testimonials-page {
+  padding-block: clamp(4rem, 3.25rem + 3vw, 6rem);
 
-  h1 {
-    max-width: 48rem;
-    margin: 1.5rem auto;
-  }
-
-  p:last-child {
-    max-width: 36rem;
-    margin-inline: auto;
-    color: v.$color-muted;
+  @include mx.breakpoint(tablethorizontal) {
+    padding-block: v.$section-space;
   }
 }
 
-.testimonial-paths {
+.testimonials-page__header {
+  max-width: 42rem;
+  margin-inline: auto;
+  margin-block-end: clamp(3.5rem, 7vw, 5rem);
   text-align: center;
-
-  p {
-    max-width: 36rem;
-    margin: 2rem auto 0;
-    color: v.$color-muted;
-  }
 }
 
-.testimonial-paths__list {
+.testimonials-page__header .eyebrow {
+  margin-block-end: 1.5rem;
+}
+
+.testimonials-page__header h1 {
+  font-size: clamp(2.125rem, 1.73rem + 1.62vw, 3.1875rem);
+}
+
+.testimonials-page__header > p:last-child {
+  max-width: 30rem;
+  margin-block-start: 0.75rem;
+  margin-inline: auto;
+  color: v.$color-muted;
+}
+
+.testimonials-page__grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
   justify-content: center;
-
-  li {
-    padding: 0.55rem 0.9rem;
-    font-family: v.$secondary-font;
-    border: 1px solid v.$color-line-strong;
-  }
+  gap: 1.375rem;
+  max-width: 61.25rem;
+  margin-inline: auto;
 }
 
-.featured-stories__grid {
-  display: grid;
-  gap: 3rem;
-  max-width: 60rem;
-}
-
-.featured-story {
-  padding-bottom: 3rem;
-  border-bottom: 1px solid v.$color-line;
-
-  blockquote {
-    max-width: 48rem;
-    margin-top: 1.25rem;
-    font-family: v.$secondary-font;
-    font-size: v.$fs-lead;
-    font-style: italic;
-  }
-
-  figcaption {
-    margin-top: 1.5rem;
-    font-size: v.$fs-small;
-    color: v.$color-muted;
-  }
-}
-
-.testimony-program__header {
+.testimonial-card {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-
-  @include mx.breakpoint(tablet) {
-    flex-direction: row;
-    align-items: end;
-    justify-content: space-between;
-  }
-
-  h2 {
-    margin-top: 0.75rem;
-    font-size: v.$fs-display-sm;
-  }
-}
-
-.testimony-program__grid {
-  display: grid;
-  gap: 1rem;
-
-  @include mx.breakpoint(tablet) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.testimony-card {
-  display: flex;
-  flex-direction: column;
-  padding: clamp(1.5rem, 3vw, 2rem);
+  flex: 1 1 16.875rem;
+  width: 100%;
+  max-width: 100%;
+  padding: 1.5rem 1.375rem;
+  text-align: left;
   background-color: v.$color-paper;
-  border: 1px solid v.$color-line;
+  border-radius: 0.75rem;
 
-  blockquote {
-    font-family: v.$secondary-font;
-    font-size: v.$fs-quote;
-    font-style: italic;
-  }
-
-  figcaption {
-    margin-top: auto;
-    padding-top: 1.5rem;
-    font-size: v.$fs-small;
+  @media (min-width: 40rem) {
+    max-width: 19.375rem;
+    padding: 1.75rem 1.625rem;
   }
 }
 
-.section--paper .testimony-card {
-  background-color: v.$color-sand;
-  border: 0;
+.testimonial-card blockquote {
+  margin-block-end: 1.125rem;
+  font-family: v.$secondary-font;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.6;
 }
 
-.physical-results {
-  margin-top: clamp(4rem, 8vw, 7rem);
-  padding-top: clamp(3rem, 6vw, 5rem);
-  border-top: 1px solid v.$color-line;
+.testimonial-card blockquote p::before {
+  content: '“';
+}
+
+.testimonial-card blockquote p::after {
+  content: '”';
+}
+
+.testimonial-card blockquote strong {
+  font-style: normal;
+  font-weight: 600;
+  color: v.$color-terracotta-strong;
+}
+
+.testimonial-card figcaption {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-block-start: auto;
+}
+
+.testimonial-card__name {
+  margin-block-end: 0.375rem;
+  font-size: v.$fs-xs;
+  font-weight: 500;
+  color: v.$color-muted;
+  letter-spacing: 0.04em;
+}
+
+.testimonial-card__tag {
+  font-size: 0.625rem;
+  font-weight: 500;
+  color: v.$color-olive-dark;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
 }
 
 .physical-results__intro {
-  max-width: 42rem;
-  margin: 0 auto 2.5rem;
+  max-width: 36rem;
+  margin-inline: auto;
+  margin-block-end: clamp(2.5rem, 5vw, 3.5rem);
   text-align: center;
+}
 
-  h3 {
-    font-size: v.$fs-display-sm;
-  }
+.physical-results__intro h2 {
+  margin-block-end: 0.5rem;
+  font-size: v.$fs-display-sm;
+}
 
-  p {
-    margin-top: 1rem;
-    color: v.$color-muted;
-  }
+.physical-results__intro p {
+  color: v.$color-muted;
 }
 
 .physical-results__grid {
   display: grid;
-  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.75rem;
+  max-width: 67.5rem;
+  margin-inline: auto;
 
-  @include mx.breakpoint(tablet) {
-    grid-template-columns: repeat(3, 1fr);
+  @media (min-width: 40rem) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+  @include mx.breakpoint(tablethorizontal) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
 
-  figcaption {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.75rem;
-  }
+.physical-result {
+  align-self: start;
+  padding: 0.875rem 0.875rem 1.625rem;
+  overflow: hidden;
+  text-align: center;
+  background-color: v.$color-sand;
+  border-radius: 0.75rem;
+}
+
+.physical-result__media {
+  display: grid;
+  gap: 0.5rem;
+  margin-block-end: 1.375rem;
+}
+
+.physical-result__media img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.375rem;
+}
+
+.physical-result figcaption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.physical-result__time {
+  margin-block-end: 0.875rem;
+  font-family: v.$secondary-font;
+  font-size: clamp(1.375rem, 1.28rem + 0.38vw, 1.625rem);
+  font-weight: 600;
+  line-height: 1;
+  color: v.$color-olive-dark;
+}
+
+.physical-result__name {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: v.$color-olive-dark;
 }
 
 .testimony-final {
   text-align: center;
+}
 
-  .lead-italic {
-    color: v.$color-sage-light;
-  }
+.testimony-final .lead-italic {
+  color: v.$color-sage-light;
+}
 
-  h2 {
-    max-width: 42rem;
-    margin: 1.25rem auto;
-    font-size: v.$fs-display;
-  }
+.testimony-final h2 {
+  max-width: 42rem;
+  margin: 1.25rem auto;
+  font-size: v.$fs-display;
+}
 
-  > .section__inner > p:not(.lead-italic) {
-    max-width: 38rem;
-    margin-inline: auto;
-    color: v.$color-sage;
-  }
+.testimony-final > .section__inner > p:not(.lead-italic) {
+  max-width: 38rem;
+  margin-inline: auto;
+  color: v.$color-sage;
 }
 
 .testimony-final__actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 1rem;
+  align-items: center;
   justify-content: center;
-  margin-top: 2.5rem;
+  margin-block-start: 2.5rem;
+
+  @include mx.breakpoint(tablet) {
+    flex-direction: row;
+  }
+}
+
+.testimony-final__actions .button {
+  width: min(100%, 18rem);
+
+  @include mx.breakpoint(tablet) {
+    width: auto;
+  }
 }

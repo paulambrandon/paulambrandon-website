@@ -2,12 +2,17 @@
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import ancaResult from '../assets/images/resultado-anca-frente.webp';
+import ancaBackResult from '../assets/images/resultado-anca-espalda.webp';
 import estherResult from '../assets/images/resultado-esther-frente.webp';
+import estherBackResult from '../assets/images/resultado-esther-espalda.webp';
 import montseResult from '../assets/images/resultado-montse-frente.webp';
+import montseBackResult from '../assets/images/resultado-montse-espalda.webp';
+import anaResult from '../assets/images/resultado-ana.webp';
+import marionResult from '../assets/images/resultado-marion.webp';
+import claraResult from '../assets/images/resultado-clara.webp';
 import {
   alchemiseTestimonials,
   clarityTestimonials,
-  featuredTestimonials,
   movementTestimonials,
 } from '../data/testimonials';
 import { PERSON_NAME } from '../data/site';
@@ -16,97 +21,104 @@ const title = `Historias reales de cambio | ${PERSON_NAME}`;
 const description =
   'Experiencias de mujeres que han trabajado con Paula la autoexigencia, los límites, el cuerpo, los hábitos y la relación consigo mismas.';
 const results = [
-  { image: ancaResult, name: 'Anca', time: '2 meses' },
-  { image: estherResult, name: 'Esther', time: '6 meses' },
-  { image: montseResult, name: 'Montse', time: '2 meses' },
+  {
+    name: 'Anca',
+    time: '2 meses',
+    images: [
+      { src: ancaResult, alt: 'Evolución física de Anca vista de frente, antes y después' },
+      { src: ancaBackResult, alt: 'Evolución física de Anca vista de espalda, antes y después' },
+    ],
+  },
+  {
+    name: 'Esther',
+    time: '6 meses',
+    images: [
+      { src: estherResult, alt: 'Evolución física de Esther vista de frente, antes y después' },
+      { src: estherBackResult, alt: 'Evolución física de Esther vista de espalda, antes y después' },
+    ],
+  },
+  {
+    name: 'Montse',
+    time: '2 meses',
+    images: [
+      { src: montseResult, alt: 'Evolución física de Montse vista de frente, antes y después' },
+      { src: montseBackResult, alt: 'Evolución física de Montse vista de espalda, antes y después' },
+    ],
+  },
+  {
+    name: 'Ana',
+    time: '5 meses',
+    images: [{ src: anaResult, alt: 'Evolución física de Ana vista de espalda, antes y después' }],
+  },
+  {
+    name: 'Marion',
+    time: '3 meses',
+    images: [{ src: marionResult, alt: 'Evolución física de Marion vista de espalda, antes y después' }],
+  },
+  {
+    name: 'Clara',
+    time: '1 mes',
+    images: [{ src: claraResult, alt: 'Evolución física de Clara vista de perfil, antes y después' }],
+  },
+] as const;
+const testimonials = [
+  clarityTestimonials[0],
+  clarityTestimonials[1],
+  movementTestimonials[0],
+  clarityTestimonials[2],
+  movementTestimonials[1],
+  movementTestimonials[2],
+  ...alchemiseTestimonials,
 ] as const;
 ---
 
 <Layout title={title} description={description}>
-  <section class="section section--paper testimonials-hero">
+  <section class="section section--sand testimonials-page" aria-labelledby="testimonios-titulo">
     <div class="section__inner">
-      <p class="eyebrow eyebrow--centered">Testimonios</p>
-      <h1>Historias de mujeres que han vivido el proceso</h1>
-      <p>
-        No todas llegaron desde el mismo lugar ni necesitaban trabajar lo
-        mismo. Estas son algunas de sus experiencias.
-      </p>
-    </div>
-  </section>
-
-  <section class="section section--sand testimonial-paths">
-    <div class="section__inner">
-      <h2 class="section__title">Cada historia empieza en un lugar distinto.</h2>
-      <ul class="testimonial-paths__list" aria-label="Temas trabajados">
-        {['Autoexigencia', 'Perfeccionismo', 'Cuerpo', 'Límites', 'Culpa', 'Descanso', 'Aprobación', 'Hábitos'].map((item) => <li>{item}</li>)}
-      </ul>
-      <p>Los síntomas pueden ser distintos, pero muchas veces comparten patrones parecidos.</p>
-    </div>
-  </section>
-
-  <section class="section section--paper featured-stories">
-    <div class="section__inner featured-stories__grid">
-      {featuredTestimonials.map(({ quote, author, program }, index) => (
-        <figure class="featured-story">
-          <p class="label">Historia destacada {String(index + 1).padStart(2, '0')}</p>
-          <blockquote><p>{quote}</p></blockquote>
-          <figcaption>{author} <span>·</span> {program}</figcaption>
-        </figure>
-      ))}
-    </div>
-  </section>
-
-  <section class="section section--sand testimony-program">
-    <div class="section__inner">
-      <header class="testimony-program__header">
-        <div><p class="eyebrow">Programa grupal · 90 días</p><h2>Alchemise</h2></div>
-        <a class="link-arrow" href="/alchemise">Conocer Alchemise →</a>
+      <header class="testimonials-page__header">
+        <p class="eyebrow eyebrow--caps eyebrow--centered">Testimonios</p>
+        <h1 id="testimonios-titulo">Historias de mujeres que han vivido el proceso</h1>
+        <p>
+          No todas llegaron desde el mismo lugar ni necesitaban trabajar lo
+          mismo. Estas son algunas de sus experiencias.
+        </p>
       </header>
-      <div class="testimony-program__grid">
-        {alchemiseTestimonials.map(({ quote, author }) => (
-          <figure class="testimony-card"><blockquote><p>{quote}</p></blockquote><figcaption>{author}</figcaption></figure>
+
+      <div class="testimonials-page__grid">
+        {testimonials.map(({ quote, highlightedQuote, author, program }) => (
+          <figure class="testimonial-card">
+            <blockquote>
+              <p set:html={highlightedQuote ?? quote} />
+            </blockquote>
+            <figcaption>
+              <span class="testimonial-card__name">{author}</span>
+              <span class="testimonial-card__tag">{program}</span>
+            </figcaption>
+          </figure>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="section section--paper testimony-program">
+  <section class="section section--paper physical-results">
     <div class="section__inner">
-      <header class="testimony-program__header">
-        <div><p class="eyebrow">Acompañamiento personalizado</p><h2>Movimiento y nutrición</h2></div>
-        <a class="link-arrow" href="/movimiento-nutricion">Conocer el acompañamiento →</a>
+      <header class="physical-results__intro">
+        <h2>Cambios físicos</h2>
+        <p>El cambio de fuera también cuenta, cuando llega desde un lugar sano.</p>
       </header>
-      <div class="testimony-program__grid">
-        {movementTestimonials.map(({ quote, author }) => (
-          <figure class="testimony-card"><blockquote><p>{quote}</p></blockquote><figcaption>{author}</figcaption></figure>
-        ))}
-      </div>
-      <div class="physical-results">
-        <div class="physical-results__intro">
-          <h3>El cambio de fuera también cuenta, cuando llega desde un lugar sano.</h3>
-          <p>Cada proceso y cada resultado son diferentes.</p>
-        </div>
-        <div class="physical-results__grid">
-          {results.map(({ image, name, time }) => (
-            <figure>
-              <Image src={image} alt={`Evolución física de ${name}, antes y después`} widths={[400, 700]} sizes="(min-width: 48rem) 30vw, calc(100vw - 2.5rem)" loading="lazy" />
-              <figcaption><span>{name}</span><span class="label">{time}</span></figcaption>
-            </figure>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--sand testimony-program">
-    <div class="section__inner">
-      <header class="testimony-program__header">
-        <div><p class="eyebrow">Sesión individual</p><h2>Sesión de claridad</h2></div>
-        <a class="link-arrow" href="/sesion-claridad">Conocer la sesión →</a>
-      </header>
-      <div class="testimony-program__grid">
-        {clarityTestimonials.map(({ quote, author }) => (
-          <figure class="testimony-card"><blockquote><p>{quote}</p></blockquote><figcaption>{author}</figcaption></figure>
+      <div class="physical-results__grid">
+        {results.map(({ images, name, time }) => (
+          <figure class="physical-result">
+            <div class="physical-result__media">
+              {images.map(({ src, alt }) => (
+                <Image src={src} alt={alt} widths={[400, 800]} sizes="(min-width: 64rem) 21rem, (min-width: 40rem) 42vw, calc(100vw - 4.25rem)" loading="lazy" />
+              ))}
+            </div>
+            <figcaption>
+              <span class="physical-result__time">{time}</span>
+              <span class="physical-result__name">{name}</span>
+            </figcaption>
+          </figure>
         ))}
       </div>
     </div>

@@ -384,6 +384,14 @@ narración personal continua. Orden: hero con retrato → origen → patrones �
 punto de inflexión → forma de acompañar → CTA a método y programas. Los
 testimonios permanecen en su página específica para no interrumpir el relato.
 
+### Diseño de /testimonios — decisión del cliente, 16 de septiembre de 2026
+
+La presentación reproduce la sección de testimonios publicada en «Empieza
+aquí»: cabecera centrada, cuadrícula de tarjetas crema sobre arena, cita serif
+en cursiva, fragmentos destacados en terracota y autor + programa al pie. Los
+casos se muestran juntos, sin filtros ni bloques separados por programa. Los
+cambios físicos aparecen después en una sección propia.
+
 ### 8.1 Migración desde las URLs actuales
 
 Si la arquitectura final cambia los slugs actuales, implementar redirecciones 301 directas:
