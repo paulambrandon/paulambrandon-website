@@ -377,6 +377,13 @@ landings. H1: «Elige el acompañamiento que necesitas ahora.» Meta description
 «Elige la forma de trabajar con Paula que mejor encaja con lo que necesitas
 ahora: Alchemise, Movimiento y nutrición o una Sesión de claridad.»
 
+### Diseño de /sobre-mi — decisión del cliente, 16 de septiembre de 2026
+
+La página mantiene «Mi historia» como H1 y presenta el contenido como una
+narración personal continua. Orden: hero con retrato → origen → patrones →
+punto de inflexión → forma de acompañar → CTA a método y programas. Los
+testimonios permanecen en su página específica para no interrumpir el relato.
+
 ### 8.1 Migración desde las URLs actuales
 
 Si la arquitectura final cambia los slugs actuales, implementar redirecciones 301 directas:

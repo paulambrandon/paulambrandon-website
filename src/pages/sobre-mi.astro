@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import portrait from '../assets/images/paula-marquez-brandon.webp';
-import { alchemiseTestimonials } from '../data/testimonials';
 import { PERSON_NAME } from '../data/site';
 
 const title = `Sobre mí: de la autoexigencia al autocuidado | ${PERSON_NAME}`;
@@ -32,11 +31,14 @@ const patterns = [
 <Layout title={title} description={description}>
   <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
 
-  <section class="story-hero">
+  <section class="story-hero" aria-labelledby="historia-titulo">
     <div class="story-hero__inner">
       <div class="story-hero__copy">
-        <p class="eyebrow">Sobre mí</p>
-        <h1>Durante mucho tiempo pensé que había algo en mí que tenía que arreglar.</h1>
+        <p class="eyebrow eyebrow--caps">Sobre mí</p>
+        <h1 id="historia-titulo">Mi historia</h1>
+        <p class="story-hero__statement">
+          Durante mucho tiempo pensé que había algo en mí que tenía que arreglar.
+        </p>
         <p class="story-hero__lede">
           Para entender por qué hoy acompaño a mujeres desde este lugar, hay
           que volver bastante atrás.
@@ -46,19 +48,23 @@ const patterns = [
         class="story-hero__image"
         src={portrait}
         alt="Paula Márquez Brandon"
-        widths={[420, 640, 900]}
-        sizes="(min-width: 64rem) 36vw, calc(100vw - 2.5rem)"
+        widths={[420, 640, 900, 1080]}
+        sizes="(min-width: 64rem) 44vw, calc(100vw - 2.5rem)"
         loading="eager"
         fetchpriority="high"
       />
     </div>
   </section>
 
-  <section class="section section--paper story-origin">
-    <div class="section__inner story-origin__inner">
-      <p class="lead-italic">«Hola, ¿quieres ser mi amiga? Me llamo Paula».</p>
-      <h2>De «¿quieres ser mi amiga?» a «¿qué hay de malo en mí?»</h2>
+  <section class="section section--paper story-chapter story-origin" aria-labelledby="origen-titulo">
+    <div class="section__inner story-chapter__inner">
+      <header class="story-chapter__heading">
+        <p class="story-chapter__number">01</p>
+        <p class="eyebrow eyebrow--caps">El origen</p>
+        <h2 id="origen-titulo">De «¿quieres ser mi amiga?» a «¿qué hay de malo en mí?»</h2>
+      </header>
       <div class="story-copy">
+        <p class="story-copy__opening">«Hola, ¿quieres ser mi amiga? Me llamo Paula».</p>
         <p>
           De pequeña era una niña alegre, sociable y con muchísima energía.
           No pensaba si iba a caer bien, si era suficientemente guapa,
@@ -77,10 +83,17 @@ const patterns = [
     </div>
   </section>
 
-  <section class="section section--sand story-patterns">
-    <div class="section__inner">
-      <h2 class="section__title">Con los años, la pregunta cambió. El fondo seguía siendo el mismo.</h2>
-      <dl class="story-patterns__grid">
+  <section class="section section--sand story-patterns" aria-labelledby="patrones-titulo">
+    <div class="section__inner story-patterns__inner">
+      <header class="story-patterns__heading">
+        <p class="story-chapter__number">02</p>
+        <p class="eyebrow eyebrow--caps">El patrón</p>
+        <h2 id="patrones-titulo">La pregunta cambió. El fondo seguía siendo el mismo.</h2>
+        <p class="story-patterns__closing">
+          Cambiaba aquello que tenía que conseguir. Pero la sensación volvía.
+        </p>
+      </header>
+      <dl class="story-patterns__list">
         {patterns.map(([label, text]) => (
           <div class="story-patterns__item">
             <dt class="label">{label}</dt>
@@ -88,15 +101,12 @@ const patterns = [
           </div>
         ))}
       </dl>
-      <p class="story-patterns__closing">
-        Cambiaba aquello que tenía que conseguir. Pero la sensación volvía.
-      </p>
     </div>
   </section>
 
   <section class="section section--olive story-turn">
     <div class="section__inner story-turn__inner">
-      <p class="eyebrow eyebrow--centered">El punto de inflexión</p>
+      <p class="label label--sage">El punto de inflexión</p>
       <h2>No necesitaba dejar de cambiar. Necesitaba cambiar el lugar desde el que lo hacía.</h2>
       <div class="story-turn__compare">
         <div><span class="label label--sage">Antes</span><p>«Para sentir que valgo».</p></div>
@@ -105,12 +115,13 @@ const patterns = [
     </div>
   </section>
 
-  <section class="section section--paper story-work">
-    <div class="section__inner story-work__inner">
-      <div>
-        <p class="eyebrow">Mi trabajo</p>
-        <h2>Todo esto empezó a convertirse también en mi manera de acompañar.</h2>
-      </div>
+  <section class="section section--paper story-chapter story-work" aria-labelledby="trabajo-titulo">
+    <div class="section__inner story-chapter__inner">
+      <header class="story-chapter__heading">
+        <p class="story-chapter__number">03</p>
+        <p class="eyebrow eyebrow--caps">Mi trabajo</p>
+        <h2 id="trabajo-titulo">Todo esto empezó a convertirse también en mi manera de acompañar.</h2>
+      </header>
       <div class="story-copy">
         <p>
           No dejé de entrenar, de cuidarme, de ponerme objetivos ni de querer
@@ -130,28 +141,14 @@ const patterns = [
     </div>
   </section>
 
-  <section class="section section--sand story-proof">
+  <section class="section section--sand section--spacious story-final">
     <div class="section__inner">
-      <p class="lead-italic story-proof__intro">Mi historia es solo una. Cada mujer llega desde un lugar diferente.</p>
-      <div class="story-proof__grid">
-        {alchemiseTestimonials.slice(0, 2).map(({ quote, author }) => (
-          <figure class="story-proof__quote">
-            <blockquote><p>{quote}</p></blockquote>
-            <figcaption>{author}</figcaption>
-          </figure>
-        ))}
-      </div>
-      <p class="story-proof__link"><a class="button button--secondary" href="/testimonios">Ver testimonios →</a></p>
-    </div>
-  </section>
-
-  <section class="section section--olive story-final">
-    <div class="section__inner">
+      <p class="eyebrow eyebrow--caps eyebrow--centered">El siguiente paso</p>
       <h2>Todo esto terminó dando forma a una manera diferente de trabajar el cambio.</h2>
       <p>Si quieres entender cómo llevo hoy este enfoque al acompañamiento, puedes conocer mi método.</p>
       <div class="story-final__actions">
-        <a class="button button--light" href="/metodo">Conoce el método →</a>
-        <a class="button button--outline-light" href="/programas">Ver programas</a>
+        <a class="button button--primary" href="/metodo">Conoce el método →</a>
+        <a class="link-arrow" href="/programas">Ver programas →</a>
       </div>
     </div>
   </section>
