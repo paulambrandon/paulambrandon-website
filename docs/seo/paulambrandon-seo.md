@@ -392,6 +392,13 @@ en cursiva, fragmentos destacados en terracota y autor + programa al pie. Los
 casos se muestran juntos, sin filtros ni bloques separados por programa. Los
 cambios físicos aparecen después en una sección propia.
 
+### Diseño de /contacto — decisión del cliente, 16 de septiembre de 2026
+
+La página conserva «Contacto» como H1 y prioriza la conversación directa con
+Paula. Orden: hero con CTA a WhatsApp → datos de contacto + formulario para
+preparar un email. Se eliminan cierres y bloques comerciales redundantes; el
+enlace a Programas permanece como orientación secundaria.
+
 ### 8.1 Migración desde las URLs actuales
 
 Si la arquitectura final cambia los slugs actuales, implementar redirecciones 301 directas:

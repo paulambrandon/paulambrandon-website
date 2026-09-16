@@ -1,7 +1,5 @@
 ---
-import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-import portrait from '../assets/images/paula-marquez-brandon.webp';
 import {
   CONTACT_EMAIL,
   INSTAGRAM_URL,
@@ -15,63 +13,89 @@ const description =
 ---
 
 <Layout title={title} description={description}>
-  <section class="section section--paper contact-page">
-    <div class="section__inner">
-      <header class="contact-page__header">
-        <p class="eyebrow">Hablemos</p>
-        <h1>Contacto</h1>
-        <p class="contact-page__lead">
-          ¿Tienes dudas antes de dar el paso? No hace falta que llegues con
-          las ideas claras para escribirme.
-        </p>
-        <p>Cuéntame dónde estás y te ayudo a ver qué encaja contigo.</p>
-      </header>
+  <section class="contact-hero" aria-labelledby="contacto-titulo">
+    <div class="contact-hero__inner">
+      <p class="eyebrow eyebrow--caps eyebrow--centered">Hablemos</p>
+      <h1 id="contacto-titulo">Contacto</h1>
+      <p class="contact-hero__lead">¿Tienes dudas antes de dar el paso?</p>
+      <p class="contact-hero__text">
+        No hace falta que lo tengas todo claro antes de escribir. Cuéntame
+        dónde estás y te ayudo a ver qué encaja contigo.
+      </p>
+      <a class="button button--primary" href={WHATSAPP_URL} target="_blank" rel="noopener">
+        Escribirme por WhatsApp <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
 
-      <div class="contact-page__grid">
-        <form class="contact-form" data-contact-form>
-          <label>Nombre <input name="name" autocomplete="name" required /></label>
-          <label>Email <input name="email" type="email" autocomplete="email" required /></label>
+  <section class="section section--sand contact-page" aria-labelledby="mensaje-titulo">
+    <div class="section__inner contact-page__grid">
+      <aside class="contact-details">
+        <p class="label label--olive">Otras formas de contactar</p>
+        <h2 id="mensaje-titulo">Si lo prefieres, cuéntamelo con más calma.</h2>
+        <p>
+          Puedes preparar un email desde este formulario o escribirme
+          directamente a través de cualquiera de estos canales.
+        </p>
+
+        <dl class="contact-details__list">
+          <div>
+            <dt>Email</dt>
+            <dd><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></dd>
+          </div>
+          <div>
+            <dt>Instagram</dt>
+            <dd><a href={INSTAGRAM_URL} target="_blank" rel="me noopener">@paulambrandon</a></dd>
+          </div>
+          <div>
+            <dt>¿Buscas un acompañamiento?</dt>
+            <dd><a href="/programas">Ver programas <span aria-hidden="true">→</span></a></dd>
+          </div>
+        </dl>
+      </aside>
+
+      <form class="contact-form" data-contact-form>
+        <div class="contact-form__heading">
+          <p class="label label--olive">Por email</p>
+          <h2>Cuéntame qué te está pasando.</h2>
+        </div>
+
+        <div class="contact-form__row">
           <label>
-            ¿Sobre qué quieres escribirme?
+            <span>Nombre</span>
+            <input name="name" autocomplete="name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+        </div>
+
+          <label>
+            <span>¿Sobre qué quieres escribirme?</span>
             <select name="subject">
               <option>Tengo dudas sobre un programa</option>
               <option>Quiero reservar una sesión</option>
               <option>Colaboraciones y otros temas</option>
             </select>
           </label>
-          <label>Cuéntame un poco más <textarea name="message" rows="7" required></textarea></label>
+
+          <label>
+            <span>Cuéntame un poco más</span>
+            <textarea name="message" rows="7" required></textarea>
+          </label>
+
           <label class="contact-form__consent">
             <input name="consent" type="checkbox" required />
             <span>He leído y acepto la <a href="/privacidad">política de privacidad</a>.</span>
           </label>
-          <button class="button button--primary" type="submit">Preparar mensaje →</button>
-          <p class="contact-form__help">Al continuar se abrirá tu aplicación de correo.</p>
+
+          <button class="button button--primary" type="submit">
+            Preparar mensaje <span aria-hidden="true">→</span>
+          </button>
+          <p class="contact-form__help">Al continuar se abrirá tu aplicación de correo para que puedas revisarlo y enviarlo.</p>
           <p class="contact-form__status" role="status" aria-live="polite"></p>
-        </form>
-
-        <aside class="contact-card">
-          <Image class="contact-card__image" src={portrait} alt="Paula Márquez Brandon" widths={[360, 600]} sizes="(min-width: 48rem) 32vw, calc(100vw - 2.5rem)" loading="lazy" />
-          <dl class="contact-card__details">
-            <div><dt class="label">Email</dt><dd><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></dd></div>
-            <div><dt class="label">WhatsApp</dt><dd><a href={WHATSAPP_URL} target="_blank" rel="noopener">Escribirme por WhatsApp →</a></dd></div>
-            <div><dt class="label">También puedes encontrarme aquí</dt><dd><a href={INSTAGRAM_URL} target="_blank" rel="me noopener">Instagram</a></dd></div>
-          </dl>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--sand contact-programs">
-    <div class="section__inner">
-      <h2>¿No sabes qué opción encaja contigo?</h2>
-      <p>No necesitas decidirlo antes de escribir. Cuéntame qué estás viviendo y qué quieres trabajar.</p>
-      <a class="button button--secondary" href="/programas">Ver programas →</a>
-    </div>
-  </section>
-
-  <section class="section section--olive contact-closing">
-    <div class="section__inner">
-      <p>No hace falta que tengas todas las respuestas para empezar una conversación.</p>
+      </form>
     </div>
   </section>
 </Layout>
