@@ -10,8 +10,10 @@ $hero-olive: #606957;
 .hero {
   position: relative;
   display: grid;
-  min-height: 100dvh;
-  padding: 6rem 7vw 3rem;
+  // El header ahora es sticky y ocupa espacio real en el flujo (antes era
+  // fixed y este padding compensaba toda su altura manualmente).
+  min-height: calc(100dvh - #{v.$header-height});
+  padding: (6rem - v.$header-height-desktop) 7vw 3rem;
   overflow: hidden;
   background-color: v.$color-cream;
 
@@ -26,11 +28,15 @@ $hero-olive: #606957;
   }
 
   @media (max-width: 40rem) {
-    padding: 5.5rem 7vw 2.75rem;
+    padding: (5.5rem - v.$header-height) 7vw 2.75rem;
+  }
+
+  @media (min-width: v.$header-bp) {
+    min-height: calc(100dvh - #{v.$header-height-desktop});
   }
 
   @media (min-width: $hero-desktop) {
-    padding: 7rem max(7vw, calc((100vw - 77.5rem) / 2)) 3.5rem;
+    padding: (7rem - v.$header-height-desktop) max(7vw, calc((100vw - 77.5rem) / 2)) 3.5rem;
 
     &::after {
       inset: 0 0 0 67%;

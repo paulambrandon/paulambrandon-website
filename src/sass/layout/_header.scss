@@ -4,14 +4,11 @@
 $-nav-desktop: 56.3125rem; // 901px, como la navegación de la landing publicada
 
 .site-header {
+  position: sticky;
+  top: 0;
   z-index: 60;
   background-color: rgba(v.$color-cream, 0.96);
   border-bottom: 1px solid rgba(#4a3b33, 0.1);
-}
-
-.page-home .site-header {
-  position: fixed;
-  inset: 0 0 auto;
 }
 
 .site-header__inner {
@@ -20,11 +17,11 @@ $-nav-desktop: 56.3125rem; // 901px, como la navegación de la landing publicada
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  min-height: 3.875rem;
+  min-height: v.$header-height;
   padding: 0.9375rem 1.25rem;
 
-  @media (min-width: 40.0625rem) {
-    min-height: 4.375rem;
+  @media (min-width: v.$header-bp) {
+    min-height: v.$header-height-desktop;
     padding: 1.1875rem 2rem;
   }
 

@@ -52,6 +52,12 @@ $color-footer-dim: #a8a296;
 // Layout
 // $gutter resuelve 20px a 390px y 80px a 1440px, igual que la referencia.
 // ---------------------------------------------------------------------------
+// Altura real del header (layout/_header.scss), reutilizada donde el header
+// sticky ocupa espacio en el flujo (p. ej. el hero de Home).
+$header-height: 3.875rem;
+$header-height-desktop: 4.375rem;
+$header-bp: 40.0625rem;
+
 $gutter: clamp(1.25rem, 5.5vw, 5rem);
 $container-max: 90rem; // 1440px: deja 1280px de contenido con el gutter aplicado
 $measure-narrow: 35rem; // 560px
