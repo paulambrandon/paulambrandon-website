@@ -1,11 +1,12 @@
 @use '@abstracts/variables' as v;
 @use '@abstracts/mixins' as mx;
 
+// Editorial y centrado como el resto del sitio, pero deliberadamente más
+// breve que /metodo (no ocupa la pantalla completa): Programas es un punto
+// de decisión rápido, no un manifiesto. El acento terracota en el H1 —mismo
+// recurso que ya usa la Home— es lo que lo distingue, no la estructura.
 .programs-hero {
-  display: flex;
-  align-items: center;
-  min-height: min(44rem, 78dvh);
-  padding-block: clamp(4.5rem, 9vw, 7.5rem);
+  padding-block: clamp(4rem, 9vw, 6.5rem);
   text-align: center;
 }
 
@@ -14,17 +15,21 @@
 }
 
 .programs-hero .eyebrow {
-  margin-block-end: 1.75rem;
+  margin-block-end: 1.5rem;
 }
 
 .programs-hero__title {
-  font-size: clamp(2.25rem, 1.76rem + 2vw, 3.5625rem);
+  font-size: clamp(2.25rem, 1.76rem + 2vw, 3.1875rem);
   line-height: 1.16;
 }
 
+.programs-hero__accent {
+  color: v.$color-terracotta;
+}
+
 .programs-hero__lede {
-  max-width: 36rem;
-  margin-block: 1.5rem 1.75rem;
+  max-width: 34rem;
+  margin-block: 1.25rem 1.75rem;
   margin-inline: auto;
   color: v.$color-muted;
 }

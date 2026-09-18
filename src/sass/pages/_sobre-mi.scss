@@ -13,7 +13,16 @@
   margin-inline: auto;
   padding-inline: v.$gutter;
 
+  // Entre 768 y 1024px la columna única quedaba pegada a la izquierda dentro
+  // de un contenedor mucho más ancho, con un hueco vacío enorme a la derecha.
+  // La acotamos y centramos hasta que el grid de dos columnas tiene sitio de
+  // verdad para respirar.
+  @include mx.breakpoint(tablet) {
+    max-width: v.$measure-wide;
+  }
+
   @include mx.breakpoint(tablethorizontal) {
+    max-width: v.$container-max;
     grid-template-areas: 'image copy';
     grid-template-columns: minmax(22rem, 0.9fr) minmax(28rem, 1.1fr);
     gap: clamp(4rem, 9vw, 8rem);
@@ -54,6 +63,7 @@
 .story-hero__image {
   width: min(100%, 34rem);
   height: auto;
+  margin-inline: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center 38%;
@@ -70,7 +80,16 @@
   display: grid;
   gap: clamp(3rem, 7vw, 6rem);
 
+  // Mismo ajuste que en el hero: columna única centrada y acotada entre 768 y
+  // 1024px en vez de pegada a la izquierda con hueco vacío a la derecha.
+  @include mx.breakpoint(tablet) {
+    max-width: v.$measure-wide;
+    margin-inline: auto;
+  }
+
   @include mx.breakpoint(tablethorizontal) {
+    max-width: none;
+    margin-inline: 0;
     grid-template-columns: minmax(18rem, 0.8fr) minmax(26rem, 1.2fr);
     align-items: start;
   }
