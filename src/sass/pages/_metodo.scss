@@ -8,8 +8,8 @@ $-accent: v.$color-olive;
 
 .page-method {
   h2 {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    line-height: 1.25;
+    font-size: clamp(2rem, 3.4vw, 3rem);
+    line-height: 1.12;
   }
 
   h3 {
@@ -23,7 +23,7 @@ $-accent: v.$color-olive;
 
   .section__inner {
     width: 86%;
-    max-width: 55rem;
+    max-width: 68rem;
     padding-inline: 0;
     margin-inline: auto;
   }
@@ -93,56 +93,100 @@ $-accent: v.$color-olive;
 }
 
 .method-root__inner {
-  max-width: 64rem !important;
+  display: grid;
+  gap: clamp(2.5rem, 4vw, 3.5rem);
+}
 
-  @include mx.breakpoint(tablethorizontal) {
-    display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-    gap: clamp(4rem, 8vw, 7rem);
-    align-items: start;
-  }
+.method-root__copy,
+.method-root__origin,
+.method-root__closing {
+  width: 100%;
+  max-width: 40rem;
+  margin-inline: auto;
 }
 
 .method-root__header {
-  .eyebrow { justify-content: start; }
-  h2 { margin-block-start: 1rem; }
+  max-width: 48rem;
+  margin-inline: auto;
+  text-align: center;
 
-  @include mx.breakpoint(tablethorizontal) {
-    position: sticky;
-    top: 7rem;
+  h2 {
+    margin-block-start: 1rem;
+    font-size: clamp(2.25rem, 4.2vw, 3.75rem);
+    text-wrap: balance;
   }
+
+  em { color: $-accent; }
 }
 
-.method-root__content > p:not([class]) {
-  margin-block-end: 1.25rem;
+.method-root__content {
   color: $-soft;
+  p + p { margin-block-start: 1.25rem; }
 }
 
 .method-root__path {
-  display: grid;
-  margin-block: 2.5rem;
-  border-block-start: 1px solid v.$color-line;
   font-family: $-serif;
-  font-size: 1.3125rem;
-  font-weight: 500;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1.25;
 
   li {
-    display: grid;
-    grid-template-columns: 2rem 1fr;
-    gap: 0.75rem;
-    padding-block: 1rem;
-    border-block-end: 1px solid v.$color-line;
+    position: relative;
+    padding-inline-start: 2rem;
+    padding-block-end: 1.75rem;
 
-    &::before { content: '→'; color: $-accent; }
+    &::before {
+      content: '';
+      position: absolute;
+      inset-inline-start: 0;
+      inset-block-start: 0.5em;
+      width: 0.5rem;
+      height: 0.5rem;
+      border: 1px solid $-accent;
+      border-radius: 50%;
+      background: v.$color-sand;
+    }
+
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      inset-inline-start: 0.21875rem;
+      inset-block-start: calc(0.5em + 0.5rem);
+      inset-block-end: -0.5em;
+      width: 1px;
+      background: v.$color-line-strong;
+    }
+  }
+
+  li:last-child {
+    padding-block-end: 0;
+    color: $-accent;
+    font-style: italic;
+    font-weight: 600;
+
+    &::before { background: $-accent; }
   }
 }
 
 .method-root__closing {
-  font-family: $-serif;
-  font-size: 1.5rem;
-  line-height: 1.5;
+  display: grid;
+  justify-items: center;
+  margin-block-start: 0;
+  text-align: center;
+  color: $-soft;
+  font-size: v.$fs-small;
+  line-height: 1.6;
 
-  em { display: block; color: v.$color-terracotta-strong; }
+  em {
+    display: block;
+    width: 100%;
+    margin-block-start: 0.75rem;
+    text-align: center;
+    color: $-text;
+    font-family: $-serif;
+    font-size: clamp(1.625rem, 2.3vw, 2rem);
+    line-height: 1.25;
+    text-wrap: balance;
+  }
 }
 
 .method-stages .section__inner {
@@ -150,7 +194,6 @@ $-accent: v.$color-olive;
 }
 
 .method-stages__header,
-.method-work__inner > header,
 .method-approach__header,
 .method-changes__inner > header {
   max-width: 40rem;
@@ -168,8 +211,8 @@ $-accent: v.$color-olive;
   @include mx.breakpoint(tablethorizontal) {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2.5rem;
-    margin-block-start: 5rem;
+    gap: 3rem;
+    margin-block-start: 3.5rem;
   }
 }
 
@@ -208,6 +251,7 @@ $-accent: v.$color-olive;
   height: 2.75rem;
   border: 1px solid $-accent;
   border-radius: 50%;
+  background: v.$color-sand;
   font-family: $-serif;
   font-size: 1.1875rem;
   font-weight: 600;
@@ -221,25 +265,25 @@ $-accent: v.$color-olive;
 .method-stage__copy {
   padding-block-start: 0.375rem;
 
-  > p:last-child { margin-block-start: 0.75rem; color: $-soft; font-size: 0.875rem; }
+  h3 { font-size: clamp(1.625rem, 2.3vw, 2rem); color: $-accent; }
+  > p:last-child { margin-block-start: 1rem; color: $-soft; font-size: 1rem; }
 }
 
 .method-stage__intro {
-  margin-block-start: 0.625rem;
+  margin-block-start: 1rem;
   font-family: $-serif;
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   font-style: italic;
   line-height: 1.5;
   color: $-soft;
 }
 
 .method-work__inner {
-  max-width: 64rem !important;
 
   @include mx.breakpoint(tablethorizontal) {
     display: grid;
-    grid-template-columns: 20rem minmax(0, 1fr);
-    gap: clamp(4rem, 8vw, 7rem);
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+    gap: clamp(3rem, 6vw, 5rem);
     align-items: start;
   }
 }
@@ -261,7 +305,7 @@ $-accent: v.$color-olive;
     position: relative;
     z-index: 1;
     width: 100%;
-    height: min(90vw, 25rem);
+    height: auto;
     aspect-ratio: 4 / 5;
     object-fit: cover;
     object-position: center 34%;
@@ -271,6 +315,7 @@ $-accent: v.$color-olive;
     position: sticky;
     top: 7rem;
     margin: 0;
+    width: 100%;
   }
 }
 
@@ -279,6 +324,8 @@ $-accent: v.$color-olive;
   text-align: left;
 
   .eyebrow { justify-content: start; }
+  h2 { margin-block: 1rem 1.5rem; }
+  > p:last-child { color: $-soft; }
 }
 
 .method-work__list {
@@ -300,26 +347,49 @@ $-accent: v.$color-olive;
 }
 
 .method-approach__header h2 {
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-size: clamp(2.25rem, 3.5vw, 3.25rem);
 
-  em { color: v.$color-terracotta-strong; font-style: normal; }
+  em { color: v.$color-terracotta-strong; }
+}
+
+.method-approach__inner,
+.method-changes__inner {
+  @include mx.breakpoint(tablethorizontal) {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+    gap: clamp(3rem, 6vw, 5rem);
+    align-items: start;
+
+    > header {
+      text-align: left;
+      margin: 0;
+
+      .eyebrow { justify-content: start; }
+    }
+  }
 }
 
 .method-approach__list {
   display: grid;
-  gap: 2rem;
+  gap: 1.75rem;
   max-width: 45rem;
   margin: 3rem auto 0;
   text-align: left;
 
-  p { margin-block-start: 0.75rem; color: $-soft; font-size: 0.875rem; }
+  p { margin-block-start: 0.75rem; color: $-soft; font-size: 1rem; }
 
   @include mx.breakpoint(tablet) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2.5rem 3rem;
   }
 
-  li { padding-inline-start: 1.25rem; border-inline-start: 1px solid $-accent; }
+  li { padding-block-start: 1.5rem; border-block-start: 1px solid v.$color-line; }
+
+  @include mx.breakpoint(tablethorizontal) {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    margin-block-start: 0;
+  }
 }
 
 .method-changes__list {
@@ -328,12 +398,14 @@ $-accent: v.$color-olive;
   max-width: 43.75rem;
   margin: 2.5rem auto 0;
 
+  @include mx.breakpoint(tablethorizontal) { margin: 0; }
+
   li {
     display: grid;
     grid-template-columns: 1.5rem minmax(0, 1fr);
     align-items: center;
     gap: 1rem;
-    padding: 1.25rem;
+    padding: 1.5rem;
     border-radius: 4px;
     background: v.$color-cream;
 
@@ -354,7 +426,7 @@ $-accent: v.$color-olive;
 .method-cta__inner {
   text-align: center;
 
-  h2 { max-width: 40rem; margin: 1rem auto 1.5rem; }
+  h2 { max-width: 34rem; margin: 1rem auto 1.5rem; }
   > p:not([class]) { max-width: 32rem; margin-inline: auto; color: $-soft; }
   .button { margin-block-start: 2rem; }
 }
