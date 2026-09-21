@@ -76,15 +76,13 @@ $-accent: v.$color-olive;
   }
 
   .method-hero__link {
-    display: inline-block;
     margin-block-start: 2.5rem;
-    padding-block-end: 0.2rem;
-    border-block-end: 1px solid $-accent;
-    font-family: $-serif;
-    font-size: 1.125rem;
-    font-weight: 500;
-    color: $-accent;
   }
+}
+
+.method-hero__accent {
+  color: v.$color-terracotta;
+  font-weight: inherit;
 }
 
 .method-hero__lede {

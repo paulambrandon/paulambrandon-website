@@ -1,18 +1,21 @@
 ---
 import { methodTitle } from '../../data/metodo';
+
+const emphasis = 'entender qué hay detrás';
+const [before, after] = methodTitle.split(emphasis);
 ---
 
 <section class="method-hero" aria-labelledby="metodo-titulo">
   <div class="method-hero__inner">
     <div class="method-hero__copy">
       <p class="eyebrow">El método</p>
-      <h1 id="metodo-titulo">{methodTitle}</h1>
+      <h1 id="metodo-titulo">{before}<em class="method-hero__accent">{emphasis}</em>{after}</h1>
       <p class="method-hero__lede">
         Mi forma de trabajar no se queda únicamente en cambiar hábitos o
         resolver problemas aislados. Parte de entender qué los sostiene y cómo
         la relación contigo misma se refleja en tu vida cotidiana.
       </p>
-      <a class="method-hero__link" href="#etapas">Descubre cómo trabajo <span aria-hidden="true">↓</span></a>
+      <a class="button button--primary method-hero__link" href="#etapas">Descubre cómo trabajo</a>
     </div>
   </div>
 </section>
