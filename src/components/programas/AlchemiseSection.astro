@@ -1,9 +1,16 @@
 ---
+import { Image } from 'astro:assets';
+import portrait from '../../assets/images/paula-marquez-brandon.webp';
 import { alchemise } from '../../data/programas';
 ---
 
 <section class="section section--sand alchemise" id="alchemise" aria-labelledby="alchemise-titulo">
-  <div class="section__inner">
+  <div class="section__inner alchemise__inner">
+    <div class="alchemise__portrait">
+      <Image src={portrait} alt="Paula Márquez Brandon" widths={[360, 540, 720]}
+        sizes="(min-width: 75rem) 400px, (min-width: 48rem) 35vw, 90vw"
+        loading="eager" />
+    </div>
     <article class="alchemise__content">
       <p class="label label--olive alchemise__label">Programa principal</p>
       <h2 class="alchemise__title" id="alchemise-titulo">{alchemise.title}</h2>

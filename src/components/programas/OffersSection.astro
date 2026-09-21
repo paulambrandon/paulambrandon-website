@@ -5,7 +5,7 @@ import { offers } from '../../data/programas';
 <section class="section section--paper offers" aria-labelledby="otras-opciones-titulo">
   <div class="section__inner">
     <header class="offers__header">
-      <p class="eyebrow eyebrow--caps eyebrow--centered">Otras formas de empezar</p>
+      <p class="eyebrow eyebrow--caps">Otras formas de empezar</p>
       <h2 id="otras-opciones-titulo">Quizá no necesitas un proceso como Alchemise.</h2>
       <p>A veces el punto de partida es más concreto.</p>
     </header>
@@ -14,7 +14,6 @@ import { offers } from '../../data/programas';
     {
       offers.map(({ title, meta, description, href, linkLabel }) => (
           <article class="offer">
-            <span class="offer__mark" aria-hidden="true">+</span>
             <h3 class="offer__title">{title}</h3>
             <p class="offer__meta">{meta}</p>
             <p class="offer__text">{description}</p>

@@ -1,17 +1,13 @@
 @use '@abstracts/variables' as v;
 @use '@abstracts/mixins' as mx;
 
-// Editorial y centrado como el resto del sitio, pero deliberadamente más
-// breve que /metodo (no ocupa la pantalla completa): Programas es un punto
-// de decisión rápido, no un manifiesto. El acento terracota en el H1 —mismo
-// recurso que ya usa la Home— es lo que lo distingue, no la estructura.
 .programs-hero {
-  padding-block: clamp(4rem, 9vw, 6.5rem);
+  padding-block: clamp(3.5rem, 7vw, 6rem);
   text-align: center;
 }
 
 .programs-hero__inner {
-  @include mx.container(v.$measure-wide);
+  @include mx.container(58rem);
 }
 
 .programs-hero .eyebrow {
@@ -19,73 +15,110 @@
 }
 
 .programs-hero__title {
-  font-size: clamp(2.25rem, 1.76rem + 2vw, 3.1875rem);
-  line-height: 1.16;
+  font-size: clamp(2.5rem, 1.9rem + 2.5vw, 4rem);
+  line-height: 1.08;
 }
 
 .programs-hero__accent {
+  font-style: italic;
   color: v.$color-terracotta;
 }
 
 .programs-hero__lede {
-  max-width: 34rem;
-  margin-block: 1.25rem 1.75rem;
+  max-width: 35rem;
+  margin-block: 1.5rem 2rem;
   margin-inline: auto;
   color: v.$color-muted;
 }
 
-.alchemise__content {
-  max-width: 52rem;
-  padding-block: clamp(3rem, 6vw, 5rem);
-  margin-inline: auto;
-  text-align: center;
-  border-block: 1px solid v.$color-line;
+.programs-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.programs-hero__actions .link-arrow,
+.offer .link-arrow,
+.fit__row a {
+  padding-block: 0.75rem;
+}
+
+.alchemise,
+.offers,
+.fit,
+.programs-contact {
+  padding-block: clamp(3.5rem, 6vw, 6rem);
+}
+
+.alchemise__inner {
+  display: grid;
+  gap: 2.5rem;
+  max-width: 78rem;
+
+  @include mx.breakpoint(tablet) {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(2.5rem, 5vw, 5rem);
+    align-items: center;
+  }
+}
+
+.alchemise__portrait img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 42%;
 }
 
 .alchemise__label {
-  margin-block-end: 1.5rem;
+  margin-block-end: 1rem;
 }
 
 .alchemise__title {
-  font-size: clamp(3rem, 2.44rem + 2.29vw, 4.5rem);
+  font-size: clamp(3.25rem, 2.5rem + 3vw, 5rem);
+  font-weight: 400;
   line-height: 1;
 }
 
 .alchemise__meta {
-  margin-block-start: 0.875rem;
-  color: v.$color-muted;
+  margin-block-start: 1rem;
+  padding-block-end: 1.5rem;
+  font-size: v.$fs-small;
+  color: v.$color-olive-dark;
+  border-block-end: 1px solid v.$color-line;
 }
 
 .alchemise__lede {
-  max-width: 42rem;
-  margin-block: 2.25rem 1rem;
-  margin-inline: auto;
+  margin-block: 1.5rem 1rem;
   font-family: v.$secondary-font;
   font-size: v.$fs-lead;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 .alchemise__text {
-  max-width: 38rem;
-  margin-block-end: 2rem;
-  margin-inline: auto;
+  margin-block-end: 1.75rem;
   color: v.$color-muted;
 }
 
+.offers .section__inner {
+  max-width: 78rem;
+}
+
 .offers__header {
-  max-width: 42rem;
-  margin-block-end: clamp(3.5rem, 7vw, 5.5rem);
-  margin-inline: auto;
-  text-align: center;
+  max-width: 39rem;
+  margin-block-end: 2.5rem;
 }
 
 .offers__header .eyebrow {
-  margin-block-end: 1.5rem;
+  margin-block-end: 1rem;
 }
 
 .offers__header h2 {
   margin-block-end: 1rem;
   font-size: v.$fs-display;
+  text-wrap: pretty;
 }
 
 .offers__header > p:last-child {
@@ -93,47 +126,25 @@
 }
 
 .offers__list {
-  border-block: 1px solid v.$color-line;
+  display: grid;
+  gap: 2rem;
 
   @include mx.breakpoint(tablet) {
-    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4rem;
   }
 }
 
 .offer {
-  position: relative;
-  padding-block: clamp(2.75rem, 5vw, 4.5rem);
-  padding-inline: clamp(0rem, 4vw, 3.5rem);
-
-  &:first-child {
-    border-block-end: 1px solid v.$color-line;
-  }
-
-  @include mx.breakpoint(tablet) {
-    &:first-child {
-      padding-inline-start: 0;
-      border-block-end: 0;
-      border-inline-end: 1px solid v.$color-line;
-    }
-
-    &:last-child {
-      padding-inline-end: 0;
-    }
-  }
-}
-
-.offer__mark {
-  display: block;
-  margin-block-end: 1.5rem;
-  font-family: v.$secondary-font;
-  font-size: 1.75rem;
-  line-height: 1;
-  color: v.$color-terracotta-strong;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-block: 2rem 0;
+  border-block-start: 1px solid v.$color-line-strong;
 }
 
 .offer__title {
-  font-size: v.$fs-card-title;
+  font-size: v.$fs-display-sm;
 }
 
 .offer__meta {
@@ -144,80 +155,82 @@
 
 .offer__text {
   max-width: 31rem;
-  margin-block: 1.5rem;
+  margin-block: 1.25rem;
 }
 
-.fit__heading {
-  max-width: 38rem;
-  margin-block-end: clamp(3rem, 6vw, 5rem);
-  margin-inline: auto;
-  text-align: center;
+.offer .link-arrow {
+  margin-block-start: auto;
+}
+
+.fit__inner {
+  display: grid;
+  gap: 2rem;
+  max-width: 78rem;
+
+  @include mx.breakpoint(tablethorizontal) {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 4rem;
+  }
 }
 
 .fit__heading .eyebrow {
-  margin-block-end: 1.5rem;
+  margin-block-end: 1rem;
 }
 
 .fit__heading h2 {
+  max-width: 20ch;
   font-size: v.$fs-display;
+  text-wrap: pretty;
 }
 
 .fit__list {
-  max-width: v.$measure-table;
-  margin-inline: auto;
-  border-block-start: 1px solid v.$color-line;
+  border-block-start: 1px solid v.$color-line-strong;
 }
 
 .fit__row {
-  padding-block: 1.75rem;
-  border-block-end: 1px solid v.$color-line;
-
-  @include mx.breakpoint(tablet) {
-    display: grid;
-    grid-template-columns: minmax(0, 1.6fr) minmax(14rem, 0.8fr);
-    gap: 3rem;
-    align-items: center;
-  }
+  padding-block: 1.5rem;
+  border-block-end: 1px solid v.$color-line-strong;
 }
 
 .fit__row dt {
   font-family: v.$secondary-font;
-  font-size: v.$fs-quote;
-  line-height: 1.45;
+  font-size: v.$fs-lead;
+  line-height: 1.3;
 }
 
 .fit__row dd {
-  margin-block-start: 0.625rem;
-
-  @include mx.breakpoint(tablet) {
-    margin-block-start: 0;
-  }
+  margin-block-start: 0.25rem;
 }
 
 .fit__row a {
-  font-family: v.$secondary-font;
-  font-weight: 500;
+  display: inline-block;
+  font-size: v.$fs-small;
   color: v.$color-olive-dark;
   text-decoration: underline;
   text-underline-offset: 0.25em;
+
+  &:hover {
+    color: v.$color-charcoal;
+  }
 }
 
 .programs-contact .section__inner {
-  max-width: 46rem;
+  max-width: 48rem;
 }
 
 .programs-contact .label {
-  margin-block-end: 1.5rem;
+  margin-block-end: 1rem;
 }
 
 .programs-contact .section__title {
-  color: v.$color-cream;
+  margin-block-end: 1.5rem;
+  font-size: v.$fs-display;
 }
 
 .programs-contact .contact-cta__text {
-  color: v.$color-sage;
+  color: v.$color-muted;
 }
 
 .programs-contact__action {
-  margin-block-start: 2.25rem;
+  margin-block-start: 2rem;
 }
