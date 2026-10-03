@@ -925,3 +925,21 @@ te acompaño → qué diferencia el enfoque → qué puedes empezar a notar → 
 - Resultados posibles en filas claras con flecha circular, inspiradas en las
   comparaciones de la web antigua. Botones serif con radio discreto de 4 px.
 - Conservar el copy y el H1 del SEO master. IMAC permanece en Alchemise.
+
+## 28. Página Sobre mí — revisión del 3 de octubre de 2026
+
+La página comparte el lenguaje editorial de Método y Programas: las fuentes
+globales, fondos crema y arena, acentos terracota y botones oliva.
+
+- Hero con retrato a la izquierda y «Mi historia» junto a la introducción a
+  la derecha desde 768 px. En móvil, H1 centrado, retrato y texto en una columna.
+  Sin etiquetas sobre los titulares. CTA secundario para comenzar el relato.
+- Relato personal en una columna de lectura, sin numeración de capítulos.
+- Origen y patrones forman una zona continua sobre arena. Los seis patrones
+  se presentan en una lista compacta: tema a la izquierda y frase serif sin
+  cursiva a la derecha, con divisores discretos y ancho de lectura limitado.
+- El punto de inflexión destaca por su tipografía sobre crema, seguido de
+  la comparación Antes/Ahora. Se elimina la banda oliva oscura.
+- La forma de acompañar continúa el relato; el cierre sobre arena conduce
+  a Método y Programas. Los titulares del relato y el cierre tienen menor
+  escala que la frase de inflexión. Se conserva el contenido biográfico aprobado.

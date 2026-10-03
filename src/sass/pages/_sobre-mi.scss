@@ -1,150 +1,149 @@
 @use '@abstracts/variables' as v;
 @use '@abstracts/mixins' as mx;
 
+.page-story {
+  ::selection {
+    color: v.$color-paper;
+    background: v.$color-olive-dark;
+  }
+
+  .section { padding-block: clamp(4rem, 7vw, 6.5rem); }
+
+  h2 {
+    font-size: clamp(2rem, 3.4vw, 3rem);
+    line-height: 1.15;
+  }
+
+  .eyebrow {
+    &::before,
+    &::after { display: none; }
+  }
+
+  .button,
+  .link-arrow { font-size: 1.125rem; }
+
+  .link-arrow { padding-block: 0.75rem; }
+
+  .button:active { transform: translateY(1px); }
+}
+
 .story-hero {
-  padding-block: 2.5rem clamp(4.5rem, 8vw, 7rem);
-  background-color: v.$color-cream;
+  padding-block: clamp(3rem, 7vw, 6rem) clamp(4rem, 8vw, 7rem);
+  background: v.$color-paper;
 }
 
 .story-hero__inner {
+  @include mx.container(75rem);
   display: grid;
-  gap: 3rem;
-  max-width: v.$container-max;
-  margin-inline: auto;
-  padding-inline: v.$gutter;
+  gap: 2.5rem;
 
-  // Entre 768 y 1024px la columna única quedaba pegada a la izquierda dentro
-  // de un contenedor mucho más ancho, con un hueco vacío enorme a la derecha.
-  // La acotamos y centramos hasta que el grid de dos columnas tiene sitio de
-  // verdad para respirar.
   @include mx.breakpoint(tablet) {
-    max-width: v.$measure-wide;
-  }
-
-  @include mx.breakpoint(tablethorizontal) {
-    max-width: v.$container-max;
-    grid-template-areas: 'image copy';
-    grid-template-columns: minmax(22rem, 0.9fr) minmax(28rem, 1.1fr);
-    gap: clamp(4rem, 9vw, 8rem);
-    align-items: center;
-    min-height: calc(100dvh - 8rem);
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-areas: 'image heading' 'image copy';
+    gap: 1.5rem clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
   }
 }
 
-.story-hero__copy {
-  @include mx.breakpoint(tablethorizontal) {
-    grid-area: copy;
+.story-hero__heading {
+  text-align: center;
+
+  h1 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 1.05;
   }
-}
 
-.story-hero .eyebrow {
-  margin-block-end: 1.5rem;
-}
-
-.story-hero h1 {
-  font-size: clamp(3.25rem, 2.46rem + 3.24vw, 5.375rem);
-  line-height: 0.95;
-}
-
-.story-hero__statement {
-  max-width: 37rem;
-  margin-block-start: 2rem;
-  font-family: v.$secondary-font;
-  font-size: v.$fs-lead;
-  line-height: 1.45;
-}
-
-.story-hero__lede {
-  max-width: 32rem;
-  margin-block-start: 1.25rem;
-  color: v.$color-muted;
+  @include mx.breakpoint(tablet) {
+    grid-area: heading;
+    align-self: end;
+    text-align: left;
+  }
 }
 
 .story-hero__image {
-  width: min(100%, 34rem);
+  width: 100%;
+  max-width: 26rem;
   height: auto;
   margin-inline: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center 38%;
+  border-radius: 4px;
 
-  @include mx.breakpoint(tablethorizontal) {
-    grid-area: image;
-    justify-self: start;
-    width: 100%;
-  }
-}
-
-.story-chapter__inner,
-.story-patterns__inner {
-  display: grid;
-  gap: clamp(3rem, 7vw, 6rem);
-
-  // Mismo ajuste que en el hero: columna única centrada y acotada entre 768 y
-  // 1024px en vez de pegada a la izquierda con hueco vacío a la derecha.
   @include mx.breakpoint(tablet) {
-    max-width: v.$measure-wide;
-    margin-inline: auto;
-  }
-
-  @include mx.breakpoint(tablethorizontal) {
-    max-width: none;
-    margin-inline: 0;
-    grid-template-columns: minmax(18rem, 0.8fr) minmax(26rem, 1.2fr);
-    align-items: start;
+    grid-area: image;
+    align-self: center;
   }
 }
 
-.story-chapter__heading,
-.story-patterns__heading {
-  max-width: 32rem;
+.story-hero__copy {
+  @include mx.breakpoint(tablet) { grid-area: copy; }
 }
 
-.story-chapter__number {
-  margin-block-end: 2rem;
+.story-hero__statement {
   font-family: v.$secondary-font;
-  font-size: v.$fs-lead;
-  color: v.$color-terracotta-strong;
+  font-size: clamp(1.875rem, 2.8vw, 2.625rem);
+  font-weight: 500;
+  line-height: 1.15;
+  text-wrap: balance;
+
+  em { color: v.$color-terracotta; }
 }
 
-.story-chapter__heading .eyebrow,
-.story-patterns__heading .eyebrow {
-  margin-block-end: 1rem;
+.story-hero__lede {
+  max-width: 30rem;
+  margin-block: 1.5rem 2rem;
+  color: v.$color-muted;
+  line-height: 1.8;
 }
 
-.story-chapter__heading h2,
-.story-patterns__heading h2 {
-  font-size: v.$fs-display;
-  line-height: 1.25;
+.story-chapter__inner { @include mx.container(52rem); }
+
+.story-chapter__heading { margin-block-end: 2rem; }
+
+.story-chapter__heading h2 {
+  font-size: clamp(1.875rem, 2.8vw, 2.5rem);
+  text-wrap: pretty;
 }
 
 .story-copy {
-  display: grid;
-  gap: 1.25rem;
-  max-width: 41rem;
-  padding-block-start: 1.75rem;
   color: v.$color-muted;
-  border-block-start: 1px solid v.$color-line;
+  line-height: 1.85;
+
+  p + p { margin-block-start: 1.25rem; }
 }
 
 .story-copy__opening {
-  margin-block-end: 0.5rem;
   font-family: v.$secondary-font;
-  font-size: v.$fs-lead;
+  font-size: clamp(1.5rem, 2.2vw, 1.875rem);
   font-style: italic;
-  line-height: 1.45;
+  line-height: 1.4;
   color: v.$color-charcoal;
 }
 
+.page-story .story-origin { padding-block-end: clamp(2.5rem, 4vw, 3.5rem); }
+
+.page-story .story-patterns { padding-block-start: 0; }
+
+.story-patterns__inner { @include mx.container(64rem); }
+
+.story-patterns__heading {
+  max-width: 42rem;
+  padding-block-start: clamp(2.5rem, 4vw, 3.5rem);
+  margin-inline: auto;
+  text-align: center;
+  border-block-start: 1px solid v.$color-line;
+}
+
 .story-patterns__closing {
-  max-width: 28rem;
-  margin-block-start: 1.5rem;
-  font-family: v.$secondary-font;
-  font-size: v.$fs-quote;
+  max-width: 33rem;
+  margin: 1.25rem auto 0;
   color: v.$color-muted;
 }
 
 .story-patterns__list {
+  max-width: v.$measure;
+  margin: 2.5rem auto 0;
   border-block-start: 1px solid v.$color-line;
 }
 
@@ -153,100 +152,93 @@
   grid-template-columns: 6.5rem minmax(0, 1fr);
   gap: 1rem;
   align-items: baseline;
-  padding-block: 1.375rem;
+  padding-block: 1.125rem;
   border-block-end: 1px solid v.$color-line;
+
+  dt {
+    font-size: v.$fs-small;
+    font-weight: 500;
+    color: v.$color-olive-dark;
+  }
+
+  dd {
+    font-family: v.$secondary-font;
+    font-size: clamp(1.25rem, 1.8vw, 1.625rem);
+    line-height: 1.35;
+  }
 
   @include mx.breakpoint(tablet) {
     grid-template-columns: 8.5rem minmax(0, 1fr);
-    padding-block: 1.75rem;
+    gap: 2rem;
+    padding-block: 1.375rem;
   }
 }
 
-.story-patterns__item dd {
-  font-family: v.$secondary-font;
-  font-size: v.$fs-quote;
-  line-height: 1.45;
-}
-
 .story-turn__inner {
-  max-width: 52rem;
+  @include mx.container(64rem);
   text-align: center;
-}
 
-.story-turn .label {
-  margin-block-end: 1.5rem;
-}
+  h2 {
+    font-size: clamp(2.375rem, 4.2vw, 3.75rem);
+    font-weight: 500;
 
-.story-turn h2 {
-  font-size: v.$fs-display;
-  color: v.$color-cream;
+    em { color: v.$color-terracotta; }
+  }
 }
 
 .story-turn__compare {
   display: grid;
-  margin-block-start: clamp(3rem, 6vw, 5rem);
-  text-align: left;
-  border-block: 1px solid v.$color-line-olive;
+  gap: 2rem;
+  max-width: 42rem;
+  margin: 2.5rem auto 0;
+  padding-block-start: 2rem;
+  border-block-start: 1px solid v.$color-line;
+
+  p {
+    margin-block-start: 0.625rem;
+    font-family: v.$secondary-font;
+    font-size: clamp(1.625rem, 2.5vw, 2rem);
+    line-height: 1.3;
+  }
+
+  > div:last-child p { color: v.$color-olive-dark; }
 
   @include mx.breakpoint(tablet) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.story-turn__compare > div {
-  padding-block: 1.75rem;
+.page-story .story-work { padding-block-start: 0; }
 
-  &:first-child {
-    border-block-end: 1px solid v.$color-line-olive;
-  }
-
-  @include mx.breakpoint(tablet) {
-    padding: 2rem;
-
-    &:first-child {
-      padding-inline-start: 0;
-      border-block-end: 0;
-      border-inline-end: 1px solid v.$color-line-olive;
-    }
-  }
+.story-work .story-chapter__inner {
+  padding-block-start: 0;
 }
 
-.story-turn__compare p {
-  margin-block-start: 0.5rem;
-  font-family: v.$secondary-font;
-  font-size: v.$fs-lead;
-  color: v.$color-cream;
+.story-work .story-chapter__heading {
+  padding-block-start: clamp(2.5rem, 4vw, 3.5rem);
+  border-block-start: 1px solid v.$color-line;
 }
 
 .story-final .section__inner {
-  max-width: 48rem;
+  @include mx.container(58rem);
   text-align: center;
-}
 
-.story-final .eyebrow {
-  margin-block-end: 1.5rem;
-}
+  h2 {
+    font-size: clamp(1.875rem, 2.8vw, 2.5rem);
+  }
 
-.story-final h2 {
-  font-size: v.$fs-display;
-}
-
-.story-final > .section__inner > p:not(.eyebrow) {
-  max-width: 36rem;
-  margin-block-start: 1.5rem;
-  margin-inline: auto;
-  color: v.$color-muted;
+  > p {
+    max-width: 34rem;
+    margin: 1.5rem auto 0;
+    color: v.$color-muted;
+  }
 }
 
 .story-final__actions {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  justify-content: center;
   align-items: center;
-  margin-block-start: 2.5rem;
-
-  @include mx.breakpoint(tablet) {
-    flex-direction: row;
-    justify-content: center;
-  }
+  margin-block-start: 2rem;
 }

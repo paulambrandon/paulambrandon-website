@@ -28,39 +28,39 @@ const patterns = [
 ] as const;
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} bodyClass="page-story">
   <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
 
   <section class="story-hero" aria-labelledby="historia-titulo">
     <div class="story-hero__inner">
-      <div class="story-hero__copy">
-        <p class="eyebrow eyebrow--caps">Sobre mí</p>
+      <header class="story-hero__heading">
         <h1 id="historia-titulo">Mi historia</h1>
+      </header>
+      <Image
+        class="story-hero__image"
+        src={portrait}
+        alt="Paula Márquez Brandon"
+        widths={[420, 640, 900]}
+        sizes="(min-width: 64rem) 416px, (min-width: 48rem) 40vw, calc(100vw - 2.5rem)"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="story-hero__copy">
         <p class="story-hero__statement">
-          Durante mucho tiempo pensé que había algo en mí que tenía que arreglar.
+          Durante mucho tiempo pensé que había algo en mí que tenía que <em>arreglar.</em>
         </p>
         <p class="story-hero__lede">
           Para entender por qué hoy acompaño a mujeres desde este lugar, hay
           que volver bastante atrás.
         </p>
+        <a class="button button--secondary" href="#origen-titulo">Leer mi historia →</a>
       </div>
-      <Image
-        class="story-hero__image"
-        src={portrait}
-        alt="Paula Márquez Brandon"
-        widths={[420, 640, 900, 1080]}
-        sizes="(min-width: 64rem) 44vw, calc(100vw - 2.5rem)"
-        loading="eager"
-        fetchpriority="high"
-      />
     </div>
   </section>
 
-  <section class="section section--paper story-chapter story-origin" aria-labelledby="origen-titulo">
+  <section class="section section--sand story-chapter story-origin" aria-labelledby="origen-titulo">
     <div class="section__inner story-chapter__inner">
       <header class="story-chapter__heading">
-        <p class="story-chapter__number">01</p>
-        <p class="eyebrow eyebrow--caps">El origen</p>
         <h2 id="origen-titulo">De «¿quieres ser mi amiga?» a «¿qué hay de malo en mí?»</h2>
       </header>
       <div class="story-copy">
@@ -86,8 +86,6 @@ const patterns = [
   <section class="section section--sand story-patterns" aria-labelledby="patrones-titulo">
     <div class="section__inner story-patterns__inner">
       <header class="story-patterns__heading">
-        <p class="story-chapter__number">02</p>
-        <p class="eyebrow eyebrow--caps">El patrón</p>
         <h2 id="patrones-titulo">La pregunta cambió. El fondo seguía siendo el mismo.</h2>
         <p class="story-patterns__closing">
           Cambiaba aquello que tenía que conseguir. Pero la sensación volvía.
@@ -96,7 +94,7 @@ const patterns = [
       <dl class="story-patterns__list">
         {patterns.map(([label, text]) => (
           <div class="story-patterns__item">
-            <dt class="label">{label}</dt>
+            <dt>{label}</dt>
             <dd>{text}</dd>
           </div>
         ))}
@@ -104,13 +102,12 @@ const patterns = [
     </div>
   </section>
 
-  <section class="section section--olive story-turn">
+  <section class="section section--paper story-turn" aria-labelledby="inflexion-titulo">
     <div class="section__inner story-turn__inner">
-      <p class="label label--sage">El punto de inflexión</p>
-      <h2>No necesitaba dejar de cambiar. Necesitaba cambiar el lugar desde el que lo hacía.</h2>
+      <h2 id="inflexion-titulo">No necesitaba dejar de cambiar. Necesitaba cambiar <em>el lugar desde el que lo hacía.</em></h2>
       <div class="story-turn__compare">
-        <div><span class="label label--sage">Antes</span><p>«Para sentir que valgo».</p></div>
-        <div><span class="label label--sage">Ahora</span><p>«Porque quiero cuidarme».</p></div>
+        <div><span class="label">Antes</span><p>«Para sentir que valgo».</p></div>
+        <div><span class="label label--olive">Ahora</span><p>«Porque quiero cuidarme».</p></div>
       </div>
     </div>
   </section>
@@ -118,8 +115,6 @@ const patterns = [
   <section class="section section--paper story-chapter story-work" aria-labelledby="trabajo-titulo">
     <div class="section__inner story-chapter__inner">
       <header class="story-chapter__heading">
-        <p class="story-chapter__number">03</p>
-        <p class="eyebrow eyebrow--caps">Mi trabajo</p>
         <h2 id="trabajo-titulo">Todo esto empezó a convertirse también en mi manera de acompañar.</h2>
       </header>
       <div class="story-copy">
@@ -143,7 +138,6 @@ const patterns = [
 
   <section class="section section--sand section--spacious story-final">
     <div class="section__inner">
-      <p class="eyebrow eyebrow--caps eyebrow--centered">El siguiente paso</p>
       <h2>Todo esto terminó dando forma a una manera diferente de trabajar el cambio.</h2>
       <p>Si quieres entender cómo llevo hoy este enfoque al acompañamiento, puedes conocer mi método.</p>
       <div class="story-final__actions">
