@@ -1,0 +1,19 @@
+---
+import type { Testimonial } from '../../data/testimonials';
+interface Props { items: readonly Testimonial[]; title?: string; }
+const { items, title = 'Lo que dicen quienes ya lo han vivido' } = Astro.props;
+---
+<section class="service-section service-section--sand">
+  <div class="service-container">
+    <header class="service-heading"><h2>{title}</h2></header>
+    <div class="service-quotes">
+      {items.map(({ quote, highlightedQuote, author, program }) => (
+        <figure class="testimonial-card">
+          <blockquote><p set:html={highlightedQuote ?? quote} /></blockquote>
+          <figcaption><span class="testimonial-card__name">{author}</span><span class="testimonial-card__tag">{program}</span></figcaption>
+        </figure>
+      ))}
+    </div>
+    <p class="service-more"><a class="link-arrow" href="/testimonios">Ver todas las historias →</a></p>
+  </div>
+</section>

@@ -1,170 +1,50 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-import MovementHero from '../components/movimiento/MovementHero.astro';
-import CycleSection from '../components/movimiento/CycleSection.astro';
-import WorkAreasSection from '../components/movimiento/WorkAreasSection.astro';
-import OutcomesSection from '../components/movimiento/OutcomesSection.astro';
-import ResultsSection from '../components/movimiento/ResultsSection.astro';
-import MovementTestimonials from '../components/movimiento/MovementTestimonials.astro';
-import RequestSection from '../components/movimiento/RequestSection.astro';
-import ClaimList from '../components/landing/ClaimList.astro';
-import CompareTable from '../components/landing/CompareTable.astro';
-import NumberedList from '../components/landing/NumberedList.astro';
-import SpecList from '../components/landing/SpecList.astro';
-import NoteBlock from '../components/landing/NoteBlock.astro';
-import AuthorSection from '../components/landing/AuthorSection.astro';
 import Faq from '../components/landing/Faq.astro';
-import StickyCta from '../components/landing/StickyCta.astro';
-import paulaImage from '../assets/images/placeholder-movimiento-paula.jpg';
-import {
-  authorText,
-  careBecomesDemand,
-  credentials,
-  faq,
-  forYouIf,
-  howItWorks,
-  includes,
-  notForYou,
-  paradigmStatement,
-  paradigmText,
-  scope,
-  twoWays,
-} from '../data/movimiento-nutricion';
-import { PERSON_NAME } from '../data/site';
-
-// Title literal de /docs/seo/paulambrandon-seo.md §8.
+import ServiceTestimonials from '../components/landing/ServiceTestimonials.astro';
+import portrait from '../assets/images/paula-marquez-brandon.webp';
+import { physicalResults } from '../data/physical-results';
+import { PERSON_NAME, BOOKING_URL, WHATSAPP_URL } from '../data/site';
+import { movementTestimonials } from '../data/testimonials';
+import { movementIncludes, movementPlans, movementFaq } from '../data/services';
 const title = `Movimiento y nutrición sin obsesión | ${PERSON_NAME}`;
-
-// El documento SEO no define meta description para esta landing. En lugar de
-// inventar una, se reutiliza la entradilla aprobada del propio hero.
-const description =
-  'Un acompañamiento para cuidar tu cuerpo, tu alimentación y tu entrenamiento sin convertirlos en otra forma de exigirte.';
+const description = 'Un acompañamiento para cuidar tu cuerpo, tu alimentación y tu entrenamiento sin convertirlos en otra forma de exigirte.';
+const results = physicalResults.filter(({ name }) => ['Ana', 'Marion', 'Clara'].includes(name));
 ---
-
-<Layout title={title} description={description}>
-  <MovementHero />
-
-  <section class="section section--paper demand">
-    <div class="section__inner">
-      <h2 class="section__title demand__title">
-        ¿Y si incluso cuidarte se ha convertido en otra forma de exigirte?
-      </h2>
-      <ClaimList items={careBecomesDemand} />
+<Layout title={title} description={description} bodyClass="page-service page-movement">
+  <section class="service-hero service-hero--split" aria-labelledby="movimiento-titulo">
+    <div class="service-container">
+      <Image class="service-portrait" src={portrait} alt="Paula Márquez Brandon" widths={[400, 700, 900]} sizes="(min-width: 64rem) 416px, (min-width: 48rem) 40vw, calc(100vw - 2.5rem)" loading="eager" fetchpriority="high" />
+      <div><h1 id="movimiento-titulo">Movimiento y nutrición, <em>sin obsesión</em></h1><p class="service-lede">{description}</p><p class="service-meta">Acompañamiento personalizado · 1, 3 o 6 meses</p><div class="service-actions"><a class="button button--primary" href="#solicitar">Elige tu acompañamiento →</a><a class="link-arrow" href={WHATSAPP_URL}>Cuéntame qué necesitas →</a></div></div>
     </div>
   </section>
-
-  <CycleSection />
-
-  <section class="section section--olive paradigm">
-    <div class="section__inner">
-      <p class="paradigm__statement">{paradigmStatement}</p>
-      <p class="paradigm__text">{paradigmText}</p>
+  <section class="service-section service-section--sand">
+    <div class="service-container service-fit">
+      <div><h2>Un plan que se adapte a tu vida.</h2><p>Puedes querer mejorar físicamente y cuidar tu alimentación. La diferencia está en hacerlo desde un lugar que puedas sostener, sin vivir pendiente de hacerlo perfecto.</p></div>
+      <ul class="service-checks"><li>Quieres entrenar y comer mejor desde la calma.</li><li>Has probado dietas y rutinas que no consigues mantener.</li><li>Necesitas estructura y guía, con espacio para tu vida real.</li><li>Prefieres avanzar de forma sostenible a buscar resultados inmediatos.</li></ul>
     </div>
   </section>
-
-  <section class="section section--paper two-ways">
-    <div class="section__inner">
-      <h2 class="section__title two-ways__title">Dos formas de hacer lo mismo</h2>
-      <CompareTable
-        labelA="Desde la exigencia"
-        labelB="Desde el autocuidado"
-        rows={twoWays}
-      />
+  <section class="service-section">
+    <div class="service-container service-includes">
+      <div class="service-includes__intro"><h2>Empezamos por conocerte.</h2><p>El proceso empieza con una llamada conmigo. Hablamos de dónde estás, qué necesitas y cómo encajar el movimiento y la alimentación en tu día a día.</p><p class="service-lede">Después, seguimos juntas: el acompañamiento incluye revisión y ajustes durante todo el proceso.</p><a class="link-arrow" href="/metodo">Conoce mi forma de trabajar →</a></div>
+      <ul class="service-includes__list">{movementIncludes.map(({ title, text }) => (<li><h3>{title}</h3><p>{text}</p></li>))}</ul>
     </div>
   </section>
-
-  <WorkAreasSection />
-
-  <section class="section section--paper for-you">
-    <div class="section__inner">
-      <h2 class="section__title for-you__title">Puede encajar contigo si…</h2>
-      <ClaimList items={forYouIf} columns={2} />
-
-      <div class="for-you__exclusion">
-        <NoteBlock label="No es para ti si…" text={notForYou} />
-      </div>
+  <section class="service-section service-section--sand">
+    <div class="service-container"><header class="service-heading"><h2>El cambio de fuera también cuenta.</h2><p>Estos son algunos procesos reales. Cada mujer parte de un lugar distinto y sus resultados son personales.</p></header>
+      <div class="physical-results__grid">{results.map(({ images, name, time }) => (<figure class="physical-result"><div class="physical-result__media">{images.map(({ src, alt }) => (<Image src={src} alt={alt} widths={[400, 800]} sizes="(min-width: 64rem) 320px, (min-width: 40rem) 42vw, calc(100vw - 4.25rem)" loading="lazy" />))}</div><figcaption><span class="physical-result__time">{time}</span><span class="physical-result__name">{name}</span></figcaption></figure>))}</div>
+      <p class="service-more"><a class="link-arrow" href="/testimonios">Ver todos los procesos →</a></p>
     </div>
   </section>
-
-  <section class="section section--sand how">
-    <div class="section__inner">
-      <h2 class="section__title how__title">Cómo funciona el acompañamiento</h2>
-      <NumberedList items={howItWorks} />
+  <ServiceTestimonials items={movementTestimonials.slice(0, 3)} />
+  <section class="service-section service-section--sand" id="solicitar">
+    <div class="service-container"><header class="service-heading"><h2>Elige el tiempo para tu proceso.</h2><p>Las tres opciones incluyen acompañamiento personalizado, entrenamiento, guía de nutrición y seguimiento.</p></header>
+      <div class="service-plans">{movementPlans.map(({ duration, price, recommended }) => (<article class:list={['service-plan', { 'service-plan--recommended': recommended }]}><p class="service-plan__note">{recommended ? 'Opción recomendada' : 'Acompañamiento personalizado'}</p><h3>{duration}</h3><p class="service-plan__price">{price}</p><p class="service-plan__total">Precio total del acompañamiento</p><a class="button button--primary" href={BOOKING_URL}>Elegir {duration} →</a></article>))}</div>
+      <p class="service-more">Si no sabes cuál elegir, <a class="link-arrow" href={WHATSAPP_URL}>escríbeme y lo vemos juntas →</a></p>
     </div>
   </section>
-
-  <section class="section section--paper includes">
-    <div class="section__inner">
-      <h2 class="section__title includes__title">Qué incluye</h2>
-      <SpecList rows={includes} class="includes__spec" />
-    </div>
+  <section class="service-section">
+    <div class="service-container"><header class="service-heading"><h2>Quizá te estás preguntando…</h2></header><Faq items={movementFaq} /><p class="service-scope">Este acompañamiento trabaja el entrenamiento y los hábitos de alimentación. No sustituye una valoración médica ni la atención de un profesional sanitario cuando la necesitas.</p><p class="service-more"><a class="link-arrow" href="/programas">Ver otras formas de trabajar conmigo →</a></p></div>
   </section>
-
-  <OutcomesSection />
-  <ResultsSection />
-  <MovementTestimonials />
-
-  <section class="section section--sand">
-    <div class="section__inner">
-      <AuthorSection
-        image={paulaImage}
-        imageAlt="Espacio reservado para un retrato de Paula Márquez Brandon (pendiente)"
-        label="Quién te acompaña"
-        text={authorText}
-      />
-
-      <dl class="credentials">
-        {
-          credentials.map(({ title: label, text }) => (
-            <div class="credentials__item">
-              <dt class="label label--olive credentials__label">{label}</dt>
-              <dd class="credentials__text">{text}</dd>
-            </div>
-          ))
-        }
-      </dl>
-    </div>
-  </section>
-
-  <section class="section section--paper">
-    <div class="section__inner">
-      <NoteBlock label="Alcance del acompañamiento" text={scope} />
-    </div>
-  </section>
-
-  <RequestSection />
-
-  <section class="section section--paper" id="faq">
-    <div class="section__inner">
-      <h2 class="section__title">Preguntas frecuentes</h2>
-      <Faq items={faq} />
-    </div>
-  </section>
-
-  <section class="section section--sand section--spacious final-cta">
-    <div class="section__inner">
-      <h2 class="final-cta__title">
-        No necesitas hacerlo perfecto para poder cuidarte.
-      </h2>
-      <p class="final-cta__text">
-        Si buscas una forma de trabajar tu entrenamiento, alimentación y hábitos
-        de una manera que puedas integrar en tu vida, puedes contarme dónde
-        estás ahora.
-      </p>
-      <div class="final-cta__actions">
-        <a class="button button--primary" href="#solicitar">
-          Solicitar acompañamiento <span aria-hidden="true">→</span>
-        </a>
-        <a class="button button--secondary" href="/contacto">
-          ¿Tienes dudas? Contactar <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <StickyCta
-    label="Movimiento y nutrición"
-    href="#solicitar"
-    action="Solicitar"
-  />
 </Layout>

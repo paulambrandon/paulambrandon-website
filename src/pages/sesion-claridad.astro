@@ -1,146 +1,46 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-import SessionHero from '../components/sesion/SessionHero.astro';
-import TopicsSection from '../components/sesion/TopicsSection.astro';
-import SessionTestimonials from '../components/sesion/SessionTestimonials.astro';
-import BookingSection from '../components/sesion/BookingSection.astro';
-import ClaimList from '../components/landing/ClaimList.astro';
-import NumberedList from '../components/landing/NumberedList.astro';
-import SpecList from '../components/landing/SpecList.astro';
-import AuthorSection from '../components/landing/AuthorSection.astro';
 import Faq from '../components/landing/Faq.astro';
-import paulaImage from '../assets/images/placeholder-sesion-paula.jpg';
-import {
-  afterStatement,
-  afterText,
-  authorCredentials,
-  authorText,
-  faq,
-  forYouIf,
-  howItWorks,
-  noMoreInfo,
-  notTherapy,
-  practical,
-  professionalScope,
-  takeaways,
-} from '../data/sesion-claridad';
-import { PERSON_NAME } from '../data/site';
-
-// Title literal de /docs/seo/paulambrandon-seo.md §8.
+import ServiceTestimonials from '../components/landing/ServiceTestimonials.astro';
+import portrait from '../assets/images/paula-marquez-brandon.webp';
+import { PERSON_NAME, BOOKING_URL, WHATSAPP_URL } from '../data/site';
+import { clarityTestimonials } from '../data/testimonials';
+import { clarityFaq } from '../data/services';
 const title = `Sesión de claridad | ${PERSON_NAME}`;
-
-// El documento SEO no define meta description para esta landing. En lugar de
-// inventar una, se reutiliza la entradilla aprobada del propio hero.
-const description =
-  'Un espacio para detenerte, ordenar lo que está ocurriendo y ver con más claridad cuál puede ser tu siguiente paso.';
+const description = 'Un espacio para detenerte, ordenar lo que está ocurriendo y ver con más claridad cuál puede ser tu siguiente paso.';
 ---
-
-<Layout title={title} description={description}>
-  <SessionHero />
-
-  <section class="section section--paper no-more-info">
-    <div class="section__inner">
-      <h2 class="no-more-info__title">
-        Quizá no necesitas seguir dándole más vueltas.
-      </h2>
-      <p class="no-more-info__text">{noMoreInfo}</p>
+<Layout title={title} description={description} bodyClass="page-service page-clarity">
+  <section class="service-hero service-hero--split" aria-labelledby="sesion-titulo">
+    <div class="service-container">
+      <div><h1 id="sesion-titulo">Sesión de claridad</h1><p class="service-statement">Un espacio para entender qué te bloquea y <em>ver tu siguiente paso.</em></p><p class="service-meta">Individual · Online · Entre 60 y 90 minutos</p><p class="service-lede">No necesitas tenerlo todo claro antes de empezar a hablar. Puedes llegar con una pregunta concreta o con algo que todavía no sabes cómo ordenar.</p><div class="service-actions"><a class="button button--primary" href={BOOKING_URL}>Reservar mi sesión →</a><a class="link-arrow" href={WHATSAPP_URL}>Hablar con Paula →</a></div></div>
+      <Image class="service-portrait" src={portrait} alt="Paula Márquez Brandon, quien te acompaña durante la sesión" widths={[400, 700, 900]} sizes="(min-width: 64rem) 416px, (min-width: 48rem) 40vw, calc(100vw - 2.5rem)" loading="eager" fetchpriority="high" />
     </div>
   </section>
-
-  <section class="section section--sand for-you">
-    <div class="section__inner">
-      <h2 class="section__title for-you__title">
-        Esta sesión puede encajar contigo si…
-      </h2>
-      <ClaimList items={forYouIf} class="session-list" />
+  <section class="service-section service-section--sand">
+    <div class="service-container service-fit">
+      <div><h2>Cuando darle más vueltas ya no te ayuda.</h2><p>A veces necesitas detenerte y mirar lo que te ocurre desde otra perspectiva. La sesión es un espacio para hacerlo conmigo.</p></div>
+      <ul class="service-checks"><li>Llevas tiempo dando vueltas al mismo problema.</li><li>Sientes que has probado muchas cosas y acabas en el mismo lugar.</li><li>Necesitas claridad antes de empezar un proceso más largo.</li></ul>
     </div>
   </section>
-
-  <TopicsSection />
-
-  <section class="section section--sand how">
-    <div class="section__inner">
-      <h2 class="section__title how__title">Cómo funciona</h2>
-      <NumberedList items={howItWorks} />
-    </div>
-  </section>
-
-  <section class="section section--olive not-therapy">
-    <div class="section__inner">
-      <h2 class="not-therapy__title">Lo que esta sesión no es</h2>
-      <p class="not-therapy__text">{notTherapy}</p>
-      <p class="not-therapy__scope">{professionalScope}</p>
-    </div>
-  </section>
-
-  <section class="section section--paper">
-    <div class="section__inner">
-      <h2 class="section__title how__title">Al terminar</h2>
-      <ClaimList items={takeaways} class="session-list" />
-    </div>
-  </section>
-
-  <SessionTestimonials />
-
-  <section class="section section--paper">
-    <div class="section__inner">
-      <AuthorSection
-        image={paulaImage}
-        imageAlt="Espacio reservado para un retrato de Paula Márquez Brandon (pendiente)"
-        label="Quién estará al otro lado"
-        text={authorText}
-        credentials={authorCredentials}
-        linkHref="/sobre-mi"
-        linkLabel="Conoce mi historia"
-      />
-    </div>
-  </section>
-
-  <section class="section section--sand practical">
-    <div class="section__inner">
-      <h2 class="section__title practical__title">Información práctica</h2>
-      <SpecList rows={practical} class="practical__spec" />
-    </div>
-  </section>
-
-  <BookingSection />
-
-  <section class="section section--paper after">
-    <div class="section__inner">
-      <p class="after__statement">{afterStatement}</p>
-      <p class="after__text">{afterText}</p>
-      <p class="after__link">
-        <a class="link-arrow" href="/programas">
-          Ver todos los programas <span aria-hidden="true">→</span>
-        </a>
-      </p>
-    </div>
-  </section>
-
-  <section class="section section--sand">
-    <div class="section__inner">
-      <h2 class="section__title how__title">Preguntas frecuentes</h2>
-      <Faq items={faq} />
-    </div>
-  </section>
-
-  <section class="section section--paper section--spacious final-cta">
-    <div class="section__inner">
-      <h2 class="final-cta__title">
-        No necesitas tenerlo todo claro antes de empezar a hablar.
-      </h2>
-      <p class="final-cta__text">
-        Puedes llegar con una pregunta concreta o simplemente con la sensación
-        de que hay algo que necesitas ordenar.
-      </p>
-      <div class="final-cta__actions">
-        <a class="button button--primary" href="#reserva">
-          Reservar sesión <span aria-hidden="true">→</span>
-        </a>
-        <a class="button button--secondary" href="/contacto">
-          Contactar <span aria-hidden="true">→</span>
-        </a>
+  <section class="service-section">
+    <div class="service-container"><header class="service-heading"><h2>Una conversación para mirar lo que está pasando.</h2></header>
+      <div class="service-session-path">
+        <article><h3>Llegas con lo que estás viviendo</h3><p>No hace falta traerlo perfectamente ordenado. Podemos partir de una decisión, un bloqueo o una situación que se repite.</p></article>
+        <article><h3>Lo miramos juntas</h3><p>Mediante la conversación y las preguntas, observamos qué patrón puede estar sosteniendo el problema y qué está pasando desapercibido.</p></article>
+        <article><h3>Orientamos tu siguiente paso</h3><p>Buscamos una visión más clara de lo que necesitas y herramientas concretas que puedas empezar a aplicar. Cada sesión parte de tu situación.</p></article>
       </div>
+      <p class="service-scope">Es una sesión de acompañamiento y orientación. No es psicoterapia ni diagnóstico, y no sustituye la atención sanitaria cuando la necesitas.</p>
     </div>
+  </section>
+  <ServiceTestimonials items={clarityTestimonials} title="Lo que una conversación abrió para ellas" />
+  <section class="service-section" id="reserva">
+    <div class="service-container service-booking">
+      <div><h2>No tienes que comprometerte con un programa.</h2><p>Puedes reservar esta sesión como un primer paso o volver de manera puntual siempre que necesites ordenar lo que te ocurre.</p><p>Si no sabes si es lo que necesitas ahora, escríbeme antes de reservar. Te respondo yo personalmente.</p><a class="link-arrow" href="/programas">Conocer las otras opciones →</a></div>
+      <div class="service-booking__details"><h3>Tu sesión conmigo</h3><dl><div><dt>Modalidad</dt><dd>Online, individual</dd></div><div><dt>Duración</dt><dd>Entre 60 y 90 minutos</dd></div><div><dt>Reserva</dt><dd>Selecciona el servicio y agenda tu cita</dd></div></dl><p>Consulta el precio y las condiciones al reservar.</p><div class="service-actions"><a class="button button--primary" href={BOOKING_URL}>Reservar mi sesión →</a><a class="link-arrow" href={WHATSAPP_URL}>Resolver una duda →</a></div></div>
+    </div>
+  </section>
+  <section class="service-section service-section--sand">
+    <div class="service-container"><header class="service-heading"><h2>Antes de reservar</h2></header><Faq items={clarityFaq} /></div>
   </section>
 </Layout>

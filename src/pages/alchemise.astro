@@ -1,121 +1,71 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-import AlchemiseHero from '../components/alchemise/AlchemiseHero.astro';
-import IdentifySection from '../components/alchemise/IdentifySection.astro';
-import ForYouSection from '../components/alchemise/ForYouSection.astro';
-import ShiftsSection from '../components/alchemise/ShiftsSection.astro';
-import ImacSection from '../components/alchemise/ImacSection.astro';
-import TimelineSection from '../components/alchemise/TimelineSection.astro';
-import CommunitySection from '../components/alchemise/CommunitySection.astro';
-import AlchemiseTestimonials from '../components/alchemise/AlchemiseTestimonials.astro';
-import InvestmentSection from '../components/alchemise/InvestmentSection.astro';
-import FinalCta from '../components/alchemise/FinalCta.astro';
-import NumberedList from '../components/landing/NumberedList.astro';
-import NoteBlock from '../components/landing/NoteBlock.astro';
-import AuthorSection from '../components/landing/AuthorSection.astro';
 import Faq from '../components/landing/Faq.astro';
-import StickyCta from '../components/landing/StickyCta.astro';
-import paulaImage from '../assets/images/placeholder-alchemise-paula.jpg';
-import {
-  authorCredentials,
-  authorText,
-  editionCta,
-  encountersText,
-  faq,
-  guarantee,
-  includes,
-  notForYou,
-} from '../data/alchemise';
-import { PERSON_NAME } from '../data/site';
-
-// Title literal de /docs/seo/paulambrandon-seo.md §8.
+import ServiceTestimonials from '../components/landing/ServiceTestimonials.astro';
+import portrait from '../assets/images/paula-marquez-brandon.webp';
+import { PERSON_NAME, WHATSAPP_URL } from '../data/site';
+import { alchemiseTestimonials } from '../data/testimonials';
+import { imac, alchemiseIncludes, alchemiseFaq } from '../data/services';
 const title = `Alchemise: programa de 90 días para mujeres autoexigentes | ${PERSON_NAME}`;
-
-// El documento SEO no define meta description para /alchemise. En lugar de
-// inventar una, se reutiliza la entradilla aprobada del propio hero.
-const description =
-  'Un proceso de 90 días para dejar de vivir desde la autoexigencia y la sensación de que siempre hay algo en ti que arreglar, sin dejar de crecer.';
-
-// Sin datos estructurados: la estrategia SEO no define schema para esta
-// landing y casi toda su información (precio, fechas, plazas) sigue pendiente.
+const description = 'Un proceso para dejar de vivir desde la autoexigencia y la sensación de que siempre hay algo en ti que arreglar, sin dejar de crecer ni renunciar a aquello que quieres.';
 ---
-
-<Layout title={title} description={description}>
-  <AlchemiseHero />
-  <IdentifySection />
-
-  <section class="section section--sand purpose">
-    <div class="section__inner">
-      <p class="purpose__statement">
-        No necesitas otra cosa que entender intelectualmente y olvidar una
-        semana después.
-      </p>
-      <p class="purpose__text">
-        Alchemise es un proceso de 90 días donde aquello que empiezas a
-        comprender puede trabajarse, aplicarse y consolidarse.
-      </p>
+<Layout title={title} description={description} bodyClass="page-service page-alchemise">
+  <section class="service-hero service-hero--centered" aria-labelledby="alchemise-titulo">
+    <div class="service-container">
+      <h1 id="alchemise-titulo">Alchemise</h1>
+      <p class="service-meta">Programa grupal · 90 días</p>
+      <p class="service-statement">Deja de construir tu vida alrededor de la idea de que <em>no eres suficiente.</em></p>
+      <p class="service-lede">Un proceso acompañado para trabajar la relación contigo misma, sin dejar de crecer ni renunciar a aquello que quieres.</p>
+      <div class="service-actions">
+        <a class="button button--primary" href={WHATSAPP_URL}>Quiero conocer la próxima edición →</a>
+        <a class="link-arrow" href="#metodo-imac">Descubrir el proceso →</a>
+      </div>
     </div>
   </section>
-
-  <ForYouSection />
-
-  <section class="section section--sand">
-    <div class="section__inner">
-      <NoteBlock label="No es para ti si…" text={notForYou} />
+  <section class="service-section service-section--sand">
+    <div class="service-container service-fit">
+      <div><h2>Si siempre hay algo más que deberías cambiar.</h2><p>No vienes a buscar otra rutina perfecta. Vienes a entender desde dónde estás construyendo tu vida y a trabajar esa relación contigo misma.</p></div>
+      <ul class="service-checks">
+        <li>Sientes que llevas años intentando demostrar que vales, sin llegar a sentirlo del todo.</li>
+        <li>Descansar te genera culpa y cada objetivo conseguido deja paso al siguiente.</li>
+        <li>Te exiges tanto que sientes que, si aflojas, todo se derrumba.</li>
+        <li>Quieres un proceso más profundo, acompañada de mujeres que viven algo parecido.</li>
+      </ul>
     </div>
   </section>
-
-  <ShiftsSection />
-  <ImacSection />
-  <TimelineSection />
-
-  <section class="section section--sand includes">
-    <div class="section__inner">
-      <h2 class="section__title">Qué incluye Alchemise</h2>
-      <NumberedList items={includes} />
+  <section class="service-section" id="metodo-imac" aria-labelledby="imac-titulo">
+    <div class="service-container">
+      <header class="service-heading"><h2 id="imac-titulo">El Método IMAC</h2><p>Cuatro fases para entender el origen, trabajar la relación contigo y llevar lo aprendido a tu vida.</p></header>
+      <div class="service-imac">
+        {imac.map(({ letter, title, text }) => (<article class="service-phase"><span class="service-phase__letter" aria-hidden="true">{letter}</span><div><h3>{title}</h3><p>{text}</p></div></article>))}
+      </div>
     </div>
   </section>
-
-  <CommunitySection />
-
-  <section class="section section--sand">
-    <div class="section__inner">
-      <NoteBlock label="Encuentros / experiencia" text={encountersText} />
+  <section class="service-section service-section--sand">
+    <div class="service-container service-includes">
+      <div class="service-includes__intro">
+        <Image class="service-portrait" src={portrait} alt="Paula Márquez Brandon" widths={[400, 700]} sizes="(min-width: 64rem) 352px, (min-width: 48rem) 50vw, calc(100vw - 2.5rem)" loading="lazy" />
+        <h2>90 días acompañada por mí.</h2>
+        <p>Entre una sesión y otra, empiezas a observar lo trabajado en tu propia vida: cuando necesitas descansar, poner un límite o dejar de exigirte hacerlo todo perfecto.</p>
+        <a class="link-arrow" href="/sobre-mi">Conoce mi historia →</a>
+      </div>
+      <div>
+        <ul class="service-includes__list">{alchemiseIncludes.map(({ title, text }) => (<li><h3>{title}</h3><p>{text}</p></li>))}</ul>
+        <div class="service-bonus"><h3>También tendrás</h3><p>Una guía para volver a tu rutina sin castigarte y otra para los días en los que no puedes con la versión perfecta de ti.</p><p>Y un 10 % de descuento en el acompañamiento de entrenamiento y nutrición si quieres complementarlo.</p><a class="link-arrow" href="/movimiento-nutricion">Conocer el acompañamiento →</a></div>
+      </div>
     </div>
   </section>
-
-  <AlchemiseTestimonials />
-
-  <section class="section section--sand">
-    <div class="section__inner">
-      <AuthorSection
-        image={paulaImage}
-        imageAlt="Espacio reservado para un retrato de Paula Márquez Brandon (pendiente)"
-        label="Quién te acompaña"
-        text={authorText}
-        credentials={authorCredentials}
-        linkHref="/sobre-mi"
-        linkLabel="Conoce mi historia"
-      />
+  <ServiceTestimonials items={alchemiseTestimonials} title="Mujeres que ya han vivido Alchemise" />
+  <section class="service-section" id="inversion">
+    <div class="service-container">
+      <div class="service-booking">
+        <div><h2>Tu siguiente paso puede empezar con una conversación.</h2><p>Cuéntame dónde estás y vemos si Alchemise encaja contigo. Te contaré las fechas y la disponibilidad de la próxima edición.</p><p>Si durante las dos primeras semanas sientes que el proceso no es para ti, puedes solicitar la devolución. Consulta conmigo las condiciones antes de reservar.</p></div>
+        <div class="service-booking__details"><h3>Tu plaza en Alchemise</h3><p class="service-price"><del>497 €</del>397 €</p><p>90 días de acompañamiento grupal y seis meses de acceso al contenido.</p><div class="service-actions"><a class="button button--primary" href={WHATSAPP_URL}>Hablar con Paula →</a></div></div>
+      </div>
     </div>
   </section>
-
-  <section class="section section--paper">
-    <div class="section__inner">
-      <NoteBlock label="Garantía" text={guarantee} />
-    </div>
+  <section class="service-section service-section--sand">
+    <div class="service-container"><header class="service-heading"><h2>Antes de decidirte</h2></header><Faq items={alchemiseFaq} /><p class="service-scope">Alchemise es un acompañamiento de desarrollo personal. No sustituye la atención psicológica ni sanitaria cuando la necesitas.</p><p class="service-more"><a class="link-arrow" href="/programas">Ver otras formas de trabajar conmigo →</a></p></div>
   </section>
-
-  <InvestmentSection />
-
-  <section class="section section--paper">
-    <div class="section__inner">
-      <h2 class="section__title">Preguntas frecuentes</h2>
-      <Faq items={faq} />
-    </div>
-  </section>
-
-  <FinalCta />
-
-  <StickyCta label="Alchemise" href="#inversion" action={editionCta} />
 </Layout>

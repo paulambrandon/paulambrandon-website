@@ -399,6 +399,24 @@ Paula. Orden: hero con CTA a WhatsApp → datos de contacto + formulario para
 preparar un email. Se eliminan cierres y bloques comerciales redundantes; el
 enlace a Programas permanece como orientación secundaria.
 
+### Contenido de landings de programas — decisión del cliente, 3 de octubre de 2026
+
+Por petición del cliente se completan y rediseñan `/alchemise`,
+`/movimiento-nutricion` y `/sesion-claridad` con las prestaciones publicadas en
+`/empieza-aqui` y `/alchemise`. Se mantienen los titles, H1 y descripciones
+existentes. Se reutilizan los testimonios atribuidos por programa y las imágenes
+reales de resultados, sin convertir experiencias individuales en garantías.
+
+Alchemise desarrolla IMAC, directos quincenales, recursos, comunidad, seis meses
+de acceso y condiciones publicadas. Se retiran fecha y disponibilidad antiguas;
+el contacto por WhatsApp informa de la próxima edición. Movimiento presenta
+llamada inicial, plan adaptado, guía flexible y seguimiento, con las tres tarifas
+publicadas. Sesión presenta modalidad online y duración de 60–90 minutos;
+su precio y condiciones se consultan al reservar, sin trasladar el importe
+histórico no visible en la página publicada. Reservas mediante SumUp Bookings.
+
+La fuente única de las prestaciones completadas es `src/data/services.ts`.
+
 ### 8.1 Migración desde las URLs actuales
 
 Si la arquitectura final cambia los slugs actuales, implementar redirecciones 301 directas:

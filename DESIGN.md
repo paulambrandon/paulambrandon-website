@@ -943,3 +943,19 @@ globales, fondos crema y arena, acentos terracota y botones oliva.
 - La forma de acompañar continúa el relato; el cierre sobre arena conduce
   a Método y Programas. Los titulares del relato y el cierre tienen menor
   escala que la frase de inflexión. Se conserva el contenido biográfico aprobado.
+
+## 29. Landings de programas — revisión del 3 de octubre de 2026
+
+- Lenguaje compartido con Método y Programas: Cormorant Garamond e Inter,
+  crema y arena, acciones oliva, acentos terracota y radios de 4 px.
+- Secciones de 64–104 px de separación vertical y contenedores de lectura
+  acotados. Se retiran los bloques comerciales vacíos y las imágenes provisionales.
+- Alchemise: entrada tipográfica centrada; cuatro fases IMAC en dos columnas
+  desde 768 px; fotografía real junto al acompañamiento; condiciones y contacto.
+- Movimiento: retrato junto a la introducción, prestaciones, resultados reales,
+  testimonios y comparación de tres duraciones. Precios totales claramente visibles.
+- Sesión: introducción junto al retrato, explicación breve del proceso,
+  testimonios y una única ficha de reserva con modalidad y duración.
+- Testimonios compartidos con la página específica, con autoría y programa.
+  FAQ nativas accesibles sin JavaScript. Las reservas dirigen al canal publicado.
+- Los layouts parten de una columna y crecen con los breakpoints del proyecto.
