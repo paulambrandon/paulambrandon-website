@@ -80,7 +80,7 @@ productos ya definidos en el proyecto.
 | Separación método / Alchemise por aclarar        | La Home actual habla de un proceso general y Alchemise formaliza IMAC en cuatro fases. La arquitectura final debe separar el método general de Paula de IMAC, que se mantiene dentro de Alchemise. |
 | No existe blog/cluster SEO                      | No hay todavía páginas pilar ni artículos que respondan a búsquedas concretas.                                                                                                   |
 | Captación orgánica incompleta                   | El recorrido actual termina principalmente en WhatsApp o contratación; falta la capa recurso gratuito → email → newsletter para tráfico frío.                                    |
-| Autoridad profesional por documentar            | La web toca bienestar, nutrición, cuerpo y temas cercanos a salud mental. Deben documentarse las credenciales reales de Paula y delimitar claramente qué ofrece y qué no.        |
+| Autoridad profesional limitada a lo publicado   | La web contiene toda la información profesional disponible. La confianza debe construirse con experiencia propia, alcance claro y límites visibles, sin inventar credenciales. |
 | Robots/sitemap no verificados en esta auditoría | La herramienta de investigación no permitió validar directamente robots.txt y sitemap.xml. Deben auditarse en el lanzamiento técnico, no asumirse.                               |
 
 # 4. Posicionamiento SEO recomendado
@@ -340,11 +340,11 @@ cluster hasta que haya suficiente contenido que la justifique.
 | /                     | Paula Márquez Brandon + territorio            | Paula Márquez Brandon \| Autoexigencia y autocuidado en mujeres                         | Necesitas dejar de construir tu vida alrededor de la idea de que no eres suficiente. | Eyebrow: “No necesitas convertirte en otra mujer.” No forzar keyword exacta; dar contexto semántico inmediatamente bajo el hero. |
 | /metodo               | método / enfoque de Paula                     | Mi método: de la autoexigencia al autocuidado \| Paula Márquez Brandon                   | No se trata de corregirte. Se trata de entender qué hay detrás de lo que te pasa.       | No inventar fases. El contenido debe salir del método general real de Paula. No usar IMAC aquí salvo que Paula confirme que ambos sistemas son el mismo. |
 | /programas            | programas / acompañamientos para mujeres     | Programas y acompañamientos para mujeres autoexigentes \| Paula Márquez Brandon          | Elige el acompañamiento que necesitas ahora.             | Hub de decisión para Alchemise, Movimiento y nutrición y Sesión de claridad. |
-| /sobre-mi             | experiencia / marca                           | Sobre mí: de la autoexigencia al autocuidado \| Paula Márquez Brandon                    | Mi historia                                               | Página centrada en Paula; añadir credenciales reales, experiencia y enlaces a apariciones/formación. |
+| /sobre-mi             | experiencia / marca                           | Sobre mí: de la autoexigencia al autocuidado \| Paula Márquez Brandon                    | Mi historia                                               | Página centrada en Paula; mantener únicamente la experiencia y los datos reales ya publicados. |
 | /testimonios          | testimonios mujeres                           | Historias reales de cambio \| Paula Márquez Brandon                                      | Historias de mujeres que han vivido el proceso           | Casos con contexto; no promesas médicas ni resultados garantizados. |
 | /contacto             | marca / contacto                              | Contacto \| Paula Márquez Brandon                                                        | Contacto                                                  | Página simple, rastreable y útil para dudas y colaboraciones. |
 | /alchemise            | programa mujeres autoexigentes                | Alchemise: programa de 90 días para mujeres autoexigentes \| Paula Márquez Brandon        | Alchemise                                                 | Landing de conversión. Aquí sí vive el Método IMAC, además de prueba, FAQ y estado de edición. |
-| /movimiento-nutricion | nutrición y entrenamiento sin obsesión        | Movimiento y nutrición sin obsesión \| Paula Márquez Brandon                             | Movimiento y nutrición, sin obsesión                     | Separar cuerpo de identidad global; credenciales visibles. |
+| /movimiento-nutricion | nutrición y entrenamiento sin obsesión        | Movimiento y nutrición sin obsesión \| Paula Márquez Brandon                             | Movimiento y nutrición, sin obsesión                     | Separar cuerpo de identidad global y mantener visibles los límites sanitarios existentes. |
 | /sesion-claridad      | sesión de claridad                            | Sesión de claridad \| Paula Márquez Brandon                                              | Sesión de claridad                                        | Landing simple; no presentarla como terapia si no lo es. |
 
 ### Contenido de /metodo — decisión del cliente, 11 de septiembre de 2026
@@ -578,26 +578,20 @@ emocional. Google indica que la confianza cobra especial importancia en
 temáticas YMYL. Por tanto, la estrategia no puede depender solo de buen
 copy.
 
-## 12.1 Información que debe documentarse antes de la versión final
+## 12.1 Alcance de la información disponible
 
-- Titulaciones académicas reales de Paula.
+Paula confirma que la web contiene toda la información profesional que se va a
+publicar. No se solicitarán ni inventarán titulaciones, certificaciones, años de
+experiencia o denominaciones profesionales adicionales.
 
-- Certificaciones de entrenamiento, nutrición, coaching u otras, si
-  existen.
-
-- Experiencia profesional relevante y años/áreas de trabajo, si se
-  pueden acreditar.
-
-- Qué servicios ofrece exactamente y qué servicios NO ofrece.
-
-- Cuándo un contenido es experiencia personal, educación general o guía
-  dentro de su ámbito profesional.
-
-- Política editorial y de fuentes para contenidos sensibles.
+La confianza se construirá con lo que sí existe: historia y experiencia
+personal, explicación de los acompañamientos, testimonios, identidad y contacto
+consistentes, límites sanitarios visibles y fuentes fiables en cualquier futuro
+contenido informativo sensible.
 
 ## 12.2 Regla de redacción
 
-| *Hasta que las credenciales estén documentadas, evitar posicionar a Paula como psicóloga, terapeuta, dietista-nutricionista o profesional sanitario si no lo es. No usar claims clínicos o diagnósticos para captar tráfico.* |
+| *No posicionar a Paula como psicóloga, terapeuta, dietista-nutricionista o profesional sanitario. No usar claims clínicos o diagnósticos para captar tráfico ni inferir credenciales que no estén publicadas.* |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 # 13. SEO técnico — especificación de lanzamiento
@@ -809,8 +803,8 @@ entrenamiento son controles distintos.
 - Usar siempre el nombre “Paula Márquez Brandon” de forma consistente en
   web, YouTube, Instagram, LinkedIn y apariciones externas.
 
-- Convertir `/sobre-mi` en una página de autora sólida con foto, biografía, credenciales
-  verificables, método, apariciones y perfiles oficiales.
+- Mantener `/sobre-mi` como página de autora sólida con foto, biografía,
+  experiencia disponible, método y perfiles oficiales confirmados.
 
 - Añadir sameAs en Person schema hacia perfiles oficiales relevantes.
 
@@ -893,7 +887,7 @@ menciones externas.
 
 | **Fase**                      | **Acciones**                                                                                                               |
 |-------------------------------|----------------------------------------------------------------------------------------------------------------------------|
-| Fase 0 — antes del desarrollo | Cerrar credenciales y límites profesionales; confirmar URLs; decidir canonical www/no-www; definir recurso gratuito.       |
+| Fase 0 — antes del desarrollo | Fijar límites profesionales con la información existente; confirmar URLs; decidir canonical www/no-www; definir recurso gratuito. |
 | Fase 1 — construcción         | Arquitectura final; titles/metas; schema; sitemap; robots; performance; redirecciones; Search Console/Bing.                |
 | Fase 2 — lanzamiento          | Indexación; validar canonical; Rich Results Test; CWV; enviar sitemap; IndexNow; comprobar crawlers IA.                    |
 | Fase 3 — autoridad inicial    | Publicar Ola 1 de contenidos; enlazado interno; empezar PR/podcasts/eventos; captar emails.                                |
@@ -953,7 +947,7 @@ menciones externas.
 
 - Usar testimonios como prueba de resultados garantizados.
 
-- Ocultar autoría o credenciales.
+- Ocultar autoría, alcance o los datos profesionales que sí están publicados.
 
 - Crear páginas vacías para “recursos”, “blog”, “eventos” o servicios
   futuros.
@@ -1051,7 +1045,7 @@ menciones externas.
 
 - [ ] Accesibilidad básica validada.
 
-- [ ] Autoría y credenciales visibles.
+- [x] Autoría, experiencia disponible y límites profesionales visibles sin credenciales inventadas.
 
 - [ ] No claims clínicos fuera de ámbito.
 

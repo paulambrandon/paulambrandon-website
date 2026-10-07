@@ -66,19 +66,13 @@ La decisión queda documentada en el SEO master, implementada en
 
 ### 0.4 Confianza y alcance profesional
 
-Responsable: Paula + redacción. Esfuerzo: 1–2 días. Impacto: crítico.
+Responsable: desarrollo + redacción. Estado: criterio cerrado. Impacto: crítico.
 
-Recopilar y publicar solo datos reales:
-
-- formación no clínica;
-- certificaciones de entrenamiento físico;
-- experiencia relevante;
-- descripción exacta de coaching/mentoría;
-- servicios ofrecidos y no ofrecidos;
-- cuándo derivar a profesionales sanitarios;
-- proceso de creación y revisión de contenido sensible.
-
-Actualizar `/sobre-mi`, las landings y la futura caja de autora. No presentar a Paula como psicóloga, terapeuta o dietista-nutricionista.
+Paula confirma que la web contiene toda la información profesional disponible.
+No ampliar `/sobre-mi` ni las landings con credenciales, formación o experiencia
+no publicadas. Mantener los límites sanitarios existentes, la autoría clara y la
+distinción entre experiencia personal y evidencia externa. No presentar a Paula
+como psicóloga, terapeuta o dietista-nutricionista.
 
 ## Fase 1 — Instrumentación y calidad técnica (semana 1)
 
@@ -106,20 +100,20 @@ Convenciones mínimas:
 
 ### 1.3 Schema y entidad
 
-- Crear una única función/dato `Person` reutilizado por Home y Sobre mí.
+- [x] Crear una única función/dato `Person` reutilizado por Home y Sobre mí.
 - Incluir foto, descripción y `sameAs` solo de perfiles oficiales confirmados.
 - Añadir LinkedIn/YouTube si Paula confirma que son perfiles de marca y los alinea.
-- Incorporar breadcrumbs visibles + `BreadcrumbList` en landings y artículos.
+- [x] Incorporar breadcrumbs visibles + `BreadcrumbList` en las páginas públicas actuales.
 - Preparar `BlogPosting` en la plantilla de contenidos.
 - Validar en Rich Results Test y Schema Markup Validator.
 
 ### 1.4 Snippets sociales y assets
 
-- Crear OG específicas para Home, Método, Programas y cada oferta.
+- [x] Crear OG específicas para Home, Método, Programas y cada oferta.
 - Definir OG automática para artículos usando título + imagen editorial.
-- Añadir `og:image:alt`, Twitter title y description.
-- Reducir el SVG de favicon de 292 KB.
-- Eliminar fuentes públicas obsoletas solo después de confirmar que no se usan.
+- [x] Añadir `og:image:alt`, Twitter title y description.
+- [x] Retirar del build el SVG de favicon de 292 KB.
+- [x] Eliminar fuentes públicas obsoletas después de confirmar que no se usan.
 
 ### 1.5 Baseline de rendimiento
 
@@ -227,7 +221,9 @@ Prioridad inicial:
 
 ### Ola 3 — cuerpo y autocuidado
 
-Activar después de documentar la formación de entrenamiento y la política de fuentes. Enlazar selectivamente a `/movimiento-nutricion/`.
+Activar solo con una política de fuentes y revisión reforzada, manteniendo los
+límites profesionales ya publicados. Enlazar selectivamente a
+`/movimiento-nutricion/`.
 
 ### Ola 4 — marca, método y casos
 
@@ -316,7 +312,7 @@ Los datos propios y la experiencia documentada ofrecen más valor que reescribir
 
 - actualizar artículos solo cuando haya mejoras reales;
 - consolidar URLs con intención duplicada;
-- revisar credenciales, fuentes y claims;
+- revisar autoría, fuentes, límites y claims;
 - reevaluar la siguiente ola editorial;
 - auditoría CWV de plantillas;
 - auditar perfiles y menciones externas.
@@ -346,7 +342,7 @@ Establecer el baseline durante los primeros 28 días; no fijar cifras arbitraria
 | Redirects reales y migración | Crítico | Bajo | acceso Vercel |
 | Corregir producción sitemap/robots | Crítico | Bajo | despliegue |
 | GSC + Bing + analítica | Muy alto | Bajo | accesos de cuenta |
-| Credenciales y alcance | Crítico | Medio | información de Paula |
+| Alcance y límites profesionales | Crítico | Bajo | criterio cerrado con la información publicada |
 | Infraestructura blog | Muy alto | Medio | diseño/editorial |
 | Primeras 4 piezas | Muy alto | Alto | revisión de Paula |
 | Entity schema consolidado | Alto | Bajo | perfiles confirmados |
@@ -369,7 +365,7 @@ Establecer el baseline durante los primeros 28 días; no fijar cifras arbitraria
 - [ ] Search Console y Bing verificados; sitemap enviado.
 - [ ] Eventos de conversión probados sin PII.
 - [x] Política de bots de entrenamiento decidida e implementada en código.
-- [ ] Credenciales y límites profesionales visibles.
+- [x] Información disponible y límites profesionales visibles, sin credenciales inventadas.
 - [ ] CWV y accesibilidad medidos.
 - [ ] Primer cluster editorial calendarizado con responsable y revisión.
 

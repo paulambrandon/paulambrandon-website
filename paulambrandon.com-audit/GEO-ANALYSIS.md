@@ -11,7 +11,7 @@ La nota es heurística y evalúa preparación, no visibilidad real medida. No hu
 | Citabilidad | 25 | 15 | Copy claro y propio, pero casi todo es comercial; faltan respuestas informativas, fuentes y datos originales. |
 | Legibilidad estructural | 20 | 18 | HTML estático, headings, listas, FAQs y párrafos bien estructurados. |
 | Contenido multimodal | 15 | 7 | Fotografía y resultados reales, pero no hay vídeo, transcripciones, diagramas o activos editoriales. |
-| Autoridad y marca | 20 | 7 | Person schema e Instagram; faltan credenciales, perfiles alineados, menciones y una huella editorial sólida. |
+| Autoridad y marca | 20 | 7 | Person schema e Instagram; no habrá credenciales adicionales y faltan perfiles alineados, menciones y una huella editorial sólida. |
 | Accesibilidad técnica | 20 | 18 | HTML visible sin JS y crawlers de búsqueda permitidos; la política separa búsqueda de entrenamiento, pero falta validarla en producción y logs. |
 
 ## Preparación por plataforma
@@ -118,7 +118,7 @@ El sitio se genera como HTML estático. El contenido principal, navegación, FAQ
 ## Cinco cambios de mayor impacto
 
 1. Publicar el cluster inicial de ocho piezas con experiencia, autoría, fuentes y enlazado.
-2. Completar la entidad Person y la página `/sobre-mi` con credenciales/alcance reales.
+2. Consolidar la entidad Person y `/sobre-mi` únicamente con la información real ya publicada.
 3. Ejecutar la migración sin contradicciones de host, sitemap o redirects.
 4. Activar Bing AI Performance, GSC generative AI, IndexNow y medición de referrals/logs.
 5. Construir autoridad externa auténtica con YouTube, podcasts, colaboraciones y un activo de datos/experiencia original.

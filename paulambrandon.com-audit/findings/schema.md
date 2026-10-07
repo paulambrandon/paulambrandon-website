@@ -11,7 +11,7 @@
 
 - Reutilizar la entidad Person completa en ambas páginas.
 - Añadir imagen, descripción y perfiles oficiales confirmados.
-- Publicar credenciales solo si son visibles y verificables.
+- No añadir credenciales o propiedades profesionales que no estén publicadas.
 - Añadir `BreadcrumbList` cuando exista jerarquía visible.
 - Preparar `BlogPosting` con autor y fechas reales.
 - Validar `Event` solo para eventos reales.
@@ -21,4 +21,3 @@
 - No añadir FAQPage por rich results.
 - No declarar profesiones sanitarias.
 - No inventar AggregateRating, Review, Organization o Course.
-

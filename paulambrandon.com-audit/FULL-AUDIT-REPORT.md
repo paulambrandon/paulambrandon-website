@@ -15,7 +15,7 @@ Dominio canónico confirmado: `https://www.paulambrandon.com`
 | Categoría | Peso | Nota | Diagnóstico |
 |---|---:|---:|---|
 | SEO técnico | 22 % | 72 | Base estática, canonicals y sitemap correctos en el build; migración HTTP, variantes de URL y producción son el riesgo principal. |
-| Calidad de contenido | 23 % | 55 | Copy propio y testimonios valiosos, pero no hay blog/cluster, fuentes, credenciales completas ni política editorial visible. |
+| Calidad de contenido | 23 % | 55 | Copy propio y testimonios valiosos, pero no hay blog/cluster, fuentes ni política editorial visible. |
 | On-page | 20 % | 86 | Titles, descriptions, H1 y enlazado interno bien resueltos; varios titles son largos y las páginas comerciales no cubren intención informacional. |
 | Schema | 10 % | 62 | `WebSite` + `Person` y `ProfilePage` presentes; entidad aún pobre y no hay breadcrumbs ni plantillas Article. |
 | Rendimiento | 10 % | 82 | HTML estático, poco JS, CSS ligero e imágenes optimizadas; faltan datos CWV reales y queda margen en assets/OG. |
@@ -27,14 +27,14 @@ Dominio canónico confirmado: `https://www.paulambrandon.com`
 1. **Migración no ejecutada y redirects no garantizados como HTTP 301.** En producción las rutas antiguas siguen con 200. En el build estático de Astro los redirects se convierten en páginas de `meta refresh`; sin adapter o configuración Vercel específica no constituyen un 301 real.
 2. **Sitemap/canonical de producción incoherentes.** `www` es el host efectivo y el no-`www` devuelve 308, pero el `robots.txt` público apunta al sitemap no-`www` y este lista todas las URLs no-`www`.
 3. **No existe el motor de adquisición no branded.** El proyecto solo contiene páginas de marca y conversión; ninguna de las 30 piezas planificadas en el SEO master está publicada.
-4. **E-E-A-T insuficiente para un ámbito YMYL-adjacent.** `/sobre-mi` explica experiencia personal, pero no documenta todavía formación no clínica, alcance profesional, metodología editorial o fuentes.
+4. **E-E-A-T limitado en un ámbito YMYL-adjacent.** `/sobre-mi` explica experiencia personal y no habrá credenciales adicionales; la mitigación debe basarse en límites profesionales, autoría, metodología editorial y fuentes.
 5. **Entidad y autoridad externa débiles.** En una muestra de búsquedas de marca no apareció el dominio; sí apareció un perfil de LinkedIn con contexto profesional distinto. Instagram es el único `sameAs` confirmado en el código.
 
 ### Cinco quick wins
 
 1. Configurar y probar redirects Vercel 301/308 antes del cambio de producción.
 2. Desplegar el sitemap/robots del repositorio y solicitar recrawl en Google y Bing.
-3. Completar `/sobre-mi` con credenciales reales, alcance y límites profesionales; ampliar `Person` con perfiles oficiales confirmados.
+3. Reforzar alcance y límites profesionales con la información ya publicada; ampliar `Person` solo con perfiles oficiales confirmados.
 4. Publicar las cuatro primeras piezas de Ola 1 y enlazarlas desde Home, Método y Programas.
 5. Activar GSC, Bing Webmaster Tools/AI Performance, analítica de conversiones e IndexNow antes de iniciar el calendario editorial.
 
@@ -196,13 +196,13 @@ El sitio es hoy un buen destino de marca/conversión, pero no un sistema de desc
 - aprobación y miedo a decepcionar;
 - relación entre autoexigencia, cuerpo y autocuidado.
 
-La muestra actual de SERP confirma competencia fuerte de psicólogas, clínicas, medios y contenidos recientes. La ventaja defendible no es producir más piezas, sino combinar experiencia propia, lenguaje de clientas, límites profesionales, casos autorizados y una red interna coherente.
+La muestra actual de SERP confirma competencia fuerte de psicólogas, clínicas, medios y contenidos recientes. La ventaja defendible no es producir más piezas ni simular credenciales, sino combinar experiencia propia, lenguaje de clientas, límites profesionales, casos autorizados y una red interna coherente.
 
 ### E-E-A-T y YMYL
 
-El proyecto declara que Paula no es psicóloga, terapeuta ni dietista-nutricionista. Ese límite está bien respetado en gran parte del copy y Alchemise incluye una aclaración de alcance. Falta convertirlo en una señal de confianza sistemática:
+El proyecto declara que Paula no es psicóloga, terapeuta ni dietista-nutricionista. Ese límite está bien respetado en gran parte del copy y Alchemise incluye una aclaración de alcance. Paula confirma que no existe más información profesional para publicar; la señal de confianza debe apoyarse en:
 
-- formación real y verificable en coaching/mentoría y entrenamiento físico;
+- experiencia personal y servicios descritos únicamente con el contenido disponible;
 - alcance del servicio y qué no ofrece;
 - cuándo acudir a atención sanitaria;
 - autoría visible en artículos;
@@ -227,7 +227,7 @@ La estrategia de 30 piezas es sólida, pero debe ejecutarse por olas y con una p
 
 ### Mejoras
 
-1. Enriquecer `Person` únicamente con datos visibles y verificables: `image`, `description`, `sameAs` oficiales, formación/credenciales reales cuando estén publicadas.
+1. Enriquecer `Person` únicamente con datos visibles y verificables: `image`, `description` y perfiles oficiales confirmados.
 2. Hacer que `/sobre-mi` reutilice la entidad Person completa, no una representación mínima distinta.
 3. Añadir `BreadcrumbList` a landings, artículos y eventos cuando exista una jerarquía visible.
 4. Crear `BlogPosting`/`Article` en la plantilla editorial con autor, URL de autor, imagen, `datePublished` y `dateModified` reales.

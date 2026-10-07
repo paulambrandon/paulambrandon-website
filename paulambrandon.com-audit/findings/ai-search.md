@@ -11,10 +11,9 @@
 ## Acciones
 
 1. Publicar el cluster núcleo con fuentes y experiencia.
-2. Completar Person/sameAs y credenciales.
+2. Completar Person/sameAs solo con perfiles oficiales y datos ya publicados.
 3. Activar Bing AI Performance, GSC y logs.
 4. Conseguir menciones editoriales auténticas.
 5. Decidir política de bots de entrenamiento.
 
 `llms.txt` no se considera factor de ranking ni de cita.
-
