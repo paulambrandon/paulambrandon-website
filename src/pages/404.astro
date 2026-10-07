@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { PERSON_NAME } from '../data/site';
+---
+
+<Layout
+  title={`Página no encontrada | ${PERSON_NAME}`}
+  description="La página que buscas no existe o ha cambiado de dirección."
+  bodyClass="page-not-found"
+  noindex
+>
+  <section class="section section--paper legal-page" aria-labelledby="not-found-title">
+    <div class="section__inner legal-page__inner">
+      <p class="eyebrow">Error 404</p>
+      <h1 id="not-found-title">Esta página no existe.</h1>
+      <div class="legal-page__content">
+        <p>Puede que la dirección haya cambiado o que el enlace ya no esté disponible.</p>
+        <p><a class="button button--primary" href="/">Volver al inicio →</a></p>
+      </div>
+    </div>
+  </section>
+</Layout>

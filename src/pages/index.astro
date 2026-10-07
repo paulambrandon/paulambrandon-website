@@ -9,14 +9,21 @@ import ProgramsSection from '../components/home/ProgramsSection.astro';
 import AboutSection from '../components/home/AboutSection.astro';
 import TestimonialsSection from '../components/home/TestimonialsSection.astro';
 import ContactCta from '../components/home/ContactCta.astro';
-import { INSTAGRAM_URL, PERSON_NAME } from '../data/site';
+import { createPersonSchema } from '../data/schema';
+import { PERSON_NAME } from '../data/site';
 
 // Metadatos definidos en /docs/seo/paulambrandon-seo.md §9.1
 const title = `${PERSON_NAME} | Autoexigencia y autocuidado en mujeres`;
 const description =
   'Acompañamiento para mujeres que viven desde la autoexigencia, la culpa y la sensación de no ser suficientes. Conoce el método de Paula y sus programas.';
 
-const siteUrl = new URL(Astro.site ?? 'https://www.paulambrandon.com').href;
+if (!Astro.site) {
+  throw new Error('Falta `site` en astro.config.mjs: el schema lo necesita.');
+}
+
+const site = Astro.site;
+const siteUrl = new URL('/', site).href;
+const person = createPersonSchema(site);
 
 // Home: WebSite + Person (§14). Solo datos reales y visibles; `sameAs` queda
 // fuera hasta tener las URLs oficiales de los perfiles de Paula.
@@ -31,13 +38,7 @@ const schema = {
       inLanguage: 'es-ES',
       publisher: { '@id': `${siteUrl}#person` },
     },
-    {
-      '@type': 'Person',
-      '@id': `${siteUrl}#person`,
-      name: PERSON_NAME,
-      url: siteUrl,
-      sameAs: [INSTAGRAM_URL],
-    },
+    person,
   ],
 };
 ---

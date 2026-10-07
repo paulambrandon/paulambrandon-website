@@ -19,12 +19,12 @@ const toRoute = (file: string): string =>
     .replace(/\/index$/, '/');
 
 /**
- * Astro construye las páginas como directorio (`/metodo/index.html`), así que
- * la URL canónica que emite el layout lleva barra final. El sitemap tiene que
- * declarar exactamente esa misma forma para no anunciar dos URLs por página.
+ * La política canónica del proyecto no usa barra final, salvo en la raíz.
+ * El sitemap debe declarar exactamente la misma forma que los enlaces internos
+ * y los canonicals.
  */
-const withTrailingSlash = (route: string): string =>
-  route.endsWith('/') ? route : `${route}/`;
+const toCanonicalPath = (route: string): string =>
+  route === '/' ? route : route.replace(/\/$/, '');
 
 export const GET: APIRoute = ({ site }) => {
   if (!site) {
@@ -36,7 +36,7 @@ export const GET: APIRoute = ({ site }) => {
     // Las rutas dinámicas no se pueden enumerar desde aquí.
     .filter((route) => !route.includes('['))
     .filter((route) => !EXCLUDED.has(route))
-    .map(withTrailingSlash)
+    .map(toCanonicalPath)
     .sort();
 
   const urls = routes

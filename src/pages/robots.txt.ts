@@ -4,8 +4,9 @@ import type { APIRoute } from 'astro';
  * robots.txt automático.
  *
  * Aplica exactamente la política de /docs/seo/paulambrandon-seo.md §15.6.
- * GPTBot y ClaudeBot no aparecen a propósito: la estrategia deja esa decisión
- * (entrenamiento) pendiente y separada de la visibilidad en búsqueda.
+ * La regla comodín permite también crawlers de entrenamiento mientras Paula
+ * decide su política específica. Búsqueda y entrenamiento se documentan y
+ * gobiernan por separado; no se bloquean bots sin esa decisión explícita.
  */
 const SEARCH_CRAWLERS = [
   '*',

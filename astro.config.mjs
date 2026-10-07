@@ -10,8 +10,10 @@ const sassDir = (/** @type {string} */ folder) =>
 export default defineConfig({
   // Única fuente del dominio canónico: canonical, Open Graph, sitemap y robots
   // derivan de `Astro.site`.
-  // en /docs/seo/paulambrandon-seo.md. Al cerrarla, cambiar solo esta línea.
   site: 'https://www.paulambrandon.com',
+  // La navegación ya usa URLs sin barra final. Astro y Vercel comparten esta
+  // política para no servir dos variantes 200 de cada página.
+  trailingSlash: 'never',
   redirects: {
     '/empieza-aqui': '/programas',
     '/mi-historia': '/sobre-mi',

@@ -2,20 +2,26 @@
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import portrait from '../assets/images/paula-marquez-brandon.webp';
+import { createPersonSchema } from '../data/schema';
 import { PERSON_NAME } from '../data/site';
 
 const title = `Sobre mí: de la autoexigencia al autocuidado | ${PERSON_NAME}`;
 const description =
   'Conoce la historia de Paula Márquez Brandon, su experiencia con la autoexigencia y el origen de su forma de acompañar a otras mujeres.';
+
+if (!Astro.site) {
+  throw new Error('Falta `site` en astro.config.mjs: el schema lo necesita.');
+}
+
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-const personId = `${new URL('/', Astro.site).href}#person`;
+const person = createPersonSchema(Astro.site);
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'ProfilePage',
   url: canonical,
   name: 'Mi historia',
   inLanguage: 'es-ES',
-  mainEntity: { '@id': personId, '@type': 'Person', name: PERSON_NAME },
+  mainEntity: person,
 };
 
 const patterns = [
