@@ -1,0 +1,249 @@
+{
+  "summary": {
+    "health_score": 71,
+    "business_type": "Marca personal y servicios de acompañamiento no clínico para mujeres autoexigentes",
+    "score_scope": "Preparación del repositorio y build. La producción aún sirve la arquitectura antigua.",
+    "top_findings": [
+      "La migración no está desplegada y los redirects del build estático no garantizan HTTP 301.",
+      "El sitemap y robots públicos usan el host no-www aunque el host efectivo es www.",
+      "No existe todavía el blog ni el cluster de contenido no branded.",
+      "Las credenciales y límites profesionales no están documentados con suficiente profundidad.",
+      "La entidad y autoridad externa de Paula son débiles o ambiguas fuera del sitio."
+    ],
+    "quick_wins": [
+      "Configurar redirects Vercel de servidor y probarlos antes del cambio.",
+      "Desplegar sitemap y robots canónicos y solicitar recrawl.",
+      "Completar Sobre mí y Person schema con datos reales.",
+      "Publicar las cuatro primeras piezas del cluster núcleo.",
+      "Activar GSC, Bing AI Performance, analítica e IndexNow."
+    ],
+    "limitations": [
+      "Sin acceso a GSC, GA4, Bing Webmaster Tools, logs, rankings ni backlinks.",
+      "PageSpeed Insights no estuvo disponible por cuota.",
+      "Sin servidor local ni navegador para Lighthouse/axe/screenshot."
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 72,
+      "what_works": [
+        "HTML estático y rastreable",
+        "Canonicals absolutos desde Astro.site",
+        "Sitemap y robots automáticos",
+        "Build sin errores ni warnings"
+      ],
+      "findings": [
+        {
+          "title": "Redirects migratorios no garantizados como HTTP 301",
+          "severity": "Critical",
+          "description": "Astro estático genera meta refresh y el repositorio no contiene adapter ni configuración Vercel de redirects.",
+          "recommendation": "Configurar 301/308 en Vercel, desplegar y comprobar con cabeceras reales."
+        },
+        {
+          "title": "Sitemap de producción usa host no canónico",
+          "severity": "Critical",
+          "description": "Producción redirige no-www a www, pero robots y sitemap publican URLs no-www antiguas.",
+          "recommendation": "Desplegar los endpoints nuevos y reenviar el sitemap canónico."
+        },
+        {
+          "title": "Variantes con y sin barra final",
+          "severity": "High",
+          "description": "Producción responde 200 a ambas variantes; sitemap/canonicals e internal links no siguen una forma única.",
+          "recommendation": "Definir una política única y redirigir la variante secundaria."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 55,
+      "what_works": [
+        "Territorio semántico diferenciado",
+        "Experiencia personal y testimonios reales",
+        "Copy coherente con límites no clínicos"
+      ],
+      "findings": [
+        {
+          "title": "Sin contenido de descubrimiento",
+          "severity": "High",
+          "description": "No existe blog ni ninguna de las 30 piezas planificadas.",
+          "recommendation": "Construir la infraestructura editorial y publicar Ola 1 por sprints."
+        },
+        {
+          "title": "Credenciales y política editorial incompletas",
+          "severity": "High",
+          "description": "La web trata temas YMYL-adjacent sin documentar aún formación, alcance y fuentes.",
+          "recommendation": "Completar Sobre mí, cajas de autor y proceso de revisión con datos verificables."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 86,
+      "what_works": [
+        "Titles y descriptions únicos",
+        "Un H1 por página",
+        "H1 final de Home correctamente resuelto",
+        "Enlazado comercial coherente"
+      ],
+      "findings": [
+        {
+          "title": "Titles largos",
+          "severity": "Medium",
+          "description": "Alchemise, Programas, Método y Sobre mí pueden truncarse.",
+          "recommendation": "Revisar con datos de CTR y actualizar antes el SEO master."
+        },
+        {
+          "title": "Metadata social genérica",
+          "severity": "Low",
+          "description": "Todas las páginas comparten la misma imagen OG.",
+          "recommendation": "Crear OG específicas y añadir image alt."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 62,
+      "what_works": [
+        "WebSite y Person en Home",
+        "ProfilePage y Person en Sobre mí",
+        "IDs de entidad compartidos"
+      ],
+      "findings": [
+        {
+          "title": "Entidad Person poco desarrollada",
+          "severity": "Medium",
+          "description": "Faltan imagen, descripción, perfiles oficiales confirmados y credenciales visibles.",
+          "recommendation": "Crear una entidad reutilizable con datos reales."
+        },
+        {
+          "title": "Sin breadcrumbs ni plantilla Article",
+          "severity": "Medium",
+          "description": "No existe todavía la capa editorial ni breadcrumbs estructurados.",
+          "recommendation": "Añadirlos con la infraestructura de blog y jerarquías visibles."
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 82,
+      "what_works": [
+        "HTML estático",
+        "JavaScript mínimo",
+        "CSS de aproximadamente 10 KB gzip",
+        "Fuentes locales e imágenes responsive"
+      ],
+      "findings": [
+        {
+          "title": "CWV no medidos",
+          "severity": "Medium",
+          "description": "No hubo datos de PSI/CrUX/Lighthouse disponibles.",
+          "recommendation": "Medir después del despliegue en mobile y desktop."
+        },
+        {
+          "title": "Favicon SVG sobredimensionado",
+          "severity": "Low",
+          "description": "El SVG pesa aproximadamente 292 KB.",
+          "recommendation": "Optimizar el SVG y validar iconos."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 65,
+      "what_works": [
+        "Contenido visible en HTML",
+        "OAI-SearchBot, Claude-SearchBot y PerplexityBot permitidos",
+        "Estructura semántica clara"
+      ],
+      "findings": [
+        {
+          "title": "Baja citabilidad informacional",
+          "severity": "High",
+          "description": "No hay páginas de respuesta, fuentes o datos propios fuera del discurso comercial.",
+          "recommendation": "Publicar cluster editorial con experiencia, evidencia y autoría."
+        },
+        {
+          "title": "Política de entrenamiento implícitamente permisiva",
+          "severity": "Medium",
+          "description": "GPTBot y ClaudeBot quedan permitidos por wildcard pese a que la decisión se describe como pendiente.",
+          "recommendation": "Tomar y documentar una decisión separada de la citabilidad."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 88,
+      "what_works": [
+        "Width/height declarados",
+        "WebP y srcset",
+        "Lazy loading bajo el fold",
+        "Prioridad alta en imágenes LCP"
+      ],
+      "findings": [
+        {
+          "title": "OG única para todo el sitio",
+          "severity": "Low",
+          "description": "No existe una imagen social específica por página.",
+          "recommendation": "Crear assets por plantilla y artículo."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Antes del lanzamiento / semana 1",
+        "items": [
+          "Configurar y probar redirects HTTP reales",
+          "Desplegar host, sitemap y robots canónicos",
+          "Resolver política de barra final",
+          "Crear 404 y proteger staging",
+          "Documentar credenciales y alcance profesional"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Semanas 1-3",
+        "items": [
+          "Activar GSC, Bing, analítica e IndexNow",
+          "Consolidar Person schema y perfiles oficiales",
+          "Crear infraestructura de blog tipada",
+          "Medir CWV y accesibilidad",
+          "Crear OG específicas"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Meses 1-3",
+        "items": [
+          "Publicar ocho piezas de Ola 1 por sprints",
+          "Construir enlazado interno de cluster",
+          "Definir recurso real y captación email",
+          "Iniciar PR, podcasts, colaboraciones y YouTube",
+          "Publicar casos autorizados y un activo original"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Continuo",
+        "items": [
+          "Optimizar consultas con posiciones 8-30",
+          "Mejorar CTR con datos",
+          "Revisar canibalización y fuentes",
+          "Medir citas IA y referrals",
+          "Actualizar solo con cambios sustanciales"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "full_report": "FULL-AUDIT-REPORT.md",
+    "action_plan": "ACTION-PLAN.md",
+    "geo_analysis": "GEO-ANALYSIS.md",
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}
+
