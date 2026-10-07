@@ -4,7 +4,7 @@ import { methodSteps } from '../../data/home';
 
 <section class="section section--paper method" id="metodo">
   <div class="section__inner">
-    <h2 class="section__title method__title">
+    <h2 class="section__title method__title" data-reveal>
       La mayor transformación de tu vida no empieza cuando haces más
     </h2>
     <p class="lead-italic method__subtitle">
@@ -12,7 +12,7 @@ import { methodSteps } from '../../data/home';
     </p>
     <p class="method__bridge">Y ese cambio pasa por un proceso, con tres etapas:</p>
 
-    <ol class="method__steps">
+    <ol class="method__steps" data-reveal data-reveal-delay="80">
       {
         methodSteps.map(({ step, title, description }) => (
           <li class="method__step">
@@ -28,7 +28,7 @@ import { methodSteps } from '../../data/home';
       }
     </ol>
 
-    <p class="method__cta">
+    <p class="method__cta" data-reveal data-reveal-delay="160">
       <a class="button button--primary" href="/metodo">
         Conoce el método <span aria-hidden="true">→</span>
       </a>

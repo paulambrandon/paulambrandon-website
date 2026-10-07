@@ -6,7 +6,6 @@
   h3 { font-size: clamp(1.5rem, 2.2vw, 1.875rem); line-height: 1.25; }
   .button, .link-arrow { font-size: 1.125rem; }
   .link-arrow { padding-block: 0.75rem; }
-  .button:active { transform: translateY(1px); }
   .faq__question { font-size: 1.375rem; }
   ::selection { background: v.$color-olive-dark; color: v.$color-paper; }
 }

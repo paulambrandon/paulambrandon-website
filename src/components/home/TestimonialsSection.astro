@@ -6,12 +6,12 @@ const homeTestimonials = [alchemiseTestimonials[0], alchemiseTestimonials[2]];
 
 <section class="section section--olive testimonials">
   <div class="section__inner">
-    <header class="testimonials__header">
+    <header class="testimonials__header" data-reveal>
       <p class="label label--sage">Testimonios</p>
       <h2>Mujeres que ya han hecho este proceso</h2>
     </header>
 
-    <div class="testimonials__list testimonials__list--home">
+    <div class="testimonials__list testimonials__list--home" data-reveal data-reveal-delay="80">
       {
         homeTestimonials.map(({ quote, author }) => (
           <figure class="testimonial testimonial--home">
@@ -26,7 +26,7 @@ const homeTestimonials = [alchemiseTestimonials[0], alchemiseTestimonials[2]];
       }
     </div>
 
-    <p class="testimonials__cta">
+    <p class="testimonials__cta" data-reveal data-reveal-delay="160">
       <a class="testimonials__link" href="/testimonios">
         Ver testimonios <span aria-hidden="true">→</span>
       </a>

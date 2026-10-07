@@ -44,6 +44,14 @@ $-nav-desktop: 56.3125rem; // 901px, como la navegación de la landing publicada
   margin-inline-end: -0.75rem; // alinea ópticamente el icono con el borde
   cursor: pointer;
 
+  @include mx.motion-safe {
+    transition: transform var(--motion-press) var(--ease-out);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+
   @media (min-width: $-nav-desktop) {
     display: none;
   }
@@ -56,6 +64,10 @@ $-nav-desktop: 56.3125rem; // 901px, como la navegación de la landing publicada
   height: 1px;
   background-color: currentcolor;
 
+  @include mx.motion-safe {
+    transition: background-color 120ms ease;
+  }
+
   &::before,
   &::after {
     position: absolute;
@@ -64,6 +76,10 @@ $-nav-desktop: 56.3125rem; // 901px, como la navegación de la landing publicada
     height: 1px;
     content: '';
     background-color: currentcolor;
+
+    @include mx.motion-safe {
+      transition: transform 160ms var(--ease-in-out);
+    }
   }
 
   &::before {
@@ -75,13 +91,40 @@ $-nav-desktop: 56.3125rem; // 901px, como la navegación de la landing publicada
   }
 }
 
+.site-header--open .site-header__burger {
+  background-color: transparent;
+
+  &::before {
+    transform: translateY(0.375rem) rotate(45deg);
+  }
+
+  &::after {
+    transform: translateY(-0.375rem) rotate(-45deg);
+  }
+}
+
 .site-header__nav {
   display: none;
   flex-basis: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-0.375rem);
+  transform-origin: top right;
+
+  @include mx.motion-safe {
+    transition:
+      display var(--motion-ui) allow-discrete,
+      opacity 130ms var(--ease-out),
+      transform var(--motion-ui) var(--ease-out);
+  }
 
   @media (min-width: $-nav-desktop) {
     display: block;
     flex-basis: auto;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    transition: none;
   }
 }
 
@@ -91,10 +134,59 @@ $-nav-desktop: 56.3125rem; // 901px, como la navegación de la landing publicada
   margin-top: 1.25rem;
   padding-block: 1rem 0.5rem;
   border-top: 1px solid v.$color-line;
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+
+  @include mx.motion-safe {
+    transition:
+      display var(--motion-menu) allow-discrete,
+      opacity var(--motion-menu) var(--ease-out),
+      transform var(--motion-menu) var(--ease-out);
+  }
+
+  @starting-style {
+    opacity: 0;
+    transform: translateY(-0.375rem);
+  }
 
   @media (min-width: $-nav-desktop) {
     margin-top: 0;
     padding-block: 0;
     border-top: 0;
+  }
+}
+
+// Una activación por teclado debe responder al instante.
+.site-header:has(.site-header__toggle:focus-visible) {
+  .site-header__nav,
+  .site-header__burger::before,
+  .site-header__burger::after {
+    transition-duration: 0ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header__toggle:active,
+  .site-header__nav {
+    transform: none;
+  }
+
+  .site-header__nav {
+    transition:
+      display 120ms allow-discrete,
+      opacity 120ms ease;
+  }
+
+  .site-header--open .site-header__nav {
+    @starting-style {
+      opacity: 0;
+      transform: none;
+    }
+  }
+
+  .site-header__burger::before,
+  .site-header__burger::after {
+    transition-duration: 0ms;
   }
 }

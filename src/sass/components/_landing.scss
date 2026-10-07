@@ -301,10 +301,12 @@
 }
 
 .faq__question {
+  position: relative;
   display: flex;
   gap: 1.5rem;
   align-items: baseline;
   justify-content: space-between;
+  padding-inline-end: 2.375rem;
   padding-block: 1.25rem;
   font-family: v.$secondary-font;
   font-size: v.$fs-intro;
@@ -315,12 +317,33 @@
   // El mockup no dibuja marcador, pero sin ninguna señal no se entiende que
   // el bloque se abre: se sustituye por un signo discreto.
   &::after {
-    flex: none;
-    font-family: v.$primary-font;
-    font-size: v.$fs-lead;
-    line-height: 1;
-    color: v.$color-olive-dark;
-    content: '+';
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-end: 0;
+    width: 0.875rem;
+    height: 1px;
+    content: '';
+    background-color: v.$color-olive-dark;
+
+    @include mx.motion-safe {
+      transition: transform var(--motion-ui) var(--ease-in-out);
+    }
+  }
+
+  // Segundo filete del signo +; al abrirse rota hasta coincidir con el primero.
+  &::before {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-end: 0;
+    width: 0.875rem;
+    height: 1px;
+    content: '';
+    background-color: v.$color-olive-dark;
+    transform: rotate(90deg);
+
+    @include mx.motion-safe {
+      transition: transform var(--motion-ui) var(--ease-in-out);
+    }
   }
 
   &::-webkit-details-marker {
@@ -332,8 +355,40 @@
   }
 }
 
-.faq__item[open] .faq__question::after {
-  content: '−';
+.faq__item[open] .faq__question::before {
+  transform: rotate(0deg);
+}
+
+// El contenedor anónimo de <details> permite suavizar la aparición sin JS.
+.faq__item::details-content {
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-0.25rem);
+
+  @include mx.motion-safe {
+    transition:
+      content-visibility var(--motion-ui) allow-discrete,
+      opacity 140ms var(--ease-out),
+      transform var(--motion-ui) var(--ease-out);
+  }
+}
+
+.faq__item[open]::details-content {
+  opacity: 1;
+  transform: none;
+
+  @starting-style {
+    opacity: 0;
+    transform: translateY(-0.25rem);
+  }
+}
+
+.faq__item:has(.faq__question:focus-visible) {
+  &::details-content,
+  .faq__question::before,
+  .faq__question::after {
+    transition-duration: 0ms;
+  }
 }
 
 .faq__answer {
@@ -343,6 +398,27 @@
 
   @include mx.breakpoint(tablet) {
     padding-block-end: 1.625rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq__question::before,
+  .faq__question::after {
+    transition-duration: 0ms;
+  }
+
+  .faq__item::details-content {
+    transform: none;
+    transition:
+      content-visibility 120ms allow-discrete,
+      opacity 120ms ease;
+  }
+
+  .faq__item[open]::details-content {
+    @starting-style {
+      opacity: 0;
+      transform: none;
+    }
   }
 }
 

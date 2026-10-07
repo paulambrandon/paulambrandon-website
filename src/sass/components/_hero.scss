@@ -1,4 +1,5 @@
 @use '@abstracts/variables' as v;
+@use '@abstracts/mixins' as mx;
 
 $hero-desktop: 53.8125rem; // 861px: mismo cambio de composición que la landing publicada
 $hero-bg-alt: #f3ede6;
@@ -72,9 +73,18 @@ $hero-olive: #606957;
   font-size: clamp(1.125rem, 1.65vw, 1.5rem);
   color: $hero-muted;
 
+  @include mx.motion-safe {
+    animation: editorial-reveal-in var(--motion-reveal) var(--ease-out) backwards;
+  }
+
   &::before {
     width: 2.625rem;
     background-color: $hero-accent;
+    transform-origin: left center;
+
+    @include mx.motion-safe {
+      animation: editorial-line-in var(--motion-editorial) var(--ease-out) both;
+    }
   }
 }
 
@@ -85,6 +95,10 @@ $hero-olive: #606957;
   line-height: 1.08;
   letter-spacing: -0.02em;
   color: $hero-text;
+
+  @include mx.motion-safe {
+    animation: editorial-reveal-in var(--motion-reveal) var(--ease-out) 80ms backwards;
+  }
 }
 
 .hero__cta {
@@ -93,6 +107,10 @@ $hero-olive: #606957;
   font-size: clamp(1rem, 1.1vw, 1.125rem);
   color: v.$color-cream;
   background-color: $hero-olive;
+
+  @include mx.motion-safe {
+    animation: editorial-reveal-in var(--motion-reveal) var(--ease-out) 240ms backwards;
+  }
 }
 
 .hero__media {
@@ -100,6 +118,10 @@ $hero-olive: #606957;
   width: min(calc(100% - 0.875rem), 23.75rem);
   height: 15rem;
   justify-self: start;
+
+  @include mx.motion-safe {
+    animation: editorial-reveal-in var(--motion-reveal) var(--ease-out) 160ms backwards;
+  }
 
   @media (max-width: 40rem) {
     width: min(58vw, 13.75rem);
@@ -115,6 +137,15 @@ $hero-olive: #606957;
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hero .eyebrow,
+  .hero__title,
+  .hero__media,
+  .hero__cta {
+    animation: editorial-fade-in 160ms ease backwards;
+  }
+}
+
 .hero__frame {
   position: relative;
   width: 100%;
@@ -126,6 +157,10 @@ $hero-olive: #606957;
     z-index: -1;
     content: '';
     border: 1px solid rgba($hero-olive, 0.42);
+
+    @include mx.motion-safe {
+      animation: editorial-frame-in 520ms var(--ease-out) 80ms both;
+    }
   }
 
   @media (max-width: 40rem) {

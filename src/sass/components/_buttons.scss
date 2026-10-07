@@ -19,7 +19,12 @@
   @include mx.motion-safe {
     transition:
       color 150ms ease,
-      background-color 150ms ease;
+      background-color 150ms ease,
+      transform var(--motion-press) var(--ease-out);
+  }
+
+  &:active {
+    transform: scale(0.98);
   }
 }
 
@@ -86,5 +91,30 @@
 
   &:hover {
     color: v.$color-charcoal;
+  }
+}
+
+// La flecha confirma dirección sin desplazar el propio enlace.
+.link-arrow > [aria-hidden='true'],
+.testimonials__link > [aria-hidden='true'] {
+  display: inline-block;
+
+  @include mx.motion-safe {
+    transition: transform var(--motion-press) var(--ease-out);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link-arrow:hover > [aria-hidden='true'],
+  .testimonials__link:hover > [aria-hidden='true'] {
+    transform: translateX(0.2em);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button:active,
+  .link-arrow:hover > [aria-hidden='true'],
+  .testimonials__link:hover > [aria-hidden='true'] {
+    transform: none;
   }
 }

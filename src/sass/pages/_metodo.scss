@@ -167,6 +167,55 @@ $-accent: v.$color-olive;
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .method-root__path[data-motion-ready] {
+    li::before {
+      opacity: 0.35;
+      transform: scale(0.9);
+      transition:
+        opacity 220ms var(--ease-out),
+        transform 220ms var(--ease-out);
+    }
+
+    li:not(:last-child)::after {
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform var(--motion-editorial) var(--ease-in-out);
+    }
+
+    li:nth-child(2)::before,
+    li:nth-child(2)::after { transition-delay: 80ms; }
+
+    li:nth-child(3)::before,
+    li:nth-child(3)::after { transition-delay: 160ms; }
+
+    li:nth-child(4)::before,
+    li:nth-child(4)::after { transition-delay: 240ms; }
+  }
+
+  .method-root__path[data-motion-visible] {
+    li::before {
+      opacity: 1;
+      transform: none;
+    }
+
+    li:not(:last-child)::after {
+      transform: scaleY(1);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .method-root__path[data-motion-ready] li::before {
+    opacity: 0.65;
+    transition: opacity 120ms ease;
+  }
+
+  .method-root__path[data-motion-visible] li::before {
+    opacity: 1;
+  }
+}
+
 .method-root__closing {
   display: grid;
   justify-items: center;
