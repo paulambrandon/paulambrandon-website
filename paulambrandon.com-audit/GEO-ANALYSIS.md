@@ -12,7 +12,7 @@ La nota es heurística y evalúa preparación, no visibilidad real medida. No hu
 | Legibilidad estructural | 20 | 18 | HTML estático, headings, listas, FAQs y párrafos bien estructurados. |
 | Contenido multimodal | 15 | 7 | Fotografía y resultados reales, pero no hay vídeo, transcripciones, diagramas o activos editoriales. |
 | Autoridad y marca | 20 | 7 | Person schema e Instagram; faltan credenciales, perfiles alineados, menciones y una huella editorial sólida. |
-| Accesibilidad técnica | 20 | 18 | HTML visible sin JS y crawlers de búsqueda permitidos; falta validar producción, logs y políticas de entrenamiento. |
+| Accesibilidad técnica | 20 | 18 | HTML visible sin JS y crawlers de búsqueda permitidos; la política separa búsqueda de entrenamiento, pero falta validarla en producción y logs. |
 
 ## Preparación por plataforma
 
@@ -32,7 +32,7 @@ Prioridad: publicar el cluster, consolidar entidad y monitorizar referrals `utm_
 
 ### Claude
 
-Claude-SearchBot y Claude-User están permitidos. ClaudeBot, que corresponde a entrenamiento, también queda permitido de forma implícita por el wildcard. La decisión de búsqueda es correcta; la de entrenamiento está sin gobernar.
+Claude-SearchBot y Claude-User están permitidos. ClaudeBot, que corresponde a entrenamiento, queda bloqueado expresamente sin afectar a esas capacidades de búsqueda y recuperación.
 
 ### Perplexity
 
@@ -60,11 +60,12 @@ Bingbot está permitido por wildcard. Falta Bing Webmaster Tools, AI Performance
 
 | User-agent | Capacidad | Estado efectivo |
 |---|---|---|
-| `GPTBot` | entrenamiento OpenAI | Permitido por `*` |
-| `ClaudeBot` | entrenamiento Anthropic | Permitido por `*` |
-| `Google-Extended` | entrenamiento/grounding Gemini/Vertex | Permitido por `*` |
-| `CCBot` | Common Crawl | Permitido por `*` |
-| `Applebot-Extended` | señal de uso para entrenamiento Apple | Permitido por `*` |
+| `GPTBot` | entrenamiento OpenAI | Bloqueado explícitamente |
+| `ClaudeBot` | entrenamiento Anthropic | Bloqueado explícitamente |
+| `Google-Extended` | entrenamiento/grounding Gemini/Vertex | Bloqueado explícitamente |
+| `Bytespider` | entrenamiento ByteDance | Bloqueado explícitamente |
+| `CCBot` | Common Crawl | Bloqueado explícitamente |
+| `Applebot-Extended` | señal de uso para entrenamiento Apple | Bloqueado explícitamente |
 
 No usar el estado de estos bots de entrenamiento para afirmar nada sobre citabilidad en Search.
 
@@ -161,4 +162,3 @@ No reescribir el copy comercial aprobado “para IA”. Aplicar estas reglas a a
 - Anthropic crawlers: https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler
 - Perplexity crawlers: https://docs.perplexity.ai/docs/resources/perplexity-crawlers
 - Bing AI Performance: https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/
-

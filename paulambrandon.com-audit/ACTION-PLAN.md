@@ -56,12 +56,13 @@ Responsable: desarrollo + SEO. Esfuerzo: medio día. Impacto: crítico.
 
 Responsable: Paula. Esfuerzo: 30 minutos. Impacto: gobierno, no ranking.
 
-La política actual permite por wildcard GPTBot, ClaudeBot, Google-Extended, CCBot y Applebot-Extended. Elegir conscientemente:
+**Decisión cerrada:** no se permite el rastreo destinado a entrenamiento o
+datasets. Bloquear GPTBot, ClaudeBot, Google-Extended, Bytespider, CCBot y
+Applebot-Extended sin bloquear OAI-SearchBot, Claude-SearchBot, Claude-User,
+PerplexityBot, Googlebot, Bingbot ni Applebot.
 
-- mantenerlos permitidos; o
-- bloquear entrenamiento sin bloquear OAI-SearchBot, Claude-SearchBot, PerplexityBot, Googlebot, Bingbot y Applebot.
-
-Documentar la decisión en el SEO master y reflejarla en `robots.txt.ts`.
+La decisión queda documentada en el SEO master, implementada en
+`robots.txt.ts` y cubierta por la validación automática del build.
 
 ### 0.4 Confianza y alcance profesional
 
@@ -367,7 +368,7 @@ Establecer el baseline durante los primeros 28 días; no fijar cifras arbitraria
 - [ ] Schema válido y equivalente al contenido visible.
 - [ ] Search Console y Bing verificados; sitemap enviado.
 - [ ] Eventos de conversión probados sin PII.
-- [ ] Política de bots de entrenamiento decidida.
+- [x] Política de bots de entrenamiento decidida e implementada en código.
 - [ ] Credenciales y límites profesionales visibles.
 - [ ] CWV y accesibilidad medidos.
 - [ ] Primer cluster editorial calendarizado con responsable y revisión.
@@ -386,4 +387,3 @@ Establecer el baseline durante los primeros 28 días; no fijar cifras arbitraria
 - [ ] Article schema válido.
 - [ ] Revisión humana y factual.
 - [ ] Prueba móvil, build limpio e inclusión en sitemap.
-

@@ -20,6 +20,13 @@ const assert = (condition, message) => {
 const read = (path) => readFileSync(join(DIST_DIR, path), 'utf8');
 const capture = (html, pattern) => html.match(pattern)?.[1]?.trim() ?? '';
 const occurrences = (html, pattern) => [...html.matchAll(pattern)].length;
+const robotsDirectiveFor = (robots, agent) => {
+  const group = robots
+    .split(/\n\s*\n/)
+    .find((block) => block.split('\n').includes(`User-agent: ${agent}`));
+
+  return group?.match(/^(Allow|Disallow):\s*(\S+)$/m)?.slice(1) ?? [];
+};
 
 const walk = (directory) =>
   readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -42,12 +49,32 @@ if (existsSync(DIST_DIR)) {
   );
 
   for (const agent of [
+    '*',
     'OAI-SearchBot',
     'Claude-SearchBot',
     'Claude-User',
     'PerplexityBot',
   ]) {
-    assert(robots.includes(`User-agent: ${agent}`), `robots.txt no declara ${agent}.`);
+    const [directive, path] = robotsDirectiveFor(robots, agent);
+    assert(
+      directive === 'Allow' && path === '/',
+      `robots.txt debe permitir ${agent} con Allow: /.`
+    );
+  }
+
+  for (const agent of [
+    'GPTBot',
+    'ClaudeBot',
+    'Google-Extended',
+    'Bytespider',
+    'CCBot',
+    'Applebot-Extended',
+  ]) {
+    const [directive, path] = robotsDirectiveFor(robots, agent);
+    assert(
+      directive === 'Disallow' && path === '/',
+      `robots.txt debe bloquear ${agent} con Disallow: /.`
+    );
   }
 
   for (const url of sitemapUrls) {

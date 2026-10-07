@@ -4,9 +4,9 @@ import type { APIRoute } from 'astro';
  * robots.txt automático.
  *
  * Aplica exactamente la política de /docs/seo/paulambrandon-seo.md §15.6.
- * La regla comodín permite también crawlers de entrenamiento mientras Paula
- * decide su política específica. Búsqueda y entrenamiento se documentan y
- * gobiernan por separado; no se bloquean bots sin esa decisión explícita.
+ * Los crawlers de búsqueda y recuperación siguen permitidos. Los agentes
+ * identificados para entrenamiento o datasets quedan bloqueados por decisión
+ * expresa de Paula.
  */
 const SEARCH_CRAWLERS = [
   '*',
@@ -16,16 +16,28 @@ const SEARCH_CRAWLERS = [
   'PerplexityBot',
 ];
 
+const TRAINING_CRAWLERS = [
+  'GPTBot',
+  'ClaudeBot',
+  'Google-Extended',
+  'Bytespider',
+  'CCBot',
+  'Applebot-Extended',
+];
+
 export const GET: APIRoute = ({ site }) => {
   if (!site) {
     throw new Error('Falta `site` en astro.config.mjs: robots.txt lo necesita.');
   }
 
-  const rules = SEARCH_CRAWLERS.map(
+  const searchRules = SEARCH_CRAWLERS.map(
     (agent) => `User-agent: ${agent}\nAllow: /`
   ).join('\n\n');
+  const trainingRules = TRAINING_CRAWLERS.map(
+    (agent) => `User-agent: ${agent}\nDisallow: /`
+  ).join('\n\n');
 
-  const body = `${rules}\n\nSitemap: ${new URL('/sitemap.xml', site).href}\n`;
+  const body = `${searchRules}\n\n${trainingRules}\n\nSitemap: ${new URL('/sitemap.xml', site).href}\n`;
 
   return new Response(body, {
     headers: { 'Content-Type': 'text/plain; charset=utf-8' },

@@ -759,28 +759,50 @@ descubribilidad, claridad, entidad, evidencia y citabilidad.
 Ejemplo conceptual (validar antes de publicar). El host exacto del sitemap
 debe salir de la versión canónica finalmente elegida para el dominio y de
 la configuración compartida del proyecto; no se debe asumir `www` ni
-hardcodear el dominio en varios archivos:  
-  
-User-agent: \*  
-Allow: /  
-  
-User-agent: OAI-SearchBot  
-Allow: /  
-  
-User-agent: Claude-SearchBot  
-Allow: /  
-  
-User-agent: Claude-User  
-Allow: /  
-  
-User-agent: PerplexityBot  
-Allow: /  
-  
-Sitemap: https://<dominio-canonico>/sitemap.xml
+hardcodear el dominio en varios archivos:
 
-Si Paula decide no facilitar potencial entrenamiento, evaluar por
-separado GPTBot y ClaudeBot. Visibilidad en búsqueda y entrenamiento son
-controles distintos en las documentaciones de OpenAI y Anthropic.
+```text
+User-agent: *
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+Sitemap: https://<dominio-canonico>/sitemap.xml
+```
+
+Decisión cerrada por Paula: no facilitar rastreo destinado a entrenamiento
+o datasets. Esta política bloquea GPTBot, ClaudeBot, Google-Extended,
+Bytespider, CCBot y Applebot-Extended sin bloquear los crawlers de búsqueda,
+citabilidad o recuperación indicados arriba. Visibilidad en búsqueda y
+entrenamiento son controles distintos.
 
 # 16. Construcción de entidad y autoridad de marca
 
@@ -1021,7 +1043,7 @@ menciones externas.
 
 - [ ] PerplexityBot permitido.
 
-- [ ] Decisión separada sobre GPTBot y ClaudeBot.
+- [x] Crawlers de entrenamiento bloqueados sin bloquear búsqueda/citabilidad.
 
 - [ ] LCP, INP y CLS dentro de objetivo o con plan de corrección.
 

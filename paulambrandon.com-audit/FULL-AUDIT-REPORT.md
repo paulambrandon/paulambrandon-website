@@ -295,13 +295,16 @@ La web nueva es técnicamente legible por buscadores IA porque entrega HTML comp
 | PerplexityBot | Búsqueda/citas en Perplexity | Permitido explícitamente. |
 | Bingbot | Bing/Copilot | Permitido por `*`. |
 | Applebot | Siri/Spotlight/Safari | Permitido por `*`. |
-| GPTBot | Entrenamiento OpenAI | **Permitido por `*`, aunque el comentario dice que la decisión está pendiente.** |
-| ClaudeBot | Entrenamiento Anthropic | **Permitido por `*`, aunque la decisión está pendiente.** |
-| Google-Extended | Entrenamiento/grounding Gemini/Vertex | Permitido por `*`; no controla Google Search. |
-| CCBot | Common Crawl/entrenamiento | Permitido por `*`. |
-| Applebot-Extended | Opt-out de entrenamiento Apple | Permitido por `*`; no controla Apple Search. |
+| GPTBot | Entrenamiento OpenAI | Bloqueado explícitamente. |
+| ClaudeBot | Entrenamiento Anthropic | Bloqueado explícitamente. |
+| Google-Extended | Entrenamiento/grounding Gemini/Vertex | Bloqueado explícitamente; no controla Google Search. |
+| Bytespider | Entrenamiento ByteDance | Bloqueado explícitamente. |
+| CCBot | Common Crawl/entrenamiento | Bloqueado explícitamente. |
+| Applebot-Extended | Opt-out de entrenamiento Apple | Bloqueado explícitamente; no controla Apple Search. |
 
-La ausencia de una regla específica no significa “sin decisión”: el wildcard permite esos bots. Paula debe decidir la política de entrenamiento antes del lanzamiento; esa decisión es independiente de permitir búsqueda/citación.
+Paula ha decidido no permitir rastreo destinado a entrenamiento o datasets. La
+implementación mantiene separados y permitidos los crawlers de búsqueda,
+citabilidad y recuperación definidos en la estrategia.
 
 ### Señales de marca
 
@@ -361,4 +364,3 @@ La web estará realmente posicionada cuando ocurra esta secuencia medible:
 - OpenAI crawlers: https://platform.openai.com/docs/bots
 - Anthropic crawlers: https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler
 - Perplexity crawlers: https://docs.perplexity.ai/docs/resources/perplexity-crawlers
-

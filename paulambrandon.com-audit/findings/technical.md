@@ -14,7 +14,7 @@
 
 ## Medios
 
-- La política de bots de entrenamiento está efectivamente en `allow`, aunque el comentario dice “pendiente”.
+- La política acordada bloquea expresamente los crawlers de entrenamiento y mantiene permitidos los agentes de búsqueda y citabilidad.
 - No hay breadcrumbs.
 - Legales están en sitemap; decidir si deben ser indexables.
 
@@ -25,4 +25,3 @@
 - Sitemap y robots automáticos desde `Astro.site`.
 - 0 errores/warnings/hints en build.
 - Un H1, metadata única y HTML principal rastreable.
-
