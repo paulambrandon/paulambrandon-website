@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "astro check && astro build && node scripts/validate-seo.mjs",
     "check": "astro check",
+    "og:generate": "node scripts/generate-og-images.mjs",
     "seo:check": "node scripts/validate-seo.mjs",
     "preview": "astro preview",
     "astro": "astro"

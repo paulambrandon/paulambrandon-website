@@ -1,0 +1,27 @@
+---
+import type { NavLink } from '../../data/site';
+
+interface Props {
+  items: readonly NavLink[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="breadcrumbs" aria-label="Migas de pan">
+  <ol class="breadcrumbs__list">
+    {items.map(({ label, href }, index) => {
+      const isCurrent = index === items.length - 1;
+
+      return (
+        <li class="breadcrumbs__item">
+          {isCurrent ? (
+            <span aria-current="page">{label}</span>
+          ) : (
+            <a href={href}>{label}</a>
+          )}
+        </li>
+      );
+    })}
+  </ol>
+</nav>
