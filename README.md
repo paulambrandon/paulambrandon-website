@@ -28,6 +28,19 @@ Inside of your Astro project, you'll see the following folders and files:
 
 To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
+## Formulario de contacto
+
+El formulario envía las consultas directamente a Formspree, sin función
+serverless ni claves privadas. Para activarlo:
+
+1. Crea el formulario en Formspree y verifica el email destinatario.
+2. Copia el endpoint con formato `https://formspree.io/f/xxxxxxxx`.
+3. Asígnalo a `FORMSPREE_ENDPOINT` en `src/pages/contacto.astro`.
+4. Despliega y ejecuta un envío real desde `/contacto`.
+
+Mientras no haya endpoint, el botón permanece desactivado y el correo directo
+sigue disponible como alternativa.
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:

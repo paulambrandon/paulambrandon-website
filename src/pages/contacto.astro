@@ -10,6 +10,8 @@ import {
 const title = `Contacto | ${PERSON_NAME}`;
 const description =
   'Escribe a Paula Márquez Brandon para resolver dudas sobre sus programas, sesiones o colaboraciones.';
+const FORMSPREE_ENDPOINT = '';
+const contactFormReady = FORMSPREE_ENDPOINT.startsWith('https://formspree.io/f/');
 ---
 
 <Layout title={title} description={description}>
@@ -34,7 +36,7 @@ const description =
         <p class="label label--olive">Otras formas de contactar</p>
         <h2 id="mensaje-titulo">Si lo prefieres, cuéntamelo con más calma.</h2>
         <p>
-          Puedes preparar un email desde este formulario o escribirme
+          Puedes enviarme un mensaje desde este formulario o escribirme
           directamente a través de cualquiera de estos canales.
         </p>
 
@@ -54,7 +56,13 @@ const description =
         </dl>
       </aside>
 
-      <form class="contact-form" data-contact-form>
+      <form
+        class="contact-form"
+        action={contactFormReady ? FORMSPREE_ENDPOINT : undefined}
+        method="post"
+        data-contact-form
+        data-contact-ready={String(contactFormReady)}
+      >
         <div class="contact-form__heading">
           <p class="label label--olive">Por email</p>
           <h2>Cuéntame qué te está pasando.</h2>
@@ -63,11 +71,11 @@ const description =
         <div class="contact-form__row">
           <label>
             <span>Nombre</span>
-            <input name="name" autocomplete="name" required />
+            <input name="name" autocomplete="name" maxlength="100" required />
           </label>
           <label>
             <span>Email</span>
-            <input name="email" type="email" autocomplete="email" required />
+            <input name="email" type="email" autocomplete="email" maxlength="254" required />
           </label>
         </div>
 
@@ -82,7 +90,12 @@ const description =
 
           <label>
             <span>Cuéntame un poco más</span>
-            <textarea name="message" rows="7" required></textarea>
+            <textarea name="message" rows="7" maxlength="5000" required></textarea>
+          </label>
+
+          <label class="visually-hidden" aria-hidden="true">
+            <span>Web</span>
+            <input name="_gotcha" tabindex="-1" autocomplete="off" />
           </label>
 
           <label class="contact-form__consent">
@@ -90,34 +103,71 @@ const description =
             <span>He leído y acepto la <a href="/privacidad">política de privacidad</a>.</span>
           </label>
 
-          <button class="button button--primary" type="submit">
-            Preparar mensaje <span aria-hidden="true">→</span>
+          <button class="button button--primary" type="submit" disabled={!contactFormReady}>
+            <span data-submit-label>Enviar mensaje</span> <span aria-hidden="true">→</span>
           </button>
-          <p class="contact-form__help">Al continuar se abrirá tu aplicación de correo para que puedas revisarlo y enviarlo.</p>
+          <p class="contact-form__help">
+            {contactFormReady
+              ? 'Recibirás una confirmación en pantalla cuando el mensaje se haya enviado.'
+              : 'El formulario está pendiente de activar. Mientras tanto, puedes escribirme directamente por email.'}
+          </p>
           <p class="contact-form__status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
 </Layout>
 
-<script is:inline define:vars={{ contactEmail: CONTACT_EMAIL }}>
-  const form = document.querySelector('[data-contact-form]');
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
 
-  form?.addEventListener('submit', (event) => {
+  const showStatus = (message: string, state: 'pending' | 'success' | 'error') => {
+    const status = form?.querySelector<HTMLElement>('[role="status"]');
+    if (!status) return;
+
+    status.textContent = message;
+    status.dataset.state = state;
+  };
+
+  form?.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (!(form instanceof HTMLFormElement) || !form.reportValidity()) return;
 
-    const data = new FormData(form);
-    const subject = String(data.get('subject') ?? 'Consulta desde la web');
-    const body = [
-      `Nombre: ${String(data.get('name') ?? '')}`,
-      `Email: ${String(data.get('email') ?? '')}`,
-      '',
-      String(data.get('message') ?? ''),
-    ].join('\n');
+    if (form.dataset.contactReady !== 'true') {
+      showStatus('El formulario todavía no está activado. Puedes escribirme directamente por email.', 'error');
+      return;
+    }
 
-    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    const status = form.querySelector('[role="status"]');
-    if (status) status.textContent = 'Mensaje preparado. Revisa tu aplicación de correo para enviarlo.';
+    const button = form.querySelector('button[type="submit"]');
+    const label = form.querySelector('[data-submit-label]');
+
+    if (button instanceof HTMLButtonElement) {
+      button.disabled = true;
+      button.setAttribute('aria-busy', 'true');
+    }
+    if (label) label.textContent = 'Enviando…';
+    showStatus('Enviando el mensaje…', 'pending');
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      });
+      if (!response.ok) {
+        throw new Error('No se ha podido enviar el mensaje.');
+      }
+
+      form.reset();
+      showStatus('Mensaje enviado. Gracias por escribirme.', 'success');
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'No se ha podido enviar.';
+      showStatus(`${message} También puedes escribirme directamente por email.`, 'error');
+    } finally {
+      if (button instanceof HTMLButtonElement) {
+        button.disabled = false;
+        button.removeAttribute('aria-busy');
+      }
+      if (label) label.textContent = 'Enviar mensaje';
+    }
   });
 </script>
