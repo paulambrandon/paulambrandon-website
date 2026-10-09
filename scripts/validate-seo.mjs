@@ -240,11 +240,12 @@ if (existsSync(DIST_DIR)) {
       `${localPath}: canonical con barra final no canónica.`
     );
 
+    assert(
+      !html.includes('aria-label="Migas de pan"') && !html.includes('class="breadcrumbs"'),
+      `${localPath}: no debe mostrar breadcrumbs visibles.`
+    );
+
     if (!is404 && route !== '/') {
-      assert(
-        html.includes('aria-label="Migas de pan"'),
-        `${localPath}: faltan breadcrumbs visibles.`
-      );
       assert(
         html.includes('"@type":"BreadcrumbList"'),
         `${localPath}: falta BreadcrumbList.`

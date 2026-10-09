@@ -1,7 +1,6 @@
 ---
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
-import Breadcrumbs from '../components/layout/Breadcrumbs.astro';
 import { getRouteSeo } from '../data/seo';
 import { PERSON_NAME } from '../data/site';
 import '../sass/main.scss';
@@ -103,7 +102,6 @@ const breadcrumbSchema = breadcrumbs.length > 0
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <Header />
     <main id="contenido">
-      {breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
       <slot />
     </main>
     <Footer />
