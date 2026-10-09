@@ -2,7 +2,7 @@
 @use '@abstracts/mixins' as mx;
 
 .page-service {
-  h2 { font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1.15; }
+  main h2 { font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1.15; }
   h3 { font-size: clamp(1.5rem, 2.2vw, 1.875rem); line-height: 1.25; }
   .button, .link-arrow { font-size: 1.125rem; }
   .link-arrow { padding-block: 0.75rem; }
