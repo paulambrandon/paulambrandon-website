@@ -707,7 +707,7 @@ Todo centrado y con mucho espacio vertical.
 
 Fondo charcoal oscuro.
 
-Contenido centrado.
+Contenido centrado en móvil y tablet; distribuido en horizontal desde 1024 px.
 
 Orden visual:
 
@@ -722,18 +722,23 @@ Orden visual:
    - Privacidad
    - Cookies
 
+Los grupos de navegación y redes llevan los títulos visibles «Navegación»
+y «Redes sociales», respectivamente. La marca enlaza a Inicio.
+
 ### Desktop
 
-- navegación principal en línea;
-- redes en línea;
-- legales en línea.
+- desde 1024 px: marca y copyright a la izquierda, navegación al centro y redes a la derecha;
+- navegación en dos columnas compactas bajo su título y redes bajo el suyo;
+- legales en una fila inferior a todo el ancho, con divisor discreto;
+- contenido alineado a la izquierda y ancho compartido con el resto de la web.
 
 ### Mobile
 
-- navegación principal apilada;
+- navegación principal centrada en un bloque compacto de tres columnas, con áreas táctiles de al menos 44 px;
 - redes en una fila corta;
 - legales en una fila si caben, permitiendo wrap controlado;
-- espacio vertical generoso.
+- marca destacada y copyright agrupado; espaciado compacto entre navegación y redes;
+- legales separados mediante un divisor discreto, con áreas táctiles de al menos 44 px.
 
 El footer no debe convertirse en una cuadrícula compleja.
 
