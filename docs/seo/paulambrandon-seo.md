@@ -703,6 +703,13 @@ descubribilidad, claridad, entidad, evidencia y citabilidad.
 - No depender de llms.txt como requisito; Google dice que no hay
   optimización especial necesaria.
 
+- Se publica `/llms.txt` como mapa editorial ampliado: identidad, método,
+  acompañamientos, precios y condiciones publicados, límites profesionales,
+  contacto, URLs canónicas y recursos técnicos. Sus datos se alimentan de las
+  fuentes TypeScript existentes cuando son compartidos. No sustituye a
+  `sitemap.xml` ni a `robots.txt`, y no se trata como una señal de ranking o
+  citación.
+
 ## 15.2 ChatGPT Search
 
 - Permitir OAI-SearchBot para que el contenido pueda descubrirse,

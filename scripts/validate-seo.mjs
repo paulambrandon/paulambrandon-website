@@ -11,6 +11,17 @@ const REDIRECTS = new Map(
     typeof rule === 'string' ? rule : rule.destination,
   ])
 );
+const PRIMARY_ROUTES = [
+  '/',
+  '/metodo',
+  '/programas',
+  '/alchemise',
+  '/movimiento-nutricion',
+  '/sesion-claridad',
+  '/sobre-mi',
+  '/testimonios',
+  '/contacto',
+];
 
 const errors = [];
 const assert = (condition, message) => {
@@ -54,9 +65,13 @@ assert(existsSync(DIST_DIR), 'No existe dist/. Ejecuta el build antes de validar
 if (existsSync(DIST_DIR)) {
   const sitemap = read('sitemap.xml');
   const robots = read('robots.txt');
+  const llmsPath = join(DIST_DIR, 'llms.txt');
+  const llms = existsSync(llmsPath) ? read('llms.txt') : '';
   const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(
     ([, url]) => url
   );
+
+  assert(existsSync(llmsPath), 'Falta el endpoint generado llms.txt.');
 
   assert(
     robots.includes(`Sitemap: ${SITE_ORIGIN}/sitemap.xml`),
@@ -110,6 +125,65 @@ if (existsSync(DIST_DIR)) {
   );
   const linkGraph = new Map();
   const socialImages = new Map();
+
+  if (llms) {
+    const llmsUrls = [...llms.matchAll(/\]\((https?:\/\/[^)]+)\)/g)].map(
+      ([, url]) => url
+    );
+    const llmsInternalUrls = llmsUrls.filter(
+      (url) => new URL(url).origin === SITE_ORIGIN
+    );
+    const canonicalSection =
+      llms.match(/## Todas las páginas canónicas\n([\s\S]*?)\n\n## /)?.[1] ?? '';
+    const canonicalUrls = [...canonicalSection.matchAll(/\]\((https?:\/\/[^)]+)\)/g)].map(
+      ([, url]) => url
+    );
+    const llmsPageRoutes = canonicalUrls
+      .map((url) => new URL(url).pathname)
+      .filter((route) => pages.has(route));
+    const sitemapRoutes = sitemapUrls.map((url) => new URL(url).pathname);
+
+    assert(
+      llms.startsWith('# Paula Márquez Brandon\n> '),
+      'llms.txt debe comenzar con el nombre y la descripción del sitio.'
+    );
+    assert(
+      llms.includes('## Identidad y propósito') &&
+        llms.includes('## Método de acompañamiento') &&
+        llms.includes('## Formas de trabajar con Paula') &&
+        llms.includes('## Contacto y enlaces oficiales') &&
+        llms.includes('## Todas las páginas canónicas') &&
+        llms.includes('## Notas para agentes y sistemas de IA'),
+      'llms.txt no contiene todas las secciones editoriales requeridas.'
+    );
+    assert(
+      new Set(canonicalUrls).size === canonicalUrls.length,
+      'La lista de páginas canónicas de llms.txt contiene URLs duplicadas.'
+    );
+
+    for (const url of llmsInternalUrls) {
+      const parsed = new URL(url);
+      assert(!REDIRECTS.has(parsed.pathname), `Redirect incluido en llms.txt: ${url}`);
+      assert(
+        pages.has(parsed.pathname) || ['/sitemap.xml', '/robots.txt'].includes(parsed.pathname),
+        `URL interna inexistente incluida en llms.txt: ${url}`
+      );
+    }
+
+    for (const route of sitemapRoutes) {
+      assert(llmsPageRoutes.includes(route), `Falta la URL indexable ${route} en llms.txt.`);
+    }
+
+    assert(
+      llms.includes(`](${SITE_ORIGIN}/sitemap.xml)`) &&
+        llms.includes(`](${SITE_ORIGIN}/robots.txt)`),
+      'llms.txt debe enlazar sitemap.xml y robots.txt.'
+    );
+    assert(
+      llms.includes('No es psicoterapia') && llms.includes('No se atribuyen'),
+      'llms.txt debe explicar los límites profesionales y evitar credenciales inferidas.'
+    );
+  }
 
   for (const path of htmlFiles) {
     const html = readFileSync(path, 'utf8');
@@ -277,24 +351,13 @@ if (existsSync(DIST_DIR)) {
     assert((depths.get(route) ?? Infinity) <= 3, `${route}: profundidad de clic superior a 3.`);
   }
 
-  const primaryRoutes = [
-    '/',
-    '/metodo',
-    '/programas',
-    '/alchemise',
-    '/movimiento-nutricion',
-    '/sesion-claridad',
-    '/sobre-mi',
-    '/testimonios',
-    '/contacto',
-  ];
-  const primarySocialImages = primaryRoutes.map((route) => socialImages.get(route));
+  const primarySocialImages = PRIMARY_ROUTES.map((route) => socialImages.get(route));
   assert(
     primarySocialImages.every((url) => url && !url.endsWith('/og/default.jpg')),
     'Las páginas principales deben tener una imagen social específica.'
   );
   assert(
-    new Set(primarySocialImages).size === primaryRoutes.length,
+    new Set(primarySocialImages).size === PRIMARY_ROUTES.length,
     'Las imágenes sociales de las páginas principales deben ser únicas.'
   );
 
@@ -319,6 +382,16 @@ if (existsSync(DIST_DIR)) {
   for (const [key, value] of requiredHeaders) {
     assert(globalHeaders.get(key) === value, `Cabecera global ausente o incorrecta: ${key}.`);
   }
+
+  const llmsHeaders = new Map(
+    vercel.headers
+      ?.find((rule) => rule.source === '/llms.txt')
+      ?.headers?.map(({ key, value }) => [key.toLowerCase(), value]) ?? []
+  );
+  assert(
+    llmsHeaders.get('content-type') === 'text/plain; charset=utf-8',
+    'llms.txt debe servirse como text/plain con charset UTF-8.'
+  );
 
   for (const [source, destination] of REDIRECTS) {
     const rule = vercel.redirects?.find((item) => item.source === source);

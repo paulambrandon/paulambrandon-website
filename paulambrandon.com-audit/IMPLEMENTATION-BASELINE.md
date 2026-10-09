@@ -34,6 +34,7 @@ El build falla si detecta:
 - imágenes sin `alt`, `width` o `height`;
 - una imagen prioritaria cargada con lazy loading;
 - errores en robots, redirecciones o cabeceras de Vercel.
+- ausencia, secciones incompletas, duplicados, redirects o URLs indexables omitidas en `llms.txt`.
 
 ## Accesibilidad automatizada
 

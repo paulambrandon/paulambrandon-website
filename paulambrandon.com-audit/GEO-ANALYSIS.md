@@ -71,9 +71,9 @@ No usar el estado de estos bots de entrenamiento para afirmar nada sobre citabil
 
 ## Estado de llms.txt
 
-`/llms.txt` no existe. **No es una carencia de ranking.** Google declara expresamente que no lo usa y ningún gran buscador IA ha confirmado que lo utilice como señal de citación.
+`/llms.txt` existe como mapa editorial ampliado. Se genera mediante TypeScript con el dominio canónico de `Astro.site` e incluye identidad, audiencia, método, acompañamientos, precios y condiciones publicados, límites profesionales, contacto, todas las páginas canónicas y los recursos técnicos de descubrimiento. Los datos repetidos se importan de las fuentes TypeScript existentes para reducir desajustes.
 
-Decisión recomendada: no priorizarlo. Puede añadirse más adelante como archivo opcional de bajo coste para sistemas no Google, solo después de completar migración, contenido, autoridad, schema y medición.
+**No es una mejora de ranking.** Google declara expresamente que no lo usa y ningún gran buscador IA ha confirmado que lo utilice como señal de citación. No sustituye al sitemap, a robots, al contenido, a la autoridad, al schema ni a la medición.
 
 ## Señales de marca
 

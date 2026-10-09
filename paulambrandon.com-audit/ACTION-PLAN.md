@@ -350,7 +350,7 @@ Establecer el baseline durante los primeros 28 días; no fijar cifras arbitraria
 | IndexNow | Medio | Bajo | pipeline de deploy |
 | PR/podcasts/colaboraciones | Alto | Continuo | outreach |
 | YouTube + transcripciones | Alto | Continuo | capacidad editorial |
-| `llms.txt` opcional | Bajo | Bajo | ninguna; no priorizar |
+| `llms.txt` opcional | Bajo | Completado | mapa editorial ampliado y validado, sin promesa de ranking |
 
 ## Definition of Done del lanzamiento SEO
 
