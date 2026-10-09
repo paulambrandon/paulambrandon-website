@@ -12,14 +12,7 @@
 
 @keyframes editorial-reveal-in {
   from {
-    opacity: 0.35;
     transform: translateY(0.5rem);
-  }
-}
-
-@keyframes editorial-fade-in {
-  from {
-    opacity: 0.75;
   }
 }
 
@@ -37,33 +30,18 @@
   }
 }
 
-// El atributo `data-reveal-ready` solo se añade desde JavaScript. Sin JS el
-// contenido permanece visible y la página conserva toda su funcionalidad.
+// La entrada desplaza el contenido sin reducir el contraste del texto.
+// Sin JS o con movimiento reducido, el contenido conserva su posición final.
 @media (prefers-reduced-motion: no-preference) {
   [data-reveal][data-reveal-ready] {
-    opacity: 0.35;
     transform: translateY(0.5rem);
-    transition:
-      opacity var(--motion-reveal) var(--ease-out),
-      transform var(--motion-reveal) var(--ease-out);
+    transition: transform var(--motion-reveal) var(--ease-out);
   }
 
   [data-reveal][data-reveal-ready][data-reveal-visible] {
-    opacity: 1;
     transform: none;
   }
 
   [data-reveal-delay='80'][data-reveal-ready] { transition-delay: 80ms; }
   [data-reveal-delay='160'][data-reveal-ready] { transition-delay: 160ms; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  [data-reveal][data-reveal-ready] {
-    opacity: 0.75;
-    transition: opacity 160ms ease;
-  }
-
-  [data-reveal][data-reveal-ready][data-reveal-visible] {
-    opacity: 1;
-  }
 }
