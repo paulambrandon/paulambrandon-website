@@ -712,24 +712,24 @@ Contenido centrado en móvil y tablet; distribuido en horizontal desde 1024 px.
 Orden visual:
 
 1. `paulambrandon`
-2. `© 2026 Paula Márquez Brandon`
-3. navegación principal
-4. redes:
+2. navegación principal
+3. redes:
    - Instagram
    - YouTube
-5. legales:
+4. legales:
    - Aviso legal
    - Privacidad
    - Cookies
+5. `© 2026 Paula Márquez Brandon`
 
 Los grupos de navegación y redes llevan los títulos visibles «Navegación»
 y «Redes sociales», respectivamente. La marca enlaza a Inicio.
 
 ### Desktop
 
-- desde 1024 px: marca y copyright a la izquierda, navegación al centro y redes a la derecha;
+- desde 1024 px: marca a la izquierda, navegación al centro y redes a la derecha;
 - navegación en dos columnas compactas bajo su título y redes bajo el suyo;
-- legales en una fila inferior a todo el ancho, con divisor discreto;
+- fila inferior con divisor: legales a la izquierda y copyright a la derecha desde 768 px;
 - contenido alineado a la izquierda y ancho compartido con el resto de la web.
 
 ### Mobile
@@ -737,7 +737,7 @@ y «Redes sociales», respectivamente. La marca enlaza a Inicio.
 - navegación principal centrada en un bloque compacto de tres columnas, con áreas táctiles de al menos 44 px;
 - redes en una fila corta;
 - legales en una fila si caben, permitiendo wrap controlado;
-- marca destacada y copyright agrupado; espaciado compacto entre navegación y redes;
+- marca destacada; copyright debajo de los legales en móvil; espaciado compacto entre navegación y redes;
 - legales separados mediante un divisor discreto, con áreas táctiles de al menos 44 px.
 
 El footer no debe convertirse en una cuadrícula compleja.

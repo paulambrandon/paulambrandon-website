@@ -8,7 +8,6 @@ const year = new Date().getFullYear();
   <div class="site-footer__inner">
     <div class="site-footer__identity">
       <a class="site-footer__brand" href="/" aria-label={`${BRAND} — Inicio`}>{BRAND}</a>
-      <p class="site-footer__copyright">© {year} {PERSON_NAME}</p>
     </div>
 
     <nav class="site-footer__nav" aria-labelledby="footer-web-title">
@@ -43,18 +42,21 @@ const year = new Date().getFullYear();
       )
     }
 
-    <nav class="site-footer__nav site-footer__nav--legal" aria-label="Información legal">
-      <ul class="site-footer__list site-footer__list--inline site-footer__list--legal">
-        {
-          legalNav.map(({ label, href }) => (
-            <li>
-              <a class="site-footer__link site-footer__link--legal" href={href}>
-                {label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
+    <div class="site-footer__bottom">
+      <nav class="site-footer__nav site-footer__nav--legal" aria-label="Información legal">
+        <ul class="site-footer__list site-footer__list--inline site-footer__list--legal">
+          {
+            legalNav.map(({ label, href }) => (
+              <li>
+                <a class="site-footer__link site-footer__link--legal" href={href}>
+                  {label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <p class="site-footer__copyright">© {year} {PERSON_NAME}</p>
+    </div>
   </div>
 </footer>
