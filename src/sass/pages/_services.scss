@@ -46,7 +46,7 @@
 .service-includes__list li:first-child { padding-block-start: 0; }
 .service-includes__list li:last-child { border-block-end: 0; }
 .service-includes__list p { margin-block-start: 0.5rem; color: v.$color-muted; }
-.service-bonus { margin-block-start: 2rem; padding: 1.5rem; background: v.$color-sand; border-radius: 4px; }
+.service-bonus { margin-block-start: 1.5rem; padding-block-start: 1.5rem; border-block-start: 1px solid v.$color-line; }
 .service-bonus p { color: v.$color-muted; margin-block-start: 0.75rem; }
 .service-quotes { display: grid; gap: 1.5rem; max-width: 68rem; margin-inline: auto; }
 .service-quotes .testimonial-card { max-width: none; padding: 1.75rem; }
