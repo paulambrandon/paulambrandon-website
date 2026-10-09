@@ -135,6 +135,7 @@
 .physical-result {
   display: flex;
   flex-direction: column;
+  align-self: start;
   padding: 0.875rem 0.875rem 1.625rem;
   overflow: hidden;
   text-align: center;
@@ -169,7 +170,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-block-start: auto;
 }
 
 .physical-result__time {
