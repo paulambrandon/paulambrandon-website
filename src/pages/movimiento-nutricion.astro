@@ -33,7 +33,7 @@ const results = physicalResults.filter(({ name }) => ['Ana', 'Marion', 'Clara'].
   </section>
   <section class="service-section service-section--sand">
     <div class="service-container"><header class="service-heading"><h2>El cambio de fuera también cuenta.</h2><p>Estos son algunos procesos reales. Cada mujer parte de un lugar distinto y sus resultados son personales.</p></header>
-      <div class="physical-results__grid">{results.map(({ images, name, time }) => (<figure class="physical-result"><div class="physical-result__media">{images.map(({ src, alt }) => (<Image src={src} alt={alt} widths={[400, 800]} sizes="(min-width: 64rem) 320px, (min-width: 40rem) 42vw, calc(100vw - 4.25rem)" loading="lazy" />))}</div><figcaption><span class="physical-result__time">{time}</span><span class="physical-result__name">{name}</span></figcaption></figure>))}</div>
+      <div class="physical-results__grid">{results.map(({ images, name, time }) => (<figure class="physical-result"><div class="physical-result__media">{images.map(({ src, alt }) => (<Image src={src} alt={alt} widths={[400, 800]} sizes={images.length > 1 ? "(min-width: 64rem) 21rem, (min-width: 48rem) 20rem, calc(89vw - 1.75rem)" : "(min-width: 64rem) 21rem, (min-width: 48rem) 40.25rem, calc(89vw - 1.75rem)"} loading="lazy" />))}</div><figcaption><span class="physical-result__time">{time}</span><span class="physical-result__name">{name}</span></figcaption></figure>))}</div>
       <p class="service-more"><a class="link-arrow" href="/testimonios">Ver todos los procesos →</a></p>
     </div>
   </section>
