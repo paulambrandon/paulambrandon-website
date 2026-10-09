@@ -119,10 +119,6 @@ $hero-olive: #606957;
   height: 15rem;
   justify-self: start;
 
-  @include mx.motion-safe {
-    animation: editorial-reveal-in var(--motion-reveal) var(--ease-out) 160ms backwards;
-  }
-
   @media (max-width: 40rem) {
     width: min(58vw, 13.75rem);
     height: auto;
@@ -140,7 +136,6 @@ $hero-olive: #606957;
 @media (prefers-reduced-motion: reduce) {
   .hero .eyebrow,
   .hero__title,
-  .hero__media,
   .hero__cta {
     animation: editorial-fade-in 160ms ease backwards;
   }
