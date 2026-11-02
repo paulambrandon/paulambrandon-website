@@ -413,7 +413,10 @@ el contacto por WhatsApp informa de la próxima edición. Movimiento presenta
 llamada inicial, plan adaptado, guía flexible y seguimiento, con las tres tarifas
 publicadas. Sesión presenta modalidad online y duración de 60–90 minutos;
 su precio y condiciones se consultan al reservar, sin trasladar el importe
-histórico no visible en la página publicada. Reservas mediante SumUp Bookings.
+histórico no visible en la página publicada. Por decisión del cliente del 2 de
+noviembre de 2026, la reserva y el pago de Sesión de claridad se dirigen a
+`https://calendly.com/pmarquezbrandon/sesionclaridadinicial`. Movimiento y nutrición
+mantiene las reservas mediante SumUp Bookings.
 
 La fuente única de las prestaciones completadas es `src/data/services.ts`.
 
