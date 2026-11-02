@@ -60,7 +60,7 @@ const canonicalPages = [
     label: 'Sesión de claridad',
     path: '/sesion-claridad',
     description:
-      'Sesión individual online de entre 60 y 90 minutos para ordenar una situación y orientar el siguiente paso.',
+      'Sesión individual online de 90 minutos para ordenar una situación y orientar el siguiente paso.',
   },
   {
     label: 'Sobre Paula',
@@ -233,7 +233,7 @@ Este acompañamiento trabaja el entrenamiento y los hábitos de alimentación. N
 ## Sesión de claridad
 - [Página de la Sesión de claridad](${url('/sesion-claridad')}): espacio para detenerse, ordenar lo que está ocurriendo y orientar el siguiente paso.
 - **Formato:** individual y online.
-- **Duración:** entre 60 y 90 minutos.
+- **Duración:** 1 h 30 min (90 minutos).
 - **Uso:** puede reservarse como primer paso o de forma puntual, sin obligación de entrar después en un programa.
 - **Precio:** se consulta en el sistema de reserva; la web no publica una cifra.
 - **Proceso:** llegar con la situación actual, observar juntas qué patrón puede sostenerla y orientar un siguiente paso con herramientas concretas.

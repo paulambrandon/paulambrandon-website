@@ -49,7 +49,7 @@ export const offers: readonly Offer[] = [
   },
   {
     title: 'Sesión de claridad',
-    meta: 'Sesión individual · 60–90 minutos',
+    meta: 'Sesión individual · 90 minutos',
     description:
       'Si estás ante una situación concreta, te sientes bloqueada o necesitas ordenar lo que te ocurre antes de decidir tu siguiente paso.',
     href: '/sesion-claridad',

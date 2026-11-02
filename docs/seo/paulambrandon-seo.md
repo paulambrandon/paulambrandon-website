@@ -411,7 +411,7 @@ Alchemise desarrolla IMAC, directos quincenales, recursos, comunidad, seis meses
 de acceso y condiciones publicadas. Se retiran fecha y disponibilidad antiguas;
 el contacto por WhatsApp informa de la próxima edición. Movimiento presenta
 llamada inicial, plan adaptado, guía flexible y seguimiento, con las tres tarifas
-publicadas. Sesión presenta modalidad online y duración de 60–90 minutos;
+publicadas. Sesión presenta modalidad online y duración de 90 minutos;
 su precio y condiciones se consultan al reservar, sin trasladar el importe
 histórico no visible en la página publicada. Por decisión del cliente del 2 de
 noviembre de 2026, la reserva y el pago de Sesión de claridad se dirigen a

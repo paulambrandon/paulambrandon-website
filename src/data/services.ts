@@ -50,7 +50,7 @@ export const movementFaq: readonly FaqItem[] = [
 
 export const clarityFaq: readonly FaqItem[] = [
   { question: '¿Necesito saber exactamente qué quiero tratar?', answer: 'Puedes llegar con una situación concreta o con la sensación de que necesitas ordenar lo que te ocurre. No hace falta tenerlo todo claro antes de hablar.' },
-  { question: '¿Cuánto dura y dónde se hace?', answer: 'La sesión es online y dura entre 60 y 90 minutos, según lo que necesitemos trabajar.' },
+  { question: '¿Cuánto dura y dónde se hace?', answer: 'La sesión es online y dura 90 minutos.' },
   { question: '¿Tengo que entrar en un programa después?', answer: 'No. Puedes reservar esta sesión como un primer paso o volver de forma puntual cuando necesites claridad, sin entrar en otro programa.' },
   { question: '¿Es terapia?', answer: 'Es una conversación de acompañamiento y orientación. No es psicoterapia, diagnóstico ni atención sanitaria, y no sustituye ese tipo de atención cuando la necesitas.' },
   { question: '¿Cómo reservo?', answer: 'Desde el enlace de reserva puedes seleccionar el servicio y agendar tu cita. Si tienes dudas antes de decidirte, puedes escribirme por WhatsApp.' },
