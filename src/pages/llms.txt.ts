@@ -14,6 +14,7 @@ import {
   CLARITY_BOOKING_URL,
   CONTACT_EMAIL,
   INSTAGRAM_URL,
+  YOUTUBE_URL,
   PERSON_NAME,
   WHATSAPP_URL,
 } from '../data/site';
@@ -252,6 +253,7 @@ Es una conversación de acompañamiento y orientación. No es psicoterapia, diag
 - [Página de contacto](${url('/contacto')}): formulario de contacto y acceso a los canales oficiales.
 - [Correo electrónico](mailto:${CONTACT_EMAIL}): ${CONTACT_EMAIL}.
 - [Instagram](${INSTAGRAM_URL}): @paulambrandon.
+- [YouTube](${YOUTUBE_URL}): canal oficial de @paulambrandon.
 - [WhatsApp](${WHATSAPP_URL}): consultas para saber qué programa encaja o conocer la próxima edición de Alchemise.
 - [Reserva de Sesión de claridad](${CLARITY_BOOKING_URL}): reserva y pago mediante Calendly.
 
