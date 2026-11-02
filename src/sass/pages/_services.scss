@@ -49,6 +49,8 @@
 .service-includes__list li:last-child { border-block-end: 0; }
 .service-includes__list p { margin-block-start: 0.5rem; color: v.$color-muted; }
 .page-movement {
+  .service-section--sand:has(+ .service-section--sand) { padding-block-end: 0; }
+  .service-section--sand + .service-section--sand { padding-block-start: clamp(3rem, 5vw, 4rem); }
   .service-includes__intro .service-lede { max-width: none; }
   .service-includes__intro .service-lede { margin-block-start: 1rem; }
   .service-includes__intro .link-arrow { margin-block-start: 0.5rem; }
