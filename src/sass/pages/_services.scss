@@ -30,6 +30,7 @@
 .service-hero--centered .service-actions { justify-content: center; }
 .service-hero--centered .service-lede { margin-inline: auto; }
 .service-statement { margin: 1.5rem auto 0; max-width: 46rem; font-family: v.$secondary-font; font-size: clamp(2rem, 3.8vw, 3.25rem); line-height: 1.15; text-wrap: balance; }
+.page-clarity .service-statement { font-size: clamp(2rem, 3.2vw, 2.75rem); }
 .service-fit { display: grid; gap: 2rem; }
 .service-fit > div > p { margin-block-start: 1.25rem; color: v.$color-muted; }
 .service-checks li { padding-block: 1.125rem; border-block-end: 1px solid v.$color-line; }
@@ -78,6 +79,7 @@
 
 @include mx.breakpoint(tablet) {
   .service-hero--split .service-container { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(2.5rem, 5vw, 5rem); }
+  .page-clarity .service-hero--split .service-container { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: clamp(2.5rem, 4vw, 4rem); }
   .service-imac { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }
   .service-quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .service-quotes > :last-child:nth-child(odd) { grid-column: 1 / -1; }
