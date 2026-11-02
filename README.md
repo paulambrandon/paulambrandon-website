@@ -151,7 +151,7 @@ El formulario dispone de validación HTML, consentimiento de privacidad y envío
 
 Para cambiar de formulario, verificar primero el destinatario en Formspree y sustituir `FORMSPREE_ENDPOINT`. Si no contiene una URL con el prefijo esperado, el botón queda desactivado. La comprobación del prefijo no verifica que el servicio esté operativo: confirmar la recepción con un envío real tras desplegar.
 
-WhatsApp, Instagram y SumUp Bookings son enlaces externos configurados en `src/data/site.ts`. La web no implementa checkout ni procesamiento de pagos. Actualmente no incluye una integración de analítica; la política de cookies declara que no instala cookies analíticas, publicitarias ni de terceros.
+WhatsApp, Instagram y Calendly son enlaces externos configurados en `src/data/site.ts`. Los enlaces de pago de Stripe para Movimiento y nutrición se configuran por plan en `src/data/services.ts`. La web no implementa checkout ni procesamiento de pagos. Actualmente no incluye una integración de analítica; la política de cookies declara que no instala cookies analíticas, publicitarias ni de terceros.
 
 ## Despliegue
 

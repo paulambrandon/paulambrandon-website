@@ -5,7 +5,7 @@ import Faq from '../components/landing/Faq.astro';
 import ServiceTestimonials from '../components/landing/ServiceTestimonials.astro';
 import portrait from '../assets/images/paula-marquez-brandon.webp';
 import { physicalResults } from '../data/physical-results';
-import { PERSON_NAME, BOOKING_URL, WHATSAPP_URL } from '../data/site';
+import { PERSON_NAME, WHATSAPP_URL } from '../data/site';
 import { movementTestimonials } from '../data/testimonials';
 import { movementIncludes, movementPlans, movementFaq } from '../data/services';
 const title = `Movimiento y nutrición sin obsesión | ${PERSON_NAME}`;
@@ -40,7 +40,7 @@ const results = physicalResults.filter(({ name }) => ['Ana', 'Marion', 'Clara'].
   <ServiceTestimonials items={movementTestimonials.slice(0, 3)} />
   <section class="service-section service-section--sand" id="solicitar">
     <div class="service-container"><header class="service-heading"><h2>Elige el tiempo para tu proceso.</h2><p>Las tres opciones incluyen acompañamiento personalizado, entrenamiento, guía de nutrición y seguimiento.</p></header>
-      <div class="service-plans">{movementPlans.map(({ duration, price, recommended }) => (<article class:list={['service-plan', { 'service-plan--recommended': recommended }]}><p class="service-plan__note">{recommended ? 'Opción recomendada' : 'Acompañamiento personalizado'}</p><h3>{duration}</h3><p class="service-plan__price">{price}</p><p class="service-plan__total">Precio total del acompañamiento</p><a class="button button--primary" href={BOOKING_URL}>Elegir {duration} →</a></article>))}</div>
+      <div class="service-plans">{movementPlans.map(({ duration, price, recommended, paymentUrl }) => (<article class:list={['service-plan', { 'service-plan--recommended': recommended }]}><p class="service-plan__note">{recommended ? 'Opción recomendada' : 'Acompañamiento personalizado'}</p><h3>{duration}</h3><p class="service-plan__price">{price}</p><p class="service-plan__total">Precio total del acompañamiento</p><a class="button button--primary" href={paymentUrl} target="_blank" rel="noopener noreferrer">Elegir {duration} →</a></article>))}</div>
       <p class="service-more">Si no sabes cuál elegir, <a class="link-arrow" href={WHATSAPP_URL}>escríbeme y lo vemos juntas →</a></p>
     </div>
   </section>

@@ -4,9 +4,9 @@
 import type { FaqItem } from './landing';
 
 export const movementPlans = [
-  { duration: '1 mes', price: '149 €', recommended: false },
-  { duration: '3 meses', price: '390 €', recommended: true },
-  { duration: '6 meses', price: '690 €', recommended: false },
+  { duration: '1 mes', price: '149 €', recommended: false, paymentUrl: 'https://buy.stripe.com/14AfZg4Kg9M86zlaMEbwk00' },
+  { duration: '3 meses', price: '359 €', recommended: true, paymentUrl: 'https://buy.stripe.com/5kQeVcdgM4rO7Dp7Asbwk01' },
+  { duration: '6 meses', price: '699 €', recommended: false, paymentUrl: 'https://buy.stripe.com/9B68wOgsYbUg5vh3kcbwk02' },
 ] as const;
 
 export const movementIncludes = [

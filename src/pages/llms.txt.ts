@@ -11,7 +11,7 @@ import {
   movementPlans,
 } from '../data/services';
 import {
-  BOOKING_URL,
+  CLARITY_BOOKING_URL,
   CONTACT_EMAIL,
   INSTAGRAM_URL,
   PERSON_NAME,
@@ -141,8 +141,8 @@ export const GET: APIRoute = ({ site }) => {
   );
   const movementPrices = list(
     movementPlans.map(
-      ({ duration, price, recommended }) =>
-        `**${duration}:** ${price}${recommended ? ' (opción recomendada en la web)' : ''}`
+      ({ duration, price, recommended, paymentUrl }) =>
+        `**${duration}:** ${price}. [Pagar con Stripe](${paymentUrl})${recommended ? ' (opción recomendada en la web)' : ''}`
     )
   );
   const fitList = fitRows
@@ -253,7 +253,7 @@ Es una conversación de acompañamiento y orientación. No es psicoterapia, diag
 - [Correo electrónico](mailto:${CONTACT_EMAIL}): ${CONTACT_EMAIL}.
 - [Instagram](${INSTAGRAM_URL}): @paulambrandon.
 - [WhatsApp](${WHATSAPP_URL}): consultas para saber qué programa encaja o conocer la próxima edición de Alchemise.
-- [Sistema de reserva](${BOOKING_URL}): reserva de servicios disponibles.
+- [Reserva de Sesión de claridad](${CLARITY_BOOKING_URL}): reserva y pago mediante Calendly.
 
 ## Todas las páginas canónicas
 ${pageLinks}

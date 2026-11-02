@@ -416,7 +416,9 @@ su precio y condiciones se consultan al reservar, sin trasladar el importe
 histórico no visible en la página publicada. Por decisión del cliente del 2 de
 noviembre de 2026, la reserva y el pago de Sesión de claridad se dirigen a
 `https://calendly.com/pmarquezbrandon/sesionclaridadinicial`. Movimiento y nutrición
-mantiene las reservas mediante SumUp Bookings.
+dirige cada plan a su enlace de pago de Stripe, definido en `src/data/services.ts`.
+Precios totales actualizados por el cliente el 2 de noviembre de 2026: 1 mes,
+149 €; 3 meses, 359 €; 6 meses, 699 €.
 
 La fuente única de las prestaciones completadas es `src/data/services.ts`.
 
