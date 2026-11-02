@@ -48,6 +48,16 @@
 .service-includes__list li:first-child { padding-block-start: 0; }
 .service-includes__list li:last-child { border-block-end: 0; }
 .service-includes__list p { margin-block-start: 0.5rem; color: v.$color-muted; }
+.page-movement {
+  .service-includes__intro .service-lede { max-width: none; }
+  .service-includes__intro .service-lede { margin-block-start: 1rem; }
+  .service-includes__intro .link-arrow { margin-block-start: 0.5rem; }
+  .service-includes__list li {
+    padding-block: 1.5rem;
+    border-block-start: 1px solid v.$color-line;
+    border-block-end: 0;
+  }
+}
 .service-bonus { margin-block-start: 1.5rem; padding-block-start: 1.5rem; border-block-start: 1px solid v.$color-line; }
 .service-bonus p { color: v.$color-muted; margin-block-start: 0.75rem; }
 .service-quotes { display: grid; gap: 1.5rem; max-width: 68rem; margin-inline: auto; }
@@ -93,6 +103,10 @@
 @include mx.breakpoint(tablet) {
   .service-hero--split .service-container { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(2.5rem, 5vw, 5rem); }
   .page-clarity .service-hero--split .service-container { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: clamp(2.5rem, 4vw, 4rem); }
+  .page-movement {
+    .service-includes__list li { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 2rem; align-items: baseline; }
+    .service-includes__list p { margin: 0; }
+  }
   .service-imac { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }
   .service-quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .service-quotes > :last-child:nth-child(odd) { grid-column: 1 / -1; }
@@ -105,6 +119,7 @@
 @include mx.breakpoint(tablethorizontal) {
   .page-clarity .service-booking { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(3rem, 5vw, 5rem); }
   .service-includes { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 5rem; }
+  .page-movement .service-includes { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
   .service-quotes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .service-quotes > :last-child:nth-child(odd) { grid-column: auto; }
   .service-plan { padding: 2rem; }
